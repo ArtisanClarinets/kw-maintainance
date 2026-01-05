@@ -26,6 +26,7 @@ export default function ServicesPage() {
           {services.map((service) => (
             <div key={service.id} className="h-full">
                <ServiceCard
+                 id={service.id}
                  title={service.title}
                  description={service.description}
                  iconName={service.icon}
