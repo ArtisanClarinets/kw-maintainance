@@ -1,16 +1,13 @@
-
-> temp-app@0.1.0 start
-> next start -p 3005
-
-▲ Next.js 16.1.1
-- Local:         http://localhost:3005
-- Network:       http://192.168.0.2:3005
+▲ Next.js 16.1.1 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
 
 ✓ Starting...
-✓ Ready in 680ms
-[LEAD] Name: Test User, Email: te***@example.com, Phone: 123******90, Service: undefined
-Validation failed for IP ::1: { _errors: [], company: { _errors: [ 'Bot detected' ] } }
-[LEAD] Name: Spammer, Email: sp***@example.com, Phone: 123******90, Service: undefined
-[LEAD] Name: Spammer, Email: sp***@example.com, Phone: 123******90, Service: undefined
-[LEAD] Name: Spammer, Email: sp***@example.com, Phone: 123******90, Service: undefined
-[LEAD] Name: Spammer, Email: sp***@example.com, Phone: 123******90, Service: undefined
+✓ Ready in 1083ms
+○ Compiling / ...
+ GET / 200 in 8.4s (compile: 7.4s, render: 993ms)
+ GET /services 200 in 2.5s (compile: 2.3s, render: 194ms)
+ GET / 200 in 298ms (compile: 6ms, render: 292ms)
+ GET /services 200 in 204ms (compile: 5ms, render: 199ms)
+ GET /services/handyman 200 in 3.1s (compile: 3.0s, generate-params: 961ms, render: 167ms)
+ GET /services/handyman 200 in 128ms (compile: 30ms, generate-params: 24ms, render: 98ms)

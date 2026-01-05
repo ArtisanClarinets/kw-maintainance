@@ -78,7 +78,7 @@ export function ServiceDetailTemplate({
                 className="bg-card border border-border/40 p-6 rounded-2xl h-full flex items-start"
               >
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-accent mt-0.5 shrink-0" />
+                  <CheckCircle2 className="h-5 w-5 text-sky-600 dark:text-accent mt-0.5 shrink-0" />
                   <span className="font-medium text-foreground/90">{item}</span>
                 </div>
               </SpotlightCard>
