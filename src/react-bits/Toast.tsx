@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils'; // Ensure this path is correct or replace with a local helper
 import { X, CheckCircle, AlertCircle } from 'lucide-react';
 
 export interface ToastProps {
@@ -22,7 +22,7 @@ export function Toast({ id, title, description, type = 'info', onDismiss }: Toas
 
   return (
     <div className={cn(
-      "pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-background border shadow-lg ring-1 ring-black/5 transition-all animate-in slide-in-from-right-full fade-in duration-300",
+      "pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white dark:bg-zinc-800 border shadow-lg ring-1 ring-black/5 transition-all animate-in slide-in-from-right-full fade-in duration-300",
       type === 'success' && "border-green-500/50",
       type === 'error' && "border-red-500/50"
     )}>
@@ -34,13 +34,13 @@ export function Toast({ id, title, description, type = 'info', onDismiss }: Toas
             {type === 'info' && <AlertCircle className="h-5 w-5 text-blue-500" />}
           </div>
           <div className="ml-3 w-0 flex-1 pt-0.5">
-            <p className="text-sm font-medium text-foreground">{title}</p>
-            {description && <p className="mt-1 text-sm text-muted-fg">{description}</p>}
+            <p className="text-sm font-medium text-gray-900 dark:text-gray-100">{title}</p>
+            {description && <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{description}</p>}
           </div>
           <div className="ml-4 flex flex-shrink-0">
             <button
               type="button"
-              className="inline-flex rounded-md bg-background text-muted-fg hover:text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+              className="inline-flex rounded-md bg-transparent text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               onClick={() => onDismiss(id)}
             >
               <span className="sr-only">Close</span>
@@ -51,6 +51,11 @@ export function Toast({ id, title, description, type = 'info', onDismiss }: Toas
       </div>
     </div>
   );
+}
+
+// Define the interface for the window object extension
+interface WindowWithToast extends Window {
+  toast?: (toast: Omit<ToastProps, 'id' | 'onDismiss'>) => void;
 }
 
 export function ToastProvider({ children }: { children: React.ReactNode }) {
@@ -65,10 +70,8 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
     setToasts((prev) => prev.filter((t) => t.id !== id));
   };
 
-  // Expose addToast to window or context (simplified for this task)
-  // In a real app, use Context.
   useEffect(() => {
-    (window as any).toast = addToast;
+    (window as unknown as WindowWithToast).toast = addToast;
   }, []);
 
   return (
@@ -84,8 +87,8 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
 }
 
 export const toast = (props: Omit<ToastProps, 'id' | 'onDismiss'>) => {
-  if (typeof window !== 'undefined' && (window as any).toast) {
-    (window as any).toast(props);
+  if (typeof window !== 'undefined' && (window as unknown as WindowWithToast).toast) {
+    (window as unknown as WindowWithToast).toast!(props);
   } else {
     console.log("Toast:", props);
   }

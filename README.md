@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# K & W Hospitality and Maintainance Services
 
-## Getting Started
+This is a Next.js App Router project for K & W Hospitality and Maintainance Services.
+
+## Server Configuration Utility
+
+This project includes a secured server configuration utility for managing operational settings and secrets.
+
+### Setup
+
+1. **Environment Variables**:
+   Copy `.env.example` to `.env.local` and set the `SERVER_CONFIG_MASTER_KEY`.
+
+   ```bash
+   cp .env.example .env.local
+   # Generate a key:
+   node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
+   ```
+
+2. **Initialize Configuration**:
+   Run the interactive init script to create `data/server-config.json`. This file contains operational settings and encrypted secrets (like SMTP passwords).
+
+   ```bash
+   npm run server:config init
+   ```
+   Follow the prompts.
+
+3. **Validate Configuration**:
+   To check if your environment and config file are valid:
+
+   ```bash
+   npm run server:validate
+   ```
+
+### Deployment
+
+**Generate Nginx Config**:
+```bash
+npm run server:config generate nginx --domain example.com --port 3000
+```
+This outputs a hardened Nginx configuration.
+
+**Generate Systemd Service**:
+```bash
+npm run server:config generate systemd --service-name kw-maintainance --port 3000
+```
+
+### Security Features
+
+- **Encrypted Secrets**: SMTP passwords are encrypted at rest using AES-256-GCM.
+- **Rate Limiting**: The lead endpoint is protected by IP-based rate limiting.
+- **Spam Protection**: Includes honeypot fields and minimum submission time checks.
+- **Secure Headers**: Hardened HTTP headers (HSTS, CSP, etc.) are applied automatically.
+- **No PII Logging**: Personal information is masked in logs.
+
+## Development
 
 First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS](https://tailwindcss.com/)
