@@ -203,11 +203,21 @@ async function generate(args) {
         const domain = opts['domain'] || 'example.com';
         const port = opts['port'] || '3000';
 
+        // Security check for inputs
+        if (!/^[a-zA-Z0-9.-]+$/.test(domain)) {
+            console.error("❌ Invalid domain format.");
+            process.exit(1);
+        }
+        if (!/^[0-9]+$/.test(port)) {
+            console.error("❌ Invalid port format.");
+            process.exit(1);
+        }
+
         const tmpl = `
 server {
     listen 80;
     server_name ${domain};
-    return 301 https://$host$request_uri;
+    return 301 https://${domain}$request_uri;
 }
 
 server {
@@ -228,7 +238,7 @@ server {
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
+        proxy_set_header Host ${domain};
         proxy_cache_bypass $http_upgrade;
 
         # IP forwarding
@@ -241,9 +251,6 @@ server {
         if (dryRun) {
             console.log(tmpl);
         } else {
-             // For safety in this task, we just print to stdout even without dry-run,
-             // or maybe write to a local file if path provided?
-             // Spec says: "Outputs ... to stdout and/or deploy/nginx/site.conf"
              console.log(tmpl);
 
              const deployDir = path.join(process.cwd(), 'deploy', 'nginx');
@@ -257,6 +264,15 @@ server {
         const serviceName = opts['service-name'] || 'kw-maintainance';
         const port = opts['port'] || '3000';
         const user = process.env.USER || 'www-data';
+
+        if (!/^[a-zA-Z0-9_-]+$/.test(serviceName)) {
+            console.error("❌ Invalid service name.");
+            process.exit(1);
+        }
+        if (!/^[0-9]+$/.test(port)) {
+            console.error("❌ Invalid port.");
+            process.exit(1);
+        }
 
         const tmpl = `
 [Unit]
@@ -293,10 +309,15 @@ WantedBy=multi-user.target
 }
 
 function parseArgs(args) {
-    const opts = {};
+    const opts = Object.create(null); // Prevent prototype pollution
     for (let i = 0; i < args.length; i++) {
         if (args[i].startsWith('--')) {
             const key = args[i].substring(2);
+
+            // Validate key to prevent injection or pollution
+            if (!/^[a-zA-Z0-9-]+$/.test(key)) continue;
+            if (['__proto__', 'prototype', 'constructor'].includes(key)) continue;
+
             if (args[i+1] && !args[i+1].startsWith('--')) {
                 opts[key] = args[i+1];
                 i++;
