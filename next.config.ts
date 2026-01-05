@@ -2,6 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  experimental: {
+    // Other experimental options can go here if needed in the future
+  },
+  turbopack: {
+    root: process.cwd(),
+  },
   async headers() {
     return [
       {
