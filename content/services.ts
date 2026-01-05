@@ -13,45 +13,45 @@ export type Service = z.infer<typeof ServiceSchema>;
 
 export const services: Service[] = [
   {
+    id: "preventative-maintenance",
+    title: "PREVENTATIVE MAINTENANCE",
+    description: "Scheduled inspections and upkeep to extend asset life and prevent costly downtime.",
+    features: ["HVAC Filter & Coil Cleaning", "Safety Compliance Checks", "Leak Detection", "Lighting Audits"],
+    icon: "ShieldCheck"
+  },
+  {
+    id: "turnover-services",
+    title: "HOSPITALITY TURNOVER",
+    description: "Rapid, high-quality repairs and touch-ups between guest stays for hotels and resorts.",
+    features: ["Paint Touch-ups", "Fixture Repair", "Furniture Stability", "Caulking & Grouting"],
+    icon: "RotateCw"
+  },
+  {
+    id: "facility-audits",
+    title: "FACILITY AUDITS",
+    description: "Comprehensive reporting on property health to support capital expenditure planning.",
+    features: ["Asset Condition Reports", "Safety Hazard Identification", "Compliance Documentation", "Photo Reporting"],
+    icon: "ClipboardCheck"
+  },
+  {
     id: "handyman",
-    title: "HANDY-MAN SERVICES",
-    description: "Reliable handyman services for all your home and business repair needs. No job is too small.",
-    features: ["General Repairs", "Fixture Replacement", "Door & Window Repair", "Drywall Patching"],
+    title: "GENERAL MAINTENANCE",
+    description: "Reliable ad-hoc repairs for commercial properties and high-end residences.",
+    features: ["Door & Lock Repair", "Drywall Patching", "Furniture Assembly", "Signage Installation"],
     icon: "Hammer"
   },
   {
     id: "installations",
-    title: "INSTALLATIONS",
-    description: "Professional installation services for appliances, fixtures, and more.",
-    features: ["Appliance Installation", "Ceiling Fans", "Light Fixtures", "Smart Home Devices"],
+    title: "COMMERCIAL INSTALLATIONS",
+    description: "Professional installation services for FF&E (Furniture, Fixtures, and Equipment).",
+    features: ["TV & Audio Systems", "Smart Room Controls", "Lobby Fixtures", "Art Hanging"],
     icon: "Wrench"
   },
   {
     id: "painting",
-    title: "PAINTING",
-    description: "Interior and exterior painting to refresh your space.",
-    features: ["Interior Painting", "Exterior Painting", "Touch-ups", "Deck Staining"],
+    title: "COMMERCIAL PAINTING",
+    description: "Interior and exterior painting to maintain brand standards and curb appeal.",
+    features: ["Corridor Refresh", "Exterior Coatings", "Guest Room Updates", "High-Traffic Coatings"],
     icon: "Paintbrush"
-  },
-  {
-    id: "tv-mounting",
-    title: "TV MOUNTIONG",
-    description: "Secure and clean TV mounting for any wall type.",
-    features: ["Wall Mounting", "Cable Concealment", "Soundbar Installation", "Projector Setup"],
-    icon: "Tv"
-  },
-  {
-    id: "moving-trash",
-    title: "MOVING AND TRASH DISPOSAL",
-    description: "Efficient moving assistance and responsibly trash disposal.",
-    features: ["Local Moving Help", "Junk Removal", "Construction Debris", "Yard Waste"],
-    icon: "Truck"
-  },
-  {
-    id: "hauling",
-    title: "TRUCK AND TRAILER HAUL SERVICES",
-    description: "Heavy-duty hauling for large items and materials.",
-    features: ["Material Delivery", "Large Item Hauling", "Trailer Services", "Dump Runs"],
-    icon: "Container"
   }
 ];

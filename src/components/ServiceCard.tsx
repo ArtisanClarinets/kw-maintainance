@@ -2,7 +2,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Hammer, Wrench, Paintbrush, Tv, Truck, Container } from "lucide-react";
+import { ArrowRight, Hammer, Wrench, Paintbrush, Tv, Truck, Container, ShieldCheck, RotateCw, ClipboardCheck } from "lucide-react";
 import Link from "next/link";
 
 
@@ -14,6 +14,9 @@ const IconMap: Record<string, React.ElementType> = {
   Tv,
   Truck,
   Container,
+  ShieldCheck,
+  RotateCw,
+  ClipboardCheck
 };
 
 interface ServiceCardProps {
@@ -25,7 +28,8 @@ interface ServiceCardProps {
 }
 
 export function ServiceCard({ id, title, description, iconName, features }: ServiceCardProps) {
-  const Icon = iconName ? IconMap[iconName] : Hammer;
+  // If iconName is provided but not in map, fallback to Hammer (or another default)
+  const Icon = (iconName && IconMap[iconName]) ? IconMap[iconName] : Hammer;
 
   return (
     <Link href={`/services/${id}`} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-2xl">
