@@ -35,6 +35,7 @@ export default function Home() {
             {services.slice(0, 3).map((service) => (
                <div key={service.id} className="h-full">
                 <ServiceCard
+                    id={service.id}
                     title={service.title}
                     description={service.description}
                     iconName={service.icon}
