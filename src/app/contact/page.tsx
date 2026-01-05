@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Header } from "@/components/Header";
@@ -9,8 +8,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useState } from "react";
-// import { toast, ToastProvider } from "@/react-bits/Toast"; // Removing this assuming we don't have it or it's not standard
-import { Loader2, CheckCircle2, CloudUpload } from "lucide-react";
+import { Loader2, CheckCircle2, CloudUpload, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const formSchema = z.object({
@@ -25,18 +23,38 @@ type FormData = z.infer<typeof formSchema>;
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    reset();
-    setTimeout(() => setIsSuccess(false), 5000);
+    setError(null);
+
+    try {
+      const response = await fetch('/api/lead', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit request');
+      }
+
+      setIsSuccess(true);
+      reset();
+      setTimeout(() => setIsSuccess(false), 5000);
+    } catch (err) {
+      setError("Something went wrong. Please try again or call us directly.");
+      console.error(err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -123,7 +141,6 @@ export default function ContactPage() {
                       <option value="" className="text-muted-foreground">Select a service...</option>
                       {siteConfig.services.map(s => <option key={s} value={s}>{s}</option>)}
                     </select>
-                     {/* Custom Arrow could go here */}
                 </div>
                 {errors.service && <p className="text-sm text-destructive font-medium">{errors.service.message}</p>}
               </div>
@@ -139,18 +156,12 @@ export default function ContactPage() {
                 {errors.details && <p className="text-sm text-destructive font-medium">{errors.details.message}</p>}
               </div>
 
-              <div className="space-y-2">
-                 <label className="text-sm font-medium text-foreground/80">Upload Photos (Optional)</label>
-                 <div className="flex items-center justify-center w-full">
-                    <label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-border rounded-lg cursor-pointer bg-muted/5 hover:bg-muted/10 transition-colors">
-                        <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                            <CloudUpload className="w-8 h-8 mb-4 text-muted-foreground" />
-                            <p className="text-xs text-muted-foreground">Click to upload or drag and drop</p>
-                        </div>
-                        <input id="dropzone-file" type="file" className="hidden" multiple accept="image/*" />
-                    </label>
+              {error && (
+                <div className="p-3 bg-destructive/10 text-destructive rounded-lg flex items-center gap-2 text-sm">
+                   <AlertCircle className="w-4 h-4" />
+                   {error}
                 </div>
-              </div>
+              )}
 
               <Button type="submit" size="lg" className="w-full text-base h-12 relative overflow-hidden" disabled={isSubmitting || isSuccess}>
                 <AnimatePresence mode="wait">

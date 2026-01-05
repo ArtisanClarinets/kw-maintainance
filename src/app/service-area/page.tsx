@@ -26,7 +26,7 @@ export default function ServiceAreaPage() {
             <li>Okaloosa Island</li>
           </ul>
           <p>
-            Not sure if we cover your area? <a href="/contact" className="text-primary hover:underline">Contact us</a> and we'll let you know!
+            Not sure if we cover your area? <a href="/contact" className="text-primary hover:underline">Contact us</a> and we&apos;ll let you know!
           </p>
         </div>
       </main>

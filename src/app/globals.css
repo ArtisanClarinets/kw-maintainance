@@ -83,7 +83,7 @@
 
 @layer base {
   :root {
-    /* Executive Suite Palette */
+    /* Executive Suite Palette - LIGHT (Default) */
     /* Primary (Deep Navy): HSL(222, 47%, 11%) */
     /* Accent (Antique Bronze): HSL(38, 92%, 50%) */
     /* Background: Pure White or subtle cool grey HSL(210, 40%, 98%) */
@@ -119,6 +119,40 @@
     --radius: 0.5rem;
   }
 
+  /* System Dark Mode Preference - No JS Required */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: 222 47% 11%;
+      --foreground: 210 40% 98%;
+
+      --card: 222 47% 11%;
+      --card-foreground: 210 40% 98%;
+
+      --popover: 222 47% 11%;
+      --popover-foreground: 210 40% 98%;
+
+      --primary: 210 40% 98%;
+      --primary-foreground: 222 47% 11%;
+
+      --secondary: 217.2 32.6% 17.5%;
+      --secondary-foreground: 210 40% 98%;
+
+      --muted: 217.2 32.6% 17.5%;
+      --muted-foreground: 215 20.2% 65.1%;
+
+      --accent: 38 92% 50%;
+      --accent-foreground: 222 47% 11%;
+
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 210 40% 98%;
+
+      --border: 217.2 32.6% 17.5%;
+      --input: 217.2 32.6% 17.5%;
+      --ring: 212.7 26.8% 83.9%;
+    }
+  }
+
+  /* Manual Dark Mode Override (optional, keeps .dark class working) */
   .dark {
     --background: 222 47% 11%;
     --foreground: 210 40% 98%;

@@ -11,3 +11,192 @@
 ✓ Ready in 1365ms
 ○ Compiling / ...
  GET / 200 in 6.3s (compile: 5.5s, render: 764ms)
+ GET / 200 in 1791ms (compile: 395ms, render: 1396ms)
+ GET / 200 in 340ms (compile: 10ms, render: 331ms)
+○ Compiling /service-area ...
+ GET /service-area 200 in 11.2s (compile: 10.9s, render: 262ms)
+○ Compiling /gallery ...
+ GET /gallery 200 in 5.0s (compile: 4.7s, render: 270ms)
+⨯ ./src/components/HeroVisual.tsx:6:1
+Module not found: Can't resolve './GulfGrid'
+[0m [90m 4 |[39m [36mimport[39m { motion } [36mfrom[39m [32m"framer-motion"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mCheck[39m[33m,[39m [33mDroplets[39m[33m,[39m [33mWind[39m[33m,[39m [33mZap[39m[33m,[39m [33mMapPin[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mimport[39m { [33mGulfGrid[39m } [36mfrom[39m [32m"./GulfGrid"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m [36mimport[39m { [33mSpotlightCard[39m } [36mfrom[39m [32m"@/react-bits/SpotlightCard"[39m[33m;[39m
+ [90m 8 |[39m
+ [90m 9 |[39m [36mconst[39m locations [33m=[39m [[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/HeroVisual.tsx [Client Component Browser]
+    ./src/components/Hero.tsx [Client Component Browser]
+    ./src/components/Hero.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/HeroVisual.tsx [Client Component SSR]
+    ./src/components/Hero.tsx [Client Component SSR]
+    ./src/components/Hero.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/components/HeroVisual.tsx:6:1
+Module not found: Can't resolve './GulfGrid'
+[0m [90m 4 |[39m [36mimport[39m { motion } [36mfrom[39m [32m"framer-motion"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mCheck[39m[33m,[39m [33mDroplets[39m[33m,[39m [33mWind[39m[33m,[39m [33mZap[39m[33m,[39m [33mMapPin[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mimport[39m { [33mGulfGrid[39m } [36mfrom[39m [32m"./GulfGrid"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m [36mimport[39m { [33mSpotlightCard[39m } [36mfrom[39m [32m"@/react-bits/SpotlightCard"[39m[33m;[39m
+ [90m 8 |[39m
+ [90m 9 |[39m [36mconst[39m locations [33m=[39m [[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/HeroVisual.tsx [Client Component Browser]
+    ./src/components/Hero.tsx [Client Component Browser]
+    ./src/components/Hero.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/HeroVisual.tsx [Client Component SSR]
+    ./src/components/Hero.tsx [Client Component SSR]
+    ./src/components/Hero.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/components/HeroVisual.tsx:6:1
+Module not found: Can't resolve './GulfGrid'
+[0m [90m 4 |[39m [36mimport[39m { motion } [36mfrom[39m [32m"framer-motion"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mCheck[39m[33m,[39m [33mDroplets[39m[33m,[39m [33mWind[39m[33m,[39m [33mZap[39m[33m,[39m [33mMapPin[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mimport[39m { [33mGulfGrid[39m } [36mfrom[39m [32m"./GulfGrid"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m [36mimport[39m { [33mSpotlightCard[39m } [36mfrom[39m [32m"@/react-bits/SpotlightCard"[39m[33m;[39m
+ [90m 8 |[39m
+ [90m 9 |[39m [36mconst[39m locations [33m=[39m [[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/HeroVisual.tsx [Client Component Browser]
+    ./src/components/Hero.tsx [Client Component Browser]
+    ./src/components/Hero.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/HeroVisual.tsx [Client Component SSR]
+    ./src/components/Hero.tsx [Client Component SSR]
+    ./src/components/Hero.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/components/HeroVisual.tsx:6:1
+Module not found: Can't resolve './GulfGrid'
+[0m [90m 4 |[39m [36mimport[39m { motion } [36mfrom[39m [32m"framer-motion"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mCheck[39m[33m,[39m [33mDroplets[39m[33m,[39m [33mWind[39m[33m,[39m [33mZap[39m[33m,[39m [33mMapPin[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mimport[39m { [33mGulfGrid[39m } [36mfrom[39m [32m"./GulfGrid"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m [36mimport[39m { [33mSpotlightCard[39m } [36mfrom[39m [32m"@/react-bits/SpotlightCard"[39m[33m;[39m
+ [90m 8 |[39m
+ [90m 9 |[39m [36mconst[39m locations [33m=[39m [[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/HeroVisual.tsx [Client Component Browser]
+    ./src/components/Hero.tsx [Client Component Browser]
+    ./src/components/Hero.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/HeroVisual.tsx [Client Component SSR]
+    ./src/components/Hero.tsx [Client Component SSR]
+    ./src/components/Hero.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/components/HeroVisual.tsx:6:1
+Module not found: Can't resolve './GulfGrid'
+[0m [90m 4 |[39m [36mimport[39m { motion } [36mfrom[39m [32m"framer-motion"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mCheck[39m[33m,[39m [33mDroplets[39m[33m,[39m [33mWind[39m[33m,[39m [33mZap[39m[33m,[39m [33mMapPin[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mimport[39m { [33mGulfGrid[39m } [36mfrom[39m [32m"./GulfGrid"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m [36mimport[39m { [33mSpotlightCard[39m } [36mfrom[39m [32m"@/react-bits/SpotlightCard"[39m[33m;[39m
+ [90m 8 |[39m
+ [90m 9 |[39m [36mconst[39m locations [33m=[39m [[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/HeroVisual.tsx [Client Component Browser]
+    ./src/components/Hero.tsx [Client Component Browser]
+    ./src/components/Hero.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/HeroVisual.tsx [Client Component SSR]
+    ./src/components/Hero.tsx [Client Component SSR]
+    ./src/components/Hero.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+○ Compiling /_error ...
+ GET / 500 in 4.4s (compile: 4.1s, render: 335ms)
+⨯ ./src/components/HeroVisual.tsx:6:1
+Module not found: Can't resolve './GulfGrid'
+[0m [90m 4 |[39m [36mimport[39m { motion } [36mfrom[39m [32m"framer-motion"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m { [33mCheck[39m[33m,[39m [33mDroplets[39m[33m,[39m [33mWind[39m[33m,[39m [33mZap[39m[33m,[39m [33mMapPin[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mimport[39m { [33mGulfGrid[39m } [36mfrom[39m [32m"./GulfGrid"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m [36mimport[39m { [33mSpotlightCard[39m } [36mfrom[39m [32m"@/react-bits/SpotlightCard"[39m[33m;[39m
+ [90m 8 |[39m
+ [90m 9 |[39m [36mconst[39m locations [33m=[39m [[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/HeroVisual.tsx [Client Component Browser]
+    ./src/components/Hero.tsx [Client Component Browser]
+    ./src/components/Hero.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/HeroVisual.tsx [Client Component SSR]
+    ./src/components/Hero.tsx [Client Component SSR]
+    ./src/components/Hero.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 197ms (compile: 158ms, render: 39ms)
+ GET /service-area 200 in 262ms (compile: 24ms, render: 238ms)
+ GET /gallery 200 in 139ms (compile: 16ms, render: 123ms)
+✓ Compiled in 173ms
+ GET / 200 in 745ms (compile: 290ms, render: 455ms)
+ GET / 200 in 151ms (compile: 6ms, render: 145ms)
+ GET /service-area 200 in 111ms (compile: 9ms, render: 102ms)
+ GET /gallery 200 in 123ms (compile: 8ms, render: 114ms)
+✓ Compiled in 116ms
+ GET / 200 in 171ms (compile: 12ms, render: 159ms)
+ GET / 200 in 306ms (compile: 6ms, render: 300ms)
+ GET /service-area 200 in 113ms (compile: 17ms, render: 96ms)
+ GET /gallery 200 in 889ms (compile: 236ms, render: 653ms)
