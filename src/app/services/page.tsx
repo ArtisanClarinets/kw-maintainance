@@ -17,13 +17,13 @@ export default function ServicesPage() {
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed">
             We provide a wide range of hospitality and maintenance solutions tailored to your needs.
-            From quick fixes to major installations, we've got you covered.
+            From quick fixes to major installations, we&apos;ve got you covered.
           </p>
         </div>
 
         {/* Bento/Spotlight Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div key={service.id} className="h-full">
                <ServiceCard
                  title={service.title}

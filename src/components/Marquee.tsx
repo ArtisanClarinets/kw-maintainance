@@ -47,7 +47,7 @@ export function Marquee({ testimonials }: MarqueeProps) {
                   />
                 ))}
               </div>
-              <p className="text-muted-foreground mb-6 line-clamp-3 leading-relaxed">"{item.text}"</p>
+              <p className="text-muted-foreground mb-6 line-clamp-3 leading-relaxed">&quot;{item.text}&quot;</p>
               <div className="flex flex-col">
                 <span className="font-semibold text-foreground">{item.name}</span>
                 <span className="text-xs text-muted-foreground">{item.location}</span>
