@@ -4,7 +4,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Hammer, Wrench, Paintbrush, Tv, Truck, Container } from "lucide-react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+
 
 // Icon mapping based on the content/services.ts strings
 const IconMap: Record<string, React.ElementType> = {

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, CloudSun, Calendar, Zap, MapPin, Phone, Activity } from "lucide-react";
+import { Check, CloudSun, Calendar, MapPin, Phone, Activity } from "lucide-react";
 import { GulfGrid } from "./GulfGrid";
 import { SpotlightCard } from "@/react-bits/SpotlightCard";
 import { useOpsData } from "@/hooks/useOpsData";

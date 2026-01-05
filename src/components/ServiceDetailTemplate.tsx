@@ -1,9 +1,8 @@
 
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, CheckCircle2, Phone, Mail, ArrowRight } from "lucide-react";
+import { ArrowLeft, CheckCircle2, Phone, ArrowRight } from "lucide-react";
 import { Service } from "@/../content/services";
 import { ServiceDetail } from "@/../content/service-details";
 import { Header } from "@/components/Header";

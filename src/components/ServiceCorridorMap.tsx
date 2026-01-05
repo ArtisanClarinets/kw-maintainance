@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin } from "lucide-react";
+
 
 const locations = [
   { name: "Pensacola", x: "10%", y: "40%" },

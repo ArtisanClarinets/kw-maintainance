@@ -4,7 +4,6 @@ import { checkRateLimit } from '@/lib/security/rateLimit';
 import { getClientIp } from '@/lib/security/request';
 import { z } from 'zod';
 import nodemailer from 'nodemailer';
-import { decrypt } from '@/lib/server-config/crypto';
 
 // Schema for the lead payload
 const LeadSchema = z.object({
@@ -42,6 +41,7 @@ export async function POST(request: Request) {
     try {
         body = await request.json();
     } catch (e) {
+        console.warn("Invalid JSON in request body:", e);
         return NextResponse.json({ ok: false, error: "Invalid JSON" }, { status: 400 });
     }
 

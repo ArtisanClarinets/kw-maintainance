@@ -3,7 +3,6 @@ import crypto from 'crypto';
 
 const ALGORITHM = 'aes-256-gcm';
 const IV_LENGTH = 16;
-const TAG_LENGTH = 16;
 
 function getMasterKey(): Buffer {
   const keyBase64 = process.env.SERVER_CONFIG_MASTER_KEY;

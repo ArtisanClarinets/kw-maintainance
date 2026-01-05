@@ -3,7 +3,6 @@ import fs from 'fs';
 import path from 'path';
 import readline from 'readline';
 import crypto from 'crypto';
-import { fileURLToPath } from 'url';
 
 // We can't easily import the TS modules directly in Node without ts-node or a build step.
 // For the CLI, we will duplicate the logic slightly or use basic validations,
@@ -98,7 +97,7 @@ async function validate() {
   try {
     config = JSON.parse(content);
   } catch (e) {
-    console.error("❌ Invalid JSON in config file.");
+    console.error("❌ Invalid JSON in config file.", e);
     process.exit(1);
   }
 

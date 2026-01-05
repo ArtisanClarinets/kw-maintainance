@@ -1,7 +1,6 @@
 
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { siteConfig } from "@/../content/site";
 
 export default function ServiceAreaPage() {
   return (
