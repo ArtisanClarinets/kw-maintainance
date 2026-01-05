@@ -40,7 +40,7 @@ export function HeroVisual() {
                     </div>
                 </div>
                 <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center border border-accent/20">
-                    <Zap className="h-5 w-5 text-accent" />
+                    <Zap className="h-5 w-5 text-sky-600 dark:text-accent" />
                 </div>
             </div>
 
