@@ -9,6 +9,8 @@
     "lint": "eslint",
     "server:config": "node scripts/server-config.mjs",
     "server:validate": "node scripts/server-config.mjs validate",
+    "setup": "node scripts/setup-advanced.mjs",
+    "rotate-keys": "node scripts/setup-advanced.mjs --rotate-keys",
     "postinstall": "node scripts/setup-advanced.mjs"
   },
   "dependencies": {

@@ -32,17 +32,6 @@
         "p1"
       ],
       "passwordHash": "password"
-    },
-    {
-      "id": "u_1767670416505",
-      "name": "Auto Admin",
-      "email": "example@example.com",
-      "role": "security_admin",
-      "tenantId": "t1",
-      "propertyIds": [
-        "p1"
-      ],
-      "passwordHash": "pbkdf2$200000$b696b1f80a90ff358b5ed15f664b17fd$a79ad1db4636e92be4942580d36610336a9865670b25eef2093ff59e5a3374d2505788e15c098cd87127aa6fad692ffea64890dd5efe895298b9436f139285e3"
     }
   ],
   "tenants": [

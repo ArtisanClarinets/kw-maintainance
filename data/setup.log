@@ -5,3 +5,44 @@
 [2026-01-06T02:17:12.501Z] [INFO] Demo DB exists; no admin changes requested
 [2026-01-06T02:17:12.529Z] [INFO] Server configuration validated successfully
 [2026-01-06T02:17:12.529Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).
+[2026-01-06T02:27:18.808Z] [INFO] Starting setup (env=development, dryRun=true)
+[2026-01-06T02:27:18.812Z] [INFO] Existing server-config.json found and admin already enabled
+[2026-01-06T02:27:18.812Z] [INFO] Starting master key rotation...
+[2026-01-06T02:27:18.813Z] [INFO] Backups written to /home/meb/kw-maintainance/data/backups/1767666438812
+[2026-01-06T02:27:18.813Z] [INFO] No encrypted fields found to rotate.
+[2026-01-06T02:27:19.160Z] [INFO] Demo DB exists; no admin changes requested
+[2026-01-06T02:27:19.189Z] [INFO] Server configuration validated successfully
+[2026-01-06T02:27:19.190Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).
+[2026-01-06T02:28:28.842Z] [INFO] Starting setup (env=development, dryRun=false)
+[2026-01-06T02:28:28.846Z] [INFO] Backups written to /home/meb/kw-maintainance/data/backups/1767666508845
+[2026-01-06T02:28:28.847Z] [INFO] Existing server-config.json found and admin already enabled
+[2026-01-06T02:28:28.847Z] [ERROR] Setup error: rotate-keys requested but --old-key and --new-key (or env OLD_SERVER_CONFIG_MASTER_KEY/NEW_SERVER_CONFIG_MASTER_KEY) were not provided
+[2026-01-06T02:28:40.568Z] [INFO] Starting setup (env=development, dryRun=false)
+[2026-01-06T02:28:40.572Z] [INFO] Backups written to /home/meb/kw-maintainance/data/backups/1767666520571
+[2026-01-06T02:28:40.573Z] [INFO] Existing server-config.json found and admin already enabled
+[2026-01-06T02:28:40.573Z] [ERROR] Setup error: rotate-keys requested but --old-key and --new-key (or env OLD_SERVER_CONFIG_MASTER_KEY/NEW_SERVER_CONFIG_MASTER_KEY) were not provided
+[2026-01-06T02:28:48.302Z] [INFO] Starting setup (env=development, dryRun=false)
+[2026-01-06T02:28:48.306Z] [INFO] Existing server-config.json found and admin already enabled
+[2026-01-06T02:28:48.622Z] [INFO] Demo DB exists; no admin changes requested
+[2026-01-06T02:28:48.651Z] [INFO] Server configuration validated successfully
+[2026-01-06T02:28:48.651Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).
+[2026-01-06T03:30:25.683Z] [INFO] Starting setup (env=development, dryRun=false)
+[2026-01-06T03:30:25.688Z] [INFO] Existing server-config.json found and admin already enabled
+[2026-01-06T03:30:26.008Z] [INFO] Demo DB exists; no admin changes requested
+[2026-01-06T03:30:26.037Z] [INFO] Server configuration validated successfully
+[2026-01-06T03:30:26.038Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).
+[2026-01-06T03:31:04.377Z] [INFO] Starting setup (env=development, dryRun=false)
+[2026-01-06T03:31:04.381Z] [INFO] Existing server-config.json found and admin already enabled
+[2026-01-06T03:31:04.697Z] [INFO] Demo DB exists; no admin changes requested
+[2026-01-06T03:31:04.726Z] [INFO] Server configuration validated successfully
+[2026-01-06T03:31:04.727Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).
+[2026-01-06T03:31:41.470Z] [INFO] Starting setup (env=development, dryRun=false)
+[2026-01-06T03:31:41.474Z] [INFO] Existing server-config.json found and admin already enabled
+[2026-01-06T03:31:41.812Z] [INFO] Demo DB exists; no admin changes requested
+[2026-01-06T03:31:41.841Z] [INFO] Server configuration validated successfully
+[2026-01-06T03:31:41.841Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).
+[2026-01-06T03:33:36.176Z] [INFO] Starting setup (env=production, dryRun=false)
+[2026-01-06T03:33:36.181Z] [INFO] Existing server-config.json found and admin already enabled
+[2026-01-06T03:33:36.610Z] [INFO] Created admin user example@example.com
+[2026-01-06T03:33:36.639Z] [INFO] Server configuration validated successfully
+[2026-01-06T03:33:36.639Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).

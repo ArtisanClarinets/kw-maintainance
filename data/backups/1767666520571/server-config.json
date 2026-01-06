@@ -1,0 +1,26 @@
+{
+  "leadProcessing": {
+    "enabled": true,
+    "rateLimit": {
+      "windowMs": 60000,
+      "maxRequests": 5
+    },
+    "spamControl": {
+      "honeypotField": "company",
+      "minSubmitTimeMs": 2000
+    }
+  },
+  "notification": {
+    "method": "log-only",
+    "email": {
+      "to": [
+        "test@test.com"
+      ],
+      "from": "noreply@example.com"
+    }
+  },
+  "admin": {
+    "enabled": true,
+    "authMode": "token"
+  }
+}

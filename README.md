@@ -43,10 +43,14 @@ This project includes a secured server configuration utility for managing operat
    - `data/server-config.json` with `admin.enabled=true`
    - `data/demo-db.json` with demo users including `admin@example.com` and `tech@example.com`
 
-   To re-run the setup manually:
+   To re-run the setup manually (advanced):
 
    ```bash
-   node scripts/setup.mjs
+   # recommended: non-interactive for CI or automated runs
+   node scripts/setup-advanced.mjs --env development --non-interactive --yes
+
+   # or via npm script
+   npm run setup -- --env development --non-interactive --yes
    ```
 
    Default demo login
@@ -59,6 +63,38 @@ This project includes a secured server configuration utility for managing operat
    ```bash
    npm run server:validate
    ```
+
+### Key Rotation (re-encrypt secrets)
+
+If you need to rotate the `SERVER_CONFIG_MASTER_KEY` (for example after a key compromise or routine rotation), the repository provides a safe rotation flow that:
+- Backs up `data/server-config.json` to `data/backups/<timestamp>`
+- Re-decrypts any encrypted fields (e.g., `smtp.pass`) with the old key and re-encrypts them with the new key
+- Optionally updates `.env.local` if it contained the old key
+
+Example (preferred: pass keys via environment variables to avoid leaking on the command line):
+
+```bash
+# OLD_SERVER_CONFIG_MASTER_KEY and NEW_SERVER_CONFIG_MASTER_KEY should be base64 32-byte keys
+OLD_SERVER_CONFIG_MASTER_KEY="$(node -e "console.log(require('crypto').randomBytes(32).toString('base64'))")" \
+NEW_SERVER_CONFIG_MASTER_KEY="$(node -e "console.log(require('crypto').randomBytes(32).toString('base64'))")" \
+   node scripts/setup-advanced.mjs --rotate-keys --yes --backup
+```
+
+Or explicit CLI form (note: passing secrets on the command line can be visible to other users/processes):
+
+```bash
+node scripts/setup-advanced.mjs --rotate-keys --old-key <old-base64-key> --new-key <new-base64-key> --yes --backup
+```
+
+After rotation, run validation:
+
+```bash
+npm run server:validate
+```
+
+Notes:
+- Rotation will only replace strings that match the encrypted format (iv:tag:ciphertext). If you store other secrets encrypted, they will be rotated as long as they match the same format.
+- The script will not update `.env.local` in production unless you pass `--force` to avoid accidental overwrites. A backup of `.env.local` will be saved when updated.
 
 ### Deployment
 
