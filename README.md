@@ -1,24 +1,23 @@
-# KW Enterprise
+# K & W Hospitality and Maintainance Services LLC.
 
-A Next-Generation Enterprise Hospitality Maintenance Platform.
+A local handyman, maintenance, and hauling service business website.
 
-## Server Configuration Utility
+## Tech Stack
 
-This project includes a secured server configuration utility for managing operational settings and secrets.
+* Next.js (App Router)
+* TypeScript
+* Tailwind CSS
+* Framer Motion
+* Lucide React
 
-### Setup
+## Getting Started
 
-1. **Environment Variables**:
-   Copy `.env.example` to `.env.local` and set the `SERVER_CONFIG_MASTER_KEY`.
-
+1. Install dependencies:
    ```bash
-   cp .env.example .env.local
-   # Generate a key:
-   node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
+   npm install
    ```
 
-   Additionally you should set a JWT secret for server-side cookie auth:
-
+2. Run the development server:
    ```bash
    # Example: generate a 32-byte random base64 secret for AUTH_JWT_SECRET
    node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
@@ -99,35 +98,30 @@ Notes:
 ### Deployment
 
 **Generate Nginx Config**:
-```bash
-npm run server:config generate nginx --domain example.com --port 3000
-```
-This outputs a hardened Nginx configuration.
+   npm run dev
+   ```
 
-**Generate Systemd Service**:
-```bash
-npm run server:config generate systemd --service-name kw-maintainance --port 3000
-```
+3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Security Features
+## Content Management
 
-- **Encrypted Secrets**: SMTP passwords are encrypted at rest using AES-256-GCM.
-- **Rate Limiting**: The lead endpoint is protected by IP-based rate limiting.
-- **Spam Protection**: Includes honeypot fields and minimum submission time checks.
-- **Secure Headers**: Hardened HTTP headers (HSTS, CSP, etc.) are applied automatically.
-- **No PII Logging**: Personal information is masked in logs.
+Update content files in the `content/` directory:
 
-## Development
+* `content/site.ts`: Global configuration (branding, contact info, navigation).
+* `content/services.ts`: List of services.
+* `content/service-details.ts`: Detailed content for each service page.
+* `content/testimonials.ts`: Customer testimonials.
 
-First, run the development server:
+## Deployment
+
+Build the application:
 
 ```bash
-npm run dev
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Start the production server:
 
-## Learn More
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind CSS](https://tailwindcss.com/)
+```bash
+npm start
+```
