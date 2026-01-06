@@ -7,26 +7,56 @@ import { motion } from 'framer-motion';
 import { Star, ShieldCheck, MapPin } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
+interface UpcomingAppointment {
+  id: string;
+  title: string;
+  startAt: string;
+  propertyId?: string;
+  status: string;
+}
+
 export function Hero() {
   const [nextSlot, setNextSlot] = useState<string | null>(null);
+  const [upcoming, setUpcoming] = useState<UpcomingAppointment[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Calculate next available 30-min slot (e.g., if 10:15, show 10:30. If 10:45, show 11:00)
-    const now = new Date();
-    const minutes = now.getMinutes();
-    const nextSlotTime = new Date(now);
-    
-    if (minutes < 30) {
-        nextSlotTime.setMinutes(30);
-    } else {
-        nextSlotTime.setHours(now.getHours() + 1);
-        nextSlotTime.setMinutes(0);
+    let cancelled = false;
+    async function fetchNextSlot() {
+      try {
+        const res = await fetch("/api/ops/next-slot", { cache: "no-store" });
+        if (!res.ok) throw new Error("Failed to load slot");
+        const data = await res.json();
+        if (cancelled) return;
+
+        const formatter = new Intl.DateTimeFormat("en-US", {
+          weekday: "short",
+          month: "short",
+          day: "numeric",
+          hour: "numeric",
+          minute: "2-digit",
+          hour12: true,
+        });
+
+        setNextSlot(formatter.format(new Date(data.nextSlot)));
+        setUpcoming((data.upcoming ?? []).map((appt: any) => ({
+          id: appt.id,
+          title: appt.title,
+          startAt: appt.startAt,
+          status: appt.status,
+        })));
+      } catch (err) {
+        console.error(err);
+        if (!cancelled) {
+          setError("Unable to fetch dispatch data");
+        }
+      }
     }
-    
-    // Format: "Today at HH:MM AM/PM"
-    const formatter = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setNextSlot(`Today at ${formatter.format(nextSlotTime)}`);
+
+    fetchNextSlot();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const containerVariants = {
@@ -64,30 +94,46 @@ export function Hero() {
           >
             {/* Next Slot Badge */}
             <motion.div variants={itemVariants}>
-              <p className="text-sm text-muted-foreground mt-2">
-                Next consultation session: <span className="text-primary font-mono font-bold">{nextSlot || 'Calculating...'}</span> — Secure your position.
-              </p>
+              <div className="inline-flex flex-col gap-1 rounded-2xl border border-border/80 bg-muted/80 px-4 py-3">
+                <span className="text-xs uppercase tracking-[0.4em] text-muted-foreground">Next slot</span>
+                <span className="text-xl font-bold text-foreground">{nextSlot ?? "Calculating..."}</span>
+                <span className="text-xs text-muted-foreground">Rules driven by live scheduling</span>
+                {error && <span className="text-xs text-destructive">{error}</span>}
+              </div>
             </motion.div>
 
             <motion.h1 variants={itemVariants} className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.1]">
-              Hospitality Operations <br className="hidden md:block" />
-              <span className="text-primary">Command Centre</span>
+              Hospitality Maintenance & Turnover Support
+              <span className="text-primary">with Ops Console clarity</span>
             </motion.h1>
-
+            
             <motion.p variants={itemVariants} className="text-xl text-muted-foreground max-w-xl leading-relaxed">
-              Orchestrate work protocols, optimize resource deployment, and master asset stewardship with the industry&apos;s most advanced management suite.
+              Dispatch-ready crews, same-day hospitality service, and transparent homeowner fixes wrapped in a dark "command centre" aesthetic built for Fort Walton Beach and beyond.
             </motion.p>
+            {upcoming.length > 0 && (
+              <motion.div variants={itemVariants} className="space-y-2 mt-4">
+                <div className="text-sm font-semibold text-foreground tracking-wider">Upcoming slots</div>
+                <div className="grid gap-2 text-sm text-muted-foreground">
+                  {upcoming.map((appt) => (
+                    <div key={appt.id} className="flex items-center justify-between rounded-lg border border-border/50 bg-muted/60 px-3 py-2">
+                      <span>{appt.title}</span>
+                      <span className="text-xs uppercase tracking-wide text-foreground/70">{new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "2-digit", hour12: true }).format(new Date(appt.startAt))}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mt-2">
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <Button size="lg" className="w-full sm:w-auto text-base bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg shadow-accent/20" asChild>
-                    <Link href="/request-demo">Request Consultation</Link>
+                    <Link href="/contact">Request Service</Link>
                   </Button>
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <Button size="lg" variant="outline" className="w-full sm:w-auto text-base border-primary/20 hover:bg-primary/5" asChild>
-                    <Link href="/whitepaper">Strategic Blueprint</Link>
+                    <Link href="/whitepaper">Operational Brief</Link>
                   </Button>
               </motion.div>
             </motion.div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Hammer, Wrench, Paintbrush, Tv, Truck, Container, ShieldCheck, RotateCw, ClipboardCheck } from "lucide-react";
+import { ArrowRight, Hammer, Wrench, Paintbrush, ShieldCheck, RotateCw, ClipboardCheck, Home } from "lucide-react";
 import Link from "next/link";
 
 
@@ -10,12 +10,10 @@ const IconMap: Record<string, React.ElementType> = {
   Hammer,
   Wrench,
   Paintbrush,
-  Tv,
-  Truck,
-  Container,
   ShieldCheck,
   RotateCw,
-  ClipboardCheck
+  ClipboardCheck,
+  Home,
 };
 
 interface ServiceCardProps {

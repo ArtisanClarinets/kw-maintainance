@@ -9,6 +9,8 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { modules } from "@/../content/modules";
 import { personas } from "@/../content/personas";
 import { kpis } from "@/../content/kpis";
+import { services } from "@/../content/services";
+import { industries } from "@/../content/industries";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Home() {
@@ -63,13 +65,37 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Service Catalog */}
+        <section id="services" className="py-20 container-custom px-4 space-y-12">
+            <div className="flex flex-col gap-4">
+                <p className="text-sm uppercase tracking-[0.4em] text-muted-foreground">Service Catalog</p>
+                <h2 className="text-3xl md:text-4xl font-extrabold font-serif text-foreground">Hospitality-grade services, residential care included</h2>
+                <p className="text-lg text-muted-foreground max-w-3xl">
+                    We align dispatch, turnover, and maintenance crews to the unique rhythms of hospitality operators while still supporting homeowners with transparent commitments.
+                </p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {services.map((service) => (
+                    <div key={service.id} className="h-full">
+                        <ServiceCard
+                            slug={service.id}
+                            title={service.title}
+                            description={service.description}
+                            icon={service.icon}
+                            features={service.features}
+                        />
+                    </div>
+                ))}
+            </div>
+        </section>
+
         {/* Personas Section */}
         <section className="py-20 bg-muted/20">
             <div className="container-custom px-4">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-extrabold font-serif mb-4">Built for Operations Leaders</h2>
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Empowering every stakeholder in the hospitality ecosystem with role-specific tools.
+                        Empowering hospitality operations, service leadership, and local homeowners with role-specific visibility and dispatch fidelity.
                     </p>
                 </div>
                 
@@ -93,6 +119,33 @@ export default function Home() {
                                         </li>
                                     ))}
                                 </ul>
+
+                                {/* Industries */}
+                                <section className="py-20 container-custom px-4">
+                                    <div className="flex flex-col gap-2 text-center mb-12">
+                                        <p className="text-sm uppercase tracking-[0.4em] text-muted-foreground">Industries Served</p>
+                                        <h2 className="text-3xl md:text-4xl font-extrabold font-serif text-foreground">Hospitality command centre, homeowner support</h2>
+                                    </div>
+                                    <div className="grid md:grid-cols-2 gap-8">
+                                        {industries.map((industry) => (
+                                            <div key={industry.id} className="bg-card border border-border/40 rounded-2xl p-8 h-full">
+                                                <h3 className="text-2xl font-bold mb-3 text-foreground">{industry.title}</h3>
+                                                <p className="text-muted-foreground mb-6">{industry.description}</p>
+                                                <ul className="space-y-2 mb-6 text-sm text-foreground/80">
+                                                    {industry.highlights.map((highlight) => (
+                                                        <li key={highlight} className="flex items-start gap-2">
+                                                            <span className="h-1.5 w-1.5 rounded-full bg-primary mt-1" />
+                                                            {highlight}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                                <Link href={industry.cta.href} className="text-sm font-semibold text-primary hover:text-primary/80">
+                                                    {industry.cta.label} →
+                                                </Link>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </section>
                             </CardContent>
                         </Card>
                     ))}
