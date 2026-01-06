@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 // --- Auth & Users ---
-export const RoleEnum = z.enum(['tech', 'supervisor', 'gm', 'vp_ops', 'procurement', 'security_admin']);
+export const RoleEnum = z.enum(['tech', 'supervisor', 'gm', 'vp_ops', 'procurement', 'security_admin', 'tenant_admin', 'dispatcher', 'property_manager', 'auditor']);
 export type Role = z.infer<typeof RoleEnum>;
 
 export const UserSchema = z.object({
@@ -169,16 +169,110 @@ export const SchedulingRulesSchema = z.object({
 });
 export type SchedulingRules = z.infer<typeof SchedulingRulesSchema>;
 
+
+// --- Technicians & Certifications ---
+export const CertificationSchema = z.object({
+  id: z.string(),
+  tenantId: z.string(),
+  technicianId: z.string().optional(),
+  name: z.string(),
+  authority: z.string().optional(),
+  issuedAt: z.string().optional(),
+  expiresAt: z.string().optional(),
+});
+export type Certification = z.infer<typeof CertificationSchema>;
+
+export const TechnicianSchema = z.object({
+  id: z.string(),
+  tenantId: z.string(),
+  userId: z.string().optional(),
+  name: z.string(),
+  skills: z.array(z.string()).default([]),
+  certifications: z.array(CertificationSchema).default([]),
+  hourlyRate: z.number().optional(),
+  active: z.boolean().default(true),
+  vehicle: z.string().optional(),
+  phone: z.string().optional(),
+});
+export type Technician = z.infer<typeof TechnicianSchema>;
+
+// --- Work Order Templates ---
+export const WorkOrderTemplateSchema = z.object({
+  id: z.string(),
+  tenantId: z.string(),
+  title: z.string(),
+  category: WorkOrderCategoryEnum,
+  defaultSLA: z.string().optional(),
+  tasks: z.array(WorkOrderTaskSchema).default([]),
+  requiredCertifications: z.array(z.string()).default([]),
+  defaultParts: z.array(z.string()).default([]),
+  createdAt: z.string().optional(),
+});
+export type WorkOrderTemplate = z.infer<typeof WorkOrderTemplateSchema>;
+
+// --- Purchasing & Timesheets ---
+export const PurchaseOrderLineSchema = z.object({
+  partId: z.string(),
+  quantity: z.number(),
+  unitCost: z.number(),
+});
+export const PurchaseOrderSchema = z.object({
+  id: z.string(),
+  tenantId: z.string(),
+  vendorId: z.string(),
+  propertyId: z.string().optional(),
+  createdAt: z.string(),
+  updatedAt: z.string().optional(),
+  status: z.enum(['Draft', 'Open', 'Approved', 'Received', 'Closed', 'Cancelled']),
+  lines: z.array(PurchaseOrderLineSchema).default([]),
+  total: z.number().optional(),
+});
+export type PurchaseOrder = z.infer<typeof PurchaseOrderSchema>;
+
+export const TimesheetSchema = z.object({
+  id: z.string(),
+  tenantId: z.string(),
+  technicianId: z.string(),
+  workOrderId: z.string().optional(),
+  date: z.string(),
+  hours: z.number(),
+  notes: z.string().optional(),
+  approved: z.boolean().default(false),
+});
+export type Timesheet = z.infer<typeof TimesheetSchema>;
+
+// --- IoT Rules ---
+export const IoTRuleSchema = z.object({
+  id: z.string(),
+  tenantId: z.string(),
+  deviceId: z.string(),
+  assetId: z.string().optional(),
+  metric: z.string(),
+  operator: z.enum(['>', '<', '>=', '<=', '===', '!==']),
+  threshold: z.number(),
+  severity: z.enum(['Low', 'Medium', 'High', 'Critical']).default('High'),
+  action: z.enum(['create_work_order', 'notify', 'alert']).default('create_work_order'),
+  active: z.boolean().default(true),
+});
+export type IoTRule = z.infer<typeof IoTRuleSchema>;
+
+// --- Database ---
 export const DatabaseSchema = z.object({
   users: z.array(UserSchema),
   tenants: z.array(TenantSchema),
   properties: z.array(PropertySchema),
   assets: z.array(AssetSchema),
   workOrders: z.array(WorkOrderSchema),
+  workOrderTemplates: z.array(WorkOrderTemplateSchema),
+  technicians: z.array(TechnicianSchema),
+  certifications: z.array(CertificationSchema),
   parts: z.array(PartSchema),
   warehouses: z.array(WarehouseSchema),
   stockLevels: z.array(StockLevelSchema),
   vendors: z.array(VendorSchema),
+  purchaseOrders: z.array(PurchaseOrderSchema),
+  timesheets: z.array(TimesheetSchema),
+  iotRules: z.array(IoTRuleSchema),
   auditLogs: z.array(AuditLogSchema),
   appointments: z.array(AppointmentSchema),
   schedulingRules: z.array(SchedulingRulesSchema),

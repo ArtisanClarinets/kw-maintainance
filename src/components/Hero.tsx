@@ -39,7 +39,7 @@ export function Hero() {
         });
 
         setNextSlot(formatter.format(new Date(data.nextSlot)));
-        setUpcoming((data.upcoming ?? []).map((appt: any) => ({
+        setUpcoming((data.upcoming ?? []).map((appt: UpcomingAppointment) => ({
           id: appt.id,
           title: appt.title,
           startAt: appt.startAt,
@@ -108,7 +108,7 @@ export function Hero() {
             </motion.h1>
             
             <motion.p variants={itemVariants} className="text-xl text-muted-foreground max-w-xl leading-relaxed">
-              Dispatch-ready crews, same-day hospitality service, and transparent homeowner fixes wrapped in a dark "command centre" aesthetic built for Fort Walton Beach and beyond.
+              Dispatch-ready crews, same-day hospitality service, and transparent homeowner fixes wrapped in a dark &ldquo;command centre&rdquo; aesthetic built for Fort Walton Beach and beyond.
             </motion.p>
             {upcoming.length > 0 && (
               <motion.div variants={itemVariants} className="space-y-2 mt-4">

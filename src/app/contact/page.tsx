@@ -1,8 +1,8 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { siteConfig } from "@/../content/site";
-import { Button } from "@/components/ui/button";
 import { Phone, Mail, MapPin } from "lucide-react";
+import ContactForm from "./ContactForm";
 
 export default function ContactPage() {
   return (
@@ -22,7 +22,7 @@ export default function ContactPage() {
             <div>
                 <h2 className="text-2xl font-bold font-serif mb-6">Engagement Desk</h2>
                 <p className="text-muted-foreground mb-8 text-lg">
-                    We maintain high operational availability across our core service corridors. For the most immediate resource deployment, please utilize our priority line below.
+                    We stand ready to deploy craft crews, audit teams, and emergency response drivers with the same luxury standards our hospitality partners expect.
                 </p>
 
                 <div className="space-y-6">
@@ -67,43 +67,7 @@ export default function ContactPage() {
 
             <div className="bg-card p-8 rounded-2xl border border-border/80 shadow-lg">
                 <h3 className="text-xl font-bold font-serif mb-6 text-foreground">Strategic Assessment Intake</h3>
-                <form className="space-y-4" action={`mailto:${siteConfig.email}`} method="post" encType="text/plain">
-                    <div className="grid sm:grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                            <label htmlFor="name" className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Officer Name</label>
-                            <input type="text" id="name" name="name" required className="w-full px-4 py-3 rounded-lg border border-input bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all placeholder:text-muted-foreground/50" placeholder="Enter full name" />
-                        </div>
-                        <div className="space-y-2">
-                            <label htmlFor="phone" className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Mobile Contact</label>
-                            <input type="tel" id="phone" name="phone" required className="w-full px-4 py-3 rounded-lg border border-input bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all placeholder:text-muted-foreground/50" placeholder="(555) 000-0000" />
-                        </div>
-                    </div>
-
-                    <div className="space-y-2">
-                        <label htmlFor="service" className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Operational Sector</label>
-                        <select id="service" name="service" className="w-full px-4 py-3 rounded-lg border border-input bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all appearance-none cursor-pointer">
-                            <option value="Preventative Maintenance">Preventative Maintenance Protocols</option>
-                            <option value="Hospitality Turnover">Hospitality Turnover Orchestration</option>
-                            <option value="Facility Audits">Strategic Facility Audits</option>
-                            <option value="General Maintenance">General Infrastructure Maintenance</option>
-                            <option value="Installations">Commercial FF&E Installations</option>
-                            <option value="Painting">Institutional Painting & Coatings</option>
-                            <option value="Other">Other Strategic Requirement</option>
-                        </select>
-                    </div>
-
-                    <div className="space-y-2">
-                        <label htmlFor="message" className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Engagement Specifics</label>
-                        <textarea id="message" name="message" rows={4} className="w-full px-4 py-3 rounded-lg border border-input bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none placeholder:text-muted-foreground/50" placeholder="Provide high-level details regarding the required operational outcome..."></textarea>
-                    </div>
-
-                    <Button type="submit" className="w-full py-6 text-lg font-bold uppercase tracking-widest shadow-lg shadow-primary/20" size="lg">
-                        Submit Engagement Request
-                    </Button>
-                    <p className="text-xs text-muted-foreground/60 text-center mt-6 italic">
-                        Clicking submit will open your institutional email client. Alternatively, transmit visuals via encrypted text to {siteConfig.phone}.
-                    </p>
-                </form>
+                <ContactForm />
             </div>
         </div>
       </main>

@@ -9,7 +9,8 @@ export default async function AdminLayout({
   children: React.ReactNode;
 }) {
   const user = await getUser();
-  if (!user || user.role !== 'security_admin') {
+  const adminRoles = ['security_admin', 'tenant_admin'];
+  if (!user || !adminRoles.includes(user.role)) {
      redirect('/login');
   }
 
@@ -27,13 +28,17 @@ export default async function AdminLayout({
            <AdminLink href="/admin/scheduling" label="Deployment Cadence" />
            <AdminLink href="/admin/tenants-properties" label="Institutional Portfolio" />
            <AdminLink href="/admin/users-roles" label="Command Hierarchy" />
+           <AdminLink href="/admin/technicians" label="Technicians" />
            
            <div className="pt-4 pb-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">Operational Modules</div>
            <AdminLink href="/admin/work-order-templates" label="Orchestration Blueprints" />
            <AdminLink href="/admin/dispatch-rules" label="Resource Dynamics" />
            <AdminLink href="/admin/assets" label="Asset Stewardship" />
            <AdminLink href="/admin/inventory" label="Supply Chain Config" />
+           <AdminLink href="/admin/parts" label="Parts Catalog" />
+           <AdminLink href="/admin/purchase-orders" label="Purchase Orders" />
            <AdminLink href="/admin/iot" label="Telemetry & IoT" />
+           <AdminLink href="/admin/vendors" label="Vendors" />
 
            <div className="pt-4 pb-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">Infrastructure</div>
            <AdminLink href="/admin/integrations" label="Ecosystem Connectivity" />

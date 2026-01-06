@@ -28,6 +28,62 @@ const DEFAULT_DB: Database = {
   ],
   auditLogs: [],
   appointments: [],
+  workOrderTemplates: [
+    {
+      id: 'wot-1',
+      tenantId: 't1',
+      title: 'Guest Room PM (Turnover)',
+      category: 'General',
+      defaultSLA: '4h',
+      tasks: [
+        { id: 't-1', description: 'Inspect HVAC function and filters', completed: false, required: true },
+        { id: 't-2', description: 'Clean and sanitize touchpoints', completed: false, required: true }
+      ],
+      requiredCertifications: ['EPA 608'],
+      defaultParts: [],
+      createdAt: '2026-01-01T00:00:00.000Z'
+    }
+  ],
+  technicians: [
+    {
+      id: 'tech-1',
+      tenantId: 't1',
+      userId: 'u1',
+      name: 'Alex Rivera',
+      skills: ['plumbing', 'hvac'],
+      certifications: [],
+      hourlyRate: 45,
+      active: true,
+      vehicle: 'Truck 01',
+      phone: '+18505550001'
+    }
+  ],
+  certifications: [
+    {
+      id: 'cert-1',
+      tenantId: 't1',
+      technicianId: 'tech-1',
+      name: 'EPA 608',
+      authority: 'EPA',
+      issuedAt: '2023-01-10',
+      expiresAt: '2026-01-09'
+    }
+  ],
+  purchaseOrders: [],
+  timesheets: [],
+  iotRules: [
+    {
+      id: 'r1',
+      tenantId: 't1',
+      deviceId: 's-1',
+      metric: 'temperature',
+      operator: '>',
+      threshold: 45,
+      severity: 'High',
+      action: 'create_work_order',
+      active: true
+    }
+  ],
   schedulingRules: [
       { id: 'sr1', tenantId: 't1', minimumLeadTimeMinutes: 180, minimumGapMinutes: 120, defaultDurationMinutes: 60 }
   ]

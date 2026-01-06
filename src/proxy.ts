@@ -40,7 +40,8 @@ export async function proxy(request: NextRequest) {
 
     // Role checks
     if (pathname.startsWith('/admin')) {
-       if (session.role !== 'security_admin') {
+       const allowedAdminRoles = ['security_admin', 'tenant_admin'];
+       if (!allowedAdminRoles.includes(session.role || '')) {
            // Redirect to app if logged in but not admin
            return NextResponse.redirect(new URL('/app', request.url));
        }

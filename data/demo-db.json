@@ -52,7 +52,73 @@
   ],
   "assets": [],
   "workOrders": [],
-  "parts": [],
+  "workOrderTemplates": [
+    {
+      "id": "wot-1",
+      "tenantId": "t1",
+      "title": "Guest Room PM (Turnover)",
+      "category": "General",
+      "defaultSLA": "4h",
+      "tasks": [
+        {
+          "id": "t-1",
+          "description": "Inspect HVAC function and filters",
+          "completed": false,
+          "required": true
+        },
+        {
+          "id": "t-2",
+          "description": "Clean and sanitize touchpoints",
+          "completed": false,
+          "required": true
+        }
+      ],
+      "requiredCertifications": [
+        "EPA 608"
+      ],
+      "defaultParts": [],
+      "createdAt": "2026-01-01T00:00:00.000Z"
+    }
+  ],
+  "technicians": [
+    {
+      "id": "tech-1",
+      "tenantId": "t1",
+      "userId": "u1",
+      "name": "Alex Rivera",
+      "skills": [
+        "plumbing",
+        "hvac"
+      ],
+      "certifications": [],
+      "hourlyRate": 45,
+      "active": true,
+      "vehicle": "Truck 01",
+      "phone": "+18505550001"
+    }
+  ],
+  "certifications": [
+    {
+      "id": "cert-1",
+      "tenantId": "t1",
+      "technicianId": "tech-1",
+      "name": "EPA 608",
+      "authority": "EPA",
+      "issuedAt": "2023-01-10",
+      "expiresAt": "2026-01-09"
+    }
+  ],
+  "parts": [
+    {
+      "id": "part-1767683855027",
+      "tenantId": "t1",
+      "name": "Filter",
+      "sku": "F-001",
+      "category": "Filters",
+      "cost": 12.5,
+      "minStockLevel": 2
+    }
+  ],
   "warehouses": [],
   "stockLevels": [],
   "vendors": [
@@ -84,39 +150,54 @@
       "lastAuditDate": "2023-10-20"
     }
   ],
+  "purchaseOrders": [
+    {
+      "id": "po-1767683855032",
+      "tenantId": "t1",
+      "vendorId": "v1",
+      "propertyId": "p1",
+      "createdAt": "2026-01-06T07:17:35.032Z",
+      "updatedAt": "2026-01-06T07:17:35.032Z",
+      "status": "Draft",
+      "lines": []
+    }
+  ],
+  "timesheets": [],
+  "iotRules": [
+    {
+      "id": "r1",
+      "tenantId": "t1",
+      "deviceId": "s-1",
+      "metric": "temperature",
+      "operator": ">",
+      "threshold": 45,
+      "severity": "High",
+      "action": "create_work_order",
+      "active": true
+    }
+  ],
   "auditLogs": [
     {
-      "id": "log-1",
+      "id": "log-1767683855033",
       "tenantId": "t1",
-      "actorId": "u1",
-      "actorName": "Tech User",
-      "action": "WORK_ORDER_UPDATE",
-      "entityType": "WorkOrder",
-      "entityId": "wo-101",
-      "details": "Status changed to In Progress",
-      "timestamp": "2026-01-06T02:14:03.074Z"
+      "actorId": "u6",
+      "actorName": "Procurement User",
+      "action": "PO_CREATE",
+      "entityType": "PurchaseOrder",
+      "entityId": "po-1767683855032",
+      "details": "Created PO for vendor v1",
+      "timestamp": "2026-01-06T07:17:35.033Z"
     },
     {
-      "id": "log-2",
+      "id": "log-1767683855028",
       "tenantId": "t1",
-      "actorId": "u3",
-      "actorName": "Supervisor",
-      "action": "INVENTORY_TRANSFER",
-      "entityType": "StockLevel",
-      "entityId": "sl-55",
-      "details": "Approved transfer of 5 units",
-      "timestamp": "2026-01-05T04:14:03.074Z"
-    },
-    {
-      "id": "log-3",
-      "tenantId": "t1",
-      "actorId": "u2",
-      "actorName": "Admin User",
-      "action": "USER_LOGIN",
-      "entityType": "User",
-      "entityId": "u2",
-      "details": "Successful login from 192.168.1.1",
-      "timestamp": "2026-01-05T03:14:03.074Z"
+      "actorId": "u5",
+      "actorName": "Procurement",
+      "action": "PART_CREATE",
+      "entityType": "Part",
+      "entityId": "part-1767683855027",
+      "details": "Created part Filter",
+      "timestamp": "2026-01-06T07:17:35.028Z"
     }
   ],
   "appointments": [],

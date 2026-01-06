@@ -2,22 +2,8 @@ import { NextResponse } from 'next/server';
 import { loadServerConfig } from '@/lib/server-config/load';
 import { checkRateLimit } from '@/lib/security/rateLimit';
 import { getClientIp } from '@/lib/security/request';
-import { z } from 'zod';
 import nodemailer from 'nodemailer';
-
-// Updated Schema
-const LeadSchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  email: z.string().email("Invalid email address"),
-  phone: z.string().min(10, "Phone number must be at least 10 digits"),
-  companyName: z.string().min(1, "Company name is required"),
-  role: z.string().optional(),
-  portfolioSize: z.string().optional(), // Could be number, but form usually sends string
-  message: z.string().min(1, "Message is required"),
-  // Honeypot field (should be empty)
-  company: z.string().max(0, "Bot detected").optional(),
-  timestamp: z.number().int().optional(),
-});
+import { LeadSchema } from '@/lib/lead-schema';
 
 export async function POST(request: Request) {
   try {
@@ -60,8 +46,11 @@ export async function POST(request: Request) {
         }
     }
 
-    // Mask PII in logs
-    console.log(`Lead received from ${ip}: ${data.email.replace(/(.{2})(.*)(@.*)/, "$1***$3")}`);
+        // Mask PII in logs
+        const maskedEmail = data.email.replace(/(.{2})(.*)(@.*)/, "$1***$3");
+        console.log(
+            `Lead received from ${ip}: ${maskedEmail} | service=${data.service ?? 'general'} | property=${data.propertyType ?? 'unknown'}`
+        );
 
     if (config.notification.method === 'smtp' && config.smtp) {
         const transporter = nodemailer.createTransport({
@@ -79,16 +68,19 @@ export async function POST(request: Request) {
             to: config.notification.email.to.join(','),
             subject: `Institutional Consultation Request: ${data.name} - ${data.companyName}`,
             text: `
-Stakeholder Name: ${data.name}
-Email Address: ${data.email}
-Phone Number: ${data.phone}
-Organization: ${data.companyName}
-Title: ${data.role || 'N/A'}
-Property Portfolio Size: ${data.portfolioSize || 'N/A'}
+        Stakeholder Name: ${data.name}
+        Email Address: ${data.email}
+        Phone Number: ${data.phone}
+        Organization: ${data.companyName}
+        Title: ${data.role || 'N/A'}
+        Property Type: ${data.propertyType || 'N/A'}
+        Focus Service: ${data.service || 'General'}
+        Rooms / Units: ${data.units || 'N/A'}
+        Property Portfolio Size: ${data.portfolioSize || 'N/A'}
 
-Operational Requirements/Inquiry:
-${data.message}
-            `,
+        Operational Requirements/Inquiry:
+        ${data.message}
+                `,
         });
     }
 

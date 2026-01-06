@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "server:config": "node scripts/server-config.mjs",
     "server:validate": "node scripts/server-config.mjs validate",
     "postinstall": "node scripts/setup-advanced.mjs"
@@ -47,6 +49,7 @@
     "eslint-config-next": "16.1.1",
     "nodemailer": "^7.0.12",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.0.16"
   }
 }
