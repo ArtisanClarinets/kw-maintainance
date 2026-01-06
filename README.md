@@ -17,6 +17,15 @@ This project includes a secured server configuration utility for managing operat
    node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
    ```
 
+   Additionally you should set a JWT secret for server-side cookie auth:
+
+   ```bash
+   # Example: generate a 32-byte random base64 secret for AUTH_JWT_SECRET
+   node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
+   ```
+
+   Add the generated value to `.env.local` as `AUTH_JWT_SECRET`.
+
 2. **Initialize Configuration**:
    Run the interactive init script to create `data/server-config.json`. This file contains operational settings and encrypted secrets (like SMTP passwords).
 
@@ -24,6 +33,25 @@ This project includes a secured server configuration utility for managing operat
    npm run server:config init
    ```
    Follow the prompts.
+
+   Automatic setup (recommended on first `npm install`)
+   --------------------------------------------------
+   This repository runs a lightweight setup script after `npm install` to create a local `.env.local`, generate required secrets, enable the admin portal, and populate a demo database so you can log in immediately.
+
+   What it creates:
+   - `.env.local` with `SERVER_CONFIG_MASTER_KEY`, `AUTH_JWT_SECRET`, and `ADMIN_BEARER_TOKEN` (if missing)
+   - `data/server-config.json` with `admin.enabled=true`
+   - `data/demo-db.json` with demo users including `admin@example.com` and `tech@example.com`
+
+   To re-run the setup manually:
+
+   ```bash
+   node scripts/setup.mjs
+   ```
+
+   Default demo login
+   ------------------
+   The demo DB includes `admin@example.com` and `tech@example.com`. The app's login is email-only in this demo, so you can sign in by entering one of those emails at the login form. In production, replace demo accounts and enforce proper authentication.
 
 3. **Validate Configuration**:
    To check if your environment and config file are valid:

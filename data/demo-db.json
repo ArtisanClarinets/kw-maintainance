@@ -1,0 +1,98 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "name": "Tech User",
+      "email": "tech@example.com",
+      "role": "tech",
+      "tenantId": "t1",
+      "propertyIds": [
+        "p1"
+      ],
+      "passwordHash": "password"
+    },
+    {
+      "id": "u2",
+      "name": "Admin User",
+      "email": "admin@example.com",
+      "role": "security_admin",
+      "tenantId": "t1",
+      "propertyIds": [
+        "p1"
+      ],
+      "passwordHash": "password"
+    },
+    {
+      "id": "u3",
+      "name": "Supervisor",
+      "email": "super@example.com",
+      "role": "supervisor",
+      "tenantId": "t1",
+      "propertyIds": [
+        "p1"
+      ],
+      "passwordHash": "password"
+    }
+  ],
+  "tenants": [
+    {
+      "id": "t1",
+      "name": "Acme Hospitality",
+      "slug": "acme"
+    }
+  ],
+  "properties": [
+    {
+      "id": "p1",
+      "tenantId": "t1",
+      "name": "Grand Hotel",
+      "address": "123 Main St",
+      "timezone": "America/New_York"
+    }
+  ],
+  "assets": [],
+  "workOrders": [],
+  "parts": [],
+  "warehouses": [],
+  "stockLevels": [],
+  "vendors": [
+    {
+      "id": "v1",
+      "tenantId": "t1",
+      "name": "Acme HVAC Services",
+      "type": "Service",
+      "status": "Active",
+      "complianceScore": 98,
+      "lastAuditDate": "2023-12-01"
+    },
+    {
+      "id": "v2",
+      "tenantId": "t1",
+      "name": "Global Supply Co",
+      "type": "Supply",
+      "status": "Active",
+      "complianceScore": 100,
+      "lastAuditDate": "2023-11-15"
+    },
+    {
+      "id": "v3",
+      "tenantId": "t1",
+      "name": "Legacy Software",
+      "type": "Software",
+      "status": "Probation",
+      "complianceScore": 75,
+      "lastAuditDate": "2023-10-20"
+    }
+  ],
+  "auditLogs": [],
+  "appointments": [],
+  "schedulingRules": [
+    {
+      "id": "sr1",
+      "tenantId": "t1",
+      "minimumLeadTimeMinutes": 180,
+      "minimumGapMinutes": 120,
+      "defaultDurationMinutes": 60
+    }
+  ]
+}

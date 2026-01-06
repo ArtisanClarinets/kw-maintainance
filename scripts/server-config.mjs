@@ -89,6 +89,16 @@ async function validate() {
       process.exit(1);
   }
 
+  // 1b. Check AUTH_JWT_SECRET (recommended/required for production)
+  if (!process.env.AUTH_JWT_SECRET) {
+    if (process.env.NODE_ENV === 'production') {
+      console.error('❌ AUTH_JWT_SECRET is required in production.');
+      process.exit(1);
+    } else {
+      console.warn('⚠️ AUTH_JWT_SECRET is not set. Using an insecure demo fallback in development.');
+    }
+  }
+
   // 2. Check Config File
   if (!fs.existsSync(CONFIG_FILE)) {
     console.error("❌ Config file not found at data/server-config.json");

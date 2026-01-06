@@ -2,29 +2,27 @@ import { cookies } from 'next/headers';
 import { SignJWT, jwtVerify } from 'jose';
 import { User } from '@/lib/domain/schema';
 import { getDb } from '@/lib/demo/persistence';
-
-const SECRET_KEY = new TextEncoder().encode('demo-secret-key-change-me');
-const COOKIE_NAME = 'demo_auth_token';
+import { getAuthSecret, AUTH_COOKIE_NAME } from '@/lib/env';
 
 export async function login(email: string): Promise<boolean> {
   const db = await getDb();
   const user = db.users.find(u => u.email === email);
-  
+
   if (!user) return false;
 
-  const token = await new SignJWT({ 
-      id: user.id, 
-      email: user.email, 
-      role: user.role,
-      name: user.name,
-      tenantId: user.tenantId
+  const token = await new SignJWT({
+    id: user.id,
+    email: user.email,
+    role: user.role,
+    name: user.name,
+    tenantId: user.tenantId,
   })
     .setProtectedHeader({ alg: 'HS256' })
     .setIssuedAt()
     .setExpirationTime('24h')
-    .sign(SECRET_KEY);
+    .sign(getAuthSecret());
 
-  (await cookies()).set(COOKIE_NAME, token, {
+  (await cookies()).set(AUTH_COOKIE_NAME, token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'lax',
@@ -35,16 +33,16 @@ export async function login(email: string): Promise<boolean> {
 }
 
 export async function logout() {
-  (await cookies()).delete(COOKIE_NAME);
+  (await cookies()).delete(AUTH_COOKIE_NAME);
 }
 
 export async function getSession() {
   const cookieStore = await cookies();
-  const token = cookieStore.get(COOKIE_NAME);
+  const token = cookieStore.get(AUTH_COOKIE_NAME);
   if (!token) return null;
 
   try {
-    const { payload } = await jwtVerify(token.value, SECRET_KEY);
+    const { payload } = await jwtVerify(token.value, getAuthSecret());
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return payload as any; // Typed payload
   } catch (e) {
@@ -54,8 +52,8 @@ export async function getSession() {
 }
 
 export async function getUser(): Promise<User | null> {
-    const session = await getSession();
-    if (!session) return null;
-    const db = await getDb();
-    return db.users.find(u => u.id === session.id) || null;
+  const session = await getSession();
+  if (!session) return null;
+  const db = await getDb();
+  return db.users.find(u => u.id === session.id) || null;
 }

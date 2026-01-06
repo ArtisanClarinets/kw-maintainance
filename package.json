@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "server:config": "node scripts/server-config.mjs",
-    "server:validate": "node scripts/server-config.mjs validate"
+    "server:validate": "node scripts/server-config.mjs validate",
+    "postinstall": "node scripts/setup-advanced.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

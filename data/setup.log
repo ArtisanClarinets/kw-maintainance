@@ -1,0 +1,7 @@
+[2026-01-06T02:17:02.968Z] [INFO] Starting setup (env=development, dryRun=true)
+[2026-01-06T02:17:02.972Z] [ERROR] Setup error: ensureDataDir is not defined
+[2026-01-06T02:17:12.180Z] [INFO] Starting setup (env=development, dryRun=true)
+[2026-01-06T02:17:12.184Z] [INFO] Existing server-config.json found and admin already enabled
+[2026-01-06T02:17:12.501Z] [INFO] Demo DB exists; no admin changes requested
+[2026-01-06T02:17:12.529Z] [INFO] Server configuration validated successfully
+[2026-01-06T02:17:12.529Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).

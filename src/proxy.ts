@@ -1,9 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { jwtVerify } from 'jose';
-
-const SECRET_KEY = new TextEncoder().encode('demo-secret-key-change-me');
-const COOKIE_NAME = 'demo_auth_token';
+import { getAuthSecret, AUTH_COOKIE_NAME } from '@/lib/env';
 
 interface SessionPayload {
   role?: string;
@@ -20,12 +18,12 @@ export async function proxy(request: NextRequest) {
         return NextResponse.next();
     }
 
-    const token = request.cookies.get(COOKIE_NAME);
+    const token = request.cookies.get(AUTH_COOKIE_NAME);
     let session: SessionPayload | null = null;
 
     if (token) {
       try {
-        const { payload } = await jwtVerify(token.value, SECRET_KEY);
+        const { payload } = await jwtVerify(token.value, getAuthSecret());
         session = payload as SessionPayload;
       } catch (e) {
         void e;
