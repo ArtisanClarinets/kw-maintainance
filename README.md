@@ -1,6 +1,6 @@
-# K & W Hospitality and Maintainance Services
+# KW Enterprise
 
-This is a Next.js App Router project for K & W Hospitality and Maintainance Services.
+A Next-Generation Enterprise Hospitality Maintenance Platform.
 
 ## Server Configuration Utility
 

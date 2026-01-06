@@ -1,34 +1,21 @@
-
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Hammer, Wrench, Paintbrush, Tv, Truck, Container } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-
-// Icon mapping based on the content/services.ts strings
-const IconMap: Record<string, React.ElementType> = {
-  Hammer,
-  Wrench,
-  Paintbrush,
-  Tv,
-  Truck,
-  Container,
-};
-
 interface ServiceCardProps {
-  id: string; // Added ID for navigation
+  slug: string;
   title: string;
   description: string;
-  iconName?: string;
+  icon: React.ReactNode;
   features: string[];
 }
 
-export function ServiceCard({ id, title, description, iconName, features }: ServiceCardProps) {
-  const Icon = iconName ? IconMap[iconName] : Hammer;
-
+export function ServiceCard({ slug, title, description, icon, features }: ServiceCardProps) {
+  
   return (
-    <Link href={`/services/${id}`} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-2xl">
+    <Link href={`/platform#${slug}`} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-2xl">
       <motion.div
         whileHover="hover"
         initial="initial"
@@ -40,7 +27,7 @@ export function ServiceCard({ id, title, description, iconName, features }: Serv
         {/* Icon */}
         <div className="mb-6 relative z-10">
           <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-            <Icon className="h-6 w-6" />
+            {icon}
           </div>
         </div>
 
