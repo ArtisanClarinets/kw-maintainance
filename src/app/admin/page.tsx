@@ -5,19 +5,19 @@ export default async function AdminDashboard() {
 
   return (
     <div>
-      <h2 className="text-3xl font-bold mb-8 text-white">System Overview</h2>
+      <h2 className="text-3xl font-bold mb-8 text-white">Operational Intelligence Overview</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-         <StatCard label="Total Tenants" value={db.tenants.length} />
-         <StatCard label="Properties" value={db.properties.length} />
-         <StatCard label="Users" value={db.users.length} />
-         <StatCard label="Active Work Orders" value={db.workOrders.filter(w => w.status !== 'Financial Close').length} />
+         <StatCard label="Institutional Partners" value={db.tenants.length} />
+         <StatCard label="Enrolled Portfolio" value={db.properties.length} />
+         <StatCard label="Command Personnel" value={db.users.length} />
+         <StatCard label="Active Orchestrations" value={db.workOrders.filter(w => w.status !== 'Financial Close').length} />
       </div>
 
       <div className="mt-12">
-        <h3 className="text-xl font-bold mb-4 text-emerald-400">Recent Activity</h3>
+        <h3 className="text-xl font-bold mb-4 text-emerald-400">Institutional Traceability Log</h3>
         <div className="bg-slate-800 rounded-lg p-6 border border-slate-700">
-           <p className="text-slate-400 italic">Audit log integration pending...</p>
+           <p className="text-slate-400 italic">Security audit integration pending...</p>
         </div>
       </div>
     </div>

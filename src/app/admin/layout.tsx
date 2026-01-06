@@ -22,25 +22,25 @@ export default async function AdminLayout({
            <p className="text-xs text-slate-500 mt-1">Security Level 5</p>
         </div>
         <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
-           <AdminLink href="/admin" label="Dashboard" />
-           <div className="pt-4 pb-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">Core</div>
-           <AdminLink href="/admin/scheduling" label="Scheduling Rules" />
-           <AdminLink href="/admin/tenants-properties" label="Tenants & Properties" />
-           <AdminLink href="/admin/users-roles" label="Users & Roles" />
+           <AdminLink href="/admin" label="Command Centre" />
+           <div className="pt-4 pb-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">Operational Core</div>
+           <AdminLink href="/admin/scheduling" label="Deployment Cadence" />
+           <AdminLink href="/admin/tenants-properties" label="Institutional Portfolio" />
+           <AdminLink href="/admin/users-roles" label="Command Hierarchy" />
            
-           <div className="pt-4 pb-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">Modules</div>
-           <AdminLink href="/admin/work-order-templates" label="WO Templates" />
-           <AdminLink href="/admin/dispatch-rules" label="Dispatch Logic" />
-           <AdminLink href="/admin/assets" label="Asset Registry" />
-           <AdminLink href="/admin/inventory" label="Inventory Config" />
-           <AdminLink href="/admin/iot" label="IoT & Sensors" />
+           <div className="pt-4 pb-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">Operational Modules</div>
+           <AdminLink href="/admin/work-order-templates" label="Orchestration Blueprints" />
+           <AdminLink href="/admin/dispatch-rules" label="Resource Dynamics" />
+           <AdminLink href="/admin/assets" label="Asset Stewardship" />
+           <AdminLink href="/admin/inventory" label="Supply Chain Config" />
+           <AdminLink href="/admin/iot" label="Telemetry & IoT" />
 
-           <div className="pt-4 pb-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">System</div>
-           <AdminLink href="/admin/integrations" label="Integrations" />
-           <AdminLink href="/admin/audit" label="Audit Logs" />
-           <AdminLink href="/admin/content" label="CMS Content" />
-           <AdminLink href="/admin/settings" label="Global Settings" />
-           <AdminLink href="/admin/demo-data" label="Reset Demo Data" />
+           <div className="pt-4 pb-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">Infrastructure</div>
+           <AdminLink href="/admin/integrations" label="Ecosystem Connectivity" />
+           <AdminLink href="/admin/audit" label="Stewardship Traceability" />
+           <AdminLink href="/admin/content" label="Brand Narrative CMS" />
+           <AdminLink href="/admin/settings" label="Global Architecture" />
+           <AdminLink href="/admin/demo-data" label="Reset Environment" />
         </nav>
         <div className="p-4 border-t border-slate-800">
            <div className="text-sm font-medium">{user.name}</div>

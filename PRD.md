@@ -25,6 +25,12 @@
     -   *Pain Points:* Coordinating multiple vendors for one turnover.
 3.  **The Commercial Facility Director:**
     -   *Needs:* Compliance documentation, insured vendors, detailed invoicing.
+4. **The Homeowner Association (HOA) Board Member:**
+    -   *Needs:* Long-term maintenance plans, transparent pricing, vendor accountability.
+    -   *Pain Points:* Budget overruns, lack of vendor reliability.
+5. **The Homeowner that needs help with their house:**
+    -   *Needs:* Reliable handyman services for home repairs and maintenance.
+    -   *Pain Points:* Finding trustworthy service providers, inconsistent quality of work.
 
 ### 4. Product Principles
 -   **Fortune 500 Professionalism:** The site must exude stability and scale. No "mom & pop" aesthetics.

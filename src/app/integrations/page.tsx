@@ -5,6 +5,11 @@ import Link from "next/link";
 import { integrations } from "@/../content/integrations";
 import { Globe, Server, Database, Layers } from "lucide-react";
 
+export const metadata = {
+  title: "Ecosystem Connectivity",
+  description: "Seamlessly integrate KW Enterprise with Oracle Opera, Micros Simphony, SAP, and other hospitality infrastructure.",
+};
+
 export default function IntegrationsPage() {
   return (
     <div className="flex min-h-screen flex-col font-sans bg-background">
@@ -13,10 +18,10 @@ export default function IntegrationsPage() {
         <section className="py-20 bg-muted/20 border-b border-border/10">
             <div className="container-custom px-4 text-center max-w-4xl mx-auto">
                 <h1 className="text-4xl md:text-5xl font-extrabold font-serif mb-6 text-foreground">
-                    Seamless <span className="text-primary">Connectivity</span>
+                    Operational <span className="text-primary">Synergy</span>
                 </h1>
                 <p className="text-xl text-muted-foreground mb-8">
-                    KW Enterprise fits perfectly into your existing hospitality stack. We connect with your PMS, POS, and ERP to create a unified data ecosystem.
+                    KW Enterprise orchestrates your entire property ecosystem. We harmonize with your existing PMS, POS, and financial infrastructure to eliminate operational silos.
                 </p>
             </div>
         </section>

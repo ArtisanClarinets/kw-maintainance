@@ -172,7 +172,7 @@ function RequestDemoForm() {
                     className="flex items-center justify-center gap-2"
                 >
                     <Loader2 className="h-5 w-5 animate-spin" />
-                    <span>Processing Request...</span>
+                    <span>Processing Intake...</span>
                 </motion.div>
             ) : isSuccess ? (
                 <motion.div
@@ -183,7 +183,7 @@ function RequestDemoForm() {
                     className="flex items-center justify-center gap-2 text-green-100"
                 >
                     <CheckCircle2 className="h-5 w-5" />
-                    <span>Request Sent!</span>
+                    <span>Inquiry Received</span>
                 </motion.div>
             ) : (
                 <motion.span
@@ -192,7 +192,7 @@ function RequestDemoForm() {
                      animate={{ opacity: 1 }}
                      exit={{ opacity: 0 }}
                 >
-                    Schedule Demo
+                    Request Consultation
                 </motion.span>
             )}
         </AnimatePresence>
@@ -219,10 +219,10 @@ export default function RequestDemoPage() {
                 <div className="space-y-8">
                     <div>
                         <h1 className="text-4xl md:text-5xl font-extrabold font-serif mb-6 text-foreground tracking-tight">
-                            Experience the <span className="text-primary">Next Generation</span> of Hospitality Ops
+                            Request an <span className="text-primary">Operational Assessment</span>
                         </h1>
                         <p className="text-lg text-muted-foreground leading-relaxed">
-                            See how KW Enterprise transforms complex property operations into a streamlined, data-driven advantage.
+                            Partner with our operational architects to evaluate your portfolio&apos;s infrastructure needs and design a strategy for long-term asset stewardship.
                         </p>
                     </div>
 
@@ -232,8 +232,8 @@ export default function RequestDemoPage() {
                                 <span className="font-bold">1</span>
                             </div>
                             <div>
-                                <h3 className="text-lg font-bold mb-1">Tailored Walkthrough</h3>
-                                <p className="text-sm text-muted-foreground">We&apos;ll focus on the modules that matter most to your specific portfolio needs.</p>
+                                <h3 className="text-lg font-bold mb-1">Strategic Consultation</h3>
+                                <p className="text-sm text-muted-foreground">We focus on the operational ecosystems that drive your property&apos;s performance and guest satisfaction.</p>
                             </div>
                         </div>
                         <div className="flex gap-4">
@@ -241,8 +241,8 @@ export default function RequestDemoPage() {
                                 <span className="font-bold">2</span>
                             </div>
                             <div>
-                                <h3 className="text-lg font-bold mb-1">Technical Deep Dive</h3>
-                                <p className="text-sm text-muted-foreground">Review API capabilities, security architecture, and integration patterns with our engineers.</p>
+                                <h3 className="text-lg font-bold mb-1">Blueprint Architecture Review</h3>
+                                <p className="text-sm text-muted-foreground">Review system interoperability, resilience frameworks, and deployment strategies with our senior engineers.</p>
                             </div>
                         </div>
                         <div className="flex gap-4">
@@ -250,8 +250,8 @@ export default function RequestDemoPage() {
                                 <span className="font-bold">3</span>
                             </div>
                             <div>
-                                <h3 className="text-lg font-bold mb-1">ROI Analysis</h3>
-                                <p className="text-sm text-muted-foreground">Get a custom projection of efficiency gains and cost savings based on your data.</p>
+                                <h3 className="text-lg font-bold mb-1">Impact & Valuation Analysis</h3>
+                                <p className="text-sm text-muted-foreground">Receive a comprehensive projection of operational efficiency improvements and asset value preservation.</p>
                             </div>
                         </div>
                     </div>
@@ -263,7 +263,7 @@ export default function RequestDemoPage() {
                     <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
                     
                     <div className="relative z-10">
-                        <h2 className="text-2xl font-bold mb-6">Request a Demo</h2>
+                        <h2 className="text-2xl font-bold mb-6">Engagement Details</h2>
                         <RequestDemoForm />
                     </div>
                 </div>

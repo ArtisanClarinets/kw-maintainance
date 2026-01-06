@@ -4,6 +4,11 @@ import { Button } from "@/components/Button";
 import Link from "next/link";
 import { modules } from "@/../content/modules";
 
+export const metadata = {
+  title: "Operational Ecosystem",
+  description: "A unified command center for elite property management, asset stewardship, and infrastructure oversight.",
+};
+
 export default function PlatformPage() {
   return (
     <div className="flex min-h-screen flex-col font-sans bg-background">
@@ -12,14 +17,14 @@ export default function PlatformPage() {
         <section className="py-20 bg-muted/20 border-b border-border/10">
             <div className="container-custom px-4 text-center max-w-4xl mx-auto">
                 <h1 className="text-4xl md:text-5xl font-extrabold font-serif mb-6 text-foreground">
-                    One Platform. <span className="text-primary">Complete Control.</span>
+                    One Ecosystem. <span className="text-primary">Absolute Oversight.</span>
                 </h1>
                 <p className="text-xl text-muted-foreground mb-8">
-                    KW Enterprise unifies every aspect of property operations into a single, cohesive system. From the boiler room to the boardroom, we provide the visibility you need to excel.
+                    KW Enterprise unifies every dimension of property infrastructure into a single, high-fidelity command center. From mechanical plant rooms to luxury guest suites, we provide the clarity required for elite stewardship.
                 </p>
                 <div className="flex justify-center gap-4">
                     <Button asChild size="lg">
-                        <Link href="/request-demo">Request Demo</Link>
+                        <Link href="/request-demo">Request Consultation</Link>
                     </Button>
                 </div>
             </div>

@@ -31,31 +31,31 @@ export function Footer() {
 
           {/* Services Column */}
           <div className="space-y-6">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Platform Modules</h4>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Strategic Systems</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><Link href="/modules/work-orders" className="hover:text-primary transition-colors">Work Orders</Link></li>
-              <li><Link href="/modules/dispatch" className="hover:text-primary transition-colors">Smart Dispatch</Link></li>
-              <li><Link href="/modules/assets" className="hover:text-primary transition-colors">Asset Lifecycle</Link></li>
-              <li><Link href="/modules/inventory" className="hover:text-primary transition-colors">Inventory</Link></li>
-              <li><Link href="/modules/iot-predictive" className="hover:text-primary transition-colors">IoT & Predictive</Link></li>
+              <li><Link href="/modules/work-orders" className="hover:text-primary transition-colors">Work Orchestration</Link></li>
+              <li><Link href="/modules/dispatch" className="hover:text-primary transition-colors">Smart Deployment</Link></li>
+              <li><Link href="/modules/assets" className="hover:text-primary transition-colors">Asset Stewardship</Link></li>
+              <li><Link href="/modules/inventory" className="hover:text-primary transition-colors">Logistics Hub</Link></li>
+              <li><Link href="/modules/iot-predictive" className="hover:text-primary transition-colors">Infrastructure Intelligence</Link></li>
             </ul>
           </div>
 
            {/* Service Areas Column */}
            <div className="space-y-6">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Company</h4>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Governance</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><Link href="/platform" className="hover:text-primary transition-colors">Platform Overview</Link></li>
-              <li><Link href="/integrations" className="hover:text-primary transition-colors">Integrations</Link></li>
-              <li><Link href="/whitepaper" className="hover:text-primary transition-colors">Technical Whitepaper</Link></li>
-              <li><Link href="/security-compliance" className="hover:text-primary transition-colors">Security & Compliance</Link></li>
-              <li><Link href="/login" className="hover:text-primary transition-colors">Customer Login</Link></li>
+              <li><Link href="/platform" className="hover:text-primary transition-colors">Operational Brief</Link></li>
+              <li><Link href="/integrations" className="hover:text-primary transition-colors">Ecosystem Connectivity</Link></li>
+              <li><Link href="/whitepaper" className="hover:text-primary transition-colors">Strategic Blueprint</Link></li>
+              <li><Link href="/security-compliance" className="hover:text-primary transition-colors">Resilience & Accountability</Link></li>
+              <li><Link href="/login" className="hover:text-primary transition-colors">Institutional Login</Link></li>
             </ul>
           </div>
 
           {/* Contact Column */}
           <div className="space-y-6">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Enterprise Sales</h4>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Strategic Engagement</h4>
             <ul className="space-y-4 text-sm text-muted-foreground">
               <li className="flex items-start gap-3">
                 <Phone size={18} className="text-primary mt-0.5 shrink-0" />
@@ -72,7 +72,7 @@ export function Footer() {
             </ul>
             <div className="pt-2">
                  <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                    <Link href="/request-demo">Request Demo</Link>
+                    <Link href="/request-demo">Request Consultation</Link>
                  </Button>
             </div>
           </div>

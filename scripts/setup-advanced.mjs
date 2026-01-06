@@ -8,7 +8,6 @@
 */
 
 import fs from 'fs/promises';
-import fsSync from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import { spawnSync } from 'child_process';
@@ -97,20 +96,6 @@ function validateMasterKey(keyBase64) {
     const buf = Buffer.from(keyBase64, 'base64');
     return buf.length === 32;
   } catch { return false; }
-}
-
-function encryptWithKey(masterKeyBase64, text) {
-  const key = Buffer.from(masterKeyBase64, 'base64');
-  if (key.length !== 32) throw new Error('Invalid master key length');
-  const iv = crypto.randomBytes(16);
-  const cipher = crypto.createCipheriv('aes-256-gcm', key, iv);
-  const enc = Buffer.concat([cipher.update(Buffer.from(text, 'utf8')), cipher.final()]);
-  const tag = cipher.getAuthTag();
-  return `${iv.toString('hex')}:${tag.toString('hex')}:${enc.toString('hex')}`;
-}
-
-function isEncrypted(text) {
-  return /^[0-9a-f]{32}:[0-9a-f]{32}:[0-9a-f]+$/i.test(text);
 }
 
 function hashPassword(password) {

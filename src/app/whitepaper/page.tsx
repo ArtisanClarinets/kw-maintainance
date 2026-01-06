@@ -5,8 +5,8 @@ import Link from "next/link";
 import { ArrowLeft, BookOpen, Zap, BarChart, Server } from "lucide-react";
 
 export const metadata = {
-  title: "Platform Specification | KW Enterprise",
-  description: "Technical architecture and strategic vision for the Next-Generation Enterprise Hospitality Maintenance Platform.",
+  title: "Operational Blueprint | KW Enterprise",
+  description: "Strategic framework and vision for elite hospitality maintenance and infrastructure management.",
 };
 
 export default function WhitepaperPage() {
@@ -25,10 +25,10 @@ export default function WhitepaperPage() {
                     <BookOpen className="h-8 w-8" />
                 </div>
                 <h1 className="text-4xl md:text-5xl font-extrabold font-serif tracking-tight mb-6 text-foreground">
-                    The Future of Hospitality Operations
+                    The Modern Hospitality Operations Blueprint
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                    Technical Specification & Strategic Vision for the Modern Enterprise.
+                    Strategic Framework for Institutional Performance & Asset Stewardship.
                 </p>
             </div>
         </section>
@@ -44,106 +44,105 @@ export default function WhitepaperPage() {
                         Executive Summary
                     </h2>
                     <p className="text-muted-foreground leading-relaxed">
-                        The hospitality industry has long struggled with fragmented maintenance operations, relying on disparate systems for work orders, asset management, and guest services. 
-                        This fragmentation leads to operational inefficiencies, uncaptured warranty claims, and suboptimal guest experiences.
+                        The hospitality sector faces a critical gap in infrastructure management. Fragmented protocols for work orders, asset life cycles, and guest services lead to uncaptured warranty equity and diminished guest satisfaction scores.
                     </p>
                     <p className="text-muted-foreground leading-relaxed mt-4">
-                        <strong>KW Enterprise</strong> introduces a unified &quot;Next-Generation Enterprise Hospitality Maintenance Platform&quot; designed to orchestrate operations across entire portfolios with military-grade precision.
+                        <strong>KW Enterprise</strong> delivers a unified operational ecosystem designed to orchestrate property management across entire global portfolios with absolute precision.
                     </p>
                 </div>
 
-                {/* Core Architecture */}
+                {/* Engineering Excellence */}
                 <div>
                     <h2 className="text-3xl font-bold font-serif mb-6 flex items-center gap-3">
                         <Server className="h-6 w-6 text-primary" />
-                        Core Architecture
+                        Infrastructure Excellence
                     </h2>
                     <p className="text-muted-foreground mb-6">
-                        Built on a modern, cloud-native stack, the platform ensures scalability, security, and performance for Fortune 500 enterprises.
+                        Our underlying architecture is engineered for 24/7 reliability, providing a resilient infrastructure for decision-makers and stewards of elite property.
                     </p>
                     <div className="grid md:grid-cols-2 gap-6">
                         <div className="bg-muted/20 p-6 rounded-xl border border-border/30">
-                            <h3 className="font-bold text-foreground mb-2">Frontend</h3>
-                            <p className="text-sm text-muted-foreground">Next.js App Router for high-performance, server-rendered views with dynamic hydration.</p>
+                            <h3 className="font-bold text-foreground mb-2">Interface Precision</h3>
+                            <p className="text-sm text-muted-foreground">High-fidelity, server-optimized views for instantaneous data retrieval and operational oversight.</p>
                         </div>
                         <div className="bg-muted/20 p-6 rounded-xl border border-border/30">
-                            <h3 className="font-bold text-foreground mb-2">Styling</h3>
-                            <p className="text-sm text-muted-foreground">Tailwind CSS implementation of a &quot;Dark Ops&quot; aesthetic for low-light control room environments.</p>
+                            <h3 className="font-bold text-foreground mb-2">Ergonomic Design</h3>
+                            <p className="text-sm text-muted-foreground">Low-fatigue visual aesthetics optimized for professional command centes and low-light control environments.</p>
                         </div>
                         <div className="bg-muted/20 p-6 rounded-xl border border-border/30">
-                            <h3 className="font-bold text-foreground mb-2">Type Safety</h3>
-                            <p className="text-sm text-muted-foreground">Strict TypeScript with Zod schema validation for all domain models and API inputs.</p>
+                            <h3 className="font-bold text-foreground mb-2">Model Validation</h3>
+                            <p className="text-sm text-muted-foreground">Rigorous schema enforcement for all domain models, ensuring data integrity across every property node.</p>
                         </div>
                         <div className="bg-muted/20 p-6 rounded-xl border border-border/30">
-                            <h3 className="font-bold text-foreground mb-2">Security</h3>
-                            <p className="text-sm text-muted-foreground">SOC2-aligned RBAC, signed JWT authentication, and immutable audit logging.</p>
+                            <h3 className="font-bold text-foreground mb-2">Institutional Security</h3>
+                            <p className="text-sm text-muted-foreground">Hierarchical access control, cryptographic verification, and immutable operational ledgering.</p>
                         </div>
                     </div>
                 </div>
 
-                {/* Module Specifications */}
+                {/* Operational Capabilities */}
                 <div>
                     <h2 className="text-3xl font-bold font-serif mb-8 flex items-center gap-3">
                         <BarChart className="h-6 w-6 text-primary" />
-                        Module Specifications
+                        Operational Capabilities
                     </h2>
                     
                     <div className="space-y-12">
                         <div className="border-l-2 border-primary pl-6">
-                            <h3 className="text-2xl font-bold mb-3">1. Intelligent Work Orders</h3>
+                            <h3 className="text-2xl font-bold mb-3">1. Precision Work Orchestration</h3>
                             <p className="text-muted-foreground mb-4">
-                                Moving beyond simple ticketing, the Work Order engine implements a strict state machine to enforce Standard Operating Procedures (SOPs).
+                                Our orchestration engine implements a strict operational state machine, enforcing adherence to elite brand standards and safety protocols.
                             </p>
                             <ul className="space-y-2 text-sm text-muted-foreground">
-                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>State Machine:</strong> Enforces transitions (e.g., QC Pending &rarr; Financial Close).</li>
-                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Deduplication:</strong> Algorithmic detection of duplicate requests within time windows.</li>
-                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Evidence Locker:</strong> Mandatory photo/video proof for completion verification.</li>
+                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Standardized Transitions:</strong> Enforces mandatory quality control before financial closure.</li>
+                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Intelligent Deduplication:</strong> Analytical detection of parallel requests to optimize resource deployment.</li>
+                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Evidence Custody:</strong> Verification protocols requiring visual confirmation of service excellence.</li>
                             </ul>
                         </div>
 
                         <div className="border-l-2 border-primary pl-6">
-                            <h3 className="text-2xl font-bold mb-3">2. Algorithmic Dispatch</h3>
+                            <h3 className="text-2xl font-bold mb-3">2. Smart Resource Deployment</h3>
                             <p className="text-muted-foreground mb-4">
-                                The platform replaces manual assignment with constraint-based optimization.
+                                Replaces manual assignment with constraint-driven optimization of professional labor.
                             </p>
                             <ul className="space-y-2 text-sm text-muted-foreground">
-                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Hard Constraints:</strong> Technician certification and skill tags.</li>
-                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Soft Constraints:</strong> Proximity, SLA pressure, and workload balancing.</li>
-                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Simulation:</strong> &quot;Mass Reshuffle&quot; capabilities for emergency response scenarios.</li>
+                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Skill-Based Routing:</strong> Matching technician certifications with specific asset requirements.</li>
+                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Wait-Time Mitigation:</strong> Dynamic prioritizing based on Service Level Agreements (SLAs).</li>
+                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Incident Simulation:</strong> Rapid redistribution capabilities for emergency property response.</li>
                             </ul>
                         </div>
 
                         <div className="border-l-2 border-primary pl-6">
-                            <h3 className="text-2xl font-bold mb-3">3. Asset Lifecycle & TCO</h3>
+                            <h3 className="text-2xl font-bold mb-3">3. Asset Stewardship & TCO Modeling</h3>
                             <p className="text-muted-foreground mb-4">
-                                A hierarchical registry providing deep visibility into capital equipment health.
+                                A hierarchical framework for deep visibility into the long-term health of capital equipment.
                             </p>
                             <ul className="space-y-2 text-sm text-muted-foreground">
-                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Hierarchy:</strong> Region &rarr; Property &rarr; Building &rarr; System &rarr; Asset &rarr; Component.</li>
-                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>TCO Analysis:</strong> Real-time tracking of Total Cost of Ownership vs. Replacement Value.</li>
-                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Bad Actor Detection:</strong> Automated flagging of assets exceeding maintenance spend thresholds.</li>
+                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Portfolio Hierarchy:</strong> From regional oversight down to individual component health.</li>
+                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Value Optimization:</strong> Real-time Total Cost of Ownership analysis to inform replacement cycles.</li>
+                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Liability Detection:</strong> Automated identification of assets that fall below performance thresholds.</li>
                             </ul>
                         </div>
 
                         <div className="border-l-2 border-primary pl-6">
-                            <h3 className="text-2xl font-bold mb-3">4. Multi-Echelon Inventory</h3>
+                            <h3 className="text-2xl font-bold mb-3">4. Multi-Node Inventory Logistics</h3>
                             <p className="text-muted-foreground mb-4">
-                                Supply chain management tailored for distributed hospitality operations.
+                                Supply chain precision tailored for distributed hospitality environments.
                             </p>
                             <ul className="space-y-2 text-sm text-muted-foreground">
-                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Locations:</strong> Central warehouses, satellite closets, and mobile truck stock.</li>
-                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Replenishment:</strong> Min/max triggers and automated purchase request generation.</li>
+                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Strategic Staging:</strong> Centralized hubs, property closets, and mobile service stock.</li>
+                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Dynamic Replenishment:</strong> Threshold-based triggers to ensure mission-critical parts availability.</li>
                             </ul>
                         </div>
 
                          <div className="border-l-2 border-primary pl-6">
-                            <h3 className="text-2xl font-bold mb-3">5. IoT & Predictive Maintenance</h3>
+                            <h3 className="text-2xl font-bold mb-3">5. Predictive Infrastructure Monitoring</h3>
                             <p className="text-muted-foreground mb-4">
-                                Bridging the gap between physical systems and digital workflows.
+                                Integrating physical systems with intelligent digital workflows.
                             </p>
                             <ul className="space-y-2 text-sm text-muted-foreground">
-                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Telemetry Ingestion:</strong> Support for BACnet, Modbus, and MQTT streams.</li>
-                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Edge Rules:</strong> Local computation to filter noise and trigger alerts.</li>
+                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Telemetry Ingestion:</strong> Comprehensive support for institutional building automation protocols.</li>
+                                <li className="flex gap-2"><span className="text-primary font-bold">•</span> <strong>Pre-emptive Action:</strong> Predictive modeling to trigger interventions before guest experience is impacted.</li>
                             </ul>
                         </div>
                     </div>
@@ -151,9 +150,9 @@ export default function WhitepaperPage() {
 
                 {/* CTA */}
                 <div className="bg-primary/5 rounded-2xl p-12 text-center border border-primary/10 mt-16">
-                    <h2 className="text-3xl font-bold font-serif mb-4">Ready to Transform Your Operations?</h2>
+                    <h2 className="text-3xl font-bold font-serif mb-4">Advance Your Operational Maturity</h2>
                     <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                        Experience the power of KW Enterprise firsthand. Schedule a personalized demonstration with our solution architects.
+                        Consult with our operational architects to design a maintenance ecosystem tailored to your portfolio&apos;s unique demands.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button size="lg" asChild>

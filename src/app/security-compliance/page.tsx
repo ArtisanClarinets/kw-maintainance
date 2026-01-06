@@ -4,6 +4,11 @@ import { Button } from "@/components/Button";
 import Link from "next/link";
 import { Shield, Lock, FileCheck, Eye, ShieldCheck } from "lucide-react";
 
+export const metadata = {
+  title: "Resilience & Accountability",
+  description: "Institutional-grade security and accountability frameworks for hospitality operations and guest privacy.",
+};
+
 export default function SecurityCompliancePage() {
   return (
     <div className="flex min-h-screen flex-col font-sans bg-background">
@@ -15,10 +20,10 @@ export default function SecurityCompliancePage() {
                     <Shield className="h-8 w-8" />
                 </div>
                 <h1 className="text-4xl md:text-5xl font-extrabold font-serif mb-6 text-foreground">
-                    Enterprise-Grade <span className="text-primary">Security</span>
+                    Operational <span className="text-primary">Resilience</span>
                 </h1>
                 <p className="text-xl text-muted-foreground mb-8">
-                    Your data is your most valuable asset. We protect it with banking-grade encryption, strict access controls, and comprehensive audit logging.
+                    Hospitality trust is built on reliability. We protect your property operations and guest privacy with relentless security and comprehensive accountability.
                 </p>
             </div>
         </section>
@@ -29,27 +34,27 @@ export default function SecurityCompliancePage() {
                     <div className="mx-auto h-12 w-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-6">
                         <Lock className="h-6 w-6" />
                     </div>
-                    <h3 className="text-xl font-bold mb-3">SOC 2 Type II</h3>
+                    <h3 className="text-xl font-bold mb-3">Institutional Integrity</h3>
                     <p className="text-muted-foreground text-sm">
-                        Independently audited controls for security, availability, and confidentiality. We maintain strict compliance standards year-round.
+                        Independently audited controls ensuring your operational data remains secure, available, and confidential across your entire portfolio.
                     </p>
                 </div>
                 <div className="bg-card border border-border/40 p-8 rounded-2xl text-center">
                     <div className="mx-auto h-12 w-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-6">
                         <FileCheck className="h-6 w-6" />
                     </div>
-                    <h3 className="text-xl font-bold mb-3">GDPR & CCPA</h3>
+                    <h3 className="text-xl font-bold mb-3">Global Privacy Standards</h3>
                     <p className="text-muted-foreground text-sm">
-                        Built-in tools for PII management, data retention policies, and &quot;right to be forgotten&quot; requests.
+                        Built-in compliance for guest data protection, adhering to stringent international privacy regulations and data sovereignty rules.
                     </p>
                 </div>
                 <div className="bg-card border border-border/40 p-8 rounded-2xl text-center">
                     <div className="mx-auto h-12 w-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-6">
                         <Eye className="h-6 w-6" />
                     </div>
-                    <h3 className="text-xl font-bold mb-3">Audit Trails</h3>
+                    <h3 className="text-xl font-bold mb-3">Absolute Accountability</h3>
                     <p className="text-muted-foreground text-sm">
-                        Every action in the system is logged to an immutable append-only ledger. Know exactly who did what, and when.
+                        Comprehensive evidence logging for every operational action. Maintain a clear, immutable record of service delivery and asset management.
                     </p>
                 </div>
             </div>
@@ -57,21 +62,21 @@ export default function SecurityCompliancePage() {
             <div className="max-w-4xl mx-auto prose prose-invert">
                 <h2 className="text-3xl font-bold font-serif mb-6 flex items-center gap-3">
                     <ShieldCheck className="h-6 w-6 text-primary" />
-                    Our &quot;Zero-Trust&quot; Philosophy
+                    Our &quot;Continuous Trust&quot; Framework
                 </h2>
                 <p>
-                    KW Enterprise is hosted on a secure, multi-tenant cloud infrastructure designed for high availability and disaster recovery.
+                    KW Enterprise utilizes a hardened, multi-layered infrastructure designed to support the 24/7/365 demands of the hospitality industry.
                 </p>
                 <ul>
-                    <li><strong>Encryption:</strong> AES-256 encryption at rest and TLS 1.3 in transit.</li>
-                    <li><strong>Authentication:</strong> Support for SAML 2.0 / SSO (Okta, Azure AD) and MFA.</li>
-                    <li><strong>RBAC:</strong> Granular role-based access control down to the field level.</li>
-                    <li><strong>Network Security:</strong> WAF protection, DDoS mitigation, and private VPC peering.</li>
+                    <li><strong>Data Fortification:</strong> Advanced multi-layer encryption at rest and in transit.</li>
+                    <li><strong>Access Stewardship:</strong> Single Sign-On (SSO) and Multi-Factor Authentication (MFA) to ensure only authorized personnel access property systems.</li>
+                    <li><strong>Precision Permissions:</strong> Role-based access control tailored to hospitality hierarchies, from General Managers to on-site technicians.</li>
+                    <li><strong>Network Defense:</strong> Hardened perimeters, proactive threat mitigation, and isolated environment architectures.</li>
                 </ul>
 
-                <h2>Compliance Documentation</h2>
+                <h2>Strategic Compliance Documentation</h2>
                 <p>
-                    Our full security package is available to enterprise customers under NDA.
+                    Our complete operational safety and security framework is available for review by qualified stakeholders.
                 </p>
                 <div className="not-prose mt-8">
                     <Button asChild>

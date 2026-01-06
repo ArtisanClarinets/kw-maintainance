@@ -65,29 +65,29 @@ export function Hero() {
             {/* Next Slot Badge */}
             <motion.div variants={itemVariants}>
               <p className="text-sm text-muted-foreground mt-2">
-                Next live demo slot: <span className="text-primary font-mono font-bold">{nextSlot || 'Calculating...'}</span> — Don&apos;t miss the bus.
+                Next consultation session: <span className="text-primary font-mono font-bold">{nextSlot || 'Calculating...'}</span> — Secure your position.
               </p>
             </motion.div>
 
             <motion.h1 variants={itemVariants} className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.1]">
-              Next-Gen Hospitality <br className="hidden md:block" />
-              <span className="text-primary">Maintenance Platform</span>
+              Hospitality Operations <br className="hidden md:block" />
+              <span className="text-primary">Command Centre</span>
             </motion.h1>
 
             <motion.p variants={itemVariants} className="text-xl text-muted-foreground max-w-xl leading-relaxed">
-              Orchestrate work orders, optimize dispatch, and master asset lifecycle with the world&apos;s most advanced operations console.
+              Orchestrate work protocols, optimize resource deployment, and master asset stewardship with the industry&apos;s most advanced management suite.
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mt-2">
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <Button size="lg" className="w-full sm:w-auto text-base bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg shadow-accent/20" asChild>
-                    <Link href="/request-demo">Request Demo</Link>
+                    <Link href="/request-demo">Request Consultation</Link>
                   </Button>
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <Button size="lg" variant="outline" className="w-full sm:w-auto text-base border-primary/20 hover:bg-primary/5" asChild>
-                    <Link href="/whitepaper">Read Whitepaper</Link>
+                    <Link href="/whitepaper">Strategic Blueprint</Link>
                   </Button>
               </motion.div>
             </motion.div>

@@ -15,20 +15,46 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: siteConfig.name,
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
   description: siteConfig.description,
+  keywords: ["hospitality maintenance", "hotel operations", "resort maintenance", "facility management", "PMS integration", "preventative maintenance", "hospitality ecosystem"],
+  authors: [{ name: "KW Enterprise Operations" }],
+  creator: "KW Enterprise",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://kwhospitality.com", // Placeholder URL
+    url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
+    images: [
+      {
+        url: `${siteConfig.url}/og.jpg`,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
+    images: [`${siteConfig.url}/og.jpg`],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
@@ -39,39 +65,45 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
-    "name": siteConfig.name,
-    "image": "https://kwhospitality.com/og-image.jpg", // Placeholder
-    "@id": "https://kwhospitality.com",
-    "url": "https://kwhospitality.com",
-    "telephone": siteConfig.phone,
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Fort Walton Beach",
-      "addressLocality": "Fort Walton Beach",
-      "addressRegion": "FL",
-      "postalCode": "32547",
-      "addressCountry": "US"
+    "@type": "Service",
+    "serviceType": "Hospitality Maintenance Operations",
+    "provider": {
+      "@type": "Organization",
+      "name": siteConfig.name,
+      "url": siteConfig.url,
+      "logo": `${siteConfig.url}/logo.png`,
+      "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": siteConfig.phone,
+          "contactType": "Strategic Engagement",
+          "email": siteConfig.email
+      }
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 30.4397,
-      "longitude": -86.6143
+    "description": siteConfig.description,
+    "areaServed": {
+      "@type": "State",
+      "name": "Florida"
     },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-      ],
-      "opens": "08:00",
-      "closes": "18:00"
-    },
-    "priceRange": "$$"
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Hospitality Infrastructure Maintenance",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Strategic Work Orchestration"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Asset Stewardship & TCO"
+          }
+        }
+      ]
+    }
   };
 
   return (

@@ -14,12 +14,12 @@ export default async function SettingsPage() {
   return (
     <div className="space-y-8">
        <div>
-         <h2 className="text-2xl font-bold text-white">Global Settings</h2>
-         <p className="text-slate-400">Configure scheduling rules and platform defaults.</p>
+         <h2 className="text-2xl font-bold text-white">Operational Architecture</h2>
+         <p className="text-slate-400">Configure institutional deployment protocols and core ecosystem defaults.</p>
        </div>
 
        <div className="bg-slate-800 p-6 rounded border border-slate-700">
-           <h3 className="text-lg font-bold text-white mb-4">Scheduling Rules</h3>
+           <h3 className="text-lg font-bold text-white mb-4">Deployment Protocols</h3>
            <form action={async (formData) => {
                'use server';
                const lead = parseInt(formData.get('minimumLeadTimeMinutes') as string);
@@ -36,15 +36,15 @@ export default async function SettingsPage() {
                
                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                    <div>
-                       <label className="block text-xs text-slate-400 mb-1">Min Lead Time (Minutes)</label>
+                       <label className="block text-xs text-slate-400 mb-1">Engagement Latency Threshold (Min)</label>
                        <input name="minimumLeadTimeMinutes" type="number" defaultValue={rules.minimumLeadTimeMinutes} className="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-white" />
                    </div>
                    <div>
-                       <label className="block text-xs text-slate-400 mb-1">Min Gap (Minutes)</label>
+                       <label className="block text-xs text-slate-400 mb-1">Succession Buffer (Min)</label>
                        <input name="minimumGapMinutes" type="number" defaultValue={rules.minimumGapMinutes} className="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-white" />
                    </div>
                    <div>
-                       <label className="block text-xs text-slate-400 mb-1">Default Duration (Minutes)</label>
+                       <label className="block text-xs text-slate-400 mb-1">Standard Iteration Window (Min)</label>
                        <input name="defaultDurationMinutes" type="number" defaultValue={rules.defaultDurationMinutes} className="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-white" />
                    </div>
                </div>

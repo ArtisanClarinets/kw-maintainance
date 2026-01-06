@@ -9,20 +9,20 @@ import { toast } from 'sonner';
 
 export default function IntegrationsPage() {
   const handleToggle = (name: string) => {
-      toast.success(`${name} integration updated`);
+      toast.success(`${name} ecosystem bridge updated`);
   };
 
   return (
     <div className="p-8 max-w-7xl mx-auto space-y-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Integrations</h1>
-        <p className="text-muted-foreground">Manage external connectors and data synchronization.</p>
+        <h1 className="text-3xl font-bold tracking-tight text-white">Ecosystem Connectivity</h1>
+        <p className="text-muted-foreground italic">Orchestrate institutional data bridges and cross-platform synchronization protocols.</p>
       </div>
 
       <div className="grid grid-cols-1 gap-6">
         <IntegrationCard 
-            title="Oracle Opera PMS" 
-            description="Two-way sync for room status, guest profiles, and work order blocking."
+            title="Institutional PMS (Opera)" 
+            description="High-fidelity two-way synchronization for room status, guest profiles, and work order logic."
             icon={<Server className="h-6 w-6" />}
             connected={true}
             onToggle={() => handleToggle("Opera PMS")}

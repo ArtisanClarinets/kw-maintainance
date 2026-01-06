@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "KW Enterprise",
-  description: "Next-Generation Enterprise Hospitality Maintenance Platform",
+  description: "Elite Enterprise Hospitality Maintenance & Infrastructure Management",
   url: "https://kw-enterprise.com",
   ogImage: "https://kw-enterprise.com/og.jpg",
   links: {
@@ -15,7 +15,8 @@ export const siteConfig = {
   },
   phone: "+1 (850) 555-0123", // Placeholder
   email: "contact@kw-enterprise.com",
-  address: "Fort Walton Beach, FL", // Placeholder
+  contactPerson: "Operations Coordinator",
+  address: "Fort Walton Beach, FL",
   mainNav: [
     {
       title: "Platform",

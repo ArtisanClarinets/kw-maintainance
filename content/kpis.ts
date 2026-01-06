@@ -1,22 +1,22 @@
 export const kpis = [
     {
         metric: "20%",
-        label: "Reduction in Maintenance Spend",
-        description: "Through predictive asset care and warranty capture."
+        label: "OpEx Reduction",
+        description: "Achieved through high-fidelity asset stewardship and warranty equity capture."
     },
     {
         metric: "30%",
-        label: "Increase in Asset Lifespan",
-        description: "By shifting from reactive to preventative maintenance models."
+        label: "Asset Life Extension",
+        description: "Optimized by transitioning from reactive cycles to preventative maintenance models."
     },
     {
         metric: "15%",
-        label: "Boost in Engineering Productivity",
-        description: "Eliminating travel time and paperwork with algorithmic dispatch."
+        label: "Deployment Efficiency",
+        description: "Gained via orchestrating resource deployment and digitized execution protocols."
     },
     {
         metric: "100%",
-        label: "Audit Readiness",
-        description: "Instant access to digital records for safety and brand standards."
+        label: "Institutional Compliance",
+        description: "Universal audit readiness with real-time traceability for brand standards."
     }
 ];

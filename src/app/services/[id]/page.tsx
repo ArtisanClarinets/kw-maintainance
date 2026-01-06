@@ -12,14 +12,14 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-    return serviceDetails.map((service) => ({
+    return Object.values(serviceDetails).map((service) => ({
         id: service.id,
     }));
 }
 
 export default async function ServiceDetailPage({ params }: PageProps) {
   const { id } = await params;
-  const service = serviceDetails.find((s) => s.id === id);
+  const service = serviceDetails[id as keyof typeof serviceDetails];
 
   if (!service) {
     notFound();
@@ -59,10 +59,10 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 <section>
                     <h2 className="text-2xl font-bold font-serif mb-6">What We Do</h2>
                     <ul className="grid sm:grid-cols-2 gap-4">
-                        {service.benefits.map((benefit, idx) => (
+                        {service.included.map((item, idx) => (
                             <li key={idx} className="flex items-start gap-3 p-4 rounded-lg bg-card border border-border/50">
                                 <CheckCircle className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                                <span className="text-foreground/90">{benefit}</span>
+                                <span className="text-foreground/90">{item}</span>
                             </li>
                         ))}
                     </ul>
@@ -72,25 +72,19 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 <section>
                     <h2 className="text-2xl font-bold font-serif mb-8">What to Expect</h2>
                     <div className="space-y-8 relative before:absolute before:left-[19px] before:top-2 before:bottom-2 before:w-0.5 before:bg-border/50">
-                        {service.process.map((step, idx) => (
+                        {service.processSteps.map((step, idx) => (
                             <div key={idx} className="relative flex gap-6">
                                 <div className="h-10 w-10 rounded-full bg-background border-2 border-primary flex items-center justify-center font-bold text-primary shrink-0 z-10">
                                     {idx + 1}
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-lg mb-1">{step.title}</h3>
-                                    <p className="text-muted-foreground">{step.description}</p>
+                                    <p className="text-muted-foreground">{step.body}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </section>
-
-                {service.note && (
-                    <div className="p-6 bg-accent/10 border border-accent/20 rounded-lg text-accent-foreground/80">
-                        <strong>Note:</strong> {service.note}
-                    </div>
-                )}
             </div>
 
             {/* Sidebar CTA */}

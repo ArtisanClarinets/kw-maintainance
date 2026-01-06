@@ -35,3 +35,8 @@
 [2026-01-06T04:12:49.583Z] [INFO] Demo DB exists; no admin changes requested
 [2026-01-06T04:12:49.612Z] [INFO] Server configuration validated successfully
 [2026-01-06T04:12:49.612Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).
+[2026-01-06T04:26:08.557Z] [INFO] Starting setup (env=development, dryRun=false)
+[2026-01-06T04:26:08.561Z] [INFO] Existing server-config.json found and admin already enabled
+[2026-01-06T04:26:08.883Z] [INFO] Demo DB exists; no admin changes requested
+[2026-01-06T04:26:08.913Z] [INFO] Server configuration validated successfully
+[2026-01-06T04:26:08.913Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).

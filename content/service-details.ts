@@ -3,6 +3,7 @@ import { z } from "zod";
 
 export const ServiceDetailSchema = z.object({
   id: z.string(),
+  title: z.string(),
   longDescription: z.string(),
   included: z.array(z.string()),
   processSteps: z.array(
@@ -25,6 +26,7 @@ export type ServiceDetail = z.infer<typeof ServiceDetailSchema>;
 export const serviceDetails: Record<string, ServiceDetail> = {
   "preventative-maintenance": {
     id: "preventative-maintenance",
+    title: "PREVENTATIVE MAINTENANCE",
     longDescription:
       "In the hospitality industry, downtime translates directly to lost revenue. Our Preventative Maintenance (PM) program is designed to keep your hotel or resort operating at peak efficiency. By addressing wear and tear before it becomes a failure, we extend the lifespan of your critical assets—from HVAC systems to in-room fixtures. We offer tiered contracts (Bronze, Silver, Gold) tailored to your property's specific needs, ensuring budget predictability and compliance with safety standards.",
     included: [
@@ -60,6 +62,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
   },
   "turnover-services": {
     id: "turnover-services",
+    title: "HOSPITALITY TURNOVER",
     longDescription:
       "The window between a guest checking out and the next checking in is critical. Our Hospitality Turnover Services ensure your rooms are perfect every time. We work seamlessly with your housekeeping staff to handle the repairs they can't: paint scuffs, broken drawer glides, loose fixtures, and damaged drywall. We understand the urgency of the 11 AM to 3 PM window and provide rapid response teams to protect your guest satisfaction scores.",
     included: [
@@ -95,6 +98,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
   },
   "facility-audits": {
     id: "facility-audits",
+    title: "FACILITY AUDITS",
     longDescription:
       "Knowledge is power when managing large properties. Our Facility Audits provide a deep dive into the condition of your physical plant. Whether for due diligence before an acquisition, annual budget planning (CapEx), or safety compliance, our detailed reports give you the data you need. We inspect structural elements, mechanical systems, and aesthetic conditions, prioritizing issues by urgency and estimated cost.",
     included: [
@@ -130,6 +134,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
   },
   handyman: {
     id: "handyman",
+    title: "GENERAL MAINTENANCE",
     longDescription:
       "Even well-managed properties face unexpected issues. Our General Maintenance service provides a reliable, professional solution for the day-to-day repairs that keep a business running. From a stuck door to a damaged sign, we handle it with the same level of professionalism as major projects. We act as an extension of your engineering team or as your primary maintenance partner.",
     included: [
@@ -165,6 +170,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
   },
   installations: {
     id: "installations",
+    title: "COMMERCIAL INSTALLATIONS",
     longDescription:
       "Upgrading your property often involves complex installations. Whether you are rolling out new smart TVs across 100 rooms or updating lobby lighting, our Commercial Installation team ensures it's done right. We specialize in FF&E (Furniture, Fixtures, and Equipment) installation, handling logistics, assembly, and mounting with precision. We ensure all installations meet safety codes and manufacturer specifications.",
     included: [
@@ -200,6 +206,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
   },
   painting: {
     id: "painting",
+    title: "COMMERCIAL PAINTING",
     longDescription:
       "First impressions matter. Peeling paint or faded exteriors can degrade your property's perceived value. Our Commercial Painting services are tailored for high-traffic environments. We use durable, low-VOC coatings that dry quickly to minimize downtime. From refreshing miles of corridor walls to complete exterior repaints, we deliver a flawless finish that aligns with your brand standards.",
     included: [

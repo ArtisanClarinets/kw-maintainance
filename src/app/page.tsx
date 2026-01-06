@@ -33,17 +33,17 @@ export default function Home() {
             </div>
         </section>
 
-        {/* Platform Modules Teaser */}
+        {/* Strategic Systems Teaser */}
         <section id="modules" className="py-20 md:py-32 container-custom px-4">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
              <div>
-                <h2 className="text-3xl md:text-4xl font-extrabold font-serif mb-4 text-foreground">Platform Modules</h2>
+                <h2 className="text-3xl md:text-4xl font-extrabold font-serif mb-4 text-foreground">Strategic Systems</h2>
                 <p className="text-lg text-muted-foreground max-w-xl">
-                  A comprehensive suite of tools designed for the modern hospitality enterprise.
+                  A comprehensive ecosystem designed for the elite hospitality institution.
                 </p>
              </div>
              <Link href="/platform" className="flex items-center font-semibold text-primary hover:text-primary/80 transition-colors group">
-                View Platform Overview
+                View Operational Brief
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
              </Link>
           </div>

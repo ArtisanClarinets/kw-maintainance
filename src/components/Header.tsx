@@ -78,7 +78,7 @@ export function Header() {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-4">
           <Button asChild size="sm">
-            <Link href="/request-demo">Request Demo</Link>
+            <Link href="/request-demo">Request Consultation</Link>
           </Button>
         </div>
 

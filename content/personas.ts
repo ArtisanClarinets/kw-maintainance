@@ -13,38 +13,38 @@ export const personas: Persona[] = [
     {
         id: "vp-ops",
         title: "The VP of Operations",
-        role: "Strategic Decision Maker",
+        role: "Strategic Architect",
         icon: Briefcase,
         painPoints: [
-            "Lack of visibility into portfolio-wide maintenance spend",
-            "Inconsistent brand standards across properties",
-            "Unpredictable CapEx surprises"
+            "Information asymmetry regarding portfolio-wide OpEx",
+            "Variance in brand standard adherence across regions",
+            "Unpredictable CapEx volatility"
         ],
-        valueProp: "Unified command center for portfolio health, CapEx planning, and standardization."
+        valueProp: "Unified command center for high-fidelity portfolio health and predictive stewardship."
     },
     {
         id: "gm",
         title: "The General Manager",
-        role: "Property Leader",
+        role: "Institutional Lead",
         icon: User,
         painPoints: [
-            "Room downtime affecting RevPAR",
-            "Guest complaints about broken amenities",
-            "Communication gaps between Front Desk and Engineering"
+            "Asset downtime impacting RevPAR and guest experience",
+            "Variance in amenity performance and stewardship",
+            "Functional silos between Front Office and Engineering"
         ],
-        valueProp: "Real-time room status sync and faster turnaround times to maximize occupancy."
+        valueProp: "Real-time ecosystem synchronization and reduced turnover latency."
     },
     {
         id: "chief-engineer",
         title: "The Chief Engineer",
-        role: "Technical Lead",
+        role: "Institutional Steward",
         icon: HardHat,
         painPoints: [
-            "Paper-based work orders getting lost",
-            "Difficulty proving compliance during audits",
-            "Managing parts inventory in spreadsheets"
+            "Legacy analog workflows causing information latency",
+            "Complex compliance validation during institutional audits",
+            "Fragmented inventory controls across disparate systems"
         ],
-        valueProp: "Digital tools to automate dispatch, track assets, and ensure audit-readiness."
+        valueProp: "Digital orchestration tools to automate deployment and ensure absolute audit-readiness."
     },
     {
         id: "security-compliance",
@@ -52,10 +52,10 @@ export const personas: Persona[] = [
         role: "Risk Management",
         icon: Shield,
         painPoints: [
-            "Data privacy risks with guest information",
-            "Incomplete audit trails for safety inspections",
-            "Vendor insurance expiration tracking"
+            "Guest privacy risks and data sovereignty",
+            "Incomplete accountability records for safety inspections",
+            "Complex vendor compliance and insurance tracking"
         ],
-        valueProp: "Bank-grade security, PII protection, and automated compliance tracking."
+        valueProp: "Institutional-grade resilience, guest privacy stewardship, and automated audit-readiness."
     }
 ];

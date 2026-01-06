@@ -77,16 +77,16 @@ export async function POST(request: Request) {
         await transporter.sendMail({
             from: config.notification.email.from || config.smtp.user,
             to: config.notification.email.to.join(','),
-            subject: `New Demo Request: ${data.name} - ${data.companyName}`,
+            subject: `Institutional Consultation Request: ${data.name} - ${data.companyName}`,
             text: `
-Name: ${data.name}
-Email: ${data.email}
-Phone: ${data.phone}
-Company: ${data.companyName}
-Role: ${data.role || 'N/A'}
-Portfolio Size: ${data.portfolioSize || 'N/A'}
+Stakeholder Name: ${data.name}
+Email Address: ${data.email}
+Phone Number: ${data.phone}
+Organization: ${data.companyName}
+Title: ${data.role || 'N/A'}
+Property Portfolio Size: ${data.portfolioSize || 'N/A'}
 
-Message:
+Operational Requirements/Inquiry:
 ${data.message}
             `,
         });

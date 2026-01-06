@@ -1,47 +1,47 @@
 export const integrations = [
     {
         id: "pms",
-        category: "PMS (Property Management Systems)",
-        description: "Two-way synchronization of room status, occupancy, and guest requests.",
+        category: "Property Management Intelligence",
+        description: "Bi-directional synchronization for real-time room readiness and guest request fulfillment.",
         partners: ["Oracle Opera", "Amadeus", "Cloudbeds", "Mews"],
         capabilities: [
-            "Room status updates (Clean/Dirty/OOO)",
-            "Guest profile sync for VIP requests",
-            "Occupancy-based maintenance scheduling"
+            "Instant room status synchronization",
+            "VIP guest arrival maintenance alerts",
+            "Occupancy-adaptive service scheduling"
         ]
     },
     {
         id: "erp",
-        category: "ERP & Financials",
-        description: "Seamless posting of purchase orders, invoices, and inventory valuation.",
+        category: "Financial Orchestration",
+        description: "Automated reconciliation of procurement, maintenance spending, and capital expenditures.",
         partners: ["SAP S/4HANA", "Oracle NetSuite", "Microsoft Dynamics 365", "Workday"],
         capabilities: [
-            "Purchase Order (PO) generation",
-            "Invoice reconciliation",
-            "Inventory valuation sync",
-            "CapEx project tracking"
+            "Automated Procurement & PO workflow",
+            "Maintenance cost center reconciliation",
+            "Asset depreciation & TCO alignment",
+            "CapEx project financial tracking"
         ]
     },
     {
         id: "pos",
-        category: "POS & Retail",
-        description: "Unified view of maintenance issues in revenue-generating outlets.",
+        category: "Venue & Revenue Protection",
+        description: "Proactive maintenance for revenue-critical outlets like spas, restaurants, and retail.",
         partners: ["Micros Simphony", "Toast", "Lightspeed", "Agilysys"],
         capabilities: [
-            "Equipment downtime tracking",
-            "Revenue impact analysis",
-            "Automated ticket creation from POS"
+            "Critical kitchen & bar equipment monitoring",
+            "Revenue-driven maintenance prioritization",
+            "Outlet-specific uptime reporting"
         ]
     },
     {
         id: "bms",
-        category: "Building Automation (BMS)",
-        description: "Direct ingestion of telemetry for predictive maintenance triggers.",
+        category: "Infrastructure Intelligence (BMS)",
+        description: "Direct telemetry ingestion for predictive environmental and energy management.",
         partners: ["Honeywell", "Siemens Desigo", "Schneider Electric", "Johnson Controls"],
         capabilities: [
-            "Real-time sensor ingestion",
-            "Threshold-based alert generation",
-            "Energy consumption correlation"
+            "Real-time physical asset telemetry",
+            "Anomaly-driven preventive work orders",
+            "Sustainability & energy load optimization"
         ]
     }
 ];

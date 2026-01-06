@@ -3,74 +3,74 @@ import { Wrench, Truck, Boxes, Wifi, BarChart3, ShieldCheck } from "lucide-react
 export const modules = [
   {
     slug: "work-orders",
-    title: "Intelligent Work Orders",
-    description: "Automated SOPs, mobile execution, and QC-gated workflows for zero-defect maintenance.",
+    title: "Precision Work Orchestration",
+    description: "Standardized protocols, mobile service execution, and quality-gated work streams for zero-defect maintenance.",
     icon: Wrench,
     features: [
-        "Smart routing based on technician skill & proximity",
-        "Mandatory QC checkpoints for critical assets",
-        "Offline-first mobile execution",
-        "Evidence locker for photo/video documentation"
+        "Intelligent routing based on technician certification & proximity",
+        "Mandatory quality benchmarks for critical asset service",
+        "Field-ready mobile execution with offline synchronization",
+        "Evidence custody for comprehensive service verification"
     ]
   },
   {
     slug: "dispatch",
-    title: "Algorithmic Dispatch",
-    description: "Constraint-based scheduling engine that optimizes for SLA compliance and travel time.",
+    title: "Dynamic Resource Deployment",
+    description: "Multi-constraint optimization engine that maximizes SLA compliance and minimizes response latency.",
     icon: Truck,
     features: [
-        "Real-time route optimization",
-        "Skill & certification matching constraints",
-        "SLA breach prediction & auto-escalation",
-        "Mass reshuffle capabilities for emergency response"
+        "Real-time deployment path optimization",
+        "Automatic certification & competency matching",
+        "Strategic SLA risk prediction & proactive escalation",
+        "Rapid redistribution framework for emergency scenarios"
     ]
   },
   {
     slug: "assets",
-    title: "Asset Lifecycle & TCO",
-    description: "Complete hierarchy management from property to component with predictive TCO modeling.",
+    title: "Asset Stewardship & TCO",
+    description: "Rigorous lifecycle management mirroring institutional asset hierarchies with predictive cost modeling.",
     icon: BarChart3,
     features: [
-        "Hierarchical asset registry (N-level deep)",
-        "Real-time TCO calculation vs. Replacement Value",
-        "Bad actor detection for recurring failures",
-        "Warranty tracking & auto-claim generation"
+        "Hierarchical institutional asset registry",
+        "Real-time TCO modeling vs. replacement valuation",
+        "Systemic liability detection for performance outliers",
+        "Integrated warranty stewardship & automated recovery"
     ]
   },
   {
     slug: "inventory",
-    title: "Multi-Echelon Inventory",
-    description: "Manage stock across central warehouses, satellite closets, and mobile truck stock.",
+    title: "Multi-Node Logistics",
+    description: "Orchestrate inventory across central distribution hubs, property depots, and mobile service stock.",
     icon: Boxes,
     features: [
-        "Real-time stock levels across all locations",
-        "Automated replenishment triggers",
-        "Truck stock transfer & custody tracking",
-        "QR-code based parts consumption"
+        "Live visibility across all regional inventory nodes",
+        "Threshold-driven replenishment synchronization",
+        "Internal chain-of-custody & stock transfer tracking",
+        "Rapid parts consumption via integrated visual scanning"
     ]
   },
   {
     slug: "iot-predictive",
-    title: "IoT & Predictive",
-    description: "Ingest telemetry from any BMS or sensor to trigger automated pre-emptive work orders.",
+    title: "Predictive Infrastructure",
+    description: "Harness telemetry from building automation systems to initiate proactive interventions before guest impact.",
     icon: Wifi,
     features: [
-        "Universal connector for BACnet/Modbus/MQTT",
-        "Edge-computed anomaly detection rules",
-        "Automated WO creation from sensor thresholds",
-        "Noise filtering & duplicate alert suppression"
+        "Universal integration for institutional building protocols",
+        "Edge-processed anomaly detection & filtering",
+        "Automated service triggers from predictive thresholds",
+        "Critical alert validation & noise suppression"
     ]
   },
   {
     slug: "security",
-    title: "Enterprise Security",
-    description: "SOC2 Type II ready architecture with granular RBAC and immutable audit logs.",
+    title: "Institutional Accountability",
+    description: "High-integrity architecture with granular oversight and immutable operational records.",
     icon: ShieldCheck,
     features: [
-        "Role-Based Access Control (RBAC)",
-        "Immutable append-only audit trails",
-        "PII anonymization & retention policies",
-        "GDPR & CCPA compliance tools"
+        "Granular Role-Based Access Governance",
+        "Immutable append-only operational ledgers",
+        "Privacy stewardship & data retention protocols",
+        "Global regulatory compliance frameworks"
     ]
   }
 ];
