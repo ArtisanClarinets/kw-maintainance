@@ -144,7 +144,7 @@ export default function HowItWorks() {
               Ready to streamline your maintenance?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Request an operational brief to see how KW can transform your facility's uptime and guest satisfaction.
+              Request an operational brief to see how KW can transform your facility&apos;s uptime and guest satisfaction.
             </p>
             <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity">
               Schedule Assessment <ArrowRight className="h-4 w-4" />

@@ -110,7 +110,7 @@
   ],
   "parts": [
     {
-      "id": "part-1767684431293",
+      "id": "part-1767691740758",
       "tenantId": "t1",
       "name": "Filter",
       "sku": "F-001",
@@ -152,14 +152,17 @@
   ],
   "purchaseOrders": [
     {
-      "id": "po-1767684431298",
+      "id": "po-1767691740765",
       "tenantId": "t1",
       "vendorId": "v1",
       "propertyId": "p1",
-      "createdAt": "2026-01-06T07:27:11.298Z",
-      "updatedAt": "2026-01-06T07:27:11.298Z",
+      "createdAt": "2026-01-06T09:29:00.765Z",
+      "updatedAt": "2026-01-06T09:29:00.765Z",
       "status": "Draft",
-      "lines": []
+      "lines": [],
+      "total": 0,
+      "requestedById": "u6",
+      "requestedAt": "2026-01-06T09:29:00.765Z"
     }
   ],
   "timesheets": [],
@@ -178,26 +181,26 @@
   ],
   "auditLogs": [
     {
-      "id": "log-1767684431299",
+      "id": "log-1767691740766",
       "tenantId": "t1",
       "actorId": "u6",
       "actorName": "Procurement User",
       "action": "PO_CREATE",
       "entityType": "PurchaseOrder",
-      "entityId": "po-1767684431298",
-      "details": "Created PO for vendor v1",
-      "timestamp": "2026-01-06T07:27:11.299Z"
+      "entityId": "po-1767691740765",
+      "details": "Created PO for vendor v1 total 0",
+      "timestamp": "2026-01-06T09:29:00.766Z"
     },
     {
-      "id": "log-1767684431294",
+      "id": "log-1767691740759",
       "tenantId": "t1",
       "actorId": "u5",
       "actorName": "Procurement",
       "action": "PART_CREATE",
       "entityType": "Part",
-      "entityId": "part-1767684431293",
+      "entityId": "part-1767691740758",
       "details": "Created part Filter",
-      "timestamp": "2026-01-06T07:27:11.294Z"
+      "timestamp": "2026-01-06T09:29:00.759Z"
     }
   ],
   "appointments": [],

@@ -29,6 +29,7 @@ export default async function AdminLayout({
            <AdminLink href="/admin/tenants-properties" label="Institutional Portfolio" />
            <AdminLink href="/admin/users-roles" label="Command Hierarchy" />
            <AdminLink href="/admin/technicians" label="Technicians" />
+           <AdminLink href="/admin/timesheets" label="Timesheets" />
            
            <div className="pt-4 pb-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">Operational Modules</div>
            <AdminLink href="/admin/work-order-templates" label="Orchestration Blueprints" />

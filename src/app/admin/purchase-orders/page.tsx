@@ -1,15 +1,15 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { getPurchaseOrders, createPurchaseOrder } from './actions';
+import { getPurchaseOrders, createPurchaseOrder, updatePurchaseOrderStatus } from './actions';
 import { getParts } from '../parts/actions';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Badge } from '@/components/ui/badge';
 
 export default function PurchaseOrdersPage() {
   const [pos, setPos] = useState<any[]>([]);
@@ -31,6 +31,12 @@ export default function PurchaseOrdersPage() {
 
     await createPurchaseOrder({ tenantId: 't1', vendorId, propertyId, status: 'Draft', lines });
     setOpen(false);
+    const updated = await getPurchaseOrders();
+    setPos(updated);
+  };
+
+  const handleStatus = async (id: string, status: string) => {
+    await updatePurchaseOrderStatus(id, status as any);
     const updated = await getPurchaseOrders();
     setPos(updated);
   };
@@ -80,8 +86,9 @@ export default function PurchaseOrdersPage() {
               <TableRow>
                 <TableHead>ID</TableHead>
                 <TableHead>Vendor</TableHead>
-                <TableHead>Lines</TableHead>
+                <TableHead>Total</TableHead>
                 <TableHead>Status</TableHead>
+                <TableHead className="text-right">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -89,8 +96,15 @@ export default function PurchaseOrdersPage() {
                 <TableRow key={po.id}>
                   <TableCell className="font-mono">{po.id}</TableCell>
                   <TableCell>{po.vendorId}</TableCell>
-                  <TableCell className="text-xs">{po.lines?.length || 0} lines</TableCell>
-                  <TableCell>{po.status}</TableCell>
+                  <TableCell>${po.total?.toFixed(2)}</TableCell>
+                  <TableCell>
+                    <Badge variant={po.status === 'Approved' ? 'default' : 'secondary'}>{po.status}</Badge>
+                  </TableCell>
+                  <TableCell className="text-right space-x-2">
+                    {po.status === 'Draft' && <Button size="sm" onClick={() => handleStatus(po.id, 'Open')}>Send</Button>}
+                    {po.status === 'Open' && <Button size="sm" onClick={() => handleStatus(po.id, 'Approved')}>Approve</Button>}
+                    {po.status === 'Approved' && <Button size="sm" onClick={() => handleStatus(po.id, 'Received')}>Receive</Button>}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>

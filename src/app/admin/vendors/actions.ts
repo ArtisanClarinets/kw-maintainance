@@ -7,9 +7,19 @@ import { logAuditEvent } from '@/lib/security/audit';
 import { getUser } from '@/lib/auth';
 import { assertCanManageVendors } from '@/lib/security/rbac';
 
-export async function getVendors() {
+export async function getVendors(query?: string) {
   const db = await getDb();
-  return db.vendors || [];
+  let vendors = db.vendors || [];
+
+  if (query) {
+    const q = query.toLowerCase();
+    vendors = vendors.filter(v => 
+      v.name.toLowerCase().includes(q) || 
+      v.type.toLowerCase().includes(q)
+    );
+  }
+
+  return vendors;
 }
 
 export async function createVendor(data: Omit<Vendor, 'id'>) {

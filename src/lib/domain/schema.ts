@@ -226,6 +226,12 @@ export const PurchaseOrderSchema = z.object({
   status: z.enum(['Draft', 'Open', 'Approved', 'Received', 'Closed', 'Cancelled']),
   lines: z.array(PurchaseOrderLineSchema).default([]),
   total: z.number().optional(),
+  requestedById: z.string().optional(),
+  requestedAt: z.string().optional(),
+  approvalNotes: z.string().optional(),
+  approvedById: z.string().optional(),
+  approvedAt: z.string().optional(),
+  receivedAt: z.string().optional(),
 });
 export type PurchaseOrder = z.infer<typeof PurchaseOrderSchema>;
 

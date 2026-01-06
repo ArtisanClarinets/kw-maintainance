@@ -12,10 +12,11 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 export default function VendorsAdminPage() {
   const [vendors, setVendors] = useState<any[]>([]);
   const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
-    getVendors().then(setVendors);
-  }, []);
+    getVendors(search).then(setVendors);
+  }, [search]);
 
   const handleCreate = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -38,37 +39,45 @@ export default function VendorsAdminPage() {
           <h1 className="text-3xl font-bold tracking-tight">Vendors</h1>
           <p className="text-muted-foreground">Manage suppliers and service vendors.</p>
         </div>
-        <Dialog open={open} onOpenChange={setOpen}>
-          <DialogTrigger asChild>
-            <Button>Add Vendor</Button>
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Add Vendor</DialogTitle>
-            </DialogHeader>
-            <form onSubmit={handleCreate} className="space-y-4">
-              <div className="space-y-2">
-                <Label>Name</Label>
-                <Input name="name" required />
-              </div>
-              <div className="grid grid-cols-2 gap-4">
+        <div className="flex gap-4">
+          <Input 
+            placeholder="Search vendors..." 
+            className="w-64" 
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <Dialog open={open} onOpenChange={setOpen}>
+            <DialogTrigger asChild>
+              <Button>Add Vendor</Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Add Vendor</DialogTitle>
+              </DialogHeader>
+              <form onSubmit={handleCreate} className="space-y-4">
                 <div className="space-y-2">
-                  <Label>Type</Label>
-                  <Input name="type" defaultValue="Service" />
+                  <Label>Name</Label>
+                  <Input name="name" required />
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label>Type</Label>
+                    <Input name="type" defaultValue="Service" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Status</Label>
+                    <Input name="status" defaultValue="Active" />
+                  </div>
                 </div>
                 <div className="space-y-2">
-                  <Label>Status</Label>
-                  <Input name="status" defaultValue="Active" />
+                  <Label>Compliance Score</Label>
+                  <Input name="complianceScore" type="number" defaultValue={100} />
                 </div>
-              </div>
-              <div className="space-y-2">
-                <Label>Compliance Score</Label>
-                <Input name="complianceScore" type="number" defaultValue={100} />
-              </div>
-              <Button type="submit" className="w-full">Create Vendor</Button>
-            </form>
-          </DialogContent>
-        </Dialog>
+                <Button type="submit" className="w-full">Create Vendor</Button>
+              </form>
+            </DialogContent>
+          </Dialog>
+        </div>
       </div>
 
       <Card>

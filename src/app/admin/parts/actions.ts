@@ -7,9 +7,20 @@ import { logAuditEvent } from '@/lib/security/audit';
 import { getUser } from '@/lib/auth';
 import { assertCanManageParts } from '@/lib/security/rbac';
 
-export async function getParts() {
+export async function getParts(query?: string) {
   const db = await getDb();
-  return db.parts || [];
+  let parts = db.parts || [];
+  
+  if (query) {
+    const q = query.toLowerCase();
+    parts = parts.filter(p => 
+      p.name.toLowerCase().includes(q) || 
+      p.sku.toLowerCase().includes(q) ||
+      p.category.toLowerCase().includes(q)
+    );
+  }
+  
+  return parts;
 }
 
 export async function createPart(data: Omit<Part, 'id'>) {

@@ -13,8 +13,9 @@ import { Badge } from '@/components/ui/badge';
 export default function PartsAdminPage() {
   const [parts, setParts] = useState<any[]>([]);
   const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState('');
 
-  useEffect(() => { getParts().then(setParts); }, []);
+  useEffect(() => { getParts(search).then(setParts); }, [search]);
 
   const handleCreate = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -38,43 +39,51 @@ export default function PartsAdminPage() {
           <h1 className="text-3xl font-bold tracking-tight">Parts Catalog</h1>
           <p className="text-muted-foreground">Define and manage spare parts and consumables.</p>
         </div>
-        <Dialog open={open} onOpenChange={setOpen}>
-          <DialogTrigger asChild>
-            <Button>Add Part</Button>
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Add Part</DialogTitle>
-            </DialogHeader>
-            <form onSubmit={handleCreate} className="space-y-4">
-              <div className="space-y-2">
-                <Label>Name</Label>
-                <Input name="name" required />
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <Label>SKU</Label>
-                  <Input name="sku" />
+        <div className="flex gap-4">
+          <Input 
+            placeholder="Search parts/SKU..." 
+            className="w-64" 
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <Dialog open={open} onOpenChange={setOpen}>
+            <DialogTrigger asChild>
+              <Button>Add Part</Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Add Part</DialogTitle>
+              </DialogHeader>
+              <form onSubmit={handleCreate} className="space-y-4">
+                <div className="space-y-2">
+                  <Label>Name</Label>
+                  <Input name="name" required />
                 </div>
-                <div>
-                  <Label>Category</Label>
-                  <Input name="category" />
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Label>SKU</Label>
+                    <Input name="sku" />
+                  </div>
+                  <div>
+                    <Label>Category</Label>
+                    <Input name="category" />
+                  </div>
                 </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <Label>Unit Cost</Label>
-                  <Input name="cost" type="number" step="0.01" />
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Label>Unit Cost</Label>
+                    <Input name="cost" type="number" step="0.01" />
+                  </div>
+                  <div>
+                    <Label>Min Stock Level</Label>
+                    <Input name="minStockLevel" type="number" />
+                  </div>
                 </div>
-                <div>
-                  <Label>Min Stock Level</Label>
-                  <Input name="minStockLevel" type="number" />
-                </div>
-              </div>
-              <Button type="submit" className="w-full">Create Part</Button>
-            </form>
-          </DialogContent>
-        </Dialog>
+                <Button type="submit" className="w-full">Create Part</Button>
+              </form>
+            </DialogContent>
+          </Dialog>
+        </div>
       </div>
 
       <Card>

@@ -139,7 +139,7 @@ export default function About() {
                 Our teams are trained to understand the operational rhythm of hospitality. A turnover window is sacred—we arrive pre-briefed, execute with precision, document with photos, and close with a digital work order. For commercial operators and homeowners alike, we bring the same discipline, transparency, and follow-through.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                We invest in crew training, scheduling optimization, and compliance automation so you can focus on guest experience and asset longevity. That's not just maintenance—that's operational partnership.
+                We invest in crew training, scheduling optimization, and compliance automation so you can focus on guest experience and asset longevity. That&apos;s not just maintenance—that&apos;s operational partnership.
               </p>
             </div>
           </div>
@@ -152,7 +152,7 @@ export default function About() {
               Experience hospitality-grade maintenance
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Schedule an assessment and see how KW's operational discipline transforms your facility's uptime and team confidence.
+              Schedule an assessment and see how KW&apos;s operational discipline transforms your facility&apos;s uptime and team confidence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity">
