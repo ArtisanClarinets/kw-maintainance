@@ -1,0 +1,14 @@
+[2026-01-06T04:00:26.124Z] [INFO] Starting setup (env=development, dryRun=false)
+[2026-01-06T04:00:26.128Z] [INFO] Existing server-config.json found and admin already enabled
+[2026-01-06T04:00:26.444Z] [INFO] Demo DB exists; no admin changes requested
+[2026-01-06T04:00:26.466Z] [ERROR] Validation failed; please inspect the above output
+[2026-01-06T04:00:26.466Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).
+[2026-01-06T04:01:53.482Z] [INFO] Starting setup (env=development, dryRun=false)
+[2026-01-06T04:01:53.486Z] [INFO] Existing server-config.json found and admin already enabled
+[2026-01-06T04:01:53.808Z] [INFO] Demo DB exists; no admin changes requested
+[2026-01-06T04:01:53.812Z] [ERROR] Setup error: runValidationWithEnv is not defined
+[2026-01-06T04:03:06.945Z] [INFO] Starting setup (env=development, dryRun=false)
+[2026-01-06T04:03:06.949Z] [INFO] Existing server-config.json found and admin already enabled
+[2026-01-06T04:03:07.267Z] [INFO] Demo DB exists; no admin changes requested
+[2026-01-06T04:03:07.297Z] [INFO] Server configuration validated successfully
+[2026-01-06T04:03:07.298Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).
