@@ -15,9 +15,7 @@ export function Footer() {
 
           {/* Brand Column */}
           <div className="space-y-6">
-            <h3 className="text-xl font-serif font-bold tracking-tight text-primary leading-tight">
-                K & W Hospitality and Maintainance Services LLC.
-            </h3>
+            <h3 className="text-2xl font-serif font-bold tracking-tight text-primary">{siteConfig.name}</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               {siteConfig.description}
             </p>
@@ -33,37 +31,35 @@ export function Footer() {
 
           {/* Services Column */}
           <div className="space-y-6">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Services</h4>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Platform Modules</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><Link href="/services/handyman-services" className="hover:text-primary transition-colors">Handyman Services</Link></li>
-              <li><Link href="/services/installations" className="hover:text-primary transition-colors">Installations</Link></li>
-              <li><Link href="/services/painting" className="hover:text-primary transition-colors">Painting</Link></li>
-              <li><Link href="/services/tv-mounting" className="hover:text-primary transition-colors">TV Mounting</Link></li>
-              <li><Link href="/services/moving-trash-disposal" className="hover:text-primary transition-colors">Moving & Trash</Link></li>
-              <li><Link href="/services/haul-services" className="hover:text-primary transition-colors">Haul Services</Link></li>
+              <li><Link href="/modules/work-orders" className="hover:text-primary transition-colors">Work Orders</Link></li>
+              <li><Link href="/modules/dispatch" className="hover:text-primary transition-colors">Smart Dispatch</Link></li>
+              <li><Link href="/modules/assets" className="hover:text-primary transition-colors">Asset Lifecycle</Link></li>
+              <li><Link href="/modules/inventory" className="hover:text-primary transition-colors">Inventory</Link></li>
+              <li><Link href="/modules/iot-predictive" className="hover:text-primary transition-colors">IoT & Predictive</Link></li>
             </ul>
           </div>
 
-           {/* Quick Links Column */}
+           {/* Service Areas Column */}
            <div className="space-y-6">
             <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Company</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
-              <li><Link href="/services" className="hover:text-primary transition-colors">All Services</Link></li>
-              <li><Link href="/service-area" className="hover:text-primary transition-colors">Service Area</Link></li>
-              <li><Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
+              <li><Link href="/platform" className="hover:text-primary transition-colors">Platform Overview</Link></li>
+              <li><Link href="/integrations" className="hover:text-primary transition-colors">Integrations</Link></li>
+              <li><Link href="/whitepaper" className="hover:text-primary transition-colors">Technical Whitepaper</Link></li>
+              <li><Link href="/security-compliance" className="hover:text-primary transition-colors">Security & Compliance</Link></li>
+              <li><Link href="/login" className="hover:text-primary transition-colors">Customer Login</Link></li>
             </ul>
           </div>
 
           {/* Contact Column */}
           <div className="space-y-6">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Contact</h4>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Enterprise Sales</h4>
             <ul className="space-y-4 text-sm text-muted-foreground">
               <li className="flex items-start gap-3">
                 <Phone size={18} className="text-primary mt-0.5 shrink-0" />
-                <a href={`tel:${siteConfig.phone.replace(/[^0-9]/g, '')}`} className="hover:text-primary transition-colors font-medium text-foreground">
-                    {siteConfig.phone}
-                </a>
+                <a href={`tel:${siteConfig.phone}`} className="hover:text-primary transition-colors font-medium text-foreground">{siteConfig.phone}</a>
               </li>
               <li className="flex items-start gap-3">
                 <Mail size={18} className="text-primary mt-0.5 shrink-0" />
@@ -76,7 +72,7 @@ export function Footer() {
             </ul>
             <div className="pt-2">
                  <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                    <Link href="/contact">Request a Quote</Link>
+                    <Link href="/request-demo">Request Demo</Link>
                  </Button>
             </div>
           </div>
@@ -84,17 +80,17 @@ export function Footer() {
 
         {/* Verified Badge & Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-xs text-muted-foreground">&copy; {new Date().getFullYear()} K & W Hospitality and Maintainance Services LLC. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">&copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
 
           <div className="flex items-center gap-6 text-xs text-muted-foreground bg-muted/30 px-4 py-2 rounded-full border border-border/50">
             <div className="flex items-center gap-1.5">
                 <ShieldCheck className="h-3.5 w-3.5 text-primary" />
-                <span>Licensed & Insured</span>
+                <span>SOC2 Type II Compliant</span>
             </div>
             <div className="w-px h-3 bg-border" />
             <div className="flex items-center gap-1.5">
                 <CheckCircle className="h-3.5 w-3.5 text-green-600" />
-                <span>Locally Owned</span>
+                <span>GDPR Ready</span>
             </div>
           </div>
 

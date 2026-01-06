@@ -1,23 +1,24 @@
-# K & W Hospitality and Maintainance Services LLC.
+# KW Enterprise
 
-A local handyman, maintenance, and hauling service business website.
+A Next-Generation Enterprise Hospitality Maintenance Platform.
 
-## Tech Stack
+## Server Configuration Utility
 
-* Next.js (App Router)
-* TypeScript
-* Tailwind CSS
-* Framer Motion
-* Lucide React
+This project includes a secured server configuration utility for managing operational settings and secrets.
 
-## Getting Started
+### Setup
 
-1. Install dependencies:
+1. **Environment Variables**:
+   Copy `.env.example` to `.env.local` and set the `SERVER_CONFIG_MASTER_KEY`.
+
    ```bash
-   npm install
+   cp .env.example .env.local
+   # Generate a key:
+   node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
    ```
 
-2. Run the development server:
+   Additionally you should set a JWT secret for server-side cookie auth:
+
    ```bash
    # Example: generate a 32-byte random base64 secret for AUTH_JWT_SECRET
    node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
@@ -42,14 +43,10 @@ A local handyman, maintenance, and hauling service business website.
    - `data/server-config.json` with `admin.enabled=true`
    - `data/demo-db.json` with demo users including `admin@example.com` and `tech@example.com`
 
-   To re-run the setup manually (advanced):
+   To re-run the setup manually:
 
    ```bash
-   # recommended: non-interactive for CI or automated runs
-   node scripts/setup-advanced.mjs --env development --non-interactive --yes
-
-   # or via npm script
-   npm run setup -- --env development --non-interactive --yes
+   node scripts/setup.mjs
    ```
 
    Default demo login
@@ -63,65 +60,38 @@ A local handyman, maintenance, and hauling service business website.
    npm run server:validate
    ```
 
-### Key Rotation (re-encrypt secrets)
-
-If you need to rotate the `SERVER_CONFIG_MASTER_KEY` (for example after a key compromise or routine rotation), the repository provides a safe rotation flow that:
-- Backs up `data/server-config.json` to `data/backups/<timestamp>`
-- Re-decrypts any encrypted fields (e.g., `smtp.pass`) with the old key and re-encrypts them with the new key
-- Optionally updates `.env.local` if it contained the old key
-
-Example (preferred: pass keys via environment variables to avoid leaking on the command line):
-
-```bash
-# OLD_SERVER_CONFIG_MASTER_KEY and NEW_SERVER_CONFIG_MASTER_KEY should be base64 32-byte keys
-OLD_SERVER_CONFIG_MASTER_KEY="$(node -e "console.log(require('crypto').randomBytes(32).toString('base64'))")" \
-NEW_SERVER_CONFIG_MASTER_KEY="$(node -e "console.log(require('crypto').randomBytes(32).toString('base64'))")" \
-   node scripts/setup-advanced.mjs --rotate-keys --yes --backup
-```
-
-Or explicit CLI form (note: passing secrets on the command line can be visible to other users/processes):
-
-```bash
-node scripts/setup-advanced.mjs --rotate-keys --old-key <old-base64-key> --new-key <new-base64-key> --yes --backup
-```
-
-After rotation, run validation:
-
-```bash
-npm run server:validate
-```
-
-Notes:
-- Rotation will only replace strings that match the encrypted format (iv:tag:ciphertext). If you store other secrets encrypted, they will be rotated as long as they match the same format.
-- The script will not update `.env.local` in production unless you pass `--force` to avoid accidental overwrites. A backup of `.env.local` will be saved when updated.
-
 ### Deployment
 
 **Generate Nginx Config**:
-   npm run dev
-   ```
-
-3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Content Management
-
-Update content files in the `content/` directory:
-
-* `content/site.ts`: Global configuration (branding, contact info, navigation).
-* `content/services.ts`: List of services.
-* `content/service-details.ts`: Detailed content for each service page.
-* `content/testimonials.ts`: Customer testimonials.
-
-## Deployment
-
-Build the application:
-
 ```bash
-npm run build
+npm run server:config generate nginx --domain example.com --port 3000
+```
+This outputs a hardened Nginx configuration.
+
+**Generate Systemd Service**:
+```bash
+npm run server:config generate systemd --service-name kw-maintainance --port 3000
 ```
 
-Start the production server:
+### Security Features
+
+- **Encrypted Secrets**: SMTP passwords are encrypted at rest using AES-256-GCM.
+- **Rate Limiting**: The lead endpoint is protected by IP-based rate limiting.
+- **Spam Protection**: Includes honeypot fields and minimum submission time checks.
+- **Secure Headers**: Hardened HTTP headers (HSTS, CSP, etc.) are applied automatically.
+- **No PII Logging**: Personal information is masked in logs.
+
+## Development
+
+First, run the development server:
 
 ```bash
-npm start
+npm run dev
 ```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Learn More
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS](https://tailwindcss.com/)

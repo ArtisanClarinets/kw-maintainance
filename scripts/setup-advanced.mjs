@@ -8,6 +8,7 @@
 */
 
 import fs from 'fs/promises';
+import fsSync from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import { spawnSync } from 'child_process';
@@ -236,107 +237,6 @@ async function ensureServerConfig(opts) {
   }
 }
 
-function decryptWithKey(masterKeyBase64, text) {
-  const key = Buffer.from(masterKeyBase64, 'base64');
-  if (key.length !== 32) throw new Error('Invalid master key length');
-  const parts = text.split(':');
-  if (parts.length !== 3) throw new Error('Invalid encrypted text format');
-  const iv = Buffer.from(parts[0], 'hex');
-  const tag = Buffer.from(parts[1], 'hex');
-  const encryptedText = parts[2];
-  const decipher = crypto.createDecipheriv('aes-256-gcm', key, iv);
-  decipher.setAuthTag(tag);
-  let decrypted = decipher.update(encryptedText, 'hex', 'utf8');
-  decrypted += decipher.final('utf8');
-  return decrypted;
-}
-
-async function rotateServerConfigKeys(oldKey, newKey, opts) {
-  if (!validateMasterKey(oldKey) || !validateMasterKey(newKey)) {
-    throw new Error('Old or new master key is invalid');
-  }
-
-  if (!(await fileExists(SERVER_CONFIG))) {
-    throw new Error('server-config.json not found, cannot rotate keys');
-  }
-
-  // Backup current config
-  await backupFiles([SERVER_CONFIG]);
-
-  const raw = await fs.readFile(SERVER_CONFIG, 'utf8');
-  let cfg;
-  try { cfg = JSON.parse(raw); } catch (err) { throw new Error('Invalid JSON in server-config.json: ' + (err && err.message ? err.message : String(err))); }
-
-  let changed = false;
-
-  function walk(obj) {
-    if (Array.isArray(obj)) {
-      return obj.map(walk);
-    } else if (obj && typeof obj === 'object') {
-      const out = {};
-      for (const [k, v] of Object.entries(obj)) {
-        out[k] = walk(v);
-      }
-      return out;
-    } else if (typeof obj === 'string') {
-      if (isEncrypted(obj)) {
-        // Decrypt with old, re-encrypt with new
-        try {
-          const plain = decryptWithKey(oldKey, obj);
-          const reenc = encryptWithKey(newKey, plain);
-          changed = true;
-          return reenc;
-        } catch (e) {
-          throw new Error(`Failed to decrypt field during rotation: ${e.message}`);
-        }
-      }
-      return obj;
-    }
-    return obj;
-  }
-
-  const newCfg = walk(cfg);
-
-  if (!changed) {
-    await log('No encrypted fields found to rotate.');
-    return true;
-  }
-
-  if (!opts.dryRun) {
-    const tmp = `${SERVER_CONFIG}.tmp.${Date.now()}`;
-    await fs.writeFile(tmp, JSON.stringify(newCfg, null, 2), { mode: 0o600 });
-    await fs.rename(tmp, SERVER_CONFIG);
-    await fs.chmod(SERVER_CONFIG, 0o600);
-  }
-
-  await log('Rotation complete: server-config.json re-encrypted with new master key');
-
-  // Optionally update .env.local if it contains the old key
-  try {
-    if (await fileExists(ENV_LOCAL)) {
-      const envRaw = await fs.readFile(ENV_LOCAL, 'utf8');
-      const env = parseEnv(envRaw);
-      if (env.SERVER_CONFIG_MASTER_KEY && env.SERVER_CONFIG_MASTER_KEY === oldKey) {
-        if (opts.env === 'production' && !opts.force && !opts.yes) {
-          await log('Detected SERVER_CONFIG_MASTER_KEY in .env.local but not updating in production without --force', 'WARN');
-        } else {
-          const backupEnv = `${ENV_LOCAL}.bak.${Date.now()}`;
-          await fs.copyFile(ENV_LOCAL, backupEnv);
-          const newContent = envRaw.replace(/(^SERVER_CONFIG_MASTER_KEY=).*$/m, `$1${newKey}`);
-          if (!opts.dryRun) await fs.writeFile(ENV_LOCAL, newContent, 'utf8');
-          await log(`Updated ${ENV_LOCAL} with new SERVER_CONFIG_MASTER_KEY (backup saved to ${backupEnv})`);
-        }
-      } else {
-        await log('.env.local does not contain the old master key or not present; skipping env update');
-      }
-    }
-  } catch (e) {
-    await log(`Failed to update .env.local: ${e.message}`, 'ERROR');
-  }
-
-  return true;
-}
-
 async function ensureDemoDb(opts) {
   const defaultDb = {
     users: [
@@ -455,18 +355,6 @@ async function main() {
     const envVars = parseEnv(envRaw);
     await ensureDataDir();
     await ensureServerConfig(opts);
-
-    // Key rotation flow (optional)
-    if (opts.rotateKeys) {
-      const oldKey = opts.oldKey || process.env.OLD_SERVER_CONFIG_MASTER_KEY;
-      const newKey = opts.newKey || process.env.NEW_SERVER_CONFIG_MASTER_KEY;
-      if (!oldKey || !newKey) {
-        throw new Error('rotate-keys requested but --old-key and --new-key (or env OLD_SERVER_CONFIG_MASTER_KEY/NEW_SERVER_CONFIG_MASTER_KEY) were not provided');
-      }
-      await log('Starting master key rotation...');
-      await rotateServerConfigKeys(oldKey, newKey, opts);
-    }
-
     await ensureDemoDb(opts);
     await checkSystemDeps();
 

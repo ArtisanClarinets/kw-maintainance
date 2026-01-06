@@ -32,17 +32,6 @@
         "p1"
       ],
       "passwordHash": "password"
-    },
-    {
-      "id": "u_1767670416505",
-      "name": "Auto Admin",
-      "email": "example@example.com",
-      "role": "security_admin",
-      "tenantId": "t1",
-      "propertyIds": [
-        "p1"
-      ],
-      "passwordHash": "pbkdf2$200000$b696b1f80a90ff358b5ed15f664b17fd$a79ad1db4636e92be4942580d36610336a9865670b25eef2093ff59e5a3374d2505788e15c098cd87127aa6fad692ffea64890dd5efe895298b9436f139285e3"
     }
   ],
   "tenants": [
@@ -95,7 +84,41 @@
       "lastAuditDate": "2023-10-20"
     }
   ],
-  "auditLogs": [],
+  "auditLogs": [
+    {
+      "id": "log-1",
+      "tenantId": "t1",
+      "actorId": "u1",
+      "actorName": "Tech User",
+      "action": "WORK_ORDER_UPDATE",
+      "entityType": "WorkOrder",
+      "entityId": "wo-101",
+      "details": "Status changed to In Progress",
+      "timestamp": "2026-01-06T02:14:03.074Z"
+    },
+    {
+      "id": "log-2",
+      "tenantId": "t1",
+      "actorId": "u3",
+      "actorName": "Supervisor",
+      "action": "INVENTORY_TRANSFER",
+      "entityType": "StockLevel",
+      "entityId": "sl-55",
+      "details": "Approved transfer of 5 units",
+      "timestamp": "2026-01-05T04:14:03.074Z"
+    },
+    {
+      "id": "log-3",
+      "tenantId": "t1",
+      "actorId": "u2",
+      "actorName": "Admin User",
+      "action": "USER_LOGIN",
+      "entityType": "User",
+      "entityId": "u2",
+      "details": "Successful login from 192.168.1.1",
+      "timestamp": "2026-01-05T03:14:03.074Z"
+    }
+  ],
   "appointments": [],
   "schedulingRules": [
     {

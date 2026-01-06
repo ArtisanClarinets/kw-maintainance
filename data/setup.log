@@ -1,14 +1,37 @@
-[2026-01-06T04:00:26.124Z] [INFO] Starting setup (env=development, dryRun=false)
-[2026-01-06T04:00:26.128Z] [INFO] Existing server-config.json found and admin already enabled
-[2026-01-06T04:00:26.444Z] [INFO] Demo DB exists; no admin changes requested
-[2026-01-06T04:00:26.466Z] [ERROR] Validation failed; please inspect the above output
-[2026-01-06T04:00:26.466Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).
-[2026-01-06T04:01:53.482Z] [INFO] Starting setup (env=development, dryRun=false)
-[2026-01-06T04:01:53.486Z] [INFO] Existing server-config.json found and admin already enabled
-[2026-01-06T04:01:53.808Z] [INFO] Demo DB exists; no admin changes requested
-[2026-01-06T04:01:53.812Z] [ERROR] Setup error: runValidationWithEnv is not defined
-[2026-01-06T04:03:06.945Z] [INFO] Starting setup (env=development, dryRun=false)
-[2026-01-06T04:03:06.949Z] [INFO] Existing server-config.json found and admin already enabled
-[2026-01-06T04:03:07.267Z] [INFO] Demo DB exists; no admin changes requested
-[2026-01-06T04:03:07.297Z] [INFO] Server configuration validated successfully
-[2026-01-06T04:03:07.298Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).
+[2026-01-06T02:17:02.968Z] [INFO] Starting setup (env=development, dryRun=true)
+[2026-01-06T02:17:02.972Z] [ERROR] Setup error: ensureDataDir is not defined
+[2026-01-06T02:17:12.180Z] [INFO] Starting setup (env=development, dryRun=true)
+[2026-01-06T02:17:12.184Z] [INFO] Existing server-config.json found and admin already enabled
+[2026-01-06T02:17:12.501Z] [INFO] Demo DB exists; no admin changes requested
+[2026-01-06T02:17:12.529Z] [INFO] Server configuration validated successfully
+[2026-01-06T02:17:12.529Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).
+[2026-01-06T04:10:24.713Z] [INFO] Starting setup (env=development, dryRun=false)
+[2026-01-06T04:10:24.717Z] [INFO] Existing server-config.json found and admin already enabled
+[2026-01-06T04:10:25.038Z] [INFO] Demo DB exists; no admin changes requested
+[2026-01-06T04:10:25.067Z] [INFO] Server configuration validated successfully
+[2026-01-06T04:10:25.067Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).
+[2026-01-06T04:10:54.189Z] [INFO] Starting setup (env=development, dryRun=false)
+[2026-01-06T04:10:54.194Z] [INFO] Existing server-config.json found and admin already enabled
+[2026-01-06T04:10:54.511Z] [INFO] Demo DB exists; no admin changes requested
+[2026-01-06T04:10:54.541Z] [INFO] Server configuration validated successfully
+[2026-01-06T04:10:54.541Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).
+[2026-01-06T04:11:08.353Z] [INFO] Starting setup (env=development, dryRun=false)
+[2026-01-06T04:11:08.358Z] [INFO] Existing server-config.json found and admin already enabled
+[2026-01-06T04:11:08.677Z] [INFO] Demo DB exists; no admin changes requested
+[2026-01-06T04:11:08.707Z] [INFO] Server configuration validated successfully
+[2026-01-06T04:11:08.707Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).
+[2026-01-06T04:12:26.212Z] [INFO] Starting setup (env=production, dryRun=false)
+[2026-01-06T04:12:26.216Z] [INFO] Existing server-config.json found and admin already enabled
+[2026-01-06T04:12:26.534Z] [INFO] Demo DB exists; no admin changes requested
+[2026-01-06T04:12:26.564Z] [INFO] Server configuration validated successfully
+[2026-01-06T04:12:26.564Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).
+[2026-01-06T04:12:32.308Z] [INFO] Starting setup (env=development, dryRun=false)
+[2026-01-06T04:12:32.312Z] [INFO] Existing server-config.json found and admin already enabled
+[2026-01-06T04:12:32.634Z] [INFO] Demo DB exists; no admin changes requested
+[2026-01-06T04:12:32.665Z] [INFO] Server configuration validated successfully
+[2026-01-06T04:12:32.665Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).
+[2026-01-06T04:12:49.260Z] [INFO] Starting setup (env=production, dryRun=false)
+[2026-01-06T04:12:49.264Z] [INFO] Existing server-config.json found and admin already enabled
+[2026-01-06T04:12:49.583Z] [INFO] Demo DB exists; no admin changes requested
+[2026-01-06T04:12:49.612Z] [INFO] Server configuration validated successfully
+[2026-01-06T04:12:49.612Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).

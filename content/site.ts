@@ -1,38 +1,41 @@
 export const siteConfig = {
-  name: "K & W Hospitality and Maintainance Services LLC.",
-  description: "Hospitality-ready handyman & hauling services in Fort Walton Beach.",
-  url: "https://kw-hospitality-maintenance.com", // Placeholder URL, but correct domain structure
-  ogImage: "https://kw-hospitality-maintenance.com/og.jpg",
+  name: "KW Enterprise",
+  description: "Next-Generation Enterprise Hospitality Maintenance Platform",
+  url: "https://kw-enterprise.com",
+  ogImage: "https://kw-enterprise.com/og.jpg",
   links: {
-    twitter: "https://twitter.com/kwservices", // Placeholder
-    github: "https://github.com/kwservices", // Placeholder
+    twitter: "https://twitter.com/kwenterprise",
+    github: "https://github.com/kwenterprise",
   },
   socials: {
-    facebook: "https://facebook.com/kwservices",
-    instagram: "https://instagram.com/kwservices",
-    linkedin: "https://linkedin.com/company/kwservices",
-    twitter: "https://twitter.com/kwservices",
+    facebook: "https://facebook.com/kwenterprise",
+    instagram: "https://instagram.com/kwenterprise",
+    linkedin: "https://linkedin.com/company/kwenterprise",
+    twitter: "https://twitter.com/kwenterprise",
   },
-  phone: "850-851-3640",
-  contactPerson: "William",
-  email: "william@kw-services.com", // Placeholder
-  address: "Fort Walton Beach, FL",
+  phone: "+1 (850) 555-0123", // Placeholder
+  email: "contact@kw-enterprise.com",
+  address: "Fort Walton Beach, FL", // Placeholder
   mainNav: [
     {
-      title: "Home",
-      href: "/",
+      title: "Platform",
+      href: "/platform",
     },
     {
-      title: "Services",
-      href: "/services",
+      title: "Modules",
+      href: "/platform#modules", // Anchors or dropdown in real app
     },
     {
-      title: "Service Area",
-      href: "/service-area",
+      title: "Integrations",
+      href: "/integrations",
     },
     {
-      title: "Contact",
-      href: "/contact",
+      title: "Security",
+      href: "/security-compliance",
+    },
+    {
+      title: "Whitepaper",
+      href: "/whitepaper",
     },
   ],
 };
