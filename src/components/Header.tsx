@@ -1,11 +1,11 @@
-
 "use client";
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Button } from './Button';
+import { Button } from '@/components/ui/button';
+import { siteConfig } from '../../content/site';
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,39 +53,32 @@ export function Header() {
     })
   };
 
-  const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/services", label: "Services" },
-    { href: "/gallery", label: "Gallery" }, // Assuming exists or placeholder
-    { href: "/about", label: "About" },     // Assuming exists
-    { href: "/contact", label: "Contact" },
-  ];
-
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/10 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
-      <div className="container-custom flex h-16 items-center justify-between">
+      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         {/* Brand */}
         <Link href="/" className="mr-6 flex items-center space-x-2 z-50 relative" onClick={() => setIsOpen(false)}>
-          <span className="font-serif font-bold text-2xl tracking-tight text-foreground">K&W</span>
+          <span className="font-serif font-bold text-2xl tracking-tight text-foreground">KW<span className="text-primary">.Enterprise</span></span>
         </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-          {navLinks.map((link) => (
+          {siteConfig.mainNav.map((link) => (
             <Link
                 key={link.href}
                 href={link.href}
                 className="transition-colors hover:text-primary text-muted-foreground"
             >
-                {link.label}
+                {link.title}
             </Link>
           ))}
+          <Link href="/login" className="transition-colors hover:text-primary text-muted-foreground">Login</Link>
         </nav>
 
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-4">
           <Button asChild size="sm">
-            <Link href="/contact">Get a Quote</Link>
+            <Link href="/request-demo">Request Demo</Link>
           </Button>
         </div>
 
@@ -100,43 +93,54 @@ export function Header() {
 
         {/* Mobile Menu Overlay */}
         <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial="closed"
-              animate="open"
-              exit="closed"
-              variants={menuVariants}
-              className="fixed inset-0 top-0 left-0 z-40 h-screen w-screen bg-background flex flex-col items-center justify-center p-8 md:hidden"
-            >
-              <nav className="flex flex-col items-center gap-8 text-lg font-medium">
-                {navLinks.map((link, i) => (
-                  <motion.div
-                    key={link.href}
-                    custom={i}
-                    variants={linkVariants}
-                  >
-                    <Link
-                        href={link.href}
-                        onClick={toggleMenu}
-                        className="text-2xl font-serif text-foreground hover:text-primary transition-colors"
-                    >
-                        {link.label}
-                    </Link>
-                  </motion.div>
-                ))}
-
+            {isOpen && (
                 <motion.div
-                    custom={navLinks.length}
-                    variants={linkVariants}
-                    className="mt-8"
+                    initial="closed"
+                    animate="open"
+                    exit="closed"
+                    variants={menuVariants}
+                    className="fixed inset-0 top-0 left-0 h-screen w-full bg-background z-40 flex flex-col items-center justify-center p-8"
                 >
-                    <Button asChild size="lg" className="w-full px-12">
-                        <Link href="/contact" onClick={toggleMenu}>Get a Quote</Link>
-                    </Button>
+                    <nav className="flex flex-col items-center gap-6 text-xl font-medium">
+                        {siteConfig.mainNav.map((link, i) => (
+                            <motion.div
+                                key={link.href}
+                                custom={i}
+                                variants={linkVariants}
+                            >
+                                <Link
+                                    href={link.href}
+                                    className="hover:text-primary"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    {link.title}
+                                </Link>
+                            </motion.div>
+                        ))}
+                         <motion.div
+                                custom={siteConfig.mainNav.length}
+                                variants={linkVariants}
+                            >
+                                <Link
+                                    href="/login"
+                                    className="hover:text-primary"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    Login
+                                </Link>
+                        </motion.div>
+                        <motion.div
+                            custom={siteConfig.mainNav.length + 1}
+                            variants={linkVariants}
+                            className="mt-4"
+                        >
+                             <Button asChild size="lg" className="w-full">
+                                <Link href="/request-demo" onClick={() => setIsOpen(false)}>Request Demo</Link>
+                            </Button>
+                        </motion.div>
+                    </nav>
                 </motion.div>
-              </nav>
-            </motion.div>
-          )}
+            )}
         </AnimatePresence>
       </div>
     </header>

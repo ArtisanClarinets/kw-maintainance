@@ -1,4 +1,7 @@
 // scripts/server-config.mjs
+// Server Configuration Utility for KW Enterprise
+// This script handles environment setup and validation for the server.
+
 import fs from 'fs';
 import path from 'path';
 import readline from 'readline';

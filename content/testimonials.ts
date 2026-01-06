@@ -1,24 +1,29 @@
-
 export const testimonials = [
   {
     id: 1,
-    name: "Sarah Jenkins",
-    location: "Fort Walton Beach",
-    text: "K & W did an amazing job with my TV mounting and painting. Very professional and clean work!",
-    rating: 5
+    name: "Marcus Thorne",
+    role: "VP of Operations",
+    company: "Global Resorts Intl.",
+    text: "KW Enterprise transformed our dispatch efficiency. We reduced MTTR by 40% across 12 properties in the first quarter.",
+    rating: 5,
+    location: "Miami, FL"
   },
   {
     id: 2,
-    name: "Mike Thompson",
-    location: "Destin",
-    text: "Reliable and affordable trash disposal. Saved me a lot of time during my move.",
-    rating: 5
+    name: "Elena Rodriguez",
+    role: "Director of Assets",
+    company: "Apex Hospitality Group",
+    text: "The TCO modeling finally gave us the data we needed to justify our capital replacement plan. A game changer for finance.",
+    rating: 5,
+    location: "Las Vegas, NV"
   },
   {
     id: 3,
-    name: "Emily Rodriguez",
-    location: "Mary Esther",
-    text: "William was on time and fixed my door quickly. Highly recommend for handyman services.",
-    rating: 5
+    name: "David Chen",
+    role: "Chief Technology Officer",
+    company: "StaySmart Hotels",
+    text: "Seamless integration with our PMS and ERP. The API-first approach made it easy to plug into our existing stack.",
+    rating: 5,
+    location: "Austin, TX"
   }
 ];
