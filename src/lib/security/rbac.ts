@@ -54,3 +54,10 @@ export function assertCanManagePurchaseOrders(user: User | null, tenantId: strin
   if (allowed.includes(user.role) && (user.role === 'security_admin' || user.tenantId === tenantId)) return;
   throw new ForbiddenError('Not allowed to manage purchase orders');
 }
+
+export function assertCanManageIoTRules(user: User | null, tenantId: string): void {
+  assertAuthenticated(user);
+  const allowed = ['security_admin', 'tenant_admin', 'supervisor', 'gm', 'vp_ops', 'property_manager', 'dispatcher'];
+  if (allowed.includes(user.role) && (user.role === 'security_admin' || user.tenantId === tenantId)) return;
+  throw new ForbiddenError('Not allowed to manage IoT rules');
+}
