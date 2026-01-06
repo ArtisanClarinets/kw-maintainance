@@ -13,45 +13,45 @@ export type Service = z.infer<typeof ServiceSchema>;
 
 export const services: Service[] = [
   {
-    id: "preventative-maintenance",
-    title: "PREVENTATIVE MAINTENANCE",
-    description: "Scheduled inspections and upkeep to extend asset life and prevent costly downtime.",
-    features: ["HVAC Filter & Coil Cleaning", "Safety Compliance Checks", "Leak Detection", "Lighting Audits"],
-    icon: "ShieldCheck"
-  },
-  {
-    id: "turnover-services",
-    title: "HOSPITALITY TURNOVER",
-    description: "Rapid, high-quality repairs and touch-ups between guest stays for hotels and resorts.",
-    features: ["Paint Touch-ups", "Fixture Repair", "Furniture Stability", "Caulking & Grouting"],
-    icon: "RotateCw"
-  },
-  {
-    id: "facility-audits",
-    title: "FACILITY AUDITS",
-    description: "Comprehensive reporting on property health to support capital expenditure planning.",
-    features: ["Asset Condition Reports", "Safety Hazard Identification", "Compliance Documentation", "Photo Reporting"],
-    icon: "ClipboardCheck"
-  },
-  {
-    id: "handyman",
-    title: "GENERAL MAINTENANCE",
-    description: "Reliable ad-hoc repairs for commercial properties and high-end residences.",
-    features: ["Door & Lock Repair", "Drywall Patching", "Furniture Assembly", "Signage Installation"],
+    id: "handyman-services",
+    title: "HANDY-MAN SERVICES",
+    description: "Repairs, punch lists, small fixes, and upkeep to keep homes and properties guest-ready.",
+    features: ["Punch Lists", "Small Fixes", "General Upkeep", "Guest-Ready Repairs"],
     icon: "Hammer"
   },
   {
     id: "installations",
-    title: "COMMERCIAL INSTALLATIONS",
-    description: "Professional installation services for FF&E (Furniture, Fixtures, and Equipment).",
-    features: ["TV & Audio Systems", "Smart Room Controls", "Lobby Fixtures", "Art Hanging"],
+    title: "INSTALLATIONS",
+    description: "Fixtures, hardware, shelves, TVs, and more—installed securely with a clean finish.",
+    features: ["Fixtures", "Hardware", "Shelving", "TVs"],
     icon: "Wrench"
   },
   {
     id: "painting",
-    title: "COMMERCIAL PAINTING",
-    description: "Interior and exterior painting to maintain brand standards and curb appeal.",
-    features: ["Corridor Refresh", "Exterior Coatings", "Guest Room Updates", "High-Traffic Coatings"],
+    title: "PAINTING",
+    description: "Touch-ups to full rooms—prep-focused painting for a durable, tidy result.",
+    features: ["Touch-ups", "Full Rooms", "Prep-Focused", "Clean Finish"],
     icon: "Paintbrush"
+  },
+  {
+    id: "tv-mounting",
+    title: "TV MOUNTING",
+    description: "Secure mounting, clean alignment, optional cable management, and respectful wall care.",
+    features: ["Secure Mounting", "Clean Alignment", "Cable Management", "Wall Care"],
+    icon: "Tv"
+  },
+  {
+    id: "moving-trash-disposal",
+    title: "MOVING AND TRASH DISPOSAL",
+    description: "Load-up, haul-off, and cleanup—fast removal with responsible disposal.",
+    features: ["Load-up", "Haul-off", "Cleanup", "Responsible Disposal"],
+    icon: "Trash"
+  },
+  {
+    id: "haul-services",
+    title: "TRUCK AND TRAILER HAUL SERVICES",
+    description: "Bigger loads, dump runs, deliveries, and trailer hauling when you need muscle and a rig.",
+    features: ["Big Loads", "Dump Runs", "Deliveries", "Trailer Hauling"],
+    icon: "Truck"
   }
 ];

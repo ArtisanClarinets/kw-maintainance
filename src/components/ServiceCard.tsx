@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Hammer, Wrench, Paintbrush, Tv, Truck, Container, ShieldCheck, RotateCw, ClipboardCheck } from "lucide-react";
+import { ArrowRight, Hammer, Wrench, Paintbrush, Tv, Truck, Trash, ShieldCheck, RotateCw, ClipboardCheck } from "lucide-react";
 import Link from "next/link";
 
 
@@ -12,7 +12,7 @@ const IconMap: Record<string, React.ElementType> = {
   Paintbrush,
   Tv,
   Truck,
-  Container,
+  Trash,
   ShieldCheck,
   RotateCw,
   ClipboardCheck
@@ -37,7 +37,7 @@ export function ServiceCard({ slug, title, description, icon, features }: Servic
   }
 
   return (
-    <Link href={`/platform#${slug}`} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-2xl">
+    <Link href={`/services/${slug}`} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-2xl">
       <motion.div
         whileHover="hover"
         initial="initial"

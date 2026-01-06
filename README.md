@@ -1,97 +1,48 @@
-# KW Enterprise
+# K & W Hospitality and Maintainance Services LLC.
 
-A Next-Generation Enterprise Hospitality Maintenance Platform.
+A local handyman, maintenance, and hauling service business website.
 
-## Server Configuration Utility
+## Tech Stack
 
-This project includes a secured server configuration utility for managing operational settings and secrets.
+* Next.js (App Router)
+* TypeScript
+* Tailwind CSS
+* Framer Motion
+* Lucide React
 
-### Setup
+## Getting Started
 
-1. **Environment Variables**:
-   Copy `.env.example` to `.env.local` and set the `SERVER_CONFIG_MASTER_KEY`.
-
+1. Install dependencies:
    ```bash
-   cp .env.example .env.local
-   # Generate a key:
-   node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
+   npm install
    ```
 
-   Additionally you should set a JWT secret for server-side cookie auth:
-
+2. Run the development server:
    ```bash
-   # Example: generate a 32-byte random base64 secret for AUTH_JWT_SECRET
-   node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
+   npm run dev
    ```
 
-   Add the generated value to `.env.local` as `AUTH_JWT_SECRET`.
+3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-2. **Initialize Configuration**:
-   Run the interactive init script to create `data/server-config.json`. This file contains operational settings and encrypted secrets (like SMTP passwords).
+## Content Management
 
-   ```bash
-   npm run server:config init
-   ```
-   Follow the prompts.
+Update content files in the `content/` directory:
 
-   Automatic setup (recommended on first `npm install`)
-   --------------------------------------------------
-   This repository runs a lightweight setup script after `npm install` to create a local `.env.local`, generate required secrets, enable the admin portal, and populate a demo database so you can log in immediately.
+* `content/site.ts`: Global configuration (branding, contact info, navigation).
+* `content/services.ts`: List of services.
+* `content/service-details.ts`: Detailed content for each service page.
+* `content/testimonials.ts`: Customer testimonials.
 
-   What it creates:
-   - `.env.local` with `SERVER_CONFIG_MASTER_KEY`, `AUTH_JWT_SECRET`, and `ADMIN_BEARER_TOKEN` (if missing)
-   - `data/server-config.json` with `admin.enabled=true`
-   - `data/demo-db.json` with demo users including `admin@example.com` and `tech@example.com`
+## Deployment
 
-   To re-run the setup manually:
-
-   ```bash
-   node scripts/setup.mjs
-   ```
-
-   Default demo login
-   ------------------
-   The demo DB includes `admin@example.com` and `tech@example.com`. The app's login is email-only in this demo, so you can sign in by entering one of those emails at the login form. In production, replace demo accounts and enforce proper authentication.
-
-3. **Validate Configuration**:
-   To check if your environment and config file are valid:
-
-   ```bash
-   npm run server:validate
-   ```
-
-### Deployment
-
-**Generate Nginx Config**:
-```bash
-npm run server:config generate nginx --domain example.com --port 3000
-```
-This outputs a hardened Nginx configuration.
-
-**Generate Systemd Service**:
-```bash
-npm run server:config generate systemd --service-name kw-maintainance --port 3000
-```
-
-### Security Features
-
-- **Encrypted Secrets**: SMTP passwords are encrypted at rest using AES-256-GCM.
-- **Rate Limiting**: The lead endpoint is protected by IP-based rate limiting.
-- **Spam Protection**: Includes honeypot fields and minimum submission time checks.
-- **Secure Headers**: Hardened HTTP headers (HSTS, CSP, etc.) are applied automatically.
-- **No PII Logging**: Personal information is masked in logs.
-
-## Development
-
-First, run the development server:
+Build the application:
 
 ```bash
-npm run dev
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Start the production server:
 
-## Learn More
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind CSS](https://tailwindcss.com/)
+```bash
+npm start
+```
