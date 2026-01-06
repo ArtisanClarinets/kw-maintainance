@@ -22,14 +22,19 @@ interface ServiceCardProps {
   slug: string;
   title: string;
   description: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode | string;
   features: string[];
 }
-
  
 export function ServiceCard({ slug, title, description, icon, features }: ServiceCardProps) {
-  // If iconName is provided but not in map, fallback to Hammer (or another default)
-  const Icon = (iconName && IconMap[iconName]) ? IconMap[iconName] : Hammer;
+  // Support passing either a React node (e.g. <Wrench />) or an icon name string (e.g. "Wrench")
+  let iconElement: React.ReactNode;
+  if (typeof icon === "string" && IconMap[icon]) {
+    const IconComp = IconMap[icon] as React.ComponentType<React.SVGProps<SVGSVGElement> & { className?: string }>;
+    iconElement = <IconComp className="h-6 w-6" />;
+  } else {
+    iconElement = icon ?? <Hammer className="h-6 w-6" />;
+  }
 
   return (
     <Link href={`/platform#${slug}`} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-2xl">
@@ -44,7 +49,7 @@ export function ServiceCard({ slug, title, description, icon, features }: Servic
         {/* Icon */}
         <div className="mb-6 relative z-10">
           <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-            {icon}
+            {iconElement}
           </div>
         </div>
 
