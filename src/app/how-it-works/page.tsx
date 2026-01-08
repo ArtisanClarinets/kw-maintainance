@@ -6,46 +6,46 @@ import Link from 'next/link';
 const steps = [
   {
     icon: Users,
-    title: 'Initial Assessment',
-    description: 'Our dispatch team evaluates your facility, staffing needs, and maintenance rhythm. We profile your property type—hotel, residential, resort—and establish baseline expectations.',
+    title: 'Consultation & Estimate',
+    description: 'We start by understanding exactly what your home needs. Whether it is a leaky faucet or a room refresh, we listen to your goals and provide a clear, honest assessment.',
     details: [
-      'Onsite walkthrough and asset inventory',
-      'Operational constraints and emergency protocols',
-      'Staffing & scheduling preferences',
-      'Compliance & documentation requirements'
+      'Onsite walkthrough and project review',
+      'Discussion of budget and timeline',
+      'Transparent, upfront pricing estimates',
+      'No hidden service fees or surprises'
     ]
   },
   {
     icon: BarChart3,
-    title: 'Scheduling Rules & Integration',
-    description: 'We wire your maintenance windows into our ops system. Your team gets live visibility into crew availability, ETAs, and completion status via the Ops Console.',
+    title: 'Smart Scheduling',
+    description: 'We respect your time. We book a specific window that works for your life, and we actually show up when we say we will. You get clear updates so you are never left guessing.',
     details: [
-      'Lead-time requirements (e.g., 3-hour notice for turnover)',
-      'Dispatch optimization with geographic clustering',
-      'Real-time crew tracking and notifications',
-      'JSON persistence of appointment history'
+      'Flexible booking windows to fit your day',
+      'Text message confirmations and reminders',
+      'GPS tracking so you know when we are close',
+      'Digital calendar invites for your convenience'
     ]
   },
   {
     icon: Zap,
-    title: 'Rapid Deployment',
-    description: 'When maintenance is needed, our crews mobilize within the next available slot. Turnover teams arrive pre-briefed with property notes, access codes, and safety checkpoints.',
+    title: 'Expert Repair',
+    description: 'Our skilled craftsmen arrive fully equipped to get the job done right the first time. We work efficiently, respect your property, and maintain a clean workspace.',
     details: [
-      'Pre-briefed crew assignments',
-      'Multi-trade coordination (HVAC, plumbing, electrical)',
-      'Real-time status updates to your dashboard',
-      'Mobile checklists and photographic proof'
+      'Fully tooled and uniformed professionals',
+      'Multi-skill coverage (Plumbing, Electrical, Carpentry)',
+      'High-quality materials and parts',
+      'Protection for your floors and furniture'
     ]
   },
   {
     icon: CheckCircle2,
-    title: 'Audit & Compliance',
-    description: 'Every job closes with a detailed work order. You get compliance documentation, cost reconciliation, and vendor scorecards to support your CapEx forecasting.',
+    title: 'Final Inspection',
+    description: 'We do not leave until the job is done to your satisfaction. We walk you through the repair, ensure everything is clean, and provide a warranty on our workmanship.',
     details: [
-      'Work order detail with materials & labor',
-      'Safety audit checklists for each job',
-      'Vendor compliance and insurance verification',
-      'Monthly KPI dashboards (response time, cost, quality)'
+      'Complete walkthrough of completed work',
+      'Thorough job site cleanup',
+      'Satisfaction guarantee verification',
+      'Digital receipt and warranty details'
     ]
   }
 ];
@@ -59,12 +59,12 @@ export default function HowItWorks() {
         <section className="bg-muted/20 border-b border-border/40 py-16 md:py-24">
           <div className="container-custom px-4">
             <div className="max-w-4xl">
-              <p className="text-sm uppercase tracking-[0.5em] text-muted-foreground mb-4">Operational Excellence</p>
+              <p className="text-sm uppercase tracking-[0.5em] text-muted-foreground mb-4">Reliable Home Services</p>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-serif text-foreground mb-6">
-                How KW Maintenance Operates
+                How KW Maintenance Works
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
-                From assessment through audit, our process ensures dispatch-ready availability, transparent scheduling, and compliance-grade documentation. Built for hospitality operators and homeowners who demand reliability.
+                From the first call to the final cleanup, our process is designed to be stress-free. We bring professional reliability to home repair, ensuring your to-do list gets done right.
               </p>
             </div>
           </div>
@@ -114,24 +114,24 @@ export default function HowItWorks() {
         <section className="bg-muted/30 border-y border-border/40 py-16 md:py-24">
           <div className="container-custom px-4">
             <div className="text-center mb-16">
-              <p className="text-sm uppercase tracking-[0.5em] text-muted-foreground mb-2">Enterprise Standards</p>
-              <h2 className="text-3xl md:text-4xl font-bold font-serif text-foreground">Why Operators Trust KW</h2>
+              <p className="text-sm uppercase tracking-[0.5em] text-muted-foreground mb-2">Service Standards</p>
+              <h2 className="text-3xl md:text-4xl font-bold font-serif text-foreground">Why Homeowners Trust KW</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-card p-8 rounded-2xl border border-border/40">
                 <Shield className="h-8 w-8 text-primary mb-4" />
-                <h3 className="text-xl font-bold text-foreground mb-2">Compliance First</h3>
-                <p className="text-muted-foreground">Every crew is licensed, insured, and audited. Documentation flows automatically to your compliance dashboard.</p>
+                <h3 className="text-xl font-bold text-foreground mb-2">Fully Insured</h3>
+                <p className="text-muted-foreground">Rest easy knowing every technician is licensed, background-checked, and fully insured for your protection.</p>
               </div>
               <div className="bg-card p-8 rounded-2xl border border-border/40">
                 <Zap className="h-8 w-8 text-primary mb-4" />
-                <h3 className="text-xl font-bold text-foreground mb-2">Real-Time Visibility</h3>
-                <p className="text-muted-foreground">Live GPS tracking, crew status, and job completion photos. Your team stays informed from dispatch to close-out.</p>
+                <h3 className="text-xl font-bold text-foreground mb-2">Fast Response</h3>
+                <p className="text-muted-foreground">We answer the phone and we show up on time. No ghosting, no 8-hour arrival windows, just reliable service.</p>
               </div>
               <div className="bg-card p-8 rounded-2xl border border-border/40">
                 <BarChart3 className="h-8 w-8 text-primary mb-4" />
-                <h3 className="text-xl font-bold text-foreground mb-2">Data-Driven Insights</h3>
-                <p className="text-muted-foreground">KPI dashboards show response times, cost trends, and quality metrics. Optimize maintenance spend with confidence.</p>
+                <h3 className="text-xl font-bold text-foreground mb-2">Fair Pricing</h3>
+                <p className="text-muted-foreground">We provide clear quotes before we start. You pay for quality work, not overhead or hidden surcharges.</p>
               </div>
             </div>
           </div>
@@ -141,13 +141,13 @@ export default function HowItWorks() {
         <section className="py-20 md:py-32 container-custom px-4">
           <div className="max-w-3xl">
             <h2 className="text-3xl md:text-4xl font-bold font-serif text-foreground mb-6">
-              Ready to streamline your maintenance?
+              Ready to fix your to-do list?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Request an operational brief to see how KW can transform your facility&apos;s uptime and guest satisfaction.
+              Contact us today for a free estimate and see how easy home maintenance can be with KW.
             </p>
             <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity">
-              Schedule Assessment <ArrowRight className="h-4 w-4" />
+              Schedule Service <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </section>
