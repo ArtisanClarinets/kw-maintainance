@@ -39,13 +39,13 @@ export default function Home() {
         <section id="modules" className="py-20 md:py-32 container-custom px-4">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
              <div>
-                <h2 className="text-3xl md:text-4xl font-extrabold font-serif mb-4 text-foreground">Strategic Systems</h2>
+                <h2 className="text-3xl md:text-4xl font-extrabold font-serif mb-4 text-foreground">Why Choose Us</h2>
                 <p className="text-lg text-muted-foreground max-w-xl">
-                  A comprehensive ecosystem designed for the elite hospitality institution.
+                  Comprehensive maintenance solutions designed for reliability and quality.
                 </p>
              </div>
-             <Link href="/platform" className="flex items-center font-semibold text-primary hover:text-primary/80 transition-colors group">
-                View Operational Brief
+             <Link href="/services" className="flex items-center font-semibold text-primary hover:text-primary/80 transition-colors group">
+                View All Services
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
              </Link>
           </div>
@@ -93,9 +93,9 @@ export default function Home() {
         <section className="py-20 bg-muted/20">
             <div className="container-custom px-4">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-extrabold font-serif mb-4">Built for Operations Leaders</h2>
+                    <h2 className="text-3xl md:text-4xl font-extrabold font-serif mb-4">Who We Serve</h2>
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Empowering hospitality operations, service leadership, and local homeowners with role-specific visibility and dispatch fidelity.
+                        Dedicated support for homeowners, property managers, and hospitality professionals.
                     </p>
                 </div>
                 
@@ -120,32 +120,6 @@ export default function Home() {
                                     ))}
                                 </ul>
 
-                                {/* Industries */}
-                                <section className="py-20 container-custom px-4">
-                                    <div className="flex flex-col gap-2 text-center mb-12">
-                                        <p className="text-sm uppercase tracking-[0.4em] text-muted-foreground">Industries Served</p>
-                                        <h2 className="text-3xl md:text-4xl font-extrabold font-serif text-foreground">Hospitality command centre, homeowner support</h2>
-                                    </div>
-                                    <div className="grid md:grid-cols-2 gap-8">
-                                        {industries.map((industry) => (
-                                            <div key={industry.id} className="bg-card border border-border/40 rounded-2xl p-8 h-full">
-                                                <h3 className="text-2xl font-bold mb-3 text-foreground">{industry.title}</h3>
-                                                <p className="text-muted-foreground mb-6">{industry.description}</p>
-                                                <ul className="space-y-2 mb-6 text-sm text-foreground/80">
-                                                    {industry.highlights.map((highlight) => (
-                                                        <li key={highlight} className="flex items-start gap-2">
-                                                            <span className="h-1.5 w-1.5 rounded-full bg-primary mt-1" />
-                                                            {highlight}
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                                <Link href={industry.cta.href} className="text-sm font-semibold text-primary hover:text-primary/80">
-                                                    {industry.cta.label} →
-                                                </Link>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </section>
                             </CardContent>
                         </Card>
                     ))}
@@ -153,11 +127,38 @@ export default function Home() {
             </div>
         </section>
 
+        {/* Industries */}
+        <section className="py-20 container-custom px-4">
+            <div className="flex flex-col gap-2 text-center mb-12">
+                <p className="text-sm uppercase tracking-[0.4em] text-muted-foreground">Industries Served</p>
+                <h2 className="text-3xl md:text-4xl font-extrabold font-serif text-foreground">Expert Support for Every Property</h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+                {industries.map((industry) => (
+                    <div key={industry.id} className="bg-card border border-border/40 rounded-2xl p-8 h-full">
+                        <h3 className="text-2xl font-bold mb-3 text-foreground">{industry.title}</h3>
+                        <p className="text-muted-foreground mb-6">{industry.description}</p>
+                        <ul className="space-y-2 mb-6 text-sm text-foreground/80">
+                            {industry.highlights.map((highlight) => (
+                                <li key={highlight} className="flex items-start gap-2">
+                                    <span className="h-1.5 w-1.5 rounded-full bg-primary mt-1" />
+                                    {highlight}
+                                </li>
+                            ))}
+                        </ul>
+                        <Link href={industry.cta.href} className="text-sm font-semibold text-primary hover:text-primary/80">
+                            {industry.cta.label} →
+                        </Link>
+                    </div>
+                ))}
+            </div>
+        </section>
+
         {/* Testimonials */}
         <section className="py-20">
            <div className="container-custom px-4 mb-12 text-center">
-             <h2 className="text-3xl md:text-4xl font-extrabold font-serif mb-4 text-foreground">Trusted by Global Brands</h2>
-             <p className="text-lg text-muted-foreground">Powering operations for the world&apos;s leading hospitality groups.</p>
+             <h2 className="text-3xl md:text-4xl font-extrabold font-serif mb-4 text-foreground">Trusted by Your Neighbors</h2>
+             <p className="text-lg text-muted-foreground">See what our clients in Fort Walton Beach and Destin are saying.</p>
            </div>
            <Marquee testimonials={testimonials} />
         </section>

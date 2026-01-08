@@ -103,12 +103,12 @@ export function Hero() {
             </motion.div>
 
             <motion.h1 variants={itemVariants} className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.1]">
-              Hospitality Maintenance & Turnover Support
-              <span className="text-primary">with Ops Console clarity</span>
+              Professional Maintenance & Repairs
+              <span className="text-primary">for Home & Hospitality</span>
             </motion.h1>
             
             <motion.p variants={itemVariants} className="text-xl text-muted-foreground max-w-xl leading-relaxed">
-              Dispatch-ready crews, same-day hospitality service, and transparent homeowner fixes wrapped in a dark &ldquo;command centre&rdquo; aesthetic built for Fort Walton Beach and beyond.
+              Licensed handyman services, turnover support, and reliable repairs for homeowners and property managers in Fort Walton Beach and beyond.
             </motion.p>
             {upcoming.length > 0 && (
               <motion.div variants={itemVariants} className="space-y-2 mt-4">
@@ -142,17 +142,17 @@ export function Hero() {
             <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 text-sm font-medium text-foreground/80 mt-6 pt-6 border-t border-border/50">
               <div className="flex items-center gap-1.5">
                 <Star className="h-4 w-4 text-yellow-500 fill-yellow-500" />
-                <span>Enterprise Grade</span>
+                <span>5-Star Rated</span>
               </div>
               <span className="hidden sm:inline text-muted-foreground">|</span>
               <div className="flex items-center gap-1.5">
                 <ShieldCheck className="h-4 w-4 text-primary" />
-                <span>SOC2 Compliant</span>
+                <span>Licensed & Insured</span>
               </div>
               <span className="hidden sm:inline text-muted-foreground">|</span>
               <div className="flex items-center gap-1.5">
                 <MapPin className="h-4 w-4 text-primary" />
-                <span>Global Deployment</span>
+                <span>Local Experts</span>
               </div>
             </motion.div>
           </motion.div>
