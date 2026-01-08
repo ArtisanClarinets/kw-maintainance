@@ -5,59 +5,9 @@ import { Button } from './Button';
 import { HeroVisual } from './HeroVisual';
 import { motion } from 'framer-motion';
 import { Star, ShieldCheck, MapPin } from 'lucide-react';
-import { useEffect, useState } from 'react';
-
-interface UpcomingAppointment {
-  id: string;
-  title: string;
-  startAt: string;
-  propertyId?: string;
-  status: string;
-}
+import { siteConfig } from '../../content/site';
 
 export function Hero() {
-  const [nextSlot, setNextSlot] = useState<string | null>(null);
-  const [upcoming, setUpcoming] = useState<UpcomingAppointment[]>([]);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    async function fetchNextSlot() {
-      try {
-        const res = await fetch("/api/ops/next-slot", { cache: "no-store" });
-        if (!res.ok) throw new Error("Failed to load slot");
-        const data = await res.json();
-        if (cancelled) return;
-
-        const formatter = new Intl.DateTimeFormat("en-US", {
-          weekday: "short",
-          month: "short",
-          day: "numeric",
-          hour: "numeric",
-          minute: "2-digit",
-          hour12: true,
-        });
-
-        setNextSlot(formatter.format(new Date(data.nextSlot)));
-        setUpcoming((data.upcoming ?? []).map((appt: UpcomingAppointment) => ({
-          id: appt.id,
-          title: appt.title,
-          startAt: appt.startAt,
-          status: appt.status,
-        })));
-      } catch (err) {
-        console.error(err);
-        if (!cancelled) {
-          setError("Unable to fetch dispatch data");
-        }
-      }
-    }
-
-    fetchNextSlot();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -92,48 +42,36 @@ export function Hero() {
             animate="visible"
             className="flex flex-col gap-6"
           >
-            {/* Next Slot Badge */}
+            {/* Tagline Badge */}
             <motion.div variants={itemVariants}>
-              <div className="inline-flex flex-col gap-1 rounded-2xl border border-border/80 bg-muted/80 px-4 py-3">
-                <span className="text-xs uppercase tracking-[0.4em] text-muted-foreground">Next slot</span>
-                <span className="text-xl font-bold text-foreground">{nextSlot ?? "Calculating..."}</span>
-                <span className="text-xs text-muted-foreground">Rules driven by live scheduling</span>
-                {error && <span className="text-xs text-destructive">{error}</span>}
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
+                Serving Fort Walton Beach & Destin
               </div>
             </motion.div>
 
             <motion.h1 variants={itemVariants} className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.1]">
-              Professional Maintenance & Repairs
-              <span className="text-primary">for Home & Hospitality</span>
+              Reliable Handyman & Maintenance Services
+              <span className="text-primary block mt-2">Done Right.</span>
             </motion.h1>
             
             <motion.p variants={itemVariants} className="text-xl text-muted-foreground max-w-xl leading-relaxed">
-              Licensed handyman services, turnover support, and reliable repairs for homeowners and property managers in Fort Walton Beach and beyond.
+              Professional repairs, installations, painting, and hauling services for your home or business. Fast, friendly, and fully insured.
             </motion.p>
-            {upcoming.length > 0 && (
-              <motion.div variants={itemVariants} className="space-y-2 mt-4">
-                <div className="text-sm font-semibold text-foreground tracking-wider">Upcoming slots</div>
-                <div className="grid gap-2 text-sm text-muted-foreground">
-                  {upcoming.map((appt) => (
-                    <div key={appt.id} className="flex items-center justify-between rounded-lg border border-border/50 bg-muted/60 px-3 py-2">
-                      <span>{appt.title}</span>
-                      <span className="text-xs uppercase tracking-wide text-foreground/70">{new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "2-digit", hour12: true }).format(new Date(appt.startAt))}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            )}
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mt-2">
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <Button size="lg" className="w-full sm:w-auto text-base bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg shadow-accent/20" asChild>
-                    <Link href="/contact">Request Service</Link>
+                    <Link href="/request-demo">Get a Free Quote</Link>
                   </Button>
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <Button size="lg" variant="outline" className="w-full sm:w-auto text-base border-primary/20 hover:bg-primary/5" asChild>
-                    <Link href="/whitepaper">Operational Brief</Link>
+                    <a href={`tel:${siteConfig.phone}`}>Call {siteConfig.phone}</a>
                   </Button>
               </motion.div>
             </motion.div>
@@ -142,7 +80,7 @@ export function Hero() {
             <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 text-sm font-medium text-foreground/80 mt-6 pt-6 border-t border-border/50">
               <div className="flex items-center gap-1.5">
                 <Star className="h-4 w-4 text-yellow-500 fill-yellow-500" />
-                <span>5-Star Rated</span>
+                <span>5-Star Service</span>
               </div>
               <span className="hidden sm:inline text-muted-foreground">|</span>
               <div className="flex items-center gap-1.5">
@@ -152,7 +90,7 @@ export function Hero() {
               <span className="hidden sm:inline text-muted-foreground">|</span>
               <div className="flex items-center gap-1.5">
                 <MapPin className="h-4 w-4 text-primary" />
-                <span>Local Experts</span>
+                <span>Locally Owned</span>
               </div>
             </motion.div>
           </motion.div>

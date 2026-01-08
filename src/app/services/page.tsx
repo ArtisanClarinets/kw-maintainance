@@ -27,7 +27,7 @@ export default function ServicesPage() {
                             slug={service.id}
                             title={service.title}
                             description={service.description}
-                            icon={service.icon}
+                            icon={<service.icon className="h-6 w-6" />}
                             features={service.features}
                         />
                     </div>

@@ -6,30 +6,30 @@ import Link from 'next/link';
 const values = [
   {
     icon: Zap,
-    title: 'Operational Excellence',
-    description: 'We optimize every crew deployment, every schedule window, every asset lifecycle to squeeze maximum value from your facility.'
+    title: 'Reliability',
+    description: 'We show up on time, every time. No ghosting, no excuses. Just quality work you can depend on.'
   },
   {
     icon: Heart,
-    title: 'Guest Experience First',
-    description: 'Invisible maintenance means happy guests. Our teams work fast, clean up well, and fix right the first time.'
+    title: 'Customer First',
+    description: 'We treat your home with respect. We clean up after ourselves and ensure you are happy with the result.'
   },
   {
     icon: Award,
-    title: 'Compliance & Trust',
-    description: 'Licensed crews, insured work, audited quality. Your operations depend on vendors you can verify and track.'
+    title: 'Quality Craftsmanship',
+    description: 'We take pride in our work. From painting to repairs, we do it right the first time.'
   },
   {
     icon: Users,
-    title: 'Local Expertise',
-    description: 'Fort Walton Beach, Destin, 30A—we know the market, the supply chains, and the weather patterns.'
+    title: 'Local & Trusted',
+    description: 'Serving Fort Walton Beach, Destin, and surrounding areas. We are your neighbors.'
   }
 ];
 
 const milestones = [
-  { year: '2023', title: 'Operational Pivot', description: 'Shifted from consumer handyman to B2B hospitality maintenance with tiered contracts.' },
-  { year: '2024', title: 'Dispatch System Launch', description: 'Built the Ops Console with real-time crew tracking, scheduling rules, and compliance dashboards.' },
-  { year: '2025', title: 'Fortune 500 Infrastructure', description: 'Achieved SOC2 compliance, enterprise-grade uptime, and multi-tenant support.' }
+  { year: '2023', title: 'Founded', description: 'Started as a local handyman service to help neighbors with small repairs.' },
+  { year: '2024', title: 'Expanded Services', description: 'Added painting, TV mounting, and trash hauling to our list of services.' },
+  { year: '2025', title: 'Serving the Community', description: 'Growing our team to serve more homeowners and businesses in the Emerald Coast.' }
 ];
 
 export default function About() {
@@ -43,10 +43,10 @@ export default function About() {
             <div className="max-w-4xl">
               <p className="text-sm uppercase tracking-[0.5em] text-muted-foreground mb-4">About Us</p>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-serif text-foreground mb-6">
-                Hospitality Maintenance Reimagined
+                Your Local Maintenance Experts
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
-                KW Hospitality Maintenance started with a simple insight: hospitality operators need contractors who understand the rhythm of guest cycles, turnover windows, and preventative discipline. We built an entire platform around that insight.
+                K&W Maintenance started with a simple goal: to provide reliable, high-quality handyman services to our community. We understand that finding a trustworthy contractor can be hard, so we strive to be the easy choice for all your home repair needs.
               </p>
             </div>
           </div>
@@ -58,13 +58,13 @@ export default function About() {
             <div>
               <p className="text-sm uppercase tracking-[0.5em] text-muted-foreground mb-4">Mission</p>
               <h2 className="text-3xl md:text-4xl font-bold font-serif text-foreground mb-6">
-                Deliver a Sovereign Digital Ecosystem
+                Quality Work, Honest Pricing
               </h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                We believe hospitality operators and homeowners deserve operators who combine craft expertise with operational transparency. No surprises. No guesswork. Just crews who show up, execute flawlessly, and document everything.
+                We believe that every homeowner deserves quality repairs at a fair price. We are transparent about our costs and always aim to exceed your expectations.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Our platform embodies three principles: <strong className="text-foreground">Coherence</strong> (unified systems and communication), <strong className="text-foreground">Fluidity</strong> (seamless dispatch and scheduling), and <strong className="text-foreground">Resilience</strong> (24/7 availability, enterprise-grade uptime).
+                Our principles are simple: <strong className="text-foreground">Integrity</strong> (honest work), <strong className="text-foreground">Reliability</strong> (showing up on time), and <strong className="text-foreground">Quality</strong> (doing the job right).
               </p>
             </div>
             <div className="relative">
@@ -102,7 +102,7 @@ export default function About() {
         <section className="py-20 md:py-32 container-custom px-4">
           <div className="text-center mb-16">
             <p className="text-sm uppercase tracking-[0.5em] text-muted-foreground mb-2">Our Journey</p>
-            <h2 className="text-3xl md:text-4xl font-bold font-serif text-foreground">Evolution into Enterprise</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-serif text-foreground">Growing with You</h2>
           </div>
           <div className="space-y-12 max-w-3xl mx-auto">
             {milestones.map((milestone, idx) => (
@@ -127,39 +127,21 @@ export default function About() {
           </div>
         </section>
 
-        {/* Team Philosophy */}
-        <section className="bg-muted/30 border-y border-border/40 py-16 md:py-24">
-          <div className="container-custom px-4">
-            <div className="max-w-3xl">
-              <p className="text-sm uppercase tracking-[0.5em] text-muted-foreground mb-4">The KW Difference</p>
-              <h2 className="text-3xl md:text-4xl font-bold font-serif text-foreground mb-6">
-                Hospitality-Grade Operational Discipline
-              </h2>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Our teams are trained to understand the operational rhythm of hospitality. A turnover window is sacred—we arrive pre-briefed, execute with precision, document with photos, and close with a digital work order. For commercial operators and homeowners alike, we bring the same discipline, transparency, and follow-through.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                We invest in crew training, scheduling optimization, and compliance automation so you can focus on guest experience and asset longevity. That&apos;s not just maintenance—that&apos;s operational partnership.
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* CTA */}
         <section className="py-20 md:py-32 container-custom px-4">
           <div className="max-w-3xl">
             <h2 className="text-3xl md:text-4xl font-bold font-serif text-foreground mb-6">
-              Experience hospitality-grade maintenance
+              Ready to fix up your home?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Schedule an assessment and see how KW&apos;s operational discipline transforms your facility&apos;s uptime and team confidence.
+              Contact us today for a free quote on any of our services.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity">
-                Request Assessment
+                Get a Quote
               </Link>
               <Link href="/services" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-primary/20 text-foreground font-semibold hover:bg-primary/5 transition-colors">
-                Explore Services
+                View Services
               </Link>
             </div>
           </div>

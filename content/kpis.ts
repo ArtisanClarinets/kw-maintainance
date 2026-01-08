@@ -1,22 +1,22 @@
 export const kpis = [
-    {
-        metric: "1hr",
-        label: "Response Time",
-        description: "Average response time for emergency service calls during business hours."
-    },
-    {
-        metric: "500+",
-        label: "Jobs Completed",
-        description: "Successfully completed maintenance and repair tickets in the local area."
-    },
-    {
-        metric: "100%",
-        label: "Satisfaction",
-        description: "Commitment to quality. If it's not right, we'll come back and fix it."
-    },
-    {
-        metric: "24/7",
-        label: "Emergency Support",
-        description: "Available for critical issues that just can't wait until Monday."
-    }
+  {
+    metric: "500+",
+    label: "Projects Completed",
+    description: "Successful repairs and installations across Fort Walton Beach."
+  },
+  {
+    metric: "100%",
+    label: "Satisfaction Guarantee",
+    description: "We don't leave until the job is done right and you are happy."
+  },
+  {
+    metric: "5+",
+    label: "Years Experience",
+    description: "Serving our local community with professional handyman services."
+  },
+  {
+    metric: "24h",
+    label: "Response Time",
+    description: "Quick quotes and scheduling to get your home fixed fast."
+  }
 ];

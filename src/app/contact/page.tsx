@@ -11,18 +11,18 @@ export default function ContactPage() {
       <main className="flex-1">
         <div className="bg-muted/30 py-16 md:py-24">
             <div className="container-custom px-4 text-center">
-                <h1 className="text-4xl md:text-5xl font-extrabold font-serif mb-6 text-foreground">Operational Engagement</h1>
+                <h1 className="text-4xl md:text-5xl font-extrabold font-serif mb-6 text-foreground">Contact Us</h1>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                    Initiate a strategic assessment or schedule institutional maintenance services with elite brand-aligned protocols.
+                    Get in touch today for a free quote or to schedule a service.
                 </p>
             </div>
         </div>
 
         <div className="container-custom px-4 py-20 grid md:grid-cols-2 gap-12 lg:gap-24">
             <div>
-                <h2 className="text-2xl font-bold font-serif mb-6">Engagement Desk</h2>
+                <h2 className="text-2xl font-bold font-serif mb-6">Get in Touch</h2>
                 <p className="text-muted-foreground mb-8 text-lg">
-                    We stand ready to deploy craft crews, audit teams, and emergency response drivers with the same luxury standards our hospitality partners expect.
+                    We are here to answer any questions you may have about our services. Call, email, or fill out the form below.
                 </p>
 
                 <div className="space-y-6">
@@ -31,11 +31,11 @@ export default function ContactPage() {
                             <Phone className="h-6 w-6" />
                         </div>
                         <div>
-                            <div className="font-semibold uppercase tracking-wider text-xs text-muted-foreground mb-1">Priority Operations Line</div>
+                            <div className="font-semibold uppercase tracking-wider text-xs text-muted-foreground mb-1">Phone</div>
                             <a href={`tel:${siteConfig.phone.replace(/[^0-9]/g, '')}`} className="text-xl font-bold hover:text-primary transition-colors">
                                 {siteConfig.phone}
                             </a>
-                            <div className="text-sm text-muted-foreground mt-1">Attn: {siteConfig.contactPerson}</div>
+                            <div className="text-sm text-muted-foreground mt-1">Ask for {siteConfig.contactPerson}</div>
                         </div>
                     </div>
 
@@ -66,7 +66,7 @@ export default function ContactPage() {
             </div>
 
             <div className="bg-card p-8 rounded-2xl border border-border/80 shadow-lg">
-                <h3 className="text-xl font-bold font-serif mb-6 text-foreground">Strategic Assessment Intake</h3>
+                <h3 className="text-xl font-bold font-serif mb-6 text-foreground">Send Us a Message</h3>
                 <ContactForm />
             </div>
         </div>
