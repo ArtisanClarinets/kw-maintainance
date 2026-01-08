@@ -37,3 +37,25 @@ export async function createWorkOrderTemplate(input: CreateWorkOrderTemplateInpu
 
   return { success: true, template: tmpl };
 }
+
+export async function updateWorkOrderTemplate(id: string, updates: Partial<CreateWorkOrderTemplateInput>) {
+  const user = await getUser();
+  assertCanManageTemplates(user, updates.tenantId ?? '');
+  const db = await getDb();
+  db.workOrderTemplates = db.workOrderTemplates || [];
+  const idx = db.workOrderTemplates.findIndex(w => w.id === id);
+  if (idx === -1) throw new Error('Template not found');
+  const updated = { ...db.workOrderTemplates[idx], ...updates } as WorkOrderTemplate;
+  db.workOrderTemplates[idx] = updated;
+  await saveDb(db);
+  return { success: true, template: updated };
+}
+
+export async function deleteWorkOrderTemplate(id: string, tenantId: string) {
+  const user = await getUser();
+  assertCanManageTemplates(user, tenantId);
+  const db = await getDb();
+  db.workOrderTemplates = (db.workOrderTemplates || []).filter(w => w.id !== id);
+  await saveDb(db);
+  return { success: true };
+}

@@ -35,11 +35,11 @@ export function ServiceCard({ slug, title, description, icon, features }: Servic
   }
 
   return (
-    <Link href={`/platform#${slug}`} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-2xl">
+    <Link href={`/services/${slug}`} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-2xl">
       <motion.div
-        whileHover="hover"
-        initial="initial"
-        className="group relative h-full bg-card rounded-2xl border border-border/40 p-6 md:p-8 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:border-accent/50 overflow-hidden"
+        whileHover={{ scale: 1.02, y: -4 }}
+        initial={{ scale: 1 }}
+        className="group relative h-full bg-card rounded-2xl border border-border/40 p-6 md:p-8 shadow-md transition-shadow duration-300 hover:shadow-2xl hover:border-accent/50 overflow-hidden will-change-transform"
       >
         {/* Background Gradient/Glow on Hover */}
         <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

@@ -48,3 +48,26 @@ export async function createTechnician(input: CreateTechnicianInput) {
 
   return { success: true, technician: tech };
 }
+
+export async function updateTechnician(id: string, updates: Partial<CreateTechnicianInput>) {
+  const user = await getUser();
+  assertCanManageTechnicians(user, updates.tenantId ?? '');
+  const db = await getDb();
+  db.technicians = db.technicians || [];
+  const idx = db.technicians.findIndex(t => t.id === id);
+  if (idx === -1) throw new Error('Technician not found');
+  const existing = db.technicians[idx];
+  const updated = { ...existing, ...updates } as Technician;
+  db.technicians[idx] = updated;
+  await saveDb(db);
+  return { success: true, technician: updated };
+}
+
+export async function deleteTechnician(id: string, tenantId: string) {
+  const user = await getUser();
+  assertCanManageTechnicians(user, tenantId);
+  const db = await getDb();
+  db.technicians = (db.technicians || []).filter(t => t.id !== id);
+  await saveDb(db);
+  return { success: true };
+}

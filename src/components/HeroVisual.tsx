@@ -11,6 +11,14 @@ import { trackEvent } from "@/lib/analytics";
 export function HeroVisual() {
   const { data, loading } = useOpsData();
 
+  function readableAction(action: string) {
+    if (!action) return '';
+    if (action.includes('IOT_TRIGGER')) return 'Work order created';
+    // Replace underscores and dashes, downcase then capitalize
+    const s = action.replace(/[_-]+/g, ' ').toLowerCase();
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  }
+
   if (loading || !data) {
     return (
       <div className="relative w-full h-[450px] md:h-[600px] flex items-center justify-center overflow-hidden rounded-2xl border border-border/20 shadow-2xl bg-background/50 backdrop-blur-sm">
@@ -43,7 +51,7 @@ export function HeroVisual() {
             {/* Header */}
             <div className="flex justify-between items-center mb-6 border-b border-border/30 pb-4">
                 <div>
-                    <h3 className="text-lg font-bold font-serif text-foreground">Gulf Coast Ops</h3>
+                    <h3 className="text-lg font-bold font-serif text-foreground">Service Availability</h3>
                     <div className="flex items-center gap-2 mt-1">
                         <span className="relative flex h-2 w-2">
                           <span className={cn(
@@ -58,13 +66,13 @@ export function HeroVisual() {
                           )}></span>
                         </span>
                         <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
-                            {data.availability.status === "Available" ? "System Online" : 
-                             data.availability.status === "Limited" ? "High Demand" : "Fully Booked"}
+                            {data.availability.status === "Available" ? "Available" : 
+                             data.availability.status === "Limited" ? "Limited" : "Booked"}
                         </span>
                     </div>
                 </div>
                 <div className="flex flex-col items-end">
-                    <span className="text-[10px] text-muted-foreground uppercase tracking-wider mb-0.5">Detected Sector</span>
+                    <span className="text-[10px] text-muted-foreground uppercase tracking-wider mb-0.5">Serving</span>
                     <div className="flex items-center gap-1 bg-accent/10 px-2 py-1 rounded text-accent text-xs font-bold border border-accent/20">
                         <MapPin className="h-3 w-3" />
                         {data.userLocation}
@@ -95,7 +103,7 @@ export function HeroVisual() {
             <div className="space-y-3 mb-6">
                 <div className="flex justify-between items-center">
                     <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">Active Zones</p>
-                    <span className="text-[10px] text-green-500 animate-pulse">● Live Tracking</span>
+                    <span className="text-[10px] text-green-500 animate-pulse">● Live Updates</span>
                 </div>
                 <div className="flex flex-wrap gap-2">
                     {data.activeZones.map((zone, idx) => (
@@ -127,22 +135,22 @@ export function HeroVisual() {
             <div className="grid grid-cols-1 gap-3">
                 <button 
                   onClick={() => {
-                    trackEvent("click_dispatch_call", { location: data.userLocation });
+                    trackEvent("click_call_now", { location: data.userLocation });
                     window.location.href = "tel:850-851-3640";
                   }}
                   className="relative w-full bg-primary text-primary-foreground font-bold py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 overflow-hidden group hover:brightness-110 transition-all active:scale-[0.98]"
                 >
                     <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                     <Phone className="h-4 w-4 fill-current" />
-                    <span>CALL DISPATCH</span>
+                    <span>CALL NOW</span>
                 </button>
             </div>
 
-            {/* Live Activity Ticker */}
+            {/* Recent jobs ticker */}
             <div className="mt-4 pt-3 border-t border-border/30">
                  <div className="flex items-center gap-2 text-[10px] text-muted-foreground mb-2">
                      <Activity className="h-3 w-3" />
-                     <span className="uppercase tracking-wider">Live Activity Log</span>
+                     <span className="uppercase tracking-wider">Recent Jobs</span>
                  </div>
                  <div className="h-6 overflow-hidden relative">
                     <AnimatePresence mode="popLayout">
@@ -156,7 +164,7 @@ export function HeroVisual() {
                             >
                                 <span className="flex items-center gap-2">
                                     <span className="text-accent">[{activity.timestamp}]</span>
-                                    <span>{activity.action}</span>
+                                    <span>{readableAction(activity.action)}</span>
                                 </span>
                                 <span className="opacity-60 text-[10px] uppercase">{activity.location}</span>
                             </motion.div>
@@ -164,6 +172,8 @@ export function HeroVisual() {
                     </AnimatePresence>
                  </div>
             </div>
+
+            {/* readableAction helper (driver-friendly text) */}
 
         </SpotlightCard>
       </motion.div>

@@ -1,5 +1,8 @@
+'use client';
+
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Zap, Users, BarChart3, Shield } from 'lucide-react';
 import Link from 'next/link';
 
@@ -78,10 +81,10 @@ export default function HowItWorks() {
               const isEven = idx % 2 === 0;
               return (
                 <div key={idx} className={`grid grid-cols-1 md:grid-cols-2 gap-12 items-center ${!isEven ? 'md:grid-cols-2 md:[direction:rtl]' : ''}`}>
-                  <div>
+                  <motion.div whileHover={{ y: -6 }} className="transition-transform">
                     <div className="flex items-center gap-4 mb-6">
                       <div className="flex-shrink-0">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform hover:-translate-y-1 hover:shadow-lg">
                           <Icon className="h-6 w-6" />
                         </div>
                       </div>
@@ -97,7 +100,7 @@ export default function HowItWorks() {
                         </li>
                       ))}
                     </ul>
-                  </div>
+                  </motion.div>
                   <div className="hidden md:flex items-center justify-center">
                     <div className="relative w-full aspect-square bg-gradient-to-br from-primary/10 to-accent/5 rounded-3xl border border-border/40 flex items-center justify-center overflow-hidden">
                       <div className="absolute inset-0 bg-grid-small-white/5 [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,transparent_20%,black)]" />

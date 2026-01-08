@@ -37,3 +37,25 @@ export async function createPurchaseOrder(input: CreatePurchaseOrderInput) {
 
   return { success: true, purchaseOrder: po };
 }
+
+export async function updatePurchaseOrder(id: string, updates: Partial<CreatePurchaseOrderInput>) {
+  const user = await getUser();
+  assertCanManagePurchaseOrders(user, updates.tenantId ?? '');
+  const db = await getDb();
+  db.purchaseOrders = db.purchaseOrders || [];
+  const idx = db.purchaseOrders.findIndex(p => p.id === id);
+  if (idx === -1) throw new Error('Purchase order not found');
+  const updated = { ...db.purchaseOrders[idx], ...updates, updatedAt: new Date().toISOString() } as PurchaseOrder;
+  db.purchaseOrders[idx] = updated;
+  await saveDb(db);
+  return { success: true, purchaseOrder: updated };
+}
+
+export async function deletePurchaseOrder(id: string, tenantId: string) {
+  const user = await getUser();
+  assertCanManagePurchaseOrders(user, tenantId);
+  const db = await getDb();
+  db.purchaseOrders = (db.purchaseOrders || []).filter(p => p.id !== id);
+  await saveDb(db);
+  return { success: true };
+}

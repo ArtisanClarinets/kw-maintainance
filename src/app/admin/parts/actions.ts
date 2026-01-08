@@ -35,3 +35,25 @@ export async function createPart(input: CreatePartInput) {
 
   return { success: true, part };
 }
+
+export async function updatePart(id: string, updates: Partial<CreatePartInput>) {
+  const user = await getUser();
+  assertCanManageParts(user, updates.tenantId ?? '');
+  const db = await getDb();
+  db.parts = db.parts || [];
+  const idx = db.parts.findIndex(p => p.id === id);
+  if (idx === -1) throw new Error('Part not found');
+  const updated = { ...db.parts[idx], ...updates } as Part;
+  db.parts[idx] = updated;
+  await saveDb(db);
+  return { success: true, part: updated };
+}
+
+export async function deletePart(id: string, tenantId: string) {
+  const user = await getUser();
+  assertCanManageParts(user, tenantId);
+  const db = await getDb();
+  db.parts = (db.parts || []).filter(p => p.id !== id);
+  await saveDb(db);
+  return { success: true };
+}

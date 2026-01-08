@@ -1,9 +1,9 @@
 
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { Star } from "lucide-react";
-
+import { useEffect } from "react";
 interface Testimonial {
   id: number;
   name: string;
@@ -20,6 +20,13 @@ export function Marquee({ testimonials }: MarqueeProps) {
   // Duplicate the testimonials to ensure smooth infinite scroll
   const items = [...testimonials, ...testimonials, ...testimonials];
 
+  const controls = useAnimation();
+
+  useEffect(() => {
+    // Start the looping animation
+    controls.start({ x: ["0%", "-33.33%"], transition: { ease: "linear", duration: 30, repeat: Infinity } });
+  }, [controls]);
+
   return (
     <div className="relative w-full overflow-hidden bg-background py-16">
       <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-background via-transparent to-background w-full h-full" />
@@ -27,17 +34,14 @@ export function Marquee({ testimonials }: MarqueeProps) {
       <div className="flex">
         <motion.div
           className="flex gap-8 px-4"
-          animate={{ x: "-33.33%" }}
-          transition={{
-            ease: "linear",
-            duration: 30, // Adjust speed
-            repeat: Infinity,
-          }}
+          animate={controls}
+          onMouseEnter={() => controls.stop()}
+          onMouseLeave={() => controls.start({ x: ["0%", "-33.33%"], transition: { ease: "linear", duration: 30, repeat: Infinity } })}
         >
           {items.map((item, idx) => (
             <div
               key={`${item.id}-${idx}`}
-              className="flex-shrink-0 w-[300px] md:w-[400px] p-6 rounded-xl border border-border/40 bg-card shadow-sm"
+              className="flex-shrink-0 w-[300px] md:w-[400px] p-6 rounded-xl border border-border/40 bg-card shadow-sm hover:shadow-2xl hover:-translate-y-1 transform-gpu transition-all"
             >
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (

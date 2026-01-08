@@ -28,7 +28,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     id: "preventative-maintenance",
     title: "PREVENTATIVE MAINTENANCE",
     longDescription:
-      "In the hospitality industry, downtime translates directly to lost revenue. Our Preventative Maintenance (PM) program is designed to keep your hotel or resort operating at peak efficiency. By addressing wear and tear before it becomes a failure, we extend the lifespan of your critical assets—from HVAC systems to in-room fixtures. We offer tiered contracts (Bronze, Silver, Gold) tailored to your property's specific needs, ensuring budget predictability and compliance with safety standards.",
+      "Keep your property running with routine maintenance that prevents small problems from becoming costly repairs. Our Preventative Maintenance program covers HVAC, plumbing, electrical, and common-area checks so you can avoid unexpected failures. Choose a Bronze, Silver, or Gold plan to match your needs and keep maintenance predictable and worry-free.",
     included: [
       "HVAC Filter Replacement & Coil Cleaning",
       "Plumbing Leak Detection & Pressure Tests",
@@ -64,7 +64,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     id: "turnover-services",
     title: "HOSPITALITY TURNOVER",
     longDescription:
-      "The window between a guest checking out and the next checking in is critical. Our Hospitality Turnover Services ensure your rooms are perfect every time. We work seamlessly with your housekeeping staff to handle the repairs they can't: paint scuffs, broken drawer glides, loose fixtures, and damaged drywall. We understand the urgency of the 11 AM to 3 PM window and provide rapid response teams to protect your guest satisfaction scores.",
+      "Quick turnarounds keep guests happy. Our Turnover Services handle the repairs housekeeping can't finish: paint touch-ups, furniture fixes, hardware repairs, and quick plumbing or electrical touch-ups. We prioritize speed and quality so rooms are ready when you need them.",
     included: [
       "Rapid Drywall & Paint Touch-ups",
       "Furniture Repair & Stabilization",
@@ -100,7 +100,8 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     id: "facility-audits",
     title: "FACILITY AUDITS",
     longDescription:
-      "Knowledge is power when managing large properties. Our Facility Audits provide a deep dive into the condition of your physical plant. Whether for due diligence before an acquisition, annual budget planning (CapEx), or safety compliance, our detailed reports give you the data you need. We inspect structural elements, mechanical systems, and aesthetic conditions, prioritizing issues by urgency and estimated cost.",
+      "Our Facility Audits give you clear, actionable guidance about the condition of your property. We inspect structural, mechanical, and safety elements, prioritize issues by urgency, and provide realistic repair estimates so you can plan repairs and budgets with confidence.",
+
     included: [
       "Comprehensive Asset Condition Assessment",
       "ADA Compliance Review",
@@ -136,7 +137,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     id: "handyman",
     title: "GENERAL MAINTENANCE",
     longDescription:
-      "Even well-managed properties face unexpected issues. Our General Maintenance service provides a reliable, professional solution for the day-to-day repairs that keep a business running. From a stuck door to a damaged sign, we handle it with the same level of professionalism as major projects. We act as an extension of your engineering team or as your primary maintenance partner.",
+      "Unexpected repairs happen. Our General Maintenance service gives you fast, reliable help for everyday issues—stuck doors, drywall patches, furniture repair, and more. We show up on time, work cleanly, and get the job done right so you can focus on your business.",
     included: [
       "Door, Lock & Closer Repair",
       "Drywall Patching & Texture Matching",
@@ -172,7 +173,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     id: "installations",
     title: "COMMERCIAL INSTALLATIONS",
     longDescription:
-      "Upgrading your property often involves complex installations. Whether you are rolling out new smart TVs across 100 rooms or updating lobby lighting, our Commercial Installation team ensures it's done right. We specialize in FF&E (Furniture, Fixtures, and Equipment) installation, handling logistics, assembly, and mounting with precision. We ensure all installations meet safety codes and manufacturer specifications.",
+      "Upgrading your property often involves complex installations. Whether you need TVs mounted, lighting updates, or new fixtures installed, our Commercial Installation team gets it done safely and efficiently. We handle receiving, staging, assembly, and secure mounting to meet manufacturer recommendations and safety codes.",
     included: [
       "Hotel TV & Mount Installation (Volume)",
       "Smart Room Thermostats & Controls",
@@ -234,7 +235,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
       },
       {
         title: "Inspect",
-        body: "We conduct a walkthrough to ensure coverage and lines meet our 'Fortune 500' standard.",
+        body: "We conduct a final walkthrough to ensure even coverage and clean lines that meet our high standards.",
       },
     ],
     seoDescription:

@@ -9,7 +9,7 @@ const SERVICE_OPTIONS = [
   { value: 'Facility Audits', label: 'Facility & Compliance Audits' },
   { value: 'Emergency Response', label: 'Emergency Response & Rapid Dispatch' },
   { value: 'Residential Support', label: 'Residential / Handyman Support' },
-  { value: 'Installations', label: 'Install & FF&E Coordination' },
+  { value: 'Installations', label: 'Install & Fixtures Coordination' },
 ];
 
 const PROPERTY_TYPES = [
@@ -91,11 +91,11 @@ export default function ContactForm() {
       <div className="grid sm:grid-cols-2 gap-4">
         <label className="space-y-2">
           <span className="text-xs uppercase tracking-widest text-muted-foreground">Name</span>
-          <input name="name" type="text" required className="w-full px-4 py-3 rounded-lg border border-input bg-muted/20" placeholder="Dana Operations" />
+          <input name="name" type="text" required className="w-full px-4 py-3 rounded-lg border border-input bg-muted/20" placeholder="Your name" />
         </label>
         <label className="space-y-2">
           <span className="text-xs uppercase tracking-widest text-muted-foreground">Email</span>
-          <input name="email" type="email" required className="w-full px-4 py-3 rounded-lg border border-input bg-muted/20" placeholder="name@institution.com" />
+          <input name="email" type="email" required className="w-full px-4 py-3 rounded-lg border border-input bg-muted/20" placeholder="you@example.com" />
         </label>
       </div>
 
@@ -118,7 +118,7 @@ export default function ContactForm() {
       <div className="grid sm:grid-cols-2 gap-4">
         <label className="space-y-2">
           <span className="text-xs uppercase tracking-widest text-muted-foreground">Organization / Venue</span>
-          <input name="companyName" type="text" required className="w-full px-4 py-3 rounded-lg border border-input bg-muted/20" placeholder="Grand Shore Resorts" />
+          <input name="companyName" type="text" required className="w-full px-4 py-3 rounded-lg border border-input bg-muted/20" placeholder="Property or business name" />
         </label>
         <label className="space-y-2">
           <span className="text-xs uppercase tracking-widest text-muted-foreground">Title / Role</span>
@@ -148,8 +148,8 @@ export default function ContactForm() {
       </label>
 
       <label className="space-y-2">
-        <span className="text-xs uppercase tracking-widest text-muted-foreground">Operational Request</span>
-        <textarea name="message" rows={4} required className="w-full px-4 py-3 rounded-lg border border-input bg-muted/20" placeholder="Describe the operational challenge, turnover requirements, or compliance goal..." />
+        <span className="text-xs uppercase tracking-widest text-muted-foreground">Service Request</span>
+        <textarea name="message" rows={4} required className="w-full px-4 py-3 rounded-lg border border-input bg-muted/20" placeholder="Describe the issue, location, and any details (photos help!)" />
       </label>
 
       <div className="flex flex-col gap-2">

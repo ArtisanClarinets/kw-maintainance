@@ -1,3 +1,5 @@
+'use client';
+
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
@@ -8,6 +10,7 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { services } from "@/../content/services";
 import { kpis } from "@/../content/kpis";
 import { industries } from "@/../content/industries";
+import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ShieldCheck, Clock, MapPin } from "lucide-react";
 
@@ -23,11 +26,11 @@ export default function Home() {
             <div className="container-custom px-4">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                     {kpis.map((kpi, idx) => (
-                        <div key={idx} className="text-center">
+                        <motion.div key={idx} whileHover={{ y: -4 }} className="text-center transition-transform">
                             <div className="text-4xl font-bold text-primary mb-2">{kpi.metric}</div>
                             <div className="font-semibold text-foreground mb-1">{kpi.label}</div>
                             <p className="text-sm text-muted-foreground">{kpi.description}</p>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
@@ -74,45 +77,51 @@ export default function Home() {
                 </div>
                 
                 <div className="grid md:grid-cols-3 gap-8">
-                    <Card className="bg-card border-border/50">
-                        <CardHeader>
-                            <div className="mb-4 h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                                <ShieldCheck className="h-6 w-6" />
-                            </div>
-                            <CardTitle className="text-xl">Licensed & Insured</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <p className="text-muted-foreground">
-                                Rest easy knowing that we are fully licensed and insured professionals. We prioritize safety and quality in every job we do.
-                            </p>
-                        </CardContent>
-                    </Card>
-                    <Card className="bg-card border-border/50">
-                        <CardHeader>
-                            <div className="mb-4 h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                                <Clock className="h-6 w-6" />
-                            </div>
-                            <CardTitle className="text-xl">Reliable & Punctual</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <p className="text-muted-foreground">
-                                We value your time. Our team arrives on schedule and completes projects efficiently without cutting corners.
-                            </p>
-                        </CardContent>
-                    </Card>
-                    <Card className="bg-card border-border/50">
-                        <CardHeader>
-                            <div className="mb-4 h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                                <MapPin className="h-6 w-6" />
-                            </div>
-                            <CardTitle className="text-xl">Locally Owned</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <p className="text-muted-foreground">
-                                As a local Fort Walton Beach business, we are committed to serving our neighbors and community with integrity.
-                            </p>
-                        </CardContent>
-                    </Card>
+                        <motion.div whileHover={{ scale: 1.02, y: -4 }} className="rounded-lg">
+                        <Card className="bg-card border-border/50">
+                            <CardHeader>
+                                <div className="mb-4 h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                                    <ShieldCheck className="h-6 w-6" />
+                                </div>
+                                <CardTitle className="text-xl">Licensed & Insured</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-muted-foreground">
+                                    Rest easy knowing that we are fully licensed and insured professionals. We prioritize safety and quality in every job we do.
+                                </p>
+                            </CardContent>
+                        </Card>
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.02, y: -4 }} className="rounded-lg">
+                        <Card className="bg-card border-border/50">
+                            <CardHeader>
+                                <div className="mb-4 h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary transition-all">
+                                    <Clock className="h-6 w-6" />
+                                </div>
+                                <CardTitle className="text-xl">Reliable & Punctual</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-muted-foreground">
+                                    We value your time. Our team arrives on schedule and completes projects efficiently without cutting corners.
+                                </p>
+                            </CardContent>
+                        </Card>
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.02, y: -4 }} className="rounded-lg">
+                        <Card className="bg-card border-border/50">
+                            <CardHeader>
+                                <div className="mb-4 h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary transition-all">
+                                    <MapPin className="h-6 w-6" />
+                                </div>
+                                <CardTitle className="text-xl">Locally Owned</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-muted-foreground">
+                                    As a local Fort Walton Beach business, we are committed to serving our neighbors and community with integrity.
+                                </p>
+                            </CardContent>
+                        </Card>
+                    </motion.div>
                 </div>
             </div>
         </section>

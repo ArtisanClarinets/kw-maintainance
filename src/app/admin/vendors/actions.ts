@@ -35,3 +35,25 @@ export async function createVendor(input: CreateVendorInput) {
 
   return { success: true, vendor };
 }
+
+export async function updateVendor(id: string, updates: Partial<CreateVendorInput>) {
+  const user = await getUser();
+  assertCanManageVendors(user, updates.tenantId ?? '');
+  const db = await getDb();
+  db.vendors = db.vendors || [];
+  const idx = db.vendors.findIndex(v => v.id === id);
+  if (idx === -1) throw new Error('Vendor not found');
+  const updated = { ...db.vendors[idx], ...updates } as Vendor;
+  db.vendors[idx] = updated;
+  await saveDb(db);
+  return { success: true, vendor: updated };
+}
+
+export async function deleteVendor(id: string, tenantId: string) {
+  const user = await getUser();
+  assertCanManageVendors(user, tenantId);
+  const db = await getDb();
+  db.vendors = (db.vendors || []).filter(v => v.id !== id);
+  await saveDb(db);
+  return { success: true };
+}
