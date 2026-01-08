@@ -14,16 +14,15 @@ const formSchema = z.object({
   name: z.string().min(2, "Name is required"),
   email: z.string().email("Valid email is required"),
   phone: z.string().min(10, "Valid phone number is required"),
-  companyName: z.string().min(1, "Company name is required"),
-  role: z.string().optional(),
-  portfolioSize: z.string().optional(),
+  serviceType: z.string().min(1, "Service type is required"),
   message: z.string().min(10, "Please provide some details about your needs"),
+  address: z.string().optional(),
   company: z.string().optional(), // Honeypot
 });
 
 type FormData = z.infer<typeof formSchema>;
 
-function RequestDemoForm() {
+function RequestQuoteForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -58,7 +57,7 @@ function RequestDemoForm() {
       setIsSuccess(true);
       reset();
     } catch (err) {
-      setError("Something went wrong. Please try again or contact enterprise sales directly.");
+      setError("Something went wrong. Please try again or give us a call directly.");
       console.error(err);
     } finally {
       setIsSubmitting(false);
@@ -76,18 +75,18 @@ function RequestDemoForm() {
             {...register("name")}
             id="name"
             className="flex h-11 w-full rounded-lg border border-input bg-background/50 px-3 py-2 text-sm placeholder:text-muted-foreground/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:border-primary transition-all shadow-sm"
-            placeholder="Jane Smith"
+            placeholder="John Doe"
           />
           {errors.name && <p className="text-sm text-destructive font-medium">{errors.name.message}</p>}
         </div>
         <div className="space-y-2 group">
-          <label htmlFor="email" className="text-sm font-medium text-foreground/80 group-focus-within:text-primary transition-colors">Work Email</label>
+          <label htmlFor="email" className="text-sm font-medium text-foreground/80 group-focus-within:text-primary transition-colors">Email</label>
           <input
             {...register("email")}
             id="email"
             type="email"
             className="flex h-11 w-full rounded-lg border border-input bg-background/50 px-3 py-2 text-sm placeholder:text-muted-foreground/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:border-primary transition-all shadow-sm"
-            placeholder="jane@company.com"
+            placeholder="john@example.com"
           />
           {errors.email && <p className="text-sm text-destructive font-medium">{errors.email.message}</p>}
         </div>
@@ -101,55 +100,46 @@ function RequestDemoForm() {
             id="phone"
             type="tel"
             className="flex h-11 w-full rounded-lg border border-input bg-background/50 px-3 py-2 text-sm placeholder:text-muted-foreground/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:border-primary transition-all shadow-sm"
-            placeholder="+1 (555) 000-0000"
+            placeholder="(850) 555-0123"
           />
           {errors.phone && <p className="text-sm text-destructive font-medium">{errors.phone.message}</p>}
         </div>
         <div className="space-y-2 group">
-          <label htmlFor="companyName" className="text-sm font-medium text-foreground/80 group-focus-within:text-primary transition-colors">Company Name</label>
-          <input
-            {...register("companyName")}
-            id="companyName"
-            className="flex h-11 w-full rounded-lg border border-input bg-background/50 px-3 py-2 text-sm placeholder:text-muted-foreground/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:border-primary transition-all shadow-sm"
-            placeholder="Global Hospitality Group"
-          />
-          {errors.companyName && <p className="text-sm text-destructive font-medium">{errors.companyName.message}</p>}
-        </div>
-      </div>
-
-      <div className="grid sm:grid-cols-2 gap-6">
-        <div className="space-y-2 group">
-          <label htmlFor="role" className="text-sm font-medium text-foreground/80 group-focus-within:text-primary transition-colors">Job Title</label>
-          <input
-            {...register("role")}
-            id="role"
-            className="flex h-11 w-full rounded-lg border border-input bg-background/50 px-3 py-2 text-sm placeholder:text-muted-foreground/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:border-primary transition-all shadow-sm"
-            placeholder="VP of Operations"
-          />
-        </div>
-        <div className="space-y-2 group">
-          <label htmlFor="portfolioSize" className="text-sm font-medium text-foreground/80 group-focus-within:text-primary transition-colors">Portfolio Size</label>
+          <label htmlFor="serviceType" className="text-sm font-medium text-foreground/80 group-focus-within:text-primary transition-colors">Service Needed</label>
           <select
-            {...register("portfolioSize")}
-            id="portfolioSize"
+            {...register("serviceType")}
+            id="serviceType"
             className="flex h-11 w-full rounded-lg border border-input bg-background/50 px-3 py-2 text-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:border-primary transition-all shadow-sm appearance-none"
           >
-            <option value="" className="text-muted-foreground">Select number of properties...</option>
-            <option value="1-5">1-5 Properties</option>
-            <option value="6-20">6-20 Properties</option>
-            <option value="21-50">21-50 Properties</option>
-            <option value="50+">50+ Properties</option>
+            <option value="" className="text-muted-foreground">Select a service...</option>
+            <option value="Handyman Repair">General Handyman Repair</option>
+            <option value="Painting">Painting</option>
+            <option value="TV Mounting">TV Mounting</option>
+            <option value="Moving/Hauling">Moving or Hauling</option>
+            <option value="Installation">Installation</option>
+            <option value="Other">Other</option>
           </select>
+          {errors.serviceType && <p className="text-sm text-destructive font-medium">{errors.serviceType.message}</p>}
         </div>
       </div>
 
       <div className="space-y-2 group">
-        <label htmlFor="message" className="text-sm font-medium text-foreground/80 group-focus-within:text-primary transition-colors">How can we help?</label>
+          <label htmlFor="address" className="text-sm font-medium text-foreground/80 group-focus-within:text-primary transition-colors">Property Address (Optional)</label>
+          <input
+            {...register("address")}
+            id="address"
+            className="flex h-11 w-full rounded-lg border border-input bg-background/50 px-3 py-2 text-sm placeholder:text-muted-foreground/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:border-primary transition-all shadow-sm"
+            placeholder="123 Main St, Fort Walton Beach, FL"
+          />
+      </div>
+
+      <div className="space-y-2 group">
+        <label htmlFor="message" className="text-sm font-medium text-foreground/80 group-focus-within:text-primary transition-colors">Project Details</label>
         <textarea
           {...register("message")}
           id="message"
           className="flex min-h-[120px] w-full rounded-lg border border-input bg-background/50 px-3 py-2 text-sm placeholder:text-muted-foreground/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:border-primary transition-all shadow-sm resize-y"
-          placeholder="Tell us about your current challenges or what you'd like to see in the demo..."
+          placeholder="Please describe what you need help with..."
         />
         {errors.message && <p className="text-sm text-destructive font-medium">{errors.message.message}</p>}
       </div>
@@ -172,7 +162,7 @@ function RequestDemoForm() {
                     className="flex items-center justify-center gap-2"
                 >
                     <Loader2 className="h-5 w-5 animate-spin" />
-                    <span>Processing Intake...</span>
+                    <span>Sending...</span>
                 </motion.div>
             ) : isSuccess ? (
                 <motion.div
@@ -183,7 +173,7 @@ function RequestDemoForm() {
                     className="flex items-center justify-center gap-2 text-green-100"
                 >
                     <CheckCircle2 className="h-5 w-5" />
-                    <span>Inquiry Received</span>
+                    <span>Request Sent!</span>
                 </motion.div>
             ) : (
                 <motion.span
@@ -192,21 +182,21 @@ function RequestDemoForm() {
                      animate={{ opacity: 1 }}
                      exit={{ opacity: 0 }}
                 >
-                    Request Consultation
+                    Get My Free Quote
                 </motion.span>
             )}
         </AnimatePresence>
       </Button>
       <div className="mt-8 pt-8 border-t border-border/20">
         <p className="text-sm text-muted-foreground">
-          By submitting this form, you agree to our privacy policy and terms of service. We&apos;ll never sell your data.
+          By submitting this form, you agree to allow us to contact you regarding your quote request. We respect your privacy.
         </p>
       </div>
     </form>
   );
 }
 
-export default function RequestDemoPage() {
+export default function RequestQuotePage() {
   return (
     <div className="flex min-h-screen flex-col font-sans bg-background">
       <Header />
@@ -219,10 +209,10 @@ export default function RequestDemoPage() {
                 <div className="space-y-8">
                     <div>
                         <h1 className="text-4xl md:text-5xl font-extrabold font-serif mb-6 text-foreground tracking-tight">
-                            Request an <span className="text-primary">Operational Assessment</span>
+                            Request a <span className="text-primary">Free Quote</span>
                         </h1>
                         <p className="text-lg text-muted-foreground leading-relaxed">
-                            Partner with our operational architects to evaluate your portfolio&apos;s infrastructure needs and design a strategy for long-term asset stewardship.
+                            Tell us about your project and we will get back to you with a competitive price and a plan to get it done.
                         </p>
                     </div>
 
@@ -232,8 +222,8 @@ export default function RequestDemoPage() {
                                 <span className="font-bold">1</span>
                             </div>
                             <div>
-                                <h3 className="text-lg font-bold mb-1">Strategic Consultation</h3>
-                                <p className="text-sm text-muted-foreground">We focus on the operational ecosystems that drive your property&apos;s performance and guest satisfaction.</p>
+                                <h3 className="text-lg font-bold mb-1">Tell Us What You Need</h3>
+                                <p className="text-sm text-muted-foreground">Fill out the form with details about your repair or installation project.</p>
                             </div>
                         </div>
                         <div className="flex gap-4">
@@ -241,8 +231,8 @@ export default function RequestDemoPage() {
                                 <span className="font-bold">2</span>
                             </div>
                             <div>
-                                <h3 className="text-lg font-bold mb-1">Blueprint Architecture Review</h3>
-                                <p className="text-sm text-muted-foreground">Review system interoperability, resilience frameworks, and deployment strategies with our senior engineers.</p>
+                                <h3 className="text-lg font-bold mb-1">Get a Quote</h3>
+                                <p className="text-sm text-muted-foreground">We will review your request and provide an estimate or schedule a visit.</p>
                             </div>
                         </div>
                         <div className="flex gap-4">
@@ -250,8 +240,8 @@ export default function RequestDemoPage() {
                                 <span className="font-bold">3</span>
                             </div>
                             <div>
-                                <h3 className="text-lg font-bold mb-1">Impact & Valuation Analysis</h3>
-                                <p className="text-sm text-muted-foreground">Receive a comprehensive projection of operational efficiency improvements and asset value preservation.</p>
+                                <h3 className="text-lg font-bold mb-1">Job Done Right</h3>
+                                <p className="text-sm text-muted-foreground">Our professional team will complete the work to your satisfaction.</p>
                             </div>
                         </div>
                     </div>
@@ -263,8 +253,8 @@ export default function RequestDemoPage() {
                     <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
                     
                     <div className="relative z-10">
-                        <h2 className="text-2xl font-bold mb-6">Engagement Details</h2>
-                        <RequestDemoForm />
+                        <h2 className="text-2xl font-bold mb-6">Project Details</h2>
+                        <RequestQuoteForm />
                     </div>
                 </div>
             </div>

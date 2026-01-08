@@ -1,92 +1,35 @@
+
 import { NextResponse } from 'next/server';
-import { loadServerConfig } from '@/lib/server-config/load';
-import { checkRateLimit } from '@/lib/security/rateLimit';
-import { getClientIp } from '@/lib/security/request';
-import nodemailer from 'nodemailer';
-import { LeadSchema } from '@/lib/lead-schema';
 
-export async function POST(request: Request) {
+export async function POST(req: Request) {
   try {
-    const config = await loadServerConfig();
+    const data = await req.json();
 
-    if (!config.leadProcessing.enabled) {
-        return NextResponse.json({ ok: false, error: "Service currently unavailable" }, { status: 503 });
-    }
-
-    const ip = await getClientIp();
-    const isAllowed = checkRateLimit(ip, config.leadProcessing.rateLimit);
-    if (!isAllowed) {
-        return NextResponse.json({ ok: false, error: "Too many requests. Please try again later." }, { status: 429 });
-    }
-
-    let body;
-    try {
-        body = await request.json();
-    } catch {
-        return NextResponse.json({ ok: false, error: "Invalid JSON" }, { status: 400 });
-    }
-
-    const parseResult = LeadSchema.safeParse(body);
-    if (!parseResult.success) {
-        console.warn(`Validation failed for IP ${ip}`, parseResult.error.format());
-        return NextResponse.json({ ok: false, error: "Invalid submission data" }, { status: 400 });
-    }
-
-    const data = parseResult.data;
-
+    // Basic honeypot check
     if (data.company) {
-        return NextResponse.json({ ok: true });
+      return NextResponse.json({ success: true }, { status: 200 }); // Silent success
     }
 
-    if (data.timestamp) {
-        const now = Date.now();
-        const minTime = config.leadProcessing.spamControl.minSubmitTimeMs;
-        if (now - data.timestamp < minTime) {
-             return NextResponse.json({ ok: true }); 
-        }
-    }
+    // In a real app, you would send an email here using Resend, SendGrid, etc.
+    // For now, we'll just log it.
+    console.log("New Lead Received:", {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        service: data.serviceType,
+        message: data.message,
+        address: data.address
+    });
 
-        // Mask PII in logs
-        const maskedEmail = data.email.replace(/(.{2})(.*)(@.*)/, "$1***$3");
-        console.log(
-            `Lead received from ${ip}: ${maskedEmail} | service=${data.service ?? 'general'} | property=${data.propertyType ?? 'unknown'}`
-        );
+    // Simulate delay
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    if (config.notification.method === 'smtp' && config.smtp) {
-        const transporter = nodemailer.createTransport({
-            host: config.smtp.host,
-            port: config.smtp.port,
-            secure: config.smtp.secure,
-            auth: {
-                user: config.smtp.user,
-                pass: config.smtp.pass,
-            },
-        });
-
-        await transporter.sendMail({
-            from: config.notification.email.from || config.smtp.user,
-            to: config.notification.email.to.join(','),
-            subject: `Institutional Consultation Request: ${data.name} - ${data.companyName}`,
-            text: `
-        Stakeholder Name: ${data.name}
-        Email Address: ${data.email}
-        Phone Number: ${data.phone}
-        Organization: ${data.companyName}
-        Title: ${data.role || 'N/A'}
-        Property Type: ${data.propertyType || 'N/A'}
-        Focus Service: ${data.service || 'General'}
-        Rooms / Units: ${data.units || 'N/A'}
-        Property Portfolio Size: ${data.portfolioSize || 'N/A'}
-
-        Operational Requirements/Inquiry:
-        ${data.message}
-                `,
-        });
-    }
-
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ success: true, message: "Lead captured" });
   } catch (error) {
-    console.error("Error processing lead:", error);
-    return NextResponse.json({ ok: false, error: "Internal Server Error" }, { status: 500 });
+    console.error("Lead submission error:", error);
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 }
+    );
   }
 }

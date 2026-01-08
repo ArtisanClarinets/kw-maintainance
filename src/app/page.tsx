@@ -6,12 +6,10 @@ import { testimonials } from "@/../content/testimonials";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { ServiceCard } from "@/components/ServiceCard";
-import { modules } from "@/../content/modules";
-import { personas } from "@/../content/personas";
-import { kpis } from "@/../content/kpis";
 import { services } from "@/../content/services";
-import { industries } from "@/../content/industries";
+import { kpis } from "@/../content/kpis";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ShieldCheck, Clock, MapPin } from "lucide-react";
 
 export default function Home() {
   return (
@@ -35,120 +33,86 @@ export default function Home() {
             </div>
         </section>
 
-        {/* Strategic Systems Teaser */}
-        <section id="modules" className="py-20 md:py-32 container-custom px-4">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
-             <div>
-                <h2 className="text-3xl md:text-4xl font-extrabold font-serif mb-4 text-foreground">Strategic Systems</h2>
-                <p className="text-lg text-muted-foreground max-w-xl">
-                  A comprehensive ecosystem designed for the elite hospitality institution.
-                </p>
-             </div>
-             <Link href="/platform" className="flex items-center font-semibold text-primary hover:text-primary/80 transition-colors group">
-                View Operational Brief
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-             </Link>
+        {/* Services Section */}
+        <section id="services" className="py-20 container-custom px-4">
+          <div className="text-center mb-16">
+             <h2 className="text-3xl md:text-4xl font-extrabold font-serif mb-4 text-foreground">Our Services</h2>
+             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+               Professional, reliable, and affordable services for your home or business in Fort Walton Beach and surrounding areas.
+             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {modules.map((module) => (
-               <div key={module.slug} className="h-full">
+            {services.map((service) => (
+               <div key={service.id} className="h-full">
                 <ServiceCard
-                    slug={module.slug}
-                    title={module.title}
-                    description={module.description}
-                    icon={<module.icon className="h-6 w-6" />}
-                    features={module.features}
+                    slug={service.id}
+                    title={service.title}
+                    description={service.description}
+                    icon={<service.icon className="h-6 w-6" />}
+                    features={service.features}
                 />
               </div>
             ))}
           </div>
+
+          <div className="mt-12 text-center">
+            <Link href="/services" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-10 px-8 py-2">
+                View All Services
+            </Link>
+          </div>
         </section>
 
-        {/* Service Catalog */}
-        <section id="services" className="py-20 container-custom px-4 space-y-12">
-            <div className="flex flex-col gap-4">
-                <p className="text-sm uppercase tracking-[0.4em] text-muted-foreground">Service Catalog</p>
-                <h2 className="text-3xl md:text-4xl font-extrabold font-serif text-foreground">Hospitality-grade services, residential care included</h2>
-                <p className="text-lg text-muted-foreground max-w-3xl">
-                    We align dispatch, turnover, and maintenance crews to the unique rhythms of hospitality operators while still supporting homeowners with transparent commitments.
-                </p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {services.map((service) => (
-                    <div key={service.id} className="h-full">
-                        <ServiceCard
-                            slug={service.id}
-                            title={service.title}
-                            description={service.description}
-                            icon={service.icon}
-                            features={service.features}
-                        />
-                    </div>
-                ))}
-            </div>
-        </section>
-
-        {/* Personas Section */}
+        {/* Why Choose Us */}
         <section className="py-20 bg-muted/20">
             <div className="container-custom px-4">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-extrabold font-serif mb-4">Built for Operations Leaders</h2>
+                    <h2 className="text-3xl md:text-4xl font-extrabold font-serif mb-4">Why Choose K&W Maintenance?</h2>
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Empowering hospitality operations, service leadership, and local homeowners with role-specific visibility and dispatch fidelity.
+                        We take pride in our work and treat your home with the respect it deserves.
                     </p>
                 </div>
                 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {personas.map((persona) => (
-                        <Card key={persona.id} className="bg-card border-border/50">
-                            <CardHeader>
-                                <div className="mb-4 h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                                    <persona.icon className="h-6 w-6" />
-                                </div>
-                                <CardTitle className="text-xl">{persona.title}</CardTitle>
-                                <p className="text-sm text-muted-foreground font-medium uppercase tracking-wider">{persona.role}</p>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-xl italic text-muted-foreground mb-6">&quot;{persona.valueProp}&quot;</p>
-                                <ul className="space-y-2">
-                                    {persona.painPoints.map((point, idx) => (
-                                        <li key={idx} className="flex items-start text-sm">
-                                            <CheckCircle2 className="h-4 w-4 text-green-500 mr-2 shrink-0 mt-0.5" />
-                                            <span>{point}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-
-                                {/* Industries */}
-                                <section className="py-20 container-custom px-4">
-                                    <div className="flex flex-col gap-2 text-center mb-12">
-                                        <p className="text-sm uppercase tracking-[0.4em] text-muted-foreground">Industries Served</p>
-                                        <h2 className="text-3xl md:text-4xl font-extrabold font-serif text-foreground">Hospitality command centre, homeowner support</h2>
-                                    </div>
-                                    <div className="grid md:grid-cols-2 gap-8">
-                                        {industries.map((industry) => (
-                                            <div key={industry.id} className="bg-card border border-border/40 rounded-2xl p-8 h-full">
-                                                <h3 className="text-2xl font-bold mb-3 text-foreground">{industry.title}</h3>
-                                                <p className="text-muted-foreground mb-6">{industry.description}</p>
-                                                <ul className="space-y-2 mb-6 text-sm text-foreground/80">
-                                                    {industry.highlights.map((highlight) => (
-                                                        <li key={highlight} className="flex items-start gap-2">
-                                                            <span className="h-1.5 w-1.5 rounded-full bg-primary mt-1" />
-                                                            {highlight}
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                                <Link href={industry.cta.href} className="text-sm font-semibold text-primary hover:text-primary/80">
-                                                    {industry.cta.label} →
-                                                </Link>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </section>
-                            </CardContent>
-                        </Card>
-                    ))}
+                <div className="grid md:grid-cols-3 gap-8">
+                    <Card className="bg-card border-border/50">
+                        <CardHeader>
+                            <div className="mb-4 h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                                <ShieldCheck className="h-6 w-6" />
+                            </div>
+                            <CardTitle className="text-xl">Licensed & Insured</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className="text-muted-foreground">
+                                Rest easy knowing that we are fully licensed and insured professionals. We prioritize safety and quality in every job we do.
+                            </p>
+                        </CardContent>
+                    </Card>
+                    <Card className="bg-card border-border/50">
+                        <CardHeader>
+                            <div className="mb-4 h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                                <Clock className="h-6 w-6" />
+                            </div>
+                            <CardTitle className="text-xl">Reliable & Punctual</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className="text-muted-foreground">
+                                We value your time. Our team arrives on schedule and completes projects efficiently without cutting corners.
+                            </p>
+                        </CardContent>
+                    </Card>
+                    <Card className="bg-card border-border/50">
+                        <CardHeader>
+                            <div className="mb-4 h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                                <MapPin className="h-6 w-6" />
+                            </div>
+                            <CardTitle className="text-xl">Locally Owned</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className="text-muted-foreground">
+                                As a local Fort Walton Beach business, we are committed to serving our neighbors and community with integrity.
+                            </p>
+                        </CardContent>
+                    </Card>
                 </div>
             </div>
         </section>
@@ -156,10 +120,28 @@ export default function Home() {
         {/* Testimonials */}
         <section className="py-20">
            <div className="container-custom px-4 mb-12 text-center">
-             <h2 className="text-3xl md:text-4xl font-extrabold font-serif mb-4 text-foreground">Trusted by Global Brands</h2>
-             <p className="text-lg text-muted-foreground">Powering operations for the world&apos;s leading hospitality groups.</p>
+             <h2 className="text-3xl md:text-4xl font-extrabold font-serif mb-4 text-foreground">What Our Clients Say</h2>
+             <p className="text-lg text-muted-foreground">Trusted by homeowners and businesses across the Emerald Coast.</p>
            </div>
            <Marquee testimonials={testimonials} />
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-20 bg-primary text-primary-foreground">
+             <div className="container-custom px-4 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to get started?</h2>
+                <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
+                    Contact us today for a free quote on your next project. We are here to help!
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Link href="/request-demo" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-background text-primary shadow hover:bg-background/90 h-11 px-8">
+                        Get a Free Quote
+                    </Link>
+                    <Link href="/contact" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground h-11 px-8 text-white border-white hover:bg-white/10">
+                        Contact Us
+                    </Link>
+                </div>
+             </div>
         </section>
 
       </main>

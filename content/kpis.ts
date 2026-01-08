@@ -1,22 +1,22 @@
 export const kpis = [
-    {
-        metric: "20%",
-        label: "OpEx Reduction",
-        description: "Achieved through high-fidelity asset stewardship and warranty equity capture."
-    },
-    {
-        metric: "30%",
-        label: "Asset Life Extension",
-        description: "Optimized by transitioning from reactive cycles to preventative maintenance models."
-    },
-    {
-        metric: "15%",
-        label: "Deployment Efficiency",
-        description: "Gained via orchestrating resource deployment and digitized execution protocols."
-    },
-    {
-        metric: "100%",
-        label: "Institutional Compliance",
-        description: "Universal audit readiness with real-time traceability for brand standards."
-    }
+  {
+    metric: "500+",
+    label: "Projects Completed",
+    description: "Successful repairs and installations across Fort Walton Beach."
+  },
+  {
+    metric: "100%",
+    label: "Satisfaction Guarantee",
+    description: "We don't leave until the job is done right and you are happy."
+  },
+  {
+    metric: "5+",
+    label: "Years Experience",
+    description: "Serving our local community with professional handyman services."
+  },
+  {
+    metric: "24h",
+    label: "Response Time",
+    description: "Quick quotes and scheduling to get your home fixed fast."
+  }
 ];

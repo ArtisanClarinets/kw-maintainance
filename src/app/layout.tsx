@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: ["hospitality maintenance", "hotel operations", "resort maintenance", "facility management", "PMS integration", "preventative maintenance", "hospitality ecosystem"],
-  authors: [{ name: "KW Enterprise Operations" }],
-  creator: "KW Enterprise",
+  keywords: ["handyman", "home repair", "painting", "tv mounting", "trash removal", "fort walton beach", "destin", "niceville", "home maintenance"],
+  authors: [{ name: "K&W Maintenance Services" }],
+  creator: "K&W Maintenance Services",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -65,45 +65,25 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Hospitality Maintenance Operations",
-    "provider": {
-      "@type": "Organization",
-      "name": siteConfig.name,
-      "url": siteConfig.url,
-      "logo": `${siteConfig.url}/logo.png`,
-      "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": siteConfig.phone,
-          "contactType": "Strategic Engagement",
-          "email": siteConfig.email
-      }
+    "@type": "HomeAndConstructionBusiness",
+    "name": siteConfig.name,
+    "image": [`${siteConfig.url}/logo.png`],
+    "url": siteConfig.url,
+    "telephone": siteConfig.phone,
+    "email": siteConfig.email,
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Serving the local area",
+        "addressLocality": "Fort Walton Beach",
+        "addressRegion": "FL",
+        "addressCountry": "US"
     },
     "description": siteConfig.description,
     "areaServed": {
-      "@type": "State",
-      "name": "Florida"
+      "@type": "City",
+      "name": "Fort Walton Beach"
     },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Hospitality Infrastructure Maintenance",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Strategic Work Orchestration"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Asset Stewardship & TCO"
-          }
-        }
-      ]
-    }
+    "priceRange": "$$"
   };
 
   return (

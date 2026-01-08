@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '../../content/site';
@@ -58,7 +58,7 @@ export function Header() {
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         {/* Brand */}
         <Link href="/" className="mr-6 flex items-center space-x-2 z-50 relative" onClick={() => setIsOpen(false)}>
-          <span className="font-serif font-bold text-2xl tracking-tight text-foreground">KW<span className="text-primary">.Enterprise</span></span>
+          <span className="font-serif font-bold text-2xl tracking-tight text-foreground">K&W<span className="text-primary"> Services</span></span>
         </Link>
 
         {/* Desktop Nav */}
@@ -72,13 +72,16 @@ export function Header() {
                 {link.title}
             </Link>
           ))}
-          <Link href="/login" className="transition-colors hover:text-primary text-muted-foreground">Login</Link>
         </nav>
 
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-4">
+            <a href={`tel:${siteConfig.phone}`} className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                <Phone size={16} />
+                <span>{siteConfig.phone}</span>
+            </a>
           <Button asChild size="sm">
-            <Link href="/request-demo">Request Consultation</Link>
+            <Link href="/request-demo">Request Quote</Link>
           </Button>
         </div>
 
@@ -117,25 +120,19 @@ export function Header() {
                                 </Link>
                             </motion.div>
                         ))}
-                         <motion.div
-                                custom={siteConfig.mainNav.length}
-                                variants={linkVariants}
-                            >
-                                <Link
-                                    href="/login"
-                                    className="hover:text-primary"
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    Login
-                                </Link>
-                        </motion.div>
+
                         <motion.div
                             custom={siteConfig.mainNav.length + 1}
                             variants={linkVariants}
-                            className="mt-4"
+                            className="mt-4 flex flex-col gap-4 w-full"
                         >
                              <Button asChild size="lg" className="w-full">
-                                <Link href="/request-demo" onClick={() => setIsOpen(false)}>Request Demo</Link>
+                                <Link href="/request-demo" onClick={() => setIsOpen(false)}>Request Quote</Link>
+                            </Button>
+                            <Button asChild variant="outline" size="lg" className="w-full">
+                                <a href={`tel:${siteConfig.phone}`}>
+                                    <Phone className="mr-2 h-4 w-4" /> Call Now
+                                </a>
                             </Button>
                         </motion.div>
                     </nav>
