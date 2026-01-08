@@ -1,6 +1,6 @@
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { Briefcase, Award, MapPin, Users, Zap, Heart } from 'lucide-react';
+import { Briefcase, Award, Users, Zap, Heart } from 'lucide-react';
 import Link from 'next/link';
 
 const values = [

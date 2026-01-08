@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { resetDb, getDb } from '@/lib/demo/persistence';
 import * as techActions from '@/app/admin/technicians/actions';
 import * as templateActions from '@/app/admin/work-order-templates/actions';
-import { UnauthorizedError, ForbiddenError } from '@/lib/security/errors';
+
 
 // Stub next/cache revalidation used by server actions
 vi.mock('next/cache', () => ({ revalidatePath: () => {} }));

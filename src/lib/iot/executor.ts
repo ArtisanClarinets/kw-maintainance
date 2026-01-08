@@ -1,5 +1,5 @@
 import { getDb, saveDb } from '@/lib/demo/persistence';
-import { IoTRule, WorkOrder, WorkOrderPriorityEnum } from '@/lib/domain/schema';
+import { IoTRule, WorkOrder } from '@/lib/domain/schema';
 import { logAuditEvent } from '@/lib/security/audit';
 
 export type DeviceEvent = {
@@ -47,11 +47,11 @@ function mapSeverityToPriority(sev: IoTRule['severity']): WorkOrder['priority'] 
 export async function processDeviceEvent(evt: DeviceEvent) {
   const db = await getDb();
   const now = new Date().toISOString();
-  const matching = (db.iotRules || []).filter(r => r.active && r.tenantId === evt.tenantId && r.deviceId === evt.deviceId && r.metric === evt.metric);
+  const matching = ((db.iotRules || []) as IoTRule[]).filter(r => r.active && r.tenantId === evt.tenantId && r.deviceId === evt.deviceId && r.metric === evt.metric);
   const results: Array<{ ruleId: string; workOrderId?: string }> = [];
 
   for (const rule of matching) {
-    if (!evaluateOperator(evt.value, rule.operator as any, rule.threshold)) continue;
+    if (!evaluateOperator(evt.value, rule.operator, rule.threshold)) continue;
 
     // Action handling
     if (rule.action === 'create_work_order') {

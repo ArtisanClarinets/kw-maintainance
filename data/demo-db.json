@@ -52,6 +52,40 @@
   ],
   "assets": [],
   "workOrders": [],
+  "parts": [],
+  "warehouses": [],
+  "stockLevels": [],
+  "vendors": [
+    {
+      "id": "v1",
+      "tenantId": "t1",
+      "name": "Acme HVAC Services",
+      "type": "Service",
+      "status": "Active",
+      "complianceScore": 98,
+      "lastAuditDate": "2023-12-01"
+    },
+    {
+      "id": "v2",
+      "tenantId": "t1",
+      "name": "Global Supply Co",
+      "type": "Supply",
+      "status": "Active",
+      "complianceScore": 100,
+      "lastAuditDate": "2023-11-15"
+    },
+    {
+      "id": "v3",
+      "tenantId": "t1",
+      "name": "Legacy Software",
+      "type": "Software",
+      "status": "Probation",
+      "complianceScore": 75,
+      "lastAuditDate": "2023-10-20"
+    }
+  ],
+  "auditLogs": [],
+  "appointments": [],
   "workOrderTemplates": [
     {
       "id": "wot-1",
@@ -108,63 +142,7 @@
       "expiresAt": "2026-01-09"
     }
   ],
-  "parts": [
-    {
-      "id": "part-1767691740758",
-      "tenantId": "t1",
-      "name": "Filter",
-      "sku": "F-001",
-      "category": "Filters",
-      "cost": 12.5,
-      "minStockLevel": 2
-    }
-  ],
-  "warehouses": [],
-  "stockLevels": [],
-  "vendors": [
-    {
-      "id": "v1",
-      "tenantId": "t1",
-      "name": "Acme HVAC Services",
-      "type": "Service",
-      "status": "Active",
-      "complianceScore": 98,
-      "lastAuditDate": "2023-12-01"
-    },
-    {
-      "id": "v2",
-      "tenantId": "t1",
-      "name": "Global Supply Co",
-      "type": "Supply",
-      "status": "Active",
-      "complianceScore": 100,
-      "lastAuditDate": "2023-11-15"
-    },
-    {
-      "id": "v3",
-      "tenantId": "t1",
-      "name": "Legacy Software",
-      "type": "Software",
-      "status": "Probation",
-      "complianceScore": 75,
-      "lastAuditDate": "2023-10-20"
-    }
-  ],
-  "purchaseOrders": [
-    {
-      "id": "po-1767691740765",
-      "tenantId": "t1",
-      "vendorId": "v1",
-      "propertyId": "p1",
-      "createdAt": "2026-01-06T09:29:00.765Z",
-      "updatedAt": "2026-01-06T09:29:00.765Z",
-      "status": "Draft",
-      "lines": [],
-      "total": 0,
-      "requestedById": "u6",
-      "requestedAt": "2026-01-06T09:29:00.765Z"
-    }
-  ],
+  "purchaseOrders": [],
   "timesheets": [],
   "iotRules": [
     {
@@ -179,31 +157,6 @@
       "active": true
     }
   ],
-  "auditLogs": [
-    {
-      "id": "log-1767691740766",
-      "tenantId": "t1",
-      "actorId": "u6",
-      "actorName": "Procurement User",
-      "action": "PO_CREATE",
-      "entityType": "PurchaseOrder",
-      "entityId": "po-1767691740765",
-      "details": "Created PO for vendor v1 total 0",
-      "timestamp": "2026-01-06T09:29:00.766Z"
-    },
-    {
-      "id": "log-1767691740759",
-      "tenantId": "t1",
-      "actorId": "u5",
-      "actorName": "Procurement",
-      "action": "PART_CREATE",
-      "entityType": "Part",
-      "entityId": "part-1767691740758",
-      "details": "Created part Filter",
-      "timestamp": "2026-01-06T09:29:00.759Z"
-    }
-  ],
-  "appointments": [],
   "schedulingRules": [
     {
       "id": "sr1",

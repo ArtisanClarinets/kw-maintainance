@@ -4,10 +4,10 @@ import { Hero } from "@/components/Hero";
 import { Marquee } from "@/components/Marquee";
 import { testimonials } from "@/../content/testimonials";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { ServiceCard } from "@/components/ServiceCard";
 import { services } from "@/../content/services";
 import { kpis } from "@/../content/kpis";
+import { industries } from "@/../content/industries";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ShieldCheck, Clock, MapPin } from "lucide-react";
 
