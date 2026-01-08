@@ -52,40 +52,6 @@
   ],
   "assets": [],
   "workOrders": [],
-  "parts": [],
-  "warehouses": [],
-  "stockLevels": [],
-  "vendors": [
-    {
-      "id": "v1",
-      "tenantId": "t1",
-      "name": "Acme HVAC Services",
-      "type": "Service",
-      "status": "Active",
-      "complianceScore": 98,
-      "lastAuditDate": "2023-12-01"
-    },
-    {
-      "id": "v2",
-      "tenantId": "t1",
-      "name": "Global Supply Co",
-      "type": "Supply",
-      "status": "Active",
-      "complianceScore": 100,
-      "lastAuditDate": "2023-11-15"
-    },
-    {
-      "id": "v3",
-      "tenantId": "t1",
-      "name": "Legacy Software",
-      "type": "Software",
-      "status": "Probation",
-      "complianceScore": 75,
-      "lastAuditDate": "2023-10-20"
-    }
-  ],
-  "auditLogs": [],
-  "appointments": [],
   "workOrderTemplates": [
     {
       "id": "wot-1",
@@ -142,7 +108,60 @@
       "expiresAt": "2026-01-09"
     }
   ],
-  "purchaseOrders": [],
+  "parts": [
+    {
+      "id": "part-mk5xevmg-3cq7",
+      "tenantId": "t1",
+      "name": "Filter",
+      "sku": "F-001",
+      "category": "Filters",
+      "cost": 12.5,
+      "minStockLevel": 2
+    }
+  ],
+  "warehouses": [],
+  "stockLevels": [],
+  "vendors": [
+    {
+      "id": "v1",
+      "tenantId": "t1",
+      "name": "Acme HVAC Services",
+      "type": "Service",
+      "status": "Active",
+      "complianceScore": 98,
+      "lastAuditDate": "2023-12-01"
+    },
+    {
+      "id": "v2",
+      "tenantId": "t1",
+      "name": "Global Supply Co",
+      "type": "Supply",
+      "status": "Active",
+      "complianceScore": 100,
+      "lastAuditDate": "2023-11-15"
+    },
+    {
+      "id": "v3",
+      "tenantId": "t1",
+      "name": "Legacy Software",
+      "type": "Software",
+      "status": "Probation",
+      "complianceScore": 75,
+      "lastAuditDate": "2023-10-20"
+    }
+  ],
+  "purchaseOrders": [
+    {
+      "id": "po-mk5xevmk-hfzh",
+      "tenantId": "t1",
+      "vendorId": "v1",
+      "propertyId": "p1",
+      "status": "Draft",
+      "lines": [],
+      "createdAt": "2026-01-08T20:55:09.212Z",
+      "updatedAt": "2026-01-08T20:55:09.212Z"
+    }
+  ],
   "timesheets": [],
   "iotRules": [
     {
@@ -157,6 +176,8 @@
       "active": true
     }
   ],
+  "auditLogs": [],
+  "appointments": [],
   "schedulingRules": [
     {
       "id": "sr1",
