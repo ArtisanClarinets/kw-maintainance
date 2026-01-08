@@ -58,7 +58,7 @@ export function Header() {
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         {/* Brand */}
         <Link href="/" className="mr-6 flex items-center space-x-2 z-50 relative" onClick={() => setIsOpen(false)}>
-          <span className="font-serif font-bold text-2xl tracking-tight text-foreground">KW<span className="text-primary">.Enterprise</span></span>
+          <span className="font-serif font-bold text-2xl tracking-tight text-foreground">KW<span className="text-primary">.Services</span></span>
         </Link>
 
         {/* Desktop Nav */}

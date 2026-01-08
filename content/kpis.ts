@@ -1,22 +1,22 @@
 export const kpis = [
     {
-        metric: "20%",
-        label: "OpEx Reduction",
-        description: "Achieved through high-fidelity asset stewardship and warranty equity capture."
+        metric: "1hr",
+        label: "Response Time",
+        description: "Average response time for emergency service calls during business hours."
     },
     {
-        metric: "30%",
-        label: "Asset Life Extension",
-        description: "Optimized by transitioning from reactive cycles to preventative maintenance models."
-    },
-    {
-        metric: "15%",
-        label: "Deployment Efficiency",
-        description: "Gained via orchestrating resource deployment and digitized execution protocols."
+        metric: "500+",
+        label: "Jobs Completed",
+        description: "Successfully completed maintenance and repair tickets in the local area."
     },
     {
         metric: "100%",
-        label: "Institutional Compliance",
-        description: "Universal audit readiness with real-time traceability for brand standards."
+        label: "Satisfaction",
+        description: "Commitment to quality. If it's not right, we'll come back and fix it."
+    },
+    {
+        metric: "24/7",
+        label: "Emergency Support",
+        description: "Available for critical issues that just can't wait until Monday."
     }
 ];
