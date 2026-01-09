@@ -117,33 +117,6 @@ export default function Home() {
             </div>
         </section>
 
-        {/* Industries */}
-        <section className="py-20 container-custom px-4">
-            <div className="flex flex-col gap-2 text-center mb-12">
-                <p className="text-sm uppercase tracking-[0.4em] text-muted-foreground">Industries Served</p>
-                <h2 className="text-3xl md:text-4xl font-extrabold font-serif text-foreground">Expert Support for Every Property</h2>
-            </div>
-            <div className="grid md:grid-cols-2 gap-8">
-                {industries.map((industry) => (
-                    <div key={industry.id} className="bg-card border border-border/40 rounded-2xl p-8 h-full">
-                        <h3 className="text-2xl font-bold mb-3 text-foreground">{industry.title}</h3>
-                        <p className="text-muted-foreground mb-6">{industry.description}</p>
-                        <ul className="space-y-2 mb-6 text-sm text-foreground/80">
-                            {industry.highlights.map((highlight) => (
-                                <li key={highlight} className="flex items-start gap-2">
-                                    <span className="h-1.5 w-1.5 rounded-full bg-primary mt-1" />
-                                    {highlight}
-                                </li>
-                            ))}
-                        </ul>
-                        <Link href={industry.cta.href} className="text-sm font-semibold text-primary hover:text-primary/80">
-                            {industry.cta.label} →
-                        </Link>
-                    </div>
-                ))}
-            </div>
-        </section>
-
         {/* Testimonials */}
         <section className="py-20">
            <div className="container-custom px-4 mb-12 text-center">

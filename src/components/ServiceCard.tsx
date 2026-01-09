@@ -35,7 +35,7 @@ export function ServiceCard({ slug, title, description, icon, features }: Servic
   }
 
   return (
-    <Link href={`/platform#${slug}`} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-2xl">
+    <Link href={`/services#${slug}`} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-2xl">
       <motion.div
         whileHover="hover"
         initial="initial"

@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { Button } from './Button';
-import { HeroVisual } from './HeroVisual';
 import { motion } from 'framer-motion';
 import { Star, ShieldCheck, MapPin } from 'lucide-react';
 import { siteConfig } from '../../content/site';
@@ -96,8 +95,10 @@ export function Hero() {
           </motion.div>
 
           {/* Visual Right */}
-          <div className="relative">
-             <HeroVisual />
+          <div className="relative h-[400px] w-full rounded-2xl bg-muted/50 border border-border/50 overflow-hidden flex items-center justify-center">
+             {/* Placeholder for visual - removed HeroVisual dependency */}
+             <div className="absolute inset-0 bg-grid-small-black/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+             <div className="text-muted-foreground/50 text-sm">Service Area Map or Image</div>
           </div>
         </div>
       </div>

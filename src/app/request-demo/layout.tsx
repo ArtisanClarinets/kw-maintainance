@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Request Operational Consultation",
-  description: "Schedule a strategic assessment with our operational architects to evaluate your hospitality portfolio.",
+  title: "Request a Free Quote",
+  description: "Get a free, no-obligation quote for your home repair or maintenance project.",
 };
 
 export default function RequestDemoLayout({

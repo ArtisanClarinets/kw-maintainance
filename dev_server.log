@@ -1,16 +1,10 @@
 
-> kw-hospitality-maintainence@0.1.0 dev
-> next dev
+> temp-app@0.1.0 start
+> next start
 
-▲ Next.js 16.1.1 (Turbopack)
+▲ Next.js 16.1.1
 - Local:         http://localhost:3000
 - Network:       http://192.168.0.2:3000
-- Environments: .env.local
 
 ✓ Starting...
-✓ Ready in 1866ms
-○ Compiling / ...
- GET / 200 in 8.8s (compile: 7.2s, render: 1595ms)
- GET / 200 in 690ms (compile: 113ms, render: 577ms)
- GET /api/ops-data 200 in 45ms (compile: 8ms, render: 38ms)
- GET /api/ops/next-slot 200 in 50ms (compile: 31ms, render: 19ms)
+✓ Ready in 1692ms

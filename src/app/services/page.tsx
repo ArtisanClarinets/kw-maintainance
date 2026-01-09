@@ -22,7 +22,7 @@ export default function ServicesPage() {
         <section className="py-20 container-custom px-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {services.map((service) => (
-                    <div key={service.id} className="h-full">
+                    <div key={service.id} id={service.id} className="h-full scroll-mt-24">
                         <ServiceCard
                             slug={service.id}
                             title={service.title}
