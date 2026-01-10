@@ -1,49 +1,50 @@
 ---
 name: prisma-data-model
-description: Understanding the data model and entities (Tenants, Users, Properties).
+description: Understanding the Prisma schema, core entities, and database operations.
 ---
 
-# Data Model (K&W)
+# Prisma Data Model
 
-This skill describes the data entities and relationships within the system.
-
-**Note:** This project does not currently use Prisma or a relational database. It uses a **File-Based JSON Database** (`data/demo-db.json`) for the MVP/Demo phase, managed by `scripts/setup-advanced.mjs`.
+This skill ensures correct usage of the database schema and Prisma commands.
 
 ## Core Entities
 
-The system mimics a multi-tenant B2B structure essential for the "Hospitality Repair Management" pivot.
+The system relies on the following core models defined in `prisma/schema.prisma`:
 
-### 1. Tenant (`Tenant`)
-Represents a business client (e.g., a Hotel Group or Property Management Company).
-*   **Key Fields**: `id`, `name`, `slug`.
-*   **Relationship**: Has many `Users` and `Properties`.
+### 1. Tenant
+The top-level organizational unit.
+*   **Relationships:**
+    *   Has many `Projects`.
+    *   Has many `Environments`.
+    *   Has many `Users`.
 
-### 2. User (`User`)
-An individual accessing the platform.
-*   **Key Fields**: `id`, `email`, `role` (`tech`, `security_admin`, `supervisor`), `tenantId`, `passwordHash`.
-*   **Authentication**: Token-based (Bearer) or mocked via `server-config.json` settings.
+### 2. Project
+A specific engagement or workspace within a Tenant.
+*   **Belongs to:** `Tenant`.
+*   **Has many:** `Contracts`, `Invoices`.
 
-### 3. Property (`Property`)
-A physical location managed by the Tenant (e.g., "Grand Hotel").
-*   **Key Fields**: `id`, `name`, `address`, `tenantId`.
+### 3. Contract
+Legal agreements associated with a Project.
 
-### 4. Vendor (`Vendor`)
-External service providers or software integrations.
-*   **Key Fields**: `id`, `name`, `type`, `complianceScore`.
+### 4. Invoice
+Billing records linked to a Project.
 
-## Data Management
+### 5. User
+System users with access to Tenants.
 
-### Reading Data
-Data is stored in `data/demo-db.json`. To query "Tenants", read this file and parse the JSON.
+## Key Relationships
+*   **Hierarchy:** `Tenant` -> `Project` -> (`Contract`, `Invoice`).
+*   **Isolation:** Queries should almost always filter by `tenantId` to ensure data isolation.
 
-### Modifying Data
-To "migrate" or update the schema:
-1.  Modify `scripts/setup-advanced.mjs` (the `ensureDemoDb` function) to define the new structure or default data.
-2.  Run `npm install` (which triggers `postinstall` -> `setup-advanced.mjs`) to regenerate/update `data/demo-db.json` if it doesn't exist, or manually edit the JSON file for immediate testing.
+## Soft Deletes
+The system uses a "Soft Delete" strategy.
+*   **Field:** `deletedAt` (DateTime, nullable).
+*   **Logic:**
+    *   If `deletedAt` is `null`, the record is active.
+    *   If `deletedAt` is set, the record is considered deleted.
+*   **Querying:** Always include `where: { deletedAt: null }` in queries unless explicitly auditing deleted items.
 
-### "Soft Deletes"
-While not explicitly enforced by a database engine, the convention is to mark items as `status: "Inactive"` or `deletedAt: "timestamp"` rather than removing them from the JSON array, to maintain audit trails.
+## Commands
 
-## Prisma Status
-*   **Current**: No `schema.prisma`.
-*   **Future**: If a real DB is needed, a `schema.prisma` would be created mirroring the structure of `demo-db.json`.
+*   **Generate Client:** `npx prisma generate` (Run after schema changes).
+*   **Migrate DB:** `npx prisma migrate deploy` (For production) or `npx prisma migrate dev` (For development).

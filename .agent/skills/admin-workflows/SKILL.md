@@ -1,38 +1,31 @@
 ---
 name: admin-workflows
-description: Administrative tasks, RBAC, and business logic workflows.
+description: Administrative tasks, RBAC hierarchy, and business workflows.
 ---
 
-# Admin Workflows (K&W)
+# Admin Workflows
 
-This skill guides the agent through administrative and business logic operations.
+This skill documents high-level administrative processes.
 
-## Role-Based Access Control (RBAC)
+## RBAC Hierarchy
+The system enforces the following role hierarchy:
+1.  **Owner**: Full system access, can manage billing and structural configurations.
+2.  **Admin**: Can manage users, projects, and settings within a Tenant.
+3.  **Editor**: Can create and modify content (Projects, Contracts).
+4.  **Analyst**: Read-only access to data and reports.
 
-The system supports a hierarchical RBAC model, currently defined in `data/demo-db.json` and enforced by application logic.
+## Core Workflows
 
-### Roles
-1.  **Owner / Security Admin**: Full access. Can rotate keys (`setup-advanced.mjs`).
-2.  **Admin / Supervisor**: Can manage properties, users, and view all reports.
-3.  **Tech**: Limited access to assigned Work Orders.
-4.  **Analyst**: Read-only access to reporting.
+### 1. Proposal -> Project
+*   **Trigger:** A "Proposal" is approved.
+*   **Action:** The system converts the Proposal object into a generic "Project".
+*   **Data:** Carries over budget, timeline, and client details.
 
-## Workflows
-
-### 1. User Management
-*   **Create User**: Currently involves editing `data/demo-db.json` -> `users` array.
-*   **Password Reset**: Passwords are hashed. To reset, use `scripts/setup-advanced.mjs --admin-email <email> --admin-password <new_pass>`.
-
-### 2. Proposal -> Project (Future Phase)
-*   **Current**: Leads arrive via email (Contact Form).
-*   **Workflow**:
-    1.  Lead submits "Commercial Proposal" form.
-    2.  Admin reviews in external email.
-    3.  Admin creates a "Tenant" entry in `demo-db.json` if they convert.
+### 2. Lead Management
+*   **Flow:** Inbox -> Status Update.
+*   **States:** New, Contacted, Qualified, Proposal Sent, Won/Lost.
 
 ### 3. Audit Logging
-*   **Requirement**: All privileged actions (e.g., changing server config, rotating keys) should be logged.
-*   **Implementation**: `scripts/setup-advanced.mjs` logs to `data/setup.log`.
-
-## Admin Portal
-The "Admin Portal" is currently a Phase 2 feature. Administrative actions are performed via CLI scripts (`scripts/`) or direct data file manipulation (`data/`).
+*   **Requirement:** All privileged actions must be logged.
+*   **Scope:** Any mutation by an Admin or Owner (e.g., changing user roles, deleting projects).
+*   **Storage:** `AuditLog` table (via Prisma).

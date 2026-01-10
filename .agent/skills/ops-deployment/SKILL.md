@@ -1,51 +1,42 @@
 ---
 name: ops-deployment
-description: Build, verification, and deployment operations.
+description: Build pipeline, verification, and deployment scripts.
 ---
 
-# Ops & Deployment (K&W)
+# Ops & Deployment
 
-This skill covers the build pipeline, verification scripts, and environment setup.
+This skill guides the agent through the custom build and deployment process.
 
 ## Build System
 
-The project uses Next.js with a custom "Fortune 500" setup script.
+### Build Proof
+The system uses a "Build Proof" mechanism to ensure integrity.
+*   **Command:** `npm run build`
+*   **Trigger:** This automatically triggers `scripts/generate-build-proof.mjs`.
+*   **Output:** Generates a cryptographic proof of the build artifacts.
 
-### 1. Setup & "Build Proof"
-The `postinstall` hook runs `scripts/setup-advanced.mjs`. This script acts as the "Build Proof" system by:
-*   Generating/Validating `.env.local`.
-*   Creating `data/server-config.json` (System configuration).
-*   Creating `data/demo-db.json` (Initial data).
-*   Generating security keys (`SERVER_CONFIG_MASTER_KEY`).
+## Infrastructure Setup
 
-**Command:**
-```bash
-npm install
-```
+### Bootstrapping
+*   **Script:** `bootstrap-ubuntu22.sh`
+*   **Usage:** Run this on a fresh Ubuntu 22.04 LTS server to install dependencies (Node, Nginx, Docker, etc.) and harden the system.
 
-### 2. Validation
-Before deployment, the server configuration must be validated.
-**Command:**
-```bash
-npm run server:validate
-```
+### Nginx Configuration
+*   **Script:** `generate-nginx-config.mjs`
+*   **Purpose:** Generates a secured Nginx configuration file.
+*   **Features:**
+    *   Sets up reverse proxy to the Next.js app.
+    *   Configures SSL/TLS settings.
+    *   Applies security headers.
 
-### 3. Production Build
-Standard Next.js build process, but requires the environment to be "bootstrapped" first.
-**Command:**
-```bash
-npm run build
-```
+### Environment Setup
+*   **Script:** `setup-env.js`
+*   **Purpose:** Initializes environment variables securely.
+*   **Security:** Checks for required secrets and prevents startup if `server-config` is invalid.
 
-## Deployment Operations
-
-### Environment Setup (`setup-advanced.mjs`)
-This script is the source of truth for environment integrity.
-*   **Auto-fix**: It attempts to create missing configuration files.
-*   **Security**: It generates strong random keys for `AUTH_JWT_SECRET` and `SERVER_CONFIG_MASTER_KEY` if missing.
-
-### Nginx / Server Config
-The project generates a `data/server-config.json` which dictates behavior (rate limits, spam control). This is used by the application logic (runtime), replacing the need for complex Nginx rules for these specific application-layer checks.
-
-### Verification
-Use `npm run server:validate` to ensure the integrity of the configuration and data files before starting the production server.
+## Deployment Flow
+1.  **Bootstrap:** Run `bootstrap-ubuntu22.sh` (once).
+2.  **Env:** Run `node scripts/setup-env.js`.
+3.  **Build:** Run `npm run build` (creates build proof).
+4.  **Config:** Run `node scripts/generate-nginx-config.mjs`.
+5.  **Start:** Start the application service.

@@ -49,12 +49,3 @@
 [2026-01-08T10:17:09.763Z] [INFO] Demo DB exists; no admin changes requested
 [2026-01-08T10:17:09.848Z] [INFO] Server configuration validated successfully
 [2026-01-08T10:17:09.850Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).
-[2026-01-10T00:05:02.551Z] [INFO] Starting setup (env=development, dryRun=false)
-[2026-01-10T00:05:02.556Z] [INFO] Created empty .env.local
-[2026-01-10T00:05:02.560Z] [INFO] Generated SERVER_CONFIG_MASTER_KEY
-[2026-01-10T00:05:02.561Z] [INFO] Generated AUTH_JWT_SECRET
-[2026-01-10T00:05:02.562Z] [INFO] Generated ADMIN_BEARER_TOKEN
-[2026-01-10T00:05:02.565Z] [INFO] Created data/server-config.json with admin enabled
-[2026-01-10T00:05:03.054Z] [INFO] Demo DB exists; no admin changes requested
-[2026-01-10T00:05:03.152Z] [INFO] Server configuration validated successfully
-[2026-01-10T00:05:03.153Z] [INFO] Setup complete. Demo admin: admin@example.com (email-only demo).
