@@ -1,6 +1,8 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
+import { motion } from "framer-motion"
+import { Loader2, AlertCircle } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
@@ -18,6 +20,8 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-sm hover:shadow-md active:scale-[0.98] transform-gpu transition",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        loading: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-2xl active:scale-[0.97] transform-gpu transition cursor-wait",
+        error: "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-md hover:shadow-2xl active:scale-[0.97] transform-gpu transition",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -34,20 +38,88 @@ const buttonVariants = cva(
 )
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onDrag' | 'onDragStart' | 'onDragEnd'>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
+  isLoading?: boolean
+  hasError?: boolean
+  errorMessage?: string
+  loadingText?: string
+  successText?: string
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
+  ({ 
+    className, 
+    variant, 
+    size, 
+    asChild = false, 
+    isLoading = false, 
+    hasError = false, 
+    errorMessage, 
+    loadingText = "Processing...", 
+    successText, 
+    children, 
+    ...props 
+  }, ref) => {
+    const Comp = asChild ? Slot : motion.button
+    
+    // Determine the effective variant based on state
+    const effectiveVariant = hasError ? "error" : isLoading ? "loading" : variant
+    
+    // Determine the content to display
+    let buttonContent = children
+    if (isLoading) {
+      buttonContent = (
+        <span className="flex items-center gap-2">
+          <Loader2 className="h-4 w-4 animate-spin" />
+          {loadingText}
+        </span>
+      )
+    } else if (hasError) {
+      buttonContent = (
+        <span className="flex items-center gap-2">
+          <AlertCircle className="h-4 w-4" />
+          {errorMessage || "Error"}
+        </span>
+      )
+    } else if (successText) {
+      buttonContent = successText
+    }
+    
+    if (asChild) {
+      return (
+        <Slot
+          className={cn(buttonVariants({ variant: effectiveVariant, size, className }))}
+          ref={ref as any}
+          disabled={isLoading || hasError || props.disabled}
+          aria-disabled={isLoading || hasError || props.disabled}
+          aria-busy={isLoading}
+          aria-invalid={hasError}
+          aria-live={hasError ? "assertive" : undefined}
+          {...props}
+        >
+          {buttonContent}
+        </Slot>
+      )
+    }
+
     return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+      <motion.button
+        className={cn(buttonVariants({ variant: effectiveVariant, size, className }))}
         ref={ref}
-        {...props}
-      />
+        whileHover={!isLoading && !hasError ? { scale: 1.05 } : undefined}
+        whileTap={!isLoading && !hasError ? { scale: 0.95 } : undefined}
+        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        disabled={isLoading || hasError || props.disabled}
+        aria-disabled={isLoading || hasError || props.disabled}
+        aria-busy={isLoading}
+        aria-invalid={hasError}
+        aria-live={hasError ? "assertive" : undefined}
+        {...(props as any)}
+      >
+        {buttonContent}
+      </motion.button>
     )
   }
 )

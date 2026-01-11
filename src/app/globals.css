@@ -85,7 +85,7 @@
   :root {
     /* Executive Suite Palette - LIGHT (Default) */
     /* Primary (Deep Navy): HSL(222, 47%, 11%) */
-    /* Accent (Antique Bronze): HSL(38, 92%, 50%) */
+    /* Accent (Brand Cyan): HSL(193, 94%, 69%) */
     /* Background: Pure White or subtle cool grey HSL(210, 40%, 98%) */
 
     --background: 210 40% 98%; /* Subtle cool grey */
@@ -190,5 +190,80 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Enhanced shadow and gradient styles */
+@layer utilities {
+  .shadow-enhanced-sm {
+    @apply shadow-sm;
+  }
+  
+  .shadow-enhanced-base {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  }
+  
+  .shadow-enhanced-md {
+    @apply shadow-md;
+  }
+  
+  .shadow-enhanced-lg {
+    @apply shadow-lg;
+  }
+  
+  .shadow-enhanced-xl {
+    @apply shadow-xl;
+  }
+  
+  .shadow-enhanced-2xl {
+    @apply shadow-2xl;
+  }
+  
+  .gradient-primary {
+    background-image: linear-gradient(to right, #0a192f, #1e293b);
+  }
+  
+  .gradient-accent {
+    background-image: linear-gradient(to right, #3b82f6, #1d4ed8);
+  }
+  
+  .gradient-light {
+    background-image: linear-gradient(to right, #f7fafc, #e2e8f0);
+  }
+  
+  .gradient-dark {
+    background-image: linear-gradient(to right, #0a192f, #1e293b);
+  }
+  
+  /* Typography styles */
+  .font-heading {
+    font-family: var(--font-serif);
+    letter-spacing: -0.02em;
+  }
+  
+  .font-body {
+    font-family: var(--font-sans);
+    letter-spacing: 0;
+  }
+  
+  .font-uppercase {
+    letter-spacing: 0.05em;
+  }
+  
+  .font-large-heading {
+    letter-spacing: -0.03em;
+  }
+  
+  /* Line heights */
+  .leading-body {
+    line-height: 1.5;
+  }
+  
+  .leading-heading {
+    line-height: 1.2;
+  }
+  
+  .leading-caption {
+    line-height: 1.4;
   }
 }
