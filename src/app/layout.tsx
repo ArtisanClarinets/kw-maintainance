@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/../content/site";
+import { AnimationProvider } from "@/components/providers/AnimationProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -95,7 +96,9 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased font-sans">
-        {children}
+        <AnimationProvider>
+          {children}
+        </AnimationProvider>
       </body>
     </html>
   );

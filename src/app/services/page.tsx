@@ -4,6 +4,7 @@ import { services } from "@/../content/services";
 import { ServiceCard } from "@/components/ServiceCard";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { SpotlightCard } from "@/components/react-bits/SpotlightCard";
 
 export default function ServicesPage() {
   return (
@@ -23,13 +24,17 @@ export default function ServicesPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {services.map((service) => (
                     <div key={service.id} className="h-full">
-                        <ServiceCard
-                            slug={service.id}
-                            title={service.title}
-                            description={service.description}
-                            icon={<service.icon className="h-6 w-6" />}
-                            features={service.features}
-                        />
+                        <SpotlightCard className="h-full bg-card rounded-xl border border-border/50">
+                            <div className="p-1 h-full">
+                                <ServiceCard
+                                    slug={service.id}
+                                    title={service.title}
+                                    description={service.description}
+                                    icon={<service.icon className="h-6 w-6" />}
+                                    features={service.features}
+                                />
+                            </div>
+                        </SpotlightCard>
                     </div>
                 ))}
             </div>
