@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useInView, useAnimation, Variant } from 'framer-motion';
+import { motion, useInView, useAnimation, Variant, useReducedMotion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
 type SplitTextProps = {
@@ -14,12 +14,15 @@ export function SplitText({ text, className = '', delay = 0, duration = 0.05 }: 
   const controls = useAnimation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
-    if (isInView) {
+    if (isInView && !shouldReduceMotion) {
       controls.start("visible");
+    } else if (shouldReduceMotion) {
+        controls.set("visible"); // Skip animation if reduced motion is on
     }
-  }, [isInView, controls]);
+  }, [isInView, controls, shouldReduceMotion]);
 
   const words = text.split(' ');
 
@@ -54,17 +57,19 @@ export function SplitText({ text, className = '', delay = 0, duration = 0.05 }: 
     },
   };
 
+  // Accessibility: Screen readers should read the whole text, not fragmented spans.
   return (
     <motion.h1
       ref={ref}
       style={{ display: 'flex', flexWrap: 'wrap', overflow: 'hidden' }}
       variants={container}
-      initial="hidden"
+      initial={shouldReduceMotion ? "visible" : "hidden"}
       animate={controls}
       className={className}
+      aria-label={text} // Provide full text for screen readers
     >
       {words.map((word, index) => (
-        <span key={index} style={{ display: 'inline-block', marginRight: '0.25em', whiteSpace: 'nowrap' }}>
+        <span key={index} style={{ display: 'inline-block', marginRight: '0.25em', whiteSpace: 'nowrap' }} aria-hidden="true">
           {Array.from(word).map((char, index) => (
             <motion.span
               style={{ display: 'inline-block' }}

@@ -29,3 +29,7 @@
  GET / 200 in 3.0s (compile: 2.2s, render: 887ms)
  GET /api/ops-data 200 in 329ms (compile: 281ms, render: 48ms)
  GET /about 200 in 952ms (compile: 360ms, render: 592ms)
+✓ Compiled in 2.7s
+ GET / 200 in 3.8s (compile: 1362ms, render: 2.5s)
+ GET /api/ops-data 200 in 55ms (compile: 18ms, render: 36ms)
+ GET /about 200 in 1266ms (compile: 592ms, render: 674ms)

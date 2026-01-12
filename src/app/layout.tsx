@@ -4,6 +4,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/../content/site";
 import { AnimationProvider } from "@/components/providers/AnimationProvider";
+import { SmoothScrolling } from "@/components/providers/SmoothScrolling";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -96,9 +97,11 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased font-sans">
-        <AnimationProvider>
-          {children}
-        </AnimationProvider>
+        <SmoothScrolling>
+          <AnimationProvider>
+            {children}
+          </AnimationProvider>
+        </SmoothScrolling>
       </body>
     </html>
   );
