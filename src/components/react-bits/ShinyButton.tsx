@@ -20,26 +20,15 @@ export function ShinyButton({ children, className, onClick, asChild, size, varia
 
     return (
         <motion.div
-            initial={shouldReduceMotion ? { scale: 1 } : { "--x": "100%", scale: 1 } as any}
-            animate={shouldReduceMotion ? { scale: 1 } : { "--x": "-100%" } as any}
-            whileTap={shouldReduceMotion ? { scale: 1 } : { scale: 0.97 }}
+            whileHover={shouldReduceMotion ? {} : { scale: 1.02 }}
+            whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
             transition={{
-                repeat: Infinity,
-                repeatType: "loop",
-                repeatDelay: 1,
                 type: "spring",
-                stiffness: 20,
-                damping: 15,
-                mass: 2,
-                scale: {
-                    type: "spring",
-                    stiffness: 10,
-                    damping: 5,
-                    mass: 0.1,
-                },
+                stiffness: 400,
+                damping: 25,
             }}
             className={cn(
-                "relative rounded-md overflow-hidden bg-primary px-0 py-0 text-primary-foreground",
+                "relative rounded-md overflow-hidden bg-primary px-0 py-0 text-primary-foreground inline-block",
                 className
             )}
         >
@@ -50,12 +39,12 @@ export function ShinyButton({ children, className, onClick, asChild, size, varia
                     animate={{ translateX: ["100%", "-100%"] }}
                     transition={{
                         repeat: Infinity,
-                        duration: 2,
+                        duration: 3, // Slower, more elegant shine
                         ease: "linear",
-                        repeatDelay: 0.5
+                        repeatDelay: 2
                     }}
                     style={{
-                        background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent)",
+                        background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)", // slightly more subtle
                     }}
                 />
              )}

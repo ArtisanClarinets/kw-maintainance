@@ -78,6 +78,7 @@ export function ServiceCard({
       <motion.div
         whileHover={{ scale: 1.02, y: -4 }}
         initial={{ scale: 1 }}
+        transition={{ type: "spring", stiffness: 200, damping: 25 }} // Premium weighted physics
         className="group relative h-full bg-card rounded-2xl border border-border/40 p-6 md:p-8 shadow-md transition-shadow duration-300 hover:shadow-2xl hover:border-accent/50 overflow-hidden will-change-transform"
         aria-busy={isLoading}
         aria-invalid={hasError}
@@ -88,9 +89,9 @@ export function ServiceCard({
         {/* Icon */}
         <div className="mb-6 relative z-10">
           <motion.div
-            whileHover={{ scale: 1.1, rotate: 5 }}
-            whileTap={{ scale: 0.95, rotate: 0 }}
-            transition={{ duration: 0.3, type: "spring", stiffness: 400, damping: 17 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300"
           >
             {iconElement}
@@ -134,10 +135,10 @@ export function ServiceCard({
             <span className="mr-2">Learn More</span>
             <motion.div
               variants={{
-                initial: { x: -10, opacity: 0 },
+                initial: { x: -5, opacity: 0 },
                 hover: { x: 0, opacity: 1 },
               }}
-              transition={{ duration: 0.2, type: "spring", stiffness: 400, damping: 17 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
               initial="initial"
               whileHover="hover"
             >

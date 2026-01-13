@@ -5,6 +5,7 @@ import "./globals.css";
 import { siteConfig } from "@/../content/site";
 import { AnimationProvider } from "@/components/providers/AnimationProvider";
 import { SmoothScrolling } from "@/components/providers/SmoothScrolling";
+import SplashCursor from "@/components/react-bits/SplashCursor";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -99,6 +100,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-background text-foreground antialiased font-sans">
         <SmoothScrolling>
           <AnimationProvider>
+            <SplashCursor />
             {children}
           </AnimationProvider>
         </SmoothScrolling>

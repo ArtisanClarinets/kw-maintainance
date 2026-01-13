@@ -9,6 +9,9 @@ import * as z from "zod";
 import { useState } from "react";
 import { Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { SplitText } from "@/components/react-bits/SplitText";
+import { SpotlightCard } from "@/components/react-bits/SpotlightCard";
+import { AnimatedGridPattern } from "@/components/react-bits/AnimatedGridPattern";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -201,62 +204,81 @@ export default function RequestQuotePage() {
     <div className="flex min-h-screen flex-col font-sans bg-background">
       <Header />
       <main className="flex-1 relative">
-        <div className="absolute inset-0 bg-muted/20 -z-10" />
+         <AnimatedGridPattern
+              numSquares={30}
+              maxOpacity={0.1}
+              duration={3}
+              repeatDelay={1}
+              className="text-primary/20 [mask-image:radial-gradient(500px_circle_at_center,white,transparent)]"
+          />
         
-        <div className="container-custom py-20 px-4">
+        <div className="container-custom py-20 px-4 relative z-10">
             <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
                 {/* Content Left */}
                 <div className="space-y-8">
                     <div>
-                        <h1 className="text-4xl md:text-5xl font-extrabold font-serif mb-6 text-foreground tracking-tight">
-                            Request a <span className="text-primary">Free Quote</span>
-                        </h1>
+                         <div className="text-4xl md:text-5xl font-extrabold font-serif mb-6 text-foreground tracking-tight flex flex-wrap gap-2">
+                            <span>Request a</span>
+                             <SplitText
+                                text="Free Quote"
+                                className="text-primary"
+                                delay={0.03}
+                             />
+                        </div>
                         <p className="text-lg text-muted-foreground leading-relaxed">
                             Tell us about your project and we will get back to you with a competitive price and a plan to get it done.
                         </p>
                     </div>
 
                     <div className="space-y-6">
-                        <div className="flex gap-4">
-                            <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                                <span className="font-bold">1</span>
+                        <SpotlightCard className="bg-card rounded-xl border border-border/50">
+                            <div className="flex gap-4 p-4">
+                                <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                    <span className="font-bold">1</span>
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-bold mb-1">Tell Us What You Need</h3>
+                                    <p className="text-sm text-muted-foreground">Fill out the form with details about your repair or installation project.</p>
+                                </div>
                             </div>
-                            <div>
-                                <h3 className="text-lg font-bold mb-1">Tell Us What You Need</h3>
-                                <p className="text-sm text-muted-foreground">Fill out the form with details about your repair or installation project.</p>
+                        </SpotlightCard>
+                        <SpotlightCard className="bg-card rounded-xl border border-border/50">
+                            <div className="flex gap-4 p-4">
+                                <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                    <span className="font-bold">2</span>
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-bold mb-1">Get a Quote</h3>
+                                    <p className="text-sm text-muted-foreground">We will review your request and provide an estimate or schedule a visit.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="flex gap-4">
-                            <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                                <span className="font-bold">2</span>
+                         </SpotlightCard>
+                         <SpotlightCard className="bg-card rounded-xl border border-border/50">
+                            <div className="flex gap-4 p-4">
+                                <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                    <span className="font-bold">3</span>
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-bold mb-1">Job Done Right</h3>
+                                    <p className="text-sm text-muted-foreground">Our professional team will complete the work to your satisfaction.</p>
+                                </div>
                             </div>
-                            <div>
-                                <h3 className="text-lg font-bold mb-1">Get a Quote</h3>
-                                <p className="text-sm text-muted-foreground">We will review your request and provide an estimate or schedule a visit.</p>
-                            </div>
-                        </div>
-                        <div className="flex gap-4">
-                            <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                                <span className="font-bold">3</span>
-                            </div>
-                            <div>
-                                <h3 className="text-lg font-bold mb-1">Job Done Right</h3>
-                                <p className="text-sm text-muted-foreground">Our professional team will complete the work to your satisfaction.</p>
-                            </div>
-                        </div>
+                         </SpotlightCard>
                     </div>
                 </div>
 
                 {/* Form Right */}
-                <div className="bg-card border border-border/50 rounded-2xl p-6 md:p-8 shadow-2xl relative overflow-hidden">
-                     {/* Glow effect */}
-                    <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-                    
-                    <div className="relative z-10">
-                        <h2 className="text-2xl font-bold mb-6">Project Details</h2>
-                        <RequestQuoteForm />
+                <SpotlightCard className="bg-card border border-border/50 rounded-2xl shadow-2xl relative overflow-hidden">
+                    <div className="p-6 md:p-8">
+                        {/* Glow effect */}
+                        <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+
+                        <div className="relative z-10">
+                            <h2 className="text-2xl font-bold mb-6">Project Details</h2>
+                            <RequestQuoteForm />
+                        </div>
                     </div>
-                </div>
+                </SpotlightCard>
             </div>
         </div>
       </main>

@@ -72,7 +72,10 @@ export function SplitText({ text, className = '', delay = 0, duration = 0.05 }: 
         <span key={index} style={{ display: 'inline-block', marginRight: '0.25em', whiteSpace: 'nowrap' }} aria-hidden="true">
           {Array.from(word).map((char, index) => (
             <motion.span
-              style={{ display: 'inline-block' }}
+              style={{
+                display: 'inline-block',
+                willChange: 'transform, opacity, filter' // Optimization per Kinetic Web guide
+              }}
               variants={child}
               key={index}
             >

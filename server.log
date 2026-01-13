@@ -33,3 +33,15 @@
  GET / 200 in 3.8s (compile: 1362ms, render: 2.5s)
  GET /api/ops-data 200 in 55ms (compile: 18ms, render: 36ms)
  GET /about 200 in 1266ms (compile: 592ms, render: 674ms)
+✓ Compiled in 1835ms
+○ Compiling /contact ...
+ GET /contact 200 in 6.4s (compile: 4.7s, render: 1708ms)
+ GET /service-area 200 in 1789ms (compile: 1469ms, render: 319ms)
+○ Compiling /request-demo ...
+ GET /request-demo 200 in 5.9s (compile: 5.5s, render: 430ms)
+✓ Compiled in 1399ms
+✓ Compiled in 69ms
+✓ Compiled in 291ms
+ GET / 200 in 894ms (compile: 278ms, render: 617ms)
+ GET /api/ops-data 200 in 35ms (compile: 8ms, render: 27ms)
+ GET /request-demo 200 in 954ms (compile: 422ms, render: 532ms)

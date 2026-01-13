@@ -9,6 +9,7 @@ import { siteConfig } from '../../content/site';
 import { SplitText } from '@/components/react-bits/SplitText';
 import { AnimatedGridPattern } from '@/components/react-bits/AnimatedGridPattern';
 import { ShinyButton } from '@/components/react-bits/ShinyButton';
+import ParticlesBackgroundLazy from '@/components/react-bits/ParticlesBackgroundLazy';
 
 export function Hero() {
 
@@ -36,12 +37,15 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-muted/30 py-12 md:py-24 lg:py-32 px-4">
+      {/* Heavy R3F Background loaded lazily for LCP optimization */}
+      <ParticlesBackgroundLazy />
+
       <AnimatedGridPattern
           numSquares={30}
           maxOpacity={0.1}
           duration={3}
           repeatDelay={1}
-          className="text-primary/20 [mask-image:radial-gradient(500px_circle_at_center,white,transparent)]"
+          className="text-primary/20 [mask-image:radial-gradient(500px_circle_at_center,white,transparent)] pointer-events-none"
       />
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
