@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: ["handyman", "home repair", "painting", "tv mounting", "trash removal", "fort walton beach", "destin", "niceville", "home maintenance"],
+  keywords: ["handyman", "home repair", "painting", "tv mounting", "trash removal", "fort walton beach", "destin", "niceville", "home maintenance", "commercial maintenance"],
   authors: [{ name: "K&W Maintenance Services" }],
   creator: "K&W Maintenance Services",
   openGraph: {

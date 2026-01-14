@@ -2,15 +2,12 @@
 > kw-hospitality-maintainence@0.1.0 dev
 > next dev
 
+⚠ Port 3000 is in use by an unknown process, using available port 3001 instead.
 ▲ Next.js 16.1.1 (Turbopack)
-- Local:         http://localhost:3000
-- Network:       http://192.168.0.2:3000
-- Environments: .env.local
+- Local:         http://localhost:3001
+- Network:       http://192.168.0.2:3001
 
 ✓ Starting...
-✓ Ready in 1866ms
-○ Compiling / ...
- GET / 200 in 8.8s (compile: 7.2s, render: 1595ms)
- GET / 200 in 690ms (compile: 113ms, render: 577ms)
- GET /api/ops-data 200 in 45ms (compile: 8ms, render: 38ms)
- GET /api/ops/next-slot 200 in 50ms (compile: 31ms, render: 19ms)
+⨯ Unable to acquire lock at /app/.next/dev/lock, is another instance of next dev running?
+  Suggestion: If you intended to restart next dev, terminate the other process, and then try again.
+[?25h

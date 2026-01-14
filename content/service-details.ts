@@ -24,221 +24,220 @@ export const ServiceDetailSchema = z.object({
 export type ServiceDetail = z.infer<typeof ServiceDetailSchema>;
 
 export const serviceDetails: Record<string, ServiceDetail> = {
-  "preventative-maintenance": {
-    id: "preventative-maintenance",
-    title: "PREVENTATIVE MAINTENANCE",
+  "handyman-services": {
+    id: "handyman-services",
+    title: "RESIDENTIAL HANDYMAN",
     longDescription:
-      "Keep your property running with routine maintenance that prevents small problems from becoming costly repairs. Our Preventative Maintenance program covers HVAC, plumbing, electrical, and common-area checks so you can avoid unexpected failures. Choose a Bronze, Silver, or Gold plan to match your needs and keep maintenance predictable and worry-free.",
+      "From squeaky doors to drywall holes, our General Handyman Services cover the small but annoying repairs that pile up around your home. We provide a professional, uniformed technician who arrives on time with the right tools to get your to-do list done in a single visit.",
     included: [
-      "HVAC Filter Replacement & Coil Cleaning",
-      "Plumbing Leak Detection & Pressure Tests",
-      "Electrical Safety Inspections (GFCI testing)",
-      "PTAC Unit Maintenance",
-      "Door Lock & Hardware Adjustments",
-      "Emergency Light Testing",
-      "Guest Room Audits (quarterly)",
-      "Detailed Asset Health Reports",
-    ],
-    processSteps: [
-      {
-        title: "Audit",
-        body: "We conduct a comprehensive site survey to catalog assets and identify current liabilities.",
-      },
-      {
-        title: "Plan",
-        body: "We customize a PM schedule that minimizes disruption to guests and operations.",
-      },
-      {
-        title: "Execute",
-        body: "Our certified technicians perform scheduled tasks, documenting everything digitally.",
-      },
-      {
-        title: "Report",
-        body: "You receive a detailed report with photos, completed tasks, and recommendations.",
-      },
-    ],
-    seoDescription:
-      "Commercial preventative maintenance for hotels and resorts in Fort Walton Beach. HVAC, plumbing, and safety inspections to prevent downtime.",
-  },
-  "turnover-services": {
-    id: "turnover-services",
-    title: "HOSPITALITY TURNOVER",
-    longDescription:
-      "Quick turnarounds keep guests happy. Our Turnover Services handle the repairs housekeeping can't finish: paint touch-ups, furniture fixes, hardware repairs, and quick plumbing or electrical touch-ups. We prioritize speed and quality so rooms are ready when you need them.",
-    included: [
-      "Rapid Drywall & Paint Touch-ups",
-      "Furniture Repair & Stabilization",
-      "Caulking (Bathrooms & Vanities)",
-      "TV & Remote Programming Checks",
-      "Bulb Replacement (Color Match Guarantee)",
-      "Drain Clearing",
-      "Grout Cleaning & Sealing",
-      "Shower/Tub Hardware Repair",
-    ],
-    processSteps: [
-      {
-        title: "Dispatch",
-        body: "Notify us of rooms requiring maintenance via our priority line or portal.",
-      },
-      {
-        title: "Repair",
-        body: "Our technicians arrive equipped to fix common issues immediately.",
-      },
-      {
-        title: "Verify",
-        body: "We verify functionality (lights, drains, locks) before leaving the room.",
-      },
-      {
-        title: "Release",
-        body: "We signal the room back to 'Clean/Vacant' status for your front desk.",
-      },
-    ],
-    seoDescription:
-      "Hotel room turnover maintenance services. Rapid repairs for painting, drywall, and fixtures between guest stays.",
-  },
-  "facility-audits": {
-    id: "facility-audits",
-    title: "FACILITY AUDITS",
-    longDescription:
-      "Our Facility Audits give you clear, actionable guidance about the condition of your property. We inspect structural, mechanical, and safety elements, prioritize issues by urgency, and provide realistic repair estimates so you can plan repairs and budgets with confidence.",
-
-    included: [
-      "Comprehensive Asset Condition Assessment",
-      "ADA Compliance Review",
-      "Life Safety Systems Check",
-      "Roof & Building Envelope Inspection",
-      "Energy Efficiency Opportunities",
-      "Capital Expenditure (CapEx) Forecasting",
-      "Vendor Performance Review",
-      "Digital Photo Documentation",
-    ],
-    processSteps: [
-      {
-        title: "Scope",
-        body: "We define the specific areas and systems to be inspected based on your goals.",
-      },
-      {
-        title: "Inspect",
-        body: "Our team systematically evaluates the property using standardized checklists.",
-      },
-      {
-        title: "Analyze",
-        body: "We compile data, estimate repair costs, and prioritize findings.",
-      },
-      {
-        title: "Present",
-        body: "We deliver a bound report and digital copy, presenting key findings to stakeholders.",
-      },
-    ],
-    seoDescription:
-      "Detailed facility audits and condition reports for commercial properties. CapEx planning, compliance checks, and asset management.",
-  },
-  handyman: {
-    id: "handyman",
-    title: "GENERAL MAINTENANCE",
-    longDescription:
-      "Unexpected repairs happen. Our General Maintenance service gives you fast, reliable help for everyday issues—stuck doors, drywall patches, furniture repair, and more. We show up on time, work cleanly, and get the job done right so you can focus on your business.",
-    included: [
-      "Door, Lock & Closer Repair",
       "Drywall Patching & Texture Matching",
-      "Furniture Assembly & Repair",
-      "Ceiling Tile Replacement",
-      "Signage Installation & Repair",
-      "Cubicle & Desk reconfiguration",
-      "Shelving Installation",
-      "Punch List Completion",
+      "Door Adjustment & Hardware Replacement",
+      "Cabinet Hardware Installation",
+      "Baseboard & Trim Repair",
+      "Furniture Assembly",
+      "Picture & Mirror Hanging",
+      "Weatherstripping Installation",
+      "Window Screen Repair",
     ],
     processSteps: [
       {
-        title: "Request",
-        body: "Submit a work order with details and photos of the issue.",
+        title: "Book",
+        body: "Schedule a time that works for you via our online form or phone.",
       },
       {
-        title: "Schedule",
-        body: "We prioritize urgent requests and schedule standard repairs at your convenience.",
+        title: "Assess",
+        body: "Our technician reviews your to-do list and confirms the scope of work.",
       },
       {
-        title: "Repair",
-        body: "Our uniformed technicians arrive on time and work discreetly.",
+        title: "Fix",
+        body: "We work efficiently to complete repairs, keeping your home clean.",
       },
       {
-        title: "Complete",
-        body: "We clean the work area and obtain sign-off on the completed repair.",
+        title: "Enjoy",
+        body: "We walk you through the completed work to ensure your satisfaction.",
       },
     ],
     seoDescription:
-      "Commercial handyman services in Fort Walton Beach. Reliable repairs for doors, drywall, furniture, and general maintenance.",
+      "Local handyman services in Fort Walton Beach. Expert repairs for drywall, doors, and general home maintenance.",
   },
-  installations: {
+  "installations": {
     id: "installations",
-    title: "COMMERCIAL INSTALLATIONS",
+    title: "HOME INSTALLATIONS",
     longDescription:
-      "Upgrading your property often involves complex installations. Whether you need TVs mounted, lighting updates, or new fixtures installed, our Commercial Installation team gets it done safely and efficiently. We handle receiving, staging, assembly, and secure mounting to meet manufacturer recommendations and safety codes.",
+      "Upgrade your home without the hassle. Our Professional Installation service ensures your new fixtures, smart devices, and storage solutions are installed securely and correctly. We handle the wiring, mounting, and setup so you can enjoy your upgrades immediately.",
     included: [
-      "Hotel TV & Mount Installation (Volume)",
-      "Smart Room Thermostats & Controls",
-      "Lobby & Common Area Lighting",
-      "Artwork & Mirror Security Mounting",
-      "Bathroom Vanities & Accessories",
-      "Window Treatments (Blinds/Drapes)",
-      "Digital Signage & Kiosks",
-      "Gym Equipment Assembly",
+      "Ceiling Fan Installation",
+      "Light Fixture Replacement",
+      "Smart Doorbell & Lock Setup",
+      "Shelving & Closet Organizers",
+      "Curtain Rod & Blind Installation",
+      "Bathroom Accessories (Towel Bars, etc.)",
+      "Smart Thermostat Wiring",
+      "Pet Door Installation",
     ],
     processSteps: [
       {
-        title: "Plan",
-        body: "We review floor plans and specs to determine placement and mounting requirements.",
-      },
-      {
-        title: "Logistics",
-        body: "We can assist with receiving and staging materials for large projects.",
+        title: "Select",
+        body: "You purchase the fixture or device (or we can help you choose).",
       },
       {
         title: "Install",
-        body: "We execute the installation with assembly-line efficiency for volume projects.",
+        body: "We safely remove old fixtures and professionally install the new ones.",
       },
       {
-        title: "Test",
-        body: "We ensure every unit functions correctly and is securely mounted.",
+        title: "Setup",
+        body: "We verify everything works, including connecting smart devices to Wi-Fi.",
+      },
+      {
+        title: "Clean",
+        body: "We haul away the packaging and leave the area spotless.",
       },
     ],
     seoDescription:
-      "Commercial installation services for hotels and businesses. FF&E installation, TV mounting, smart devices, and lighting.",
+      "Professional home installation services. Ceiling fans, light fixtures, smart locks, and window treatments.",
   },
-  painting: {
+  "painting": {
     id: "painting",
-    title: "COMMERCIAL PAINTING",
+    title: "INTERIOR & EXTERIOR PAINTING",
     longDescription:
-      "First impressions matter. Peeling paint or faded exteriors can degrade your property's perceived value. Our Commercial Painting services are tailored for high-traffic environments. We use durable, low-VOC coatings that dry quickly to minimize downtime. From refreshing miles of corridor walls to complete exterior repaints, we deliver a flawless finish that aligns with your brand standards.",
+      "A fresh coat of paint transforms a room. Our Residential Painting service delivers crisp lines, smooth finishes, and thorough preparation. whether it's a single accent wall or your home's exterior, we use high-quality paints and protect your furniture and floors with care.",
     included: [
-      "Interior Corridor & Lobby Painting",
-      "Guest Room Refresh Programs",
-      "Exterior Building Coatings",
-      "Parking Lot Striping",
-      "Epoxy Floor Coatings",
-      "Door & Trim Refinishing",
-      "Stucco Repair & Painting",
-      "Wallpaper Removal & Installation",
+      "Interior Wall & Ceiling Painting",
+      "Trim, Baseboard, & Door Painting",
+      "Cabinet Painting & Refinishing",
+      "Exterior Siding Painting",
+      "Deck & Fence Staining",
+      "Wallpaper Removal",
+      "Drywall Repair & Priming",
+      "Color Consultation",
     ],
     processSteps: [
       {
-        title: "Protect",
-        body: "We aggressively protect floors, furniture, and fixtures before starting.",
+        title: "Prep",
+        body: "We move furniture, cover floors, and mask off all non-painted areas.",
       },
       {
-        title: "Prep",
-        body: "Surface preparation is key; we clean, sand, and patch for a lasting bond.",
+        title: "Repair",
+        body: "We fill holes, caulk gaps, and sand surfaces for a smooth base.",
       },
       {
         title: "Paint",
-        body: "We apply premium commercial-grade paints efficiently.",
+        body: "We apply premium paint with precision for consistent coverage.",
       },
       {
-        title: "Inspect",
-        body: "We conduct a final walkthrough to ensure even coverage and clean lines that meet our high standards.",
+        title: "Review",
+        body: "We conduct a final walkthrough with you to spot-check every inch.",
       },
     ],
     seoDescription:
-      "Commercial painting contractors for hotels and resorts. Interior and exterior painting, coatings, and refinishing services.",
+      "Residential painting services in Fort Walton Beach. Interior and exterior painting, cabinet refinishing, and deck staining.",
+  },
+  "tv-mounting": {
+    id: "tv-mounting",
+    title: "TV MOUNTING & SETUP",
+    longDescription:
+      "Get the perfect home theater setup with our TV Mounting service. We mount TVs of all sizes on drywall, brick, or stone, ensuring they are level and secure. We specialize in concealing wires for a clean, modern look and can help set up your soundbar and streaming devices.",
+    included: [
+      "Secure Wall Mounting (Any Surface)",
+      "In-Wall Wire Concealment",
+      "External Cord Cover Installation",
+      "Soundbar Mounting",
+      "Floating Shelf Installation",
+      "Device Connection & Setup",
+      "Packaging Removal",
+      "Old TV Haul-Away (Add-on)",
+    ],
+    processSteps: [
+      {
+        title: "Assess",
+        body: "We check the wall structure and viewing angles to find the perfect spot.",
+      },
+      {
+        title: "Mount",
+        body: "We install the bracket into studs or anchors for maximum safety.",
+      },
+      {
+        title: "Hide",
+        body: "We route cables behind the wall or in neat covers.",
+      },
+      {
+        title: "Connect",
+        body: "We hook up your devices and ensure the TV is level and working.",
+      },
+    ],
+    seoDescription:
+      "Professional TV wall mounting service. Wire concealment, soundbar setup, and secure installation for all TV sizes.",
+  },
+  "moving-services": {
+    id: "moving-services",
+    title: "LOCAL MOVING HELP",
+    longDescription:
+      "Need extra hands for a move? Our Moving Services are perfect for apartment moves, appliance transport, or rearranging furniture within your home. We provide the muscle and the truck for small local moves, ensuring your items are handled with care.",
+    included: [
+      "Apartment & Small Home Moves",
+      "Furniture Loading & Unloading",
+      "In-Home Furniture Rearranging",
+      "Appliance Pick-up & Delivery",
+      "Furniture Disassembly & Assembly",
+      "Packing Assistance",
+      "Storage Unit Runs",
+      "Safe Heavy Item Lifting",
+    ],
+    processSteps: [
+      {
+        title: "Plan",
+        body: "Tell us what you need moved and where.",
+      },
+      {
+        title: "Load",
+        body: "Our team arrives to carefully wrap and load your items.",
+      },
+      {
+        title: "Transport",
+        body: "We drive your items safely to their new destination.",
+      },
+      {
+        title: "Place",
+        body: "We unload and place furniture exactly where you want it.",
+      },
+    ],
+    seoDescription:
+      "Local moving services for apartments and small homes. Furniture delivery, loading help, and packing assistance.",
+  },
+  "trash-disposal": {
+    id: "trash-disposal",
+    title: "TRASH & JUNK REMOVAL",
+    longDescription:
+      "Clear out the clutter with our Trash Disposal & Hauling service. From old furniture and broken appliances to yard waste and construction debris, we haul it all. We recycle and donate whenever possible to minimize landfill waste.",
+    included: [
+      "Furniture Removal (Sofas, Mattresses)",
+      "Appliance Disposal (Fridges, Washers)",
+      "Yard Waste Cleanup",
+      "Construction Debris Hauling",
+      "Garage & Attic Cleanouts",
+      "Rental Property Cleanouts",
+      "Curbside Pickup",
+      "Eco-Friendly Disposal",
+    ],
+    processSteps: [
+      {
+        title: "Quote",
+        body: "Send us a photo or list for an instant estimate.",
+      },
+      {
+        title: "Haul",
+        body: "We arrive, load up the junk, and sweep the area clean.",
+      },
+      {
+        title: "Dispose",
+        body: "We transport items to the appropriate recycling or disposal facility.",
+      },
+      {
+        title: "Done",
+        body: "You enjoy your reclaimed space instantly.",
+      },
+    ],
+    seoDescription:
+      "Junk removal and trash hauling services. We take furniture, appliances, yard waste, and construction debris.",
   },
 };

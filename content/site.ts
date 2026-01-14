@@ -4,7 +4,7 @@ export const siteConfig = {
   url: "https://kw-maintenance.com",
   ogImage: "https://kw-maintenance.com/og.jpg",
   contactPerson: "William",
-  email: "dispatch@kw-hospitality.com", // Keeping original email as requested or assume update needed? Sticking to existing but maybe update display name?
+  email: "dispatch@kw-hospitality.com",
   phone: "+1 (850) 851-3640",
   address: "Fort Walton Beach, FL",
   socials: {
@@ -17,6 +17,10 @@ export const siteConfig = {
     {
       title: "Services",
       href: "/services",
+    },
+    {
+      title: "Commercial",
+      href: "/commercial",
     },
     {
       title: "About",
