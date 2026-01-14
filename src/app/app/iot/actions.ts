@@ -13,7 +13,8 @@ export async function createIoTWorkOrder(sensorId: string, readingValue: number,
     const existing = db.workOrders.find(w => 
         w.category === 'Predictive' && 
         w.title === title && 
-        w.status !== 'Financial Close'
+        w.status !== 'Invoiced' &&
+        w.status !== 'Cancelled'
     );
 
     if (existing) {

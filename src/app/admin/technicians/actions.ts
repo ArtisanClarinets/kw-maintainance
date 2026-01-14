@@ -10,7 +10,7 @@ export type CreateTechnicianInput = {
   certifications?: Array<string | { id: string; tenantId?: string; name?: string; authority?: string; issuedAt?: string; expiresAt?: string }>;
   hourlyRate?: number;
   active?: boolean;
-  vehicle?: string;
+  vehicle?: string; // Kept for compatibility, maps to vehicleId
   phone?: string;
   userId?: string;
 };
@@ -35,10 +35,11 @@ export async function createTechnician(input: CreateTechnicianInput) {
     userId: input.userId,
     name: input.name,
     skills: input.skills ?? [],
+    qualificationTags: [], // Default empty
     certifications,
     hourlyRate: input.hourlyRate,
     active: typeof input.active === 'boolean' ? input.active : true,
-    vehicle: input.vehicle,
+    vehicleId: input.vehicle, // Map to vehicleId
     phone: input.phone,
   };
 
@@ -57,7 +58,25 @@ export async function updateTechnician(id: string, updates: Partial<CreateTechni
   const idx = db.technicians.findIndex(t => t.id === id);
   if (idx === -1) throw new Error('Technician not found');
   const existing = db.technicians[idx];
-  const updated = { ...existing, ...updates } as Technician;
+
+  // Map updates to schema
+  const { vehicle, certifications, ...rest } = updates;
+
+  const mappedCerts = certifications
+    ? certifications.map(c =>
+        typeof c === 'string'
+          ? { id: c, tenantId: updates.tenantId ?? existing.tenantId, name: c }
+          : { id: c.id, tenantId: c.tenantId ?? updates.tenantId ?? existing.tenantId, name: c.name ?? c.id, authority: c.authority, issuedAt: c.issuedAt, expiresAt: c.expiresAt }
+      )
+    : undefined;
+
+  const mappedUpdates: Partial<Technician> = {
+      ...rest,
+      ...(vehicle ? { vehicleId: vehicle } : {}),
+      ...(mappedCerts ? { certifications: mappedCerts } : {}),
+  };
+
+  const updated = { ...existing, ...mappedUpdates } as Technician;
   db.technicians[idx] = updated;
   await saveDb(db);
   return { success: true, technician: updated };

@@ -13,6 +13,7 @@ const DEFAULT_DB: Database = {
   tenants: [
     { id: 't1', name: 'Acme Hospitality', slug: 'acme' }
   ],
+  serviceZones: [],
   properties: [
     { id: 'p1', tenantId: 't1', name: 'Grand Hotel', address: '123 Main St', timezone: 'America/New_York' }
   ],
@@ -51,10 +52,11 @@ const DEFAULT_DB: Database = {
       userId: 'u1',
       name: 'Alex Rivera',
       skills: ['plumbing', 'hvac'],
+      qualificationTags: ['Plumbing', 'HVAC'],
       certifications: [],
       hourlyRate: 45,
       active: true,
-      vehicle: 'Truck 01',
+      vehicleId: 'Truck 01',
       phone: '+18505550001'
     }
   ],

@@ -1,12 +1,12 @@
 export const siteConfig = {
   name: "K&W Maintenance Services",
-  description: "Your trusted local handyman for repairs, installations, painting, and hauling in Fort Walton Beach and surrounding areas.",
+  description: "Total Property Care and Regional Logistics from Pensacola to Tallahassee. Reliable repairs, hauling, and maintenance for homes and businesses.",
   url: "https://kw-maintenance.com",
   ogImage: "https://kw-maintenance.com/og.jpg",
   contactPerson: "William",
   email: "dispatch@kw-hospitality.com",
   phone: "+1 (850) 851-3640",
-  address: "Fort Walton Beach, FL",
+  address: "Emerald Coast, FL",
   socials: {
     facebook: "https://facebook.com",
     instagram: "https://instagram.com",
