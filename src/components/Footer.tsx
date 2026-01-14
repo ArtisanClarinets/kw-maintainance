@@ -3,6 +3,7 @@ import { siteConfig } from '@/../content/site';
 import { Facebook, Instagram, MapPin, Phone, Mail, ShieldCheck, CheckCircle, Clock } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from './Button';
+import { ShinyButton } from '@/components/react-bits/ShinyButton';
 
 export function Footer() {
   return (
@@ -76,9 +77,9 @@ export function Footer() {
               </li>
             </ul>
             <div className="pt-2">
-                 <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                 <ShinyButton asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                     <Link href="/request-demo">Get a Free Quote</Link>
-                 </Button>
+                 </ShinyButton>
             </div>
           </div>
         </div>
