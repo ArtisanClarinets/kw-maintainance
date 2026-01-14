@@ -45,7 +45,8 @@ export async function createWorkOrder(data: Partial<WorkOrder>) {
   // Dedupe Logic (Simulated)
   // Check for same category and asset/location within last 24 hours
   const duplicate = db.workOrders.find(w => 
-    w.status !== 'Financial Close' && 
+    w.status !== 'Invoiced' &&
+    w.status !== 'Cancelled' &&
     w.category === newWorkOrder.category && 
     (newWorkOrder.assetId ? w.assetId === newWorkOrder.assetId : false)
   );

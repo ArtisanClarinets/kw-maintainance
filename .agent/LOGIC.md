@@ -94,3 +94,20 @@
     *   Inputs: User requirements (Traffic, Storage, Redundancy).
     *   Output: Recommended hardware specs or plan tier.
     *   Rules: Weighted scoring system based on input parameters.
+
+## 5. Operational Workflows & Routing (Strategic Roadmap)
+
+### Job Lifecycle
+Every job must transition through these strict stages:
+1.  **Request Received:** Initial intake.
+2.  **Estimation:** Quote generation (Virtual/On-site).
+3.  **Scheduled:** Time slot confirmed.
+4.  **En Route:** Technician traveling (triggers notification).
+5.  **In Progress:** Work started (Clock in).
+6.  **Completion & Verification:** Photos uploaded, checklist complete.
+7.  **Invoiced:** Payment processed.
+
+### Regional Routing
+*   **Zones:** Logic must prioritize clustering jobs within the same zone (Pensacola, Destin/Fort Walton, Panama City, Tallahassee).
+*   **Cross-Zone:** Cross-zone travel should be minimized and only occur for planned long-haul routes.
+*   **Bundling:** Multiple requests from the same client/location must be bundled into a single visit.

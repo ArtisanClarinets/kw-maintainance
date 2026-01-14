@@ -15,7 +15,16 @@ export const UserSchema = z.object({
 });
 export type User = z.infer<typeof UserSchema>;
 
-// --- Organization ---
+// --- Organization & Geography ---
+export const ServiceZoneSchema = z.object({
+  id: z.string(),
+  tenantId: z.string(),
+  name: z.string(), // e.g., "Pensacola", "Destin/Fort Walton"
+  centralHubLocation: z.string(), // Coordinates or address
+  coverageRadiusKm: z.number().optional(),
+});
+export type ServiceZone = z.infer<typeof ServiceZoneSchema>;
+
 export const TenantSchema = z.object({
   id: z.string(),
   name: z.string(),
@@ -26,6 +35,7 @@ export type Tenant = z.infer<typeof TenantSchema>;
 export const PropertySchema = z.object({
   id: z.string(),
   tenantId: z.string(),
+  zoneId: z.string().optional(), // Link to ServiceZone
   name: z.string(),
   address: z.string(),
   timezone: z.string().default("UTC"),
@@ -52,18 +62,45 @@ export const AssetSchema = z.object({
 });
 export type Asset = z.infer<typeof AssetSchema>;
 
-// --- Work Orders ---
+// --- Work Orders & Costs ---
 export const WorkOrderStatusEnum = z.enum([
-  'Draft', 'Dispatch Confirmed', 'In Progress', 'On Hold - Supply Chain', 'On Hold - Occupancy', 'QC Pending', 'Financial Close'
+  'Request Received',
+  'Estimation',
+  'Scheduled',
+  'En Route',
+  'In Progress',
+  'Completion & Verification',
+  'Invoiced',
+  'Cancelled',
+  'Draft' // Kept for legacy compatibility
 ]);
+
 export const WorkOrderPriorityEnum = z.enum(['Low', 'Medium', 'High', 'Critical']);
-export const WorkOrderCategoryEnum = z.enum(['Plumbing', 'Electrical', 'HVAC', 'Appliance', 'General', 'Predictive', 'Preventative']);
+export const WorkOrderCategoryEnum = z.enum(['Plumbing', 'Electrical', 'HVAC', 'Appliance', 'General', 'Predictive', 'Preventative', 'Hauling', 'Project']);
 
 export const WorkOrderTaskSchema = z.object({
   id: z.string(),
   description: z.string(),
   completed: z.boolean(),
   required: z.boolean().default(true),
+});
+
+export const DisposalDetailsSchema = z.object({
+  volumeCubicYards: z.number().optional(),
+  weightLbs: z.number().optional(),
+  disposalFee: z.number().optional(),
+  dumpSiteName: z.string().optional(),
+  dumpReceiptUrl: z.string().optional(),
+});
+
+export const WorkOrderCostSchema = z.object({
+  laborCost: z.number().default(0),
+  materialCost: z.number().default(0),
+  disposalFee: z.number().default(0),
+  otherExpenses: z.number().default(0),
+  totalCost: z.number().default(0),
+  priceCharged: z.number().default(0),
+  margin: z.number().default(0),
 });
 
 export const WorkOrderSchema = z.object({
@@ -82,9 +119,12 @@ export const WorkOrderSchema = z.object({
   scheduledStart: z.string().optional(), // ISO
   scheduledEnd: z.string().optional(), // ISO
   tasks: z.array(WorkOrderTaskSchema).default([]),
-  linkedWorkOrderIds: z.array(z.string()).default([]), // For duplicates
+  linkedWorkOrderIds: z.array(z.string()).default([]), // For bundling
+  bundleId: z.string().optional(), // Explicit bundle grouping
   isDuplicate: z.boolean().default(false),
   qcRequired: z.boolean().default(false),
+  disposalDetails: DisposalDetailsSchema.optional(),
+  costing: WorkOrderCostSchema.optional(),
 });
 export type WorkOrder = z.infer<typeof WorkOrderSchema>;
 
@@ -97,16 +137,18 @@ export const PartSchema = z.object({
   category: z.string(),
   cost: z.number(),
   minStockLevel: z.number(),
+  isVanStock: z.boolean().default(false), // Track if common van item
 });
 export type Part = z.infer<typeof PartSchema>;
 
 export const WarehouseSchema = z.object({
   id: z.string(),
   tenantId: z.string(),
-  propertyId: z.string(),
+  propertyId: z.string().optional(),
   name: z.string(),
   type: z.enum(['Main', 'Satellite', 'Truck']),
   location: z.string(),
+  vehicleId: z.string().optional(), // If type is Truck
 });
 export type Warehouse = z.infer<typeof WarehouseSchema>;
 
@@ -128,6 +170,7 @@ export const VendorSchema = z.object({
   status: z.enum(['Active', 'Probation', 'Non-Compliant']),
   complianceScore: z.number(), // 0-100
   lastAuditDate: z.string().optional(),
+  insuranceExpiration: z.string().optional(), // Track insurance
 });
 export type Vendor = z.infer<typeof VendorSchema>;
 
@@ -188,10 +231,12 @@ export const TechnicianSchema = z.object({
   userId: z.string().optional(),
   name: z.string(),
   skills: z.array(z.string()).default([]),
+  qualificationTags: z.array(z.string()).default([]), // E.g. "Carpentry", "Heavy Lifting"
   certifications: z.array(CertificationSchema).default([]),
   hourlyRate: z.number().optional(),
   active: z.boolean().default(true),
-  vehicle: z.string().optional(),
+  vehicleId: z.string().optional(),
+  homeZoneId: z.string().optional(), // Preferred zone
   phone: z.string().optional(),
 });
 export type Technician = z.infer<typeof TechnicianSchema>;
@@ -282,6 +327,7 @@ export type Lead = z.infer<typeof LeadSchema>;
 export const DatabaseSchema = z.object({
   users: z.array(UserSchema),
   tenants: z.array(TenantSchema),
+  serviceZones: z.array(ServiceZoneSchema).default([]),
   properties: z.array(PropertySchema),
   assets: z.array(AssetSchema),
   workOrders: z.array(WorkOrderSchema),

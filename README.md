@@ -91,6 +91,15 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Strategic Vision
+
+This project follows a defined strategic roadmap to professionalize regional facility services.
+Please refer to [docs/STRATEGIC_ROADMAP.md](docs/STRATEGIC_ROADMAP.md) for detailed information on:
+- Operational Workflows
+- Regional Logistics (Pensacola to Tallahassee)
+- Financial Intelligence & Job Costing
+- Mobile & Offline Capabilities
+
 ## Learn More
 
 - [Next.js Documentation](https://nextjs.org/docs)

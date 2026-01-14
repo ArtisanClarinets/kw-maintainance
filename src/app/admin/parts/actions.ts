@@ -27,6 +27,7 @@ export async function createPart(input: CreatePartInput) {
     category: input.category,
     cost: input.cost,
     minStockLevel: input.minStockLevel,
+    isVanStock: false,
   };
 
   db.parts = db.parts || [];

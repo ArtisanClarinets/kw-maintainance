@@ -32,9 +32,9 @@ export async function seedInventory() {
 
     // Parts
     const parts: Part[] = [
-        { id: 'p-filter-a', tenantId: 't1', name: 'HVAC Filter Type A', sku: 'FIL-200', category: 'HVAC', cost: 12.50, minStockLevel: 10 },
-        { id: 'p-valve-1', tenantId: 't1', name: 'Mixing Valve 1/2"', sku: 'VLV-050', category: 'Plumbing', cost: 45.00, minStockLevel: 5 },
-        { id: 'p-bulb-led', tenantId: 't1', name: 'LED Bulb 60W Eq', sku: 'LGT-060', category: 'Electrical', cost: 3.25, minStockLevel: 50 },
+        { id: 'p-filter-a', tenantId: 't1', name: 'HVAC Filter Type A', sku: 'FIL-200', category: 'HVAC', cost: 12.50, minStockLevel: 10, isVanStock: true },
+        { id: 'p-valve-1', tenantId: 't1', name: 'Mixing Valve 1/2"', sku: 'VLV-050', category: 'Plumbing', cost: 45.00, minStockLevel: 5, isVanStock: false },
+        { id: 'p-bulb-led', tenantId: 't1', name: 'LED Bulb 60W Eq', sku: 'LGT-060', category: 'Electrical', cost: 3.25, minStockLevel: 50, isVanStock: true },
     ];
 
     // Stock Levels
