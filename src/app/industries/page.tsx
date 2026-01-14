@@ -1,5 +1,5 @@
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
+import { Header } from '@/widgets/Header';
+import { Footer } from '@/widgets/Footer';
 import Link from 'next/link';
 import { industries } from '@/../content/industries';
 

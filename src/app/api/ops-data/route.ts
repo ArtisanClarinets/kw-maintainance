@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { getDb } from '@/lib/demo/persistence';
-import { getNextSlot } from '@/lib/domain/scheduling';
+import { getDb } from '@/shared/lib/demo/persistence';
+import { getNextSlot } from '@/shared/lib/domain/scheduling';
 
 export const dynamic = 'force-dynamic';
 

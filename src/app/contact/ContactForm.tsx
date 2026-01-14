@@ -1,7 +1,7 @@
 'use client';
 
 import { FormEvent, useCallback, useEffect, useRef, useState } from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/shared/ui/button';
 
 const SERVICE_OPTIONS = [
   { value: 'Preventative Maintenance', label: 'Preventative Maintenance Plan' },

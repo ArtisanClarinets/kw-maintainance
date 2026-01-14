@@ -1,6 +1,6 @@
 'use server';
 
-import { getDb } from '@/lib/demo/persistence';
+import { getDb } from '@/shared/lib/demo/persistence';
 import { createWorkOrder } from '../work-orders/actions';
 
 export async function createIoTWorkOrder(sensorId: string, readingValue: number, threshold: number) {

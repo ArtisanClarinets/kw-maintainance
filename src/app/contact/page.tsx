@@ -1,11 +1,11 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/widgets/Header";
+import { Footer } from "@/widgets/Footer";
 import { siteConfig } from "@/../content/site";
 import { Phone, Mail, MapPin } from "lucide-react";
 import ContactForm from "./ContactForm";
-import { SplitText } from "@/components/react-bits/SplitText";
-import { SpotlightCard } from "@/components/react-bits/SpotlightCard";
-import { AnimatedGridPattern } from "@/components/react-bits/AnimatedGridPattern";
+import { SplitText } from "@/shared/ui/react-bits/SplitText";
+import { SpotlightCard } from "@/shared/ui/react-bits/SpotlightCard";
+import { AnimatedGridPattern } from "@/shared/ui/react-bits/AnimatedGridPattern";
 
 export default function ContactPage() {
   return (

@@ -1,7 +1,7 @@
 'use server';
 
-import { getDb, saveDb } from '@/lib/demo/persistence';
-import { AuditLog } from '@/lib/domain/schema';
+import { getDb, saveDb } from '@/shared/lib/demo/persistence';
+import { AuditLog } from '@/shared/lib/domain/schema';
 
 export async function getAuditLogs(): Promise<AuditLog[]> {
   const db = await getDb();

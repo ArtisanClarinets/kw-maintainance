@@ -1,7 +1,7 @@
-import { getUser } from '@/lib/auth';
-import { getDb, saveDb } from '@/lib/demo/persistence';
-import { assertCanManageTemplates } from '@/lib/security/rbac';
-import type { WorkOrderTemplate } from '@/lib/domain/schema';
+import { getUser } from '@/shared/lib/auth';
+import { getDb, saveDb } from '@/shared/lib/demo/persistence';
+import { assertCanManageTemplates } from '@/shared/lib/security/rbac';
+import type { WorkOrderTemplate } from '@/shared/lib/domain/schema';
 
 export type CreateWorkOrderTemplateInput = {
   tenantId: string;

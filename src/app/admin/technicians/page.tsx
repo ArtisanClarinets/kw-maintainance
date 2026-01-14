@@ -1,7 +1,7 @@
-import { getDb } from '@/lib/demo/persistence';
-import { createTechnician, updateTechnician, deleteTechnician } from '@/app/admin/technicians/actions';
+import { getDb } from '@/shared/lib/demo/persistence';
+import { createTechnician, updateTechnician, deleteTechnician, type CreateTechnicianInput } from '@/app/admin/technicians/actions';
 import { redirect } from 'next/navigation';
-import type { Technician } from '@/lib/domain/schema';
+import type { Technician } from '@/shared/lib/domain/schema';
 
 export default async function AdminTechnicians() {
   const db = await getDb();
@@ -33,7 +33,7 @@ export default async function AdminTechnicians() {
   async function updateAction(formData: FormData) {
     'use server';
     const id = String(formData.get('id'));
-    const payload: Partial<Technician> = {};
+    const payload: Partial<CreateTechnicianInput> = {};
     if (formData.get('name')) payload.name = String(formData.get('name'));
     if (formData.get('skills')) payload.skills = String(formData.get('skills')).split(',').map(s=>s.trim()).filter(Boolean);
     if (formData.get('hourlyRate')) payload.hourlyRate = Number(formData.get('hourlyRate'));

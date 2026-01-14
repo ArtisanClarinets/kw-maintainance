@@ -1,17 +1,17 @@
 "use client";
 
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { Button } from "@/components/Button";
+import { Header } from "@/widgets/Header";
+import { Footer } from "@/widgets/Footer";
+import { Button } from "@/shared/ui/CustomButton";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useState } from "react";
 import { Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { SplitText } from "@/components/react-bits/SplitText";
-import { SpotlightCard } from "@/components/react-bits/SpotlightCard";
-import { AnimatedGridPattern } from "@/components/react-bits/AnimatedGridPattern";
+import { SplitText } from "@/shared/ui/react-bits/SplitText";
+import { SpotlightCard } from "@/shared/ui/react-bits/SpotlightCard";
+import { AnimatedGridPattern } from "@/shared/ui/react-bits/AnimatedGridPattern";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name is required"),

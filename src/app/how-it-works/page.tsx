@@ -1,7 +1,7 @@
 'use client';
 
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
+import { Header } from '@/widgets/Header';
+import { Footer } from '@/widgets/Footer';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Zap, Users, BarChart3, Shield } from 'lucide-react';
 import Link from 'next/link';

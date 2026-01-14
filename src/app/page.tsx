@@ -1,20 +1,20 @@
 'use client';
 
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { Hero } from "@/components/Hero";
-import { Marquee } from "@/components/Marquee";
+import { Header } from "@/widgets/Header";
+import { Footer } from "@/widgets/Footer";
+import { Hero } from "@/widgets/Hero";
+import { Marquee } from "@/shared/ui/Marquee";
 import { testimonials } from "@/../content/testimonials";
 import Link from "next/link";
-import { ServiceCard } from "@/components/ServiceCard";
+import { ServiceCard } from "@/entities/service/ui/ServiceCard";
 import { services } from "@/../content/services";
 import { kpis } from "@/../content/kpis";
 import { industries } from "@/../content/industries";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/shared/ui/card";
 import { ShieldCheck, Clock, MapPin, Briefcase, RotateCw, ClipboardCheck, Hammer } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { SpotlightCard } from "@/components/react-bits/SpotlightCard";
-import { ShinyButton } from "@/components/react-bits/ShinyButton";
+import { Button } from "@/shared/ui/button";
+import { SpotlightCard } from "@/shared/ui/react-bits/SpotlightCard";
+import { ShinyButton } from "@/shared/ui/react-bits/ShinyButton";
 
 export default function Home() {
   return (

@@ -1,12 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
-import { WorkOrder } from '@/lib/domain/schema';
+import { WorkOrder } from '@/shared/lib/domain/schema';
 import { updateWorkOrderStatus, updateWorkOrderTasks } from '../actions';
-import { Button } from '@/components/Button';
-import { canTransition, WORK_ORDER_STATUS_LABELS, WorkOrderStatus } from '@/lib/domain/workOrders/stateMachine';
+import { Button } from '@/shared/ui/CustomButton';
+import { canTransition, WORK_ORDER_STATUS_LABELS, WorkOrderStatus } from '@/shared/lib/domain/workOrders/stateMachine';
 import { CheckCircle2, AlertCircle } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/shared/lib/utils';
 
 interface WorkOrderDetailProps {
   workOrder: WorkOrder;

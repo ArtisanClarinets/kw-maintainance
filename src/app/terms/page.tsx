@@ -1,6 +1,6 @@
 
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/widgets/Header";
+import { Footer } from "@/widgets/Footer";
 import { siteConfig } from "@/../content/site";
 
 export default function TermsPage() {

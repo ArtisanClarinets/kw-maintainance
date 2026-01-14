@@ -1,9 +1,9 @@
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
+import { Header } from '@/widgets/Header';
+import { Footer } from '@/widgets/Footer';
 import { Briefcase, Award, Users, Zap, Heart } from 'lucide-react';
 import Link from 'next/link';
-import { SplitText } from '@/components/react-bits/SplitText';
-import { SpotlightCard } from '@/components/react-bits/SpotlightCard';
+import { SplitText } from '@/shared/ui/react-bits/SplitText';
+import { SpotlightCard } from '@/shared/ui/react-bits/SpotlightCard';
 
 const values = [
   {

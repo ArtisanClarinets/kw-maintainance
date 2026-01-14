@@ -1,7 +1,7 @@
-import { getDb } from '@/lib/demo/persistence';
+import { getDb } from '@/shared/lib/demo/persistence';
 import { createPart, updatePart, deletePart } from '@/app/admin/parts/actions';
 import { redirect } from 'next/navigation';
-import type { Part } from '@/lib/domain/schema';
+import type { Part } from '@/shared/lib/domain/schema';
 
 export default async function AdminParts() {
   const db = await getDb();

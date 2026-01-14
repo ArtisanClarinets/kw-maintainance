@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { getUser } from '@/lib/auth';
+import { getUser } from '@/shared/lib/auth';
 import { redirect } from 'next/navigation';
 import { LayoutGrid, ClipboardList, Map, Box, Package, Activity } from 'lucide-react';
 
@@ -35,7 +35,7 @@ export default async function AppLayout({
            <div className="text-xs text-slate-500 truncate">{user.role}</div>
            <form action={async () => {
              'use server';
-             const { logout } = await import('@/lib/auth');
+             const { logout } = await import('@/shared/lib/auth');
              await logout();
              redirect('/login');
            }}>

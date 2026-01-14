@@ -1,7 +1,7 @@
 'use server';
 
-import { getDb } from '@/lib/demo/persistence';
-import { User } from '@/lib/domain/schema';
+import { getDb } from '@/shared/lib/demo/persistence';
+import { User } from '@/shared/lib/domain/schema';
 
 // Types for Dispatch
 export interface DispatchCandidate {

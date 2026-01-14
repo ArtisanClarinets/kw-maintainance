@@ -1,7 +1,7 @@
-import { getUser } from '@/lib/auth';
-import { getDb, saveDb } from '@/lib/demo/persistence';
-import { assertCanManageTechnicians } from '@/lib/security/rbac';
-import type { Technician } from '@/lib/domain/schema';
+import { getUser } from '@/shared/lib/auth';
+import { getDb, saveDb } from '@/shared/lib/demo/persistence';
+import { assertCanManageTechnicians } from '@/shared/lib/security/rbac';
+import type { Technician } from '@/shared/lib/domain/schema';
 
 export type CreateTechnicianInput = {
   tenantId: string;
@@ -58,6 +58,8 @@ export async function updateTechnician(id: string, updates: Partial<CreateTechni
   const idx = db.technicians.findIndex(t => t.id === id);
   if (idx === -1) throw new Error('Technician not found');
   const existing = db.technicians[idx];
+
+  if (!existing) throw new Error('Technician not found');
 
   // Map updates to schema
   const { vehicle, certifications, ...rest } = updates;

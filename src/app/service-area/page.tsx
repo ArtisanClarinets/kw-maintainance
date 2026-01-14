@@ -1,9 +1,9 @@
 
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { SplitText } from "@/components/react-bits/SplitText";
-import { SpotlightCard } from "@/components/react-bits/SpotlightCard";
-import { AnimatedGridPattern } from "@/components/react-bits/AnimatedGridPattern";
+import { Header } from "@/widgets/Header";
+import { Footer } from "@/widgets/Footer";
+import { SplitText } from "@/shared/ui/react-bits/SplitText";
+import { SpotlightCard } from "@/shared/ui/react-bits/SpotlightCard";
+import { AnimatedGridPattern } from "@/shared/ui/react-bits/AnimatedGridPattern";
 import { MapPin } from "lucide-react";
 import Link from "next/link";
 

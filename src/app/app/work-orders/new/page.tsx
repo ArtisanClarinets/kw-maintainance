@@ -3,11 +3,11 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createWorkOrder } from '../actions';
-import { Button } from '@/components/Button';
+import { Button } from '@/shared/ui/CustomButton';
 import { ArrowLeft, Loader2, WifiOff } from 'lucide-react';
 import Link from 'next/link';
-import { WorkOrderPriorityEnum, WorkOrderCategoryEnum } from '@/lib/domain/schema';
-import { useOfflineQueue } from '@/hooks/useOfflineQueue';
+import { WorkOrderPriorityEnum, WorkOrderCategoryEnum } from '@/shared/lib/domain/schema';
+import { useOfflineQueue } from '@/shared/hooks/useOfflineQueue';
 import { z } from 'zod';
 
 type Priority = z.infer<typeof WorkOrderPriorityEnum>;

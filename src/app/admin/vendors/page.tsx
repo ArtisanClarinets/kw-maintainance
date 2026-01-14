@@ -1,7 +1,7 @@
-import { getDb } from '@/lib/demo/persistence';
+import { getDb } from '@/shared/lib/demo/persistence';
 import { createVendor, updateVendor, deleteVendor } from '@/app/admin/vendors/actions';
 import { redirect } from 'next/navigation';
-import type { Vendor } from '@/lib/domain/schema';
+import type { Vendor } from '@/shared/lib/domain/schema';
 
 export default async function AdminVendors() {
   const db = await getDb();
@@ -9,13 +9,14 @@ export default async function AdminVendors() {
 
   async function createAction(formData: FormData) {
     'use server';
+    const lastAuditDate = formData.get('lastAuditDate');
     await createVendor({
       tenantId: String(formData.get('tenantId') ?? 't1'),
       name: String(formData.get('name') ?? ''),
       type: (String(formData.get('type') ?? 'Service') as 'Service' | 'Supply' | 'Software'),
       status: (String(formData.get('status') ?? 'Active') as 'Active' | 'Probation' | 'Non-Compliant'),
       complianceScore: Number(formData.get('score') ?? 100),
-      lastAuditDate: String(formData.get('lastAuditDate') ?? undefined) || undefined,
+      ...(lastAuditDate ? { lastAuditDate: String(lastAuditDate) } : {}),
     });
     redirect('/admin/vendors');
   }

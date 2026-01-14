@@ -2,10 +2,10 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { getAssetTree, seedAssets, calculateTCO } from './actions';
-import { Button } from '@/components/Button';
+import { Button } from '@/shared/ui/CustomButton';
 import { ChevronRight, ChevronDown, Box, AlertTriangle, DollarSign, Activity } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { Asset } from '@/lib/domain/schema';
+import { cn } from '@/shared/lib/utils';
+import { Asset } from '@/shared/lib/domain/schema';
 
 type AssetTreeNodeType = Asset & {
     children?: AssetTreeNodeType[];

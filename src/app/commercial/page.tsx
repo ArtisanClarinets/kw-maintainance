@@ -1,10 +1,10 @@
 
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/widgets/Header";
+import { Footer } from "@/widgets/Footer";
 import { commercialServices } from "@/../content/commercial";
-import { ServiceCard } from "@/components/ServiceCard";
-import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { ServiceCard } from "@/entities/service/ui/ServiceCard";
+import { Button } from "@/shared/ui/button";
+import { Card, CardHeader, CardTitle, CardContent } from "@/shared/ui/card";
 import { ShieldCheck, Clock, FileText, Briefcase } from "lucide-react";
 import Link from "next/link";
 

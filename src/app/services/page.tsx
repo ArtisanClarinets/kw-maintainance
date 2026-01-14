@@ -1,10 +1,10 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/widgets/Header";
+import { Footer } from "@/widgets/Footer";
 import { services } from "@/../content/services";
-import { ServiceCard } from "@/components/ServiceCard";
-import { Button } from "@/components/ui/button";
+import { ServiceCard } from "@/entities/service/ui/ServiceCard";
+import { Button } from "@/shared/ui/button";
 import Link from "next/link";
-import { SpotlightCard } from "@/components/react-bits/SpotlightCard";
+import { SpotlightCard } from "@/shared/ui/react-bits/SpotlightCard";
 
 export default function ServicesPage() {
   return (

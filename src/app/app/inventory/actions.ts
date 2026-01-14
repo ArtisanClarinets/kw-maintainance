@@ -1,7 +1,7 @@
 'use server';
 
-import { getDb, saveDb } from '@/lib/demo/persistence';
-import { Part, Warehouse, StockLevel } from '@/lib/domain/schema';
+import { getDb, saveDb } from '@/shared/lib/demo/persistence';
+import { Part, Warehouse, StockLevel } from '@/shared/lib/domain/schema';
 import { revalidatePath } from 'next/cache';
 
 export async function getInventoryData() {

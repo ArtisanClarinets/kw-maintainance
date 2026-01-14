@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { getUser } from '@/lib/auth';
+import { getUser } from '@/shared/lib/auth';
 import { redirect } from 'next/navigation';
 import { Users, FileText, ClipboardList, Database, Box } from 'lucide-react';
 

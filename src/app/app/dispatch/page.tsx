@@ -3,10 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import { runDispatchSimulation, massReshuffle, DispatchCandidate } from './actions';
 import { getWorkOrders } from '../work-orders/actions'; // Reuse
-import { WorkOrder } from '@/lib/domain/schema';
-import { Button } from '@/components/Button';
+import { WorkOrder } from '@/shared/lib/domain/schema';
+import { Button } from '@/shared/ui/CustomButton';
 import { Users, Zap } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/shared/lib/utils';
 
 export const dynamic = 'force-dynamic';
 

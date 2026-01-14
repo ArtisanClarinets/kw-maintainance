@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { getDb, saveDb } from '@/lib/demo/persistence';
-import { Lead } from '@/lib/domain/schema';
+import { getDb, saveDb } from '@/shared/lib/demo/persistence';
+import { Lead } from '@/shared/lib/domain/schema';
 
 export async function POST(req: Request) {
   try {

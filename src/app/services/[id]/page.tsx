@@ -1,8 +1,8 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/widgets/Header";
+import { Footer } from "@/widgets/Footer";
 import { serviceDetails } from "@/../content/service-details";
 import { siteConfig } from "@/../content/site";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/shared/ui/button";
 import { Phone, CheckCircle } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";

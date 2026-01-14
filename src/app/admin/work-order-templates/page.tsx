@@ -1,7 +1,7 @@
-import { getDb } from '@/lib/demo/persistence';
+import { getDb } from '@/shared/lib/demo/persistence';
 import { createWorkOrderTemplate, updateWorkOrderTemplate, deleteWorkOrderTemplate } from '@/app/admin/work-order-templates/actions';
 import { redirect } from 'next/navigation';
-import type { WorkOrderTemplate } from '@/lib/domain/schema';
+import type { WorkOrderTemplate } from '@/shared/lib/domain/schema';
 
 export default async function AdminTemplates() {
   const db = await getDb();
@@ -9,11 +9,12 @@ export default async function AdminTemplates() {
 
   async function createAction(formData: FormData) {
     'use server';
+    const defaultSLA = formData.get('defaultSLA');
     await createWorkOrderTemplate({
       tenantId: String(formData.get('tenantId') ?? 't1'),
       title: String(formData.get('title') ?? ''),
       category: (String(formData.get('category') ?? 'General') as 'Plumbing' | 'Electrical' | 'HVAC' | 'Appliance' | 'General' | 'Predictive' | 'Preventative'),
-      defaultSLA: String(formData.get('defaultSLA') ?? undefined) || undefined,
+      ...(defaultSLA ? { defaultSLA: String(defaultSLA) } : {}),
       tasks: [],
     });
     redirect('/admin/work-order-templates');

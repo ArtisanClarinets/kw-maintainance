@@ -1,7 +1,7 @@
 'use server';
 
-import { getDb } from '@/lib/demo/persistence';
-import { Vendor } from '@/lib/domain/schema';
+import { getDb } from '@/shared/lib/demo/persistence';
+import { Vendor } from '@/shared/lib/domain/schema';
 
 export async function getVendors(): Promise<Vendor[]> {
   const db = await getDb();

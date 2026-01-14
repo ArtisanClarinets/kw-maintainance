@@ -2,10 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { getInventoryData, transferStock } from './actions';
-import { Part, Warehouse, StockLevel } from '@/lib/domain/schema';
-import { Button } from '@/components/Button';
+import { Part, Warehouse, StockLevel } from '@/shared/lib/domain/schema';
+import { Button } from '@/shared/ui/CustomButton';
 import { Package, Truck, ArrowRightLeft, AlertCircle, RefreshCw } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/shared/lib/utils';
 
 export const dynamic = 'force-dynamic';
 

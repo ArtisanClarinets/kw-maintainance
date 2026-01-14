@@ -1,7 +1,7 @@
 'use server';
 
-import { getDb, saveDb } from '@/lib/demo/persistence';
-import { Asset } from '@/lib/domain/schema';
+import { getDb, saveDb } from '@/shared/lib/demo/persistence';
+import { Asset } from '@/shared/lib/domain/schema';
 import { revalidatePath } from 'next/cache';
 
 export async function getAssets() {

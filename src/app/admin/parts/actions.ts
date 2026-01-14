@@ -1,7 +1,7 @@
-import { getUser } from '@/lib/auth';
-import { getDb, saveDb } from '@/lib/demo/persistence';
-import { assertCanManageParts } from '@/lib/security/rbac';
-import type { Part } from '@/lib/domain/schema';
+import { getUser } from '@/shared/lib/auth';
+import { getDb, saveDb } from '@/shared/lib/demo/persistence';
+import { assertCanManageParts } from '@/shared/lib/security/rbac';
+import type { Part } from '@/shared/lib/domain/schema';
 
 export type CreatePartInput = {
   tenantId: string;

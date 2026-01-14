@@ -1,6 +1,6 @@
 'use server';
 
-import { login } from '@/lib/auth';
+import { login } from '@/shared/lib/auth';
 
 export async function loginAction(formData: FormData) {
   const email = formData.get('email') as string;

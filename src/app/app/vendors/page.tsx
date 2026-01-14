@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from 'react';
 import { getVendors } from './actions';
-import { Vendor } from '@/lib/domain/schema';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+import { Vendor } from '@/shared/lib/domain/schema';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/ui/card';
+import { Badge } from '@/shared/ui/badge';
+import { Button } from '@/shared/ui/button';
 import { FileText, ShieldCheck } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/shared/lib/utils';
 
 export default function VendorsPage() {
   const [vendors, setVendors] = useState<Vendor[]>([]);

@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { createIoTWorkOrder } from './actions';
-import { Button } from '@/components/Button';
+import { Button } from '@/shared/ui/CustomButton';
 import { Activity, Zap, AlertTriangle, Power } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/shared/lib/utils';
 
 // Simple Switch Component
 function SimpleSwitch({ checked, onCheckedChange }: { checked: boolean; onCheckedChange: (c: boolean) => void }) {

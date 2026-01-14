@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/../content/site";
-import { AnimationProvider } from "@/components/providers/AnimationProvider";
-import { SmoothScrolling } from "@/components/providers/SmoothScrolling";
-import SplashCursor from "@/components/react-bits/SplashCursor";
+import { AnimationProvider } from "@/shared/providers/AnimationProvider";
+import { SmoothScrolling } from "@/shared/providers/SmoothScrolling";
+import SplashCursor from "@/shared/ui/react-bits/SplashCursor";
 
 const inter = Inter({
   subsets: ["latin"],

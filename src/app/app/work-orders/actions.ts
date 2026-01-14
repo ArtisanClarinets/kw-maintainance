@@ -1,8 +1,8 @@
 'use server';
 
-import { getDb, saveDb } from '@/lib/demo/persistence';
-import { WorkOrder, WorkOrderStatusEnum } from '@/lib/domain/schema';
-import { transition } from '@/lib/domain/workOrders/stateMachine';
+import { getDb, saveDb } from '@/shared/lib/demo/persistence';
+import { WorkOrder, WorkOrderStatusEnum } from '@/shared/lib/domain/schema';
+import { transition } from '@/shared/lib/domain/workOrders/stateMachine';
 import { revalidatePath } from 'next/cache';
 
 export async function getWorkOrders() {
@@ -72,6 +72,8 @@ export async function updateWorkOrderStatus(id: string, newStatus: string) {
   }
 
   const wo = db.workOrders[index];
+
+  if (!wo) throw new Error('Work Order not found');
   
   // Verify transition using domain logic
   // We need to cast string to enum, safer in real app
@@ -94,7 +96,7 @@ export async function updateWorkOrderTasks(id: string, tasks: WorkOrder['tasks']
     const db = await getDb();
     const index = db.workOrders.findIndex((w) => w.id === id);
     
-    if (index === -1) {
+    if (index === -1 || !db.workOrders[index]) {
       throw new Error('Work Order not found');
     }
 

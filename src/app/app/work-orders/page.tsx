@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { getWorkOrders } from './actions';
-import { Button } from '@/components/Button';
+import { Button } from '@/shared/ui/CustomButton';
 import { Plus, AlertCircle, Calendar } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/shared/lib/utils';
 
 export const dynamic = 'force-dynamic';
 

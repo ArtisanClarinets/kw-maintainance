@@ -1,7 +1,7 @@
-import { getDb } from '@/lib/demo/persistence';
+import { getDb } from '@/shared/lib/demo/persistence';
 import { createPurchaseOrder, updatePurchaseOrder, deletePurchaseOrder } from '@/app/admin/purchase-orders/actions';
 import { redirect } from 'next/navigation';
-import type { PurchaseOrder } from '@/lib/domain/schema';
+import type { PurchaseOrder } from '@/shared/lib/domain/schema';
 
 export default async function AdminPOs() {
   const db = await getDb();

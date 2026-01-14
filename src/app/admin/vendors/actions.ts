@@ -1,7 +1,7 @@
-import { getUser } from '@/lib/auth';
-import { getDb, saveDb } from '@/lib/demo/persistence';
-import { assertCanManageVendors } from '@/lib/security/rbac';
-import type { Vendor } from '@/lib/domain/schema';
+import { getUser } from '@/shared/lib/auth';
+import { getDb, saveDb } from '@/shared/lib/demo/persistence';
+import { assertCanManageVendors } from '@/shared/lib/security/rbac';
+import type { Vendor } from '@/shared/lib/domain/schema';
 
 export type CreateVendorInput = {
   tenantId: string;
