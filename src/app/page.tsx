@@ -13,6 +13,9 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ShieldCheck, Clock, MapPin, Briefcase, RotateCw, ClipboardCheck, Hammer } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ShieldCheck, Clock, MapPin } from "lucide-react";
+import { SpotlightCard } from "@/components/react-bits/SpotlightCard";
+import { ShinyButton } from "@/components/react-bits/ShinyButton";
 
 export default function Home() {
   return (
@@ -26,11 +29,11 @@ export default function Home() {
             <div className="container-custom px-4">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                     {kpis.map((kpi, idx) => (
-                        <motion.div key={idx} whileHover={{ y: -4 }} className="text-center transition-transform">
+                        <SpotlightCard key={idx} className="text-center p-6 bg-transparent border-transparent">
                             <div className="text-4xl font-bold text-primary mb-2">{kpi.metric}</div>
                             <div className="font-semibold text-foreground mb-1">{kpi.label}</div>
                             <p className="text-sm text-muted-foreground">{kpi.description}</p>
-                        </motion.div>
+                        </SpotlightCard>
                     ))}
                 </div>
             </div>
@@ -48,13 +51,17 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {services.map((service) => (
                <div key={service.id} className="h-full">
-                <ServiceCard
-                    slug={service.id}
-                    title={service.title}
-                    description={service.description}
-                    icon={<service.icon className="h-6 w-6" />}
-                    features={service.features}
-                />
+                <SpotlightCard className="h-full bg-card rounded-xl border border-border/50">
+                  <div className="p-1 h-full">
+                    <ServiceCard
+                        slug={service.id}
+                        title={service.title}
+                        description={service.description}
+                        icon={<service.icon className="h-6 w-6" />}
+                        features={service.features}
+                    />
+                  </div>
+                </SpotlightCard>
               </div>
             ))}
           </div>
@@ -129,10 +136,10 @@ export default function Home() {
                 </div>
                 
                 <div className="grid md:grid-cols-3 gap-8">
-                        <motion.div whileHover={{ scale: 1.02, y: -4 }} className="rounded-lg">
-                        <Card className="bg-card border-border/50">
+                    <SpotlightCard className="rounded-xl bg-card">
+                        <Card className="bg-transparent border-0 h-full">
                             <CardHeader>
-                                <div className="mb-4 h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                                <div className="mb-4 h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary transition-all">
                                     <ShieldCheck className="h-6 w-6" />
                                 </div>
                                 <CardTitle className="text-xl">Licensed & Insured</CardTitle>
@@ -143,9 +150,10 @@ export default function Home() {
                                 </p>
                             </CardContent>
                         </Card>
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.02, y: -4 }} className="rounded-lg">
-                        <Card className="bg-card border-border/50">
+                    </SpotlightCard>
+
+                    <SpotlightCard className="rounded-xl bg-card">
+                        <Card className="bg-transparent border-0 h-full">
                             <CardHeader>
                                 <div className="mb-4 h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary transition-all">
                                     <Clock className="h-6 w-6" />
@@ -158,9 +166,10 @@ export default function Home() {
                                 </p>
                             </CardContent>
                         </Card>
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.02, y: -4 }} className="rounded-lg">
-                        <Card className="bg-card border-border/50">
+                    </SpotlightCard>
+
+                    <SpotlightCard className="rounded-xl bg-card">
+                        <Card className="bg-transparent border-0 h-full">
                             <CardHeader>
                                 <div className="mb-4 h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary transition-all">
                                     <MapPin className="h-6 w-6" />
@@ -173,8 +182,37 @@ export default function Home() {
                                 </p>
                             </CardContent>
                         </Card>
-                    </motion.div>
+                    </SpotlightCard>
                 </div>
+            </div>
+        </section>
+
+        {/* Industries */}
+        <section className="py-20 container-custom px-4">
+            <div className="flex flex-col gap-2 text-center mb-12">
+                <p className="text-sm uppercase tracking-[0.4em] text-muted-foreground">Industries Served</p>
+                <h2 className="text-3xl md:text-4xl font-extrabold font-serif text-foreground">Expert Support for Every Property</h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+                {industries.map((industry) => (
+                    <SpotlightCard key={industry.id} className="bg-card rounded-2xl h-full">
+                        <div className="p-8 h-full">
+                            <h3 className="text-2xl font-bold mb-3 text-foreground">{industry.title}</h3>
+                            <p className="text-muted-foreground mb-6">{industry.description}</p>
+                            <ul className="space-y-2 mb-6 text-sm text-foreground/80">
+                                {industry.highlights.map((highlight) => (
+                                    <li key={highlight} className="flex items-start gap-2">
+                                        <span className="h-1.5 w-1.5 rounded-full bg-primary mt-1" />
+                                        {highlight}
+                                    </li>
+                                ))}
+                            </ul>
+                            <Link href={industry.cta.href} className="text-sm font-semibold text-primary hover:text-primary/80">
+                                {industry.cta.label} →
+                            </Link>
+                        </div>
+                    </SpotlightCard>
+                ))}
             </div>
         </section>
 
@@ -194,11 +232,13 @@ export default function Home() {
                 <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
                     Contact us today for a free quote on your next project. We are here to help!
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Link href="/request-demo" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-background text-primary shadow hover:bg-background/90 h-11 px-8">
-                        Get a Free Quote
-                    </Link>
-                    <Link href="/contact" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground h-11 px-8 text-white border-white hover:bg-white/10">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <div className="w-full sm:w-auto">
+                        <ShinyButton className="w-full bg-background text-primary hover:bg-background/90" asChild>
+                             <Link href="/request-demo">Get a Free Quote</Link>
+                        </ShinyButton>
+                    </div>
+                    <Link href="/contact" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-transparent shadow-sm hover:bg-white/10 h-11 px-8 text-white border-white">
                         Contact Us
                     </Link>
                 </div>

@@ -6,6 +6,10 @@ import { HeroVisual } from './HeroVisual';
 import { motion } from 'framer-motion';
 import { Star, ShieldCheck, MapPin } from 'lucide-react';
 import { siteConfig } from '../../content/site';
+import { SplitText } from '@/components/react-bits/SplitText';
+import { AnimatedGridPattern } from '@/components/react-bits/AnimatedGridPattern';
+import { ShinyButton } from '@/components/react-bits/ShinyButton';
+import ParticlesBackgroundLazy from '@/components/react-bits/ParticlesBackgroundLazy';
 
 export function Hero() {
 
@@ -33,6 +37,16 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-muted/30 py-12 md:py-24 lg:py-32 px-4">
+      {/* Heavy R3F Background loaded lazily for LCP optimization */}
+      <ParticlesBackgroundLazy />
+
+      <AnimatedGridPattern
+          numSquares={30}
+          maxOpacity={0.1}
+          duration={3}
+          repeatDelay={1}
+          className="text-primary/20 [mask-image:radial-gradient(500px_circle_at_center,white,transparent)] pointer-events-none"
+      />
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Left */}
@@ -44,7 +58,7 @@ export function Hero() {
           >
             {/* Tagline Badge */}
             <motion.div variants={itemVariants}>
-              <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary backdrop-blur-sm">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
@@ -53,21 +67,27 @@ export function Hero() {
               </div>
             </motion.div>
 
-            <motion.h1 variants={itemVariants} className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.1]">
-              Reliable Handyman & Maintenance Services
-              <span className="text-primary block mt-2">Done Right.</span>
-            </motion.h1>
+            <div className="relative">
+              <SplitText
+                text="Reliable Handyman & Maintenance Services"
+                className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.1]"
+                delay={0.02}
+              />
+              <motion.span variants={itemVariants} className="text-primary block mt-2 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">
+                Done Right.
+              </motion.span>
+            </div>
             
             <motion.p variants={itemVariants} className="text-xl text-muted-foreground max-w-xl leading-relaxed">
               Professional repairs, installations, painting, and hauling services for your home or business. Fast, friendly, and fully insured.
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mt-2">
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <Button size="lg" className="w-full sm:w-auto text-base bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg shadow-accent/20" asChild>
+              <div className="w-full sm:w-auto">
+                <ShinyButton className="w-full sm:w-auto bg-accent text-accent-foreground" asChild>
                     <Link href="/request-demo">Get a Free Quote</Link>
-                  </Button>
-              </motion.div>
+                </ShinyButton>
+              </div>
 
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <Button size="lg" variant="outline" className="w-full sm:w-auto text-base border-primary/20 hover:bg-primary/5" asChild>

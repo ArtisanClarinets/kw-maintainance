@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   experimental: {
-    // Other experimental options can go here if needed in the future
+    viewTransition: true,
   },
   turbopack: {
     root: process.cwd(),

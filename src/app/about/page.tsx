@@ -2,6 +2,8 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Briefcase, Award, Users, Zap, Heart } from 'lucide-react';
 import Link from 'next/link';
+import { SplitText } from '@/components/react-bits/SplitText';
+import { SpotlightCard } from '@/components/react-bits/SpotlightCard';
 
 const values = [
   {
@@ -42,9 +44,11 @@ export default function About() {
           <div className="container-custom px-4">
             <div className="max-w-4xl">
               <p className="text-sm uppercase tracking-[0.5em] text-muted-foreground mb-4">About Us</p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-serif text-foreground mb-6">
-                Your Local Maintenance Experts
-              </h1>
+              <SplitText
+                  text="Your Local Maintenance Experts"
+                  className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-serif text-foreground mb-6"
+                  delay={0.03}
+              />
               <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
                 K&W Maintenance started with a simple goal: to provide reliable, high-quality handyman services to our community. We understand that finding a trustworthy contractor can be hard, so we strive to be the easy choice for all your home repair needs.
               </p>
@@ -87,11 +91,13 @@ export default function About() {
               {values.map((value, idx) => {
                 const Icon = value.icon;
                 return (
-                  <div key={idx} className="bg-card p-8 rounded-2xl border border-border/40">
-                    <Icon className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="text-xl font-bold text-foreground mb-2">{value.title}</h3>
-                    <p className="text-muted-foreground">{value.description}</p>
-                  </div>
+                  <SpotlightCard key={idx} className="bg-card rounded-2xl border border-border/40">
+                    <div className="p-8">
+                        <Icon className="h-8 w-8 text-primary mb-4" />
+                        <h3 className="text-xl font-bold text-foreground mb-2">{value.title}</h3>
+                        <p className="text-muted-foreground">{value.description}</p>
+                    </div>
+                  </SpotlightCard>
                 );
               })}
             </div>
