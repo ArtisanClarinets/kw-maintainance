@@ -27,6 +27,7 @@ interface ServiceCardProps {
   hasError?: boolean;
   errorMessage?: string;
   loadingText?: string;
+  basePath?: string;
 }
 
   
@@ -39,7 +40,8 @@ export function ServiceCard({
   isLoading = false, 
   hasError = false, 
   errorMessage = "Failed to load service information",
-  loadingText = "Loading service..."
+  loadingText = "Loading service...",
+  basePath = "/services"
 }: ServiceCardProps) {
   // Support passing either a React node (e.g. <Wrench />) or an icon name string (e.g. "Wrench")
   let iconElement: React.ReactNode;
@@ -74,7 +76,7 @@ export function ServiceCard({
   }
 
   return (
-    <Link href={`/services/${slug}`} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-2xl">
+    <Link href={`${basePath}/${slug}`} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-2xl">
       <motion.div
         whileHover={{ scale: 1.02, y: -4 }}
         initial={{ scale: 1 }}

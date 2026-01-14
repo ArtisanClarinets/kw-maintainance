@@ -9,10 +9,10 @@ import Link from "next/link";
 import { ServiceCard } from "@/components/ServiceCard";
 import { services } from "@/../content/services";
 import { kpis } from "@/../content/kpis";
-import { industries } from "@/../content/industries";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ShieldCheck, Clock, MapPin } from "lucide-react";
+import { ShieldCheck, Clock, MapPin, Briefcase, RotateCw, ClipboardCheck, Hammer } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -39,9 +39,9 @@ export default function Home() {
         {/* Services Section */}
         <section id="services" className="py-20 container-custom px-4">
           <div className="text-center mb-16">
-             <h2 className="text-3xl md:text-4xl font-extrabold font-serif mb-4 text-foreground">Our Services</h2>
+             <h2 className="text-3xl md:text-4xl font-extrabold font-serif mb-4 text-foreground">Residential Services</h2>
              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-               Professional, reliable, and affordable services for your home or business in Fort Walton Beach and surrounding areas.
+               Professional, reliable, and affordable services for your home in Fort Walton Beach and surrounding areas.
              </p>
           </div>
 
@@ -64,6 +64,58 @@ export default function Home() {
                 View All Services
             </Link>
           </div>
+        </section>
+
+        {/* Commercial/B2B Teaser */}
+        <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
+             {/* Background logic */}
+             <div className="absolute inset-0 opacity-20">
+                 <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-500 rounded-full blur-3xl" />
+                 <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-slate-900 to-transparent" />
+            </div>
+
+             <div className="container-custom px-4 relative z-10 flex flex-col md:flex-row items-center gap-12">
+                 <div className="flex-1 space-y-6">
+                      <div className="inline-flex items-center rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 text-sm font-medium text-blue-300">
+                        <Briefcase className="mr-2 h-4 w-4" />
+                        For Property Managers & Businesses
+                    </div>
+                     <h2 className="text-3xl md:text-5xl font-extrabold font-serif leading-tight">Commercial Maintenance Solutions</h2>
+                     <p className="text-lg text-slate-300 leading-relaxed">
+                         We provide dedicated support for HOAs, hotels, retail, and office buildings.
+                         Enjoy priority scheduling, net 30 billing, and a single point of contact for all your facility needs.
+                     </p>
+                     <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                         <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white border-none shadow-lg shadow-blue-900/20">
+                            <Link href="/commercial">Explore Commercial Services</Link>
+                         </Button>
+                     </div>
+                 </div>
+                 <div className="flex-1 w-full">
+                     <div className="grid grid-cols-2 gap-4">
+                         <div className="bg-white/5 border border-white/10 p-6 rounded-xl backdrop-blur-sm hover:bg-white/10 transition-colors">
+                             <ShieldCheck className="h-8 w-8 text-blue-400 mb-4" />
+                             <h3 className="font-bold mb-1">Preventative</h3>
+                             <p className="text-sm text-slate-400">Scheduled audits & care</p>
+                         </div>
+                         <div className="bg-white/5 border border-white/10 p-6 rounded-xl backdrop-blur-sm hover:bg-white/10 transition-colors">
+                             <RotateCw className="h-8 w-8 text-blue-400 mb-4" />
+                             <h3 className="font-bold mb-1">Turnovers</h3>
+                             <p className="text-sm text-slate-400">Rapid unit prep</p>
+                         </div>
+                         <div className="bg-white/5 border border-white/10 p-6 rounded-xl backdrop-blur-sm hover:bg-white/10 transition-colors">
+                             <ClipboardCheck className="h-8 w-8 text-blue-400 mb-4" />
+                             <h3 className="font-bold mb-1">Compliance</h3>
+                             <p className="text-sm text-slate-400">Safety & asset reports</p>
+                         </div>
+                         <div className="bg-white/5 border border-white/10 p-6 rounded-xl backdrop-blur-sm hover:bg-white/10 transition-colors">
+                             <Hammer className="h-8 w-8 text-blue-400 mb-4" />
+                             <h3 className="font-bold mb-1">Repairs</h3>
+                             <p className="text-sm text-slate-400">On-demand handyman</p>
+                         </div>
+                     </div>
+                 </div>
+             </div>
         </section>
 
         {/* Why Choose Us */}
@@ -123,33 +175,6 @@ export default function Home() {
                         </Card>
                     </motion.div>
                 </div>
-            </div>
-        </section>
-
-        {/* Industries */}
-        <section className="py-20 container-custom px-4">
-            <div className="flex flex-col gap-2 text-center mb-12">
-                <p className="text-sm uppercase tracking-[0.4em] text-muted-foreground">Industries Served</p>
-                <h2 className="text-3xl md:text-4xl font-extrabold font-serif text-foreground">Expert Support for Every Property</h2>
-            </div>
-            <div className="grid md:grid-cols-2 gap-8">
-                {industries.map((industry) => (
-                    <div key={industry.id} className="bg-card border border-border/40 rounded-2xl p-8 h-full">
-                        <h3 className="text-2xl font-bold mb-3 text-foreground">{industry.title}</h3>
-                        <p className="text-muted-foreground mb-6">{industry.description}</p>
-                        <ul className="space-y-2 mb-6 text-sm text-foreground/80">
-                            {industry.highlights.map((highlight) => (
-                                <li key={highlight} className="flex items-start gap-2">
-                                    <span className="h-1.5 w-1.5 rounded-full bg-primary mt-1" />
-                                    {highlight}
-                                </li>
-                            ))}
-                        </ul>
-                        <Link href={industry.cta.href} className="text-sm font-semibold text-primary hover:text-primary/80">
-                            {industry.cta.label} →
-                        </Link>
-                    </div>
-                ))}
             </div>
         </section>
 

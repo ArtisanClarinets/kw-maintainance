@@ -110,7 +110,7 @@
   ],
   "parts": [
     {
-      "id": "part-mk5xohz8-qcq9",
+      "id": "part-mkdid1lc-njqe",
       "tenantId": "t1",
       "name": "Filter",
       "sku": "F-001",
@@ -152,14 +152,14 @@
   ],
   "purchaseOrders": [
     {
-      "id": "po-mk5xohzc-syt1",
+      "id": "po-mkdid1ll-7jz2",
       "tenantId": "t1",
       "vendorId": "v1",
       "propertyId": "p1",
       "status": "Draft",
       "lines": [],
-      "createdAt": "2026-01-08T21:02:38.088Z",
-      "updatedAt": "2026-01-08T21:02:38.088Z"
+      "createdAt": "2026-01-14T04:15:58.809Z",
+      "updatedAt": "2026-01-14T04:15:58.809Z"
     }
   ],
   "timesheets": [],

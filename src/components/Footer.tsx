@@ -11,10 +11,10 @@ export function Footer() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container-custom py-16 md:py-24 relative z-10">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
 
           {/* Brand Column */}
-          <div className="space-y-6">
+          <div className="space-y-6 lg:col-span-1">
             <h3 className="text-2xl font-serif font-bold tracking-tight text-primary">{siteConfig.name}</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               {siteConfig.description}
@@ -33,16 +33,29 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Services Column */}
+          {/* Residential Column */}
           <div className="space-y-6">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Our Services</h4>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Residential</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li><Link href="/services" className="hover:text-primary transition-colors">All Services</Link></li>
-              <li><Link href="/services/handyman-services" className="hover:text-primary transition-colors">General Repairs</Link></li>
-              <li><Link href="/services/installations" className="hover:text-primary transition-colors">Installations</Link></li>
+              <li><Link href="/services/handyman-services" className="hover:text-primary transition-colors">Handyman</Link></li>
+              <li><Link href="/services/installations" className="hover:text-primary transition-colors">Home Installations</Link></li>
               <li><Link href="/services/painting" className="hover:text-primary transition-colors">Painting</Link></li>
               <li><Link href="/services/tv-mounting" className="hover:text-primary transition-colors">TV Mounting</Link></li>
-              <li><Link href="/services/moving-and-trash-disposal" className="hover:text-primary transition-colors">Hauling & Trash</Link></li>
+              <li><Link href="/services/trash-disposal" className="hover:text-primary transition-colors">Trash Disposal</Link></li>
+            </ul>
+          </div>
+
+          {/* Commercial Column */}
+          <div className="space-y-6">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Commercial</h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li><Link href="/commercial" className="hover:text-blue-600 transition-colors">Commercial Overview</Link></li>
+              <li><Link href="/commercial/preventative-maintenance" className="hover:text-blue-600 transition-colors">Preventative Maint.</Link></li>
+              <li><Link href="/commercial/turnover-services" className="hover:text-blue-600 transition-colors">Hospitality Turnover</Link></li>
+              <li><Link href="/commercial/facility-audits" className="hover:text-blue-600 transition-colors">Facility Audits</Link></li>
+              <li><Link href="/commercial/handyman" className="hover:text-blue-600 transition-colors">General Maintenance</Link></li>
+              <li><Link href="/commercial/installations" className="hover:text-blue-600 transition-colors">Commercial Install</Link></li>
             </ul>
           </div>
 

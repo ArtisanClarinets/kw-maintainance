@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/../content/site";
+import { SmoothScrolling } from "@/components/SmoothScrolling";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: ["handyman", "home repair", "painting", "tv mounting", "trash removal", "fort walton beach", "destin", "niceville", "home maintenance"],
+  keywords: ["handyman", "home repair", "painting", "tv mounting", "trash removal", "fort walton beach", "destin", "niceville", "home maintenance", "commercial maintenance"],
   authors: [{ name: "K&W Maintenance Services" }],
   creator: "K&W Maintenance Services",
   openGraph: {
@@ -95,7 +96,9 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased font-sans">
-        {children}
+        <SmoothScrolling>
+            {children}
+        </SmoothScrolling>
       </body>
     </html>
   );
