@@ -9,11 +9,10 @@ import Link from "next/link";
 import { ServiceCard } from "@/components/ServiceCard";
 import { services } from "@/../content/services";
 import { kpis } from "@/../content/kpis";
-import { motion } from "framer-motion";
+import { industries } from "@/../content/industries";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ShieldCheck, Clock, MapPin, Briefcase, RotateCw, ClipboardCheck, Hammer } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ShieldCheck, Clock, MapPin } from "lucide-react";
 import { SpotlightCard } from "@/components/react-bits/SpotlightCard";
 import { ShinyButton } from "@/components/react-bits/ShinyButton";
 

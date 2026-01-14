@@ -86,7 +86,8 @@ const DEFAULT_DB: Database = {
   ],
   schedulingRules: [
       { id: 'sr1', tenantId: 't1', minimumLeadTimeMinutes: 180, minimumGapMinutes: 120, defaultDurationMinutes: 60 }
-  ]
+  ],
+  leads: []
 };
 
 export async function getDb(): Promise<Database> {
