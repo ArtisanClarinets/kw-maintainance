@@ -1,47 +1,10 @@
 
-> kw-hospitality-maintainence@0.1.0 dev
-> next dev
+> kw-hospitality-maintainence@0.1.0 start
+> next start
 
-▲ Next.js 16.1.1 (Turbopack)
+▲ Next.js 16.1.1
 - Local:         http://localhost:3000
 - Network:       http://192.168.0.2:3000
-- Environments: .env.local
 
 ✓ Starting...
-✓ Ready in 1660ms
-○ Compiling / ...
- GET / 200 in 8.6s (compile: 7.7s, render: 905ms)
- GET /api/ops-data 200 in 3.3s (compile: 3.3s, render: 77ms)
- GET /about 200 in 1929ms (compile: 1495ms, render: 434ms)
- GET / 200 in 349ms (compile: 71ms, render: 278ms)
- GET /api/ops-data 200 in 15ms (compile: 5ms, render: 11ms)
- GET /about 200 in 434ms (compile: 57ms, render: 377ms)
-⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
-▲ Next.js 16.1.1 (Turbopack)
-- Local:         http://localhost:3000
-- Network:       http://192.168.0.2:3000
-- Environments: .env.local
-- Experiments (use with caution):
-  ✓ viewTransition
-
-✓ Starting...
-✓ Ready in 3.5s
- GET / 200 in 3.0s (compile: 2.2s, render: 887ms)
- GET /api/ops-data 200 in 329ms (compile: 281ms, render: 48ms)
- GET /about 200 in 952ms (compile: 360ms, render: 592ms)
-✓ Compiled in 2.7s
- GET / 200 in 3.8s (compile: 1362ms, render: 2.5s)
- GET /api/ops-data 200 in 55ms (compile: 18ms, render: 36ms)
- GET /about 200 in 1266ms (compile: 592ms, render: 674ms)
-✓ Compiled in 1835ms
-○ Compiling /contact ...
- GET /contact 200 in 6.4s (compile: 4.7s, render: 1708ms)
- GET /service-area 200 in 1789ms (compile: 1469ms, render: 319ms)
-○ Compiling /request-demo ...
- GET /request-demo 200 in 5.9s (compile: 5.5s, render: 430ms)
-✓ Compiled in 1399ms
-✓ Compiled in 69ms
-✓ Compiled in 291ms
- GET / 200 in 894ms (compile: 278ms, render: 617ms)
- GET /api/ops-data 200 in 35ms (compile: 8ms, render: 27ms)
- GET /request-demo 200 in 954ms (compile: 422ms, render: 532ms)
+✓ Ready in 1179ms

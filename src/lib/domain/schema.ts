@@ -262,6 +262,22 @@ export const IoTRuleSchema = z.object({
 });
 export type IoTRule = z.infer<typeof IoTRuleSchema>;
 
+// --- Leads ---
+export const LeadSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  email: z.string().email().optional(),
+  phone: z.string().optional(),
+  serviceType: z.string().optional(),
+  message: z.string().optional(),
+  address: z.string().optional(),
+  companyName: z.string().optional(), // For commercial
+  portfolioSize: z.string().optional(), // For commercial
+  status: z.enum(['New', 'Contacted', 'Closed']).default('New'),
+  createdAt: z.string(), // ISO
+});
+export type Lead = z.infer<typeof LeadSchema>;
+
 // --- Database ---
 export const DatabaseSchema = z.object({
   users: z.array(UserSchema),
@@ -282,5 +298,6 @@ export const DatabaseSchema = z.object({
   auditLogs: z.array(AuditLogSchema),
   appointments: z.array(AppointmentSchema),
   schedulingRules: z.array(SchedulingRulesSchema),
+  leads: z.array(LeadSchema).default([]),
 });
 export type Database = z.infer<typeof DatabaseSchema>;

@@ -1,5 +1,6 @@
-
 import { NextResponse } from 'next/server';
+import { getDb, saveDb } from '@/lib/demo/persistence';
+import { Lead } from '@/lib/domain/schema';
 
 export async function POST(req: Request) {
   try {
@@ -10,16 +11,31 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: true }, { status: 200 }); // Silent success
     }
 
-    // In a real app, you would send an email here using Resend, SendGrid, etc.
-    // For now, we'll just log it.
-    console.log("New Lead Received:", {
-        name: data.name,
-        email: data.email,
-        phone: data.phone,
-        service: data.serviceType,
-        message: data.message,
-        address: data.address
-    });
+    const db = await getDb();
+
+    const newLead: Lead = {
+      id: crypto.randomUUID(),
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      serviceType: data.serviceType || data.service, // Handle both forms
+      message: data.message,
+      address: data.address,
+      companyName: data.companyName,
+      portfolioSize: data.portfolioSize,
+      status: 'New',
+      createdAt: new Date().toISOString(),
+    };
+
+    // Ensure leads array exists (in case of old DB file)
+    if (!db.leads) {
+      db.leads = [];
+    }
+
+    db.leads.push(newLead);
+    await saveDb(db);
+
+    console.log("New Lead Saved:", newLead);
 
     // Simulate delay
     await new Promise((resolve) => setTimeout(resolve, 1000));

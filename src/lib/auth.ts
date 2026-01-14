@@ -4,11 +4,17 @@ import { User } from '@/lib/domain/schema';
 import { getDb } from '@/lib/demo/persistence';
 import { getAuthSecret, AUTH_COOKIE_NAME } from '@/lib/env';
 
-export async function login(email: string): Promise<boolean> {
+export async function login(email: string, password: string): Promise<boolean> {
   const db = await getDb();
   const user = db.users.find(u => u.email === email);
 
   if (!user) return false;
+
+  // In a real app, use bcrypt/argon2. For demo, we compare plain text or simple hash.
+  // The default DB has passwordHash: 'password'
+  if (user.passwordHash && user.passwordHash !== password) {
+      return false;
+  }
 
   const token = await new SignJWT({
     id: user.id,
