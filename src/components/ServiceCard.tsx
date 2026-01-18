@@ -79,6 +79,7 @@ export function ServiceCard({
     <Link href={`${basePath}/${slug}`} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-2xl">
       <motion.div
         whileHover={{ scale: 1.02, y: -4 }}
+        whileTap={{ scale: 0.97 }}
         initial={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 200, damping: 25 }} // Premium weighted physics
         className="group relative h-full bg-card rounded-2xl border border-border/40 p-6 md:p-8 shadow-md transition-shadow duration-300 hover:shadow-2xl hover:border-accent/50 overflow-hidden will-change-transform"

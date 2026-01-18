@@ -19,6 +19,7 @@ export function SpotlightCard({ children, className = "" }: { children: ReactNod
       className={`group relative border border-border/10 bg-card overflow-hidden rounded-xl ${className}`}
       onMouseMove={handleMouseMove}
       whileHover={{ y: -4 }} // Slightly reduced lift for a "heavier" premium feel
+      whileTap={{ scale: 0.98 }}
       transition={{ type: "spring", stiffness: 200, damping: 25 }} // Adjusted physics for premium weight
     >
       <motion.div

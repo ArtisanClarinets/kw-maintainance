@@ -11,7 +11,7 @@ export default function ServicesPage() {
     <div className="flex min-h-screen flex-col font-sans bg-background">
       <Header />
       <main className="flex-1">
-        <div className="bg-muted/30 py-16 md:py-24">
+        <div className="bg-muted/30 py-12 md:py-24">
             <div className="container-custom px-4 text-center">
                 <h1 className="text-4xl md:text-5xl font-extrabold font-serif mb-6">Our Services</h1>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -20,8 +20,8 @@ export default function ServicesPage() {
             </div>
         </div>
 
-        <section className="py-20 container-custom px-4">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section className="py-12 md:py-20 container-custom px-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 {services.map((service) => (
                     <div key={service.id} className="h-full">
                         <SpotlightCard className="h-full bg-card rounded-xl border border-border/50">
