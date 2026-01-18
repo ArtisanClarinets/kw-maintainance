@@ -49,7 +49,7 @@ export function MobileNav() {
               key={item.name}
               href={item.href}
               className={cn(
-                "group flex flex-col items-center justify-center gap-1 rounded-xl px-4 py-1 transition-colors min-w-[64px]",
+                "group flex flex-col items-center justify-center gap-1 rounded-xl px-4 py-1 transition-colors min-w-[64px] select-none touch-manipulation",
                 isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
               )}
             >
@@ -57,7 +57,7 @@ export function MobileNav() {
                 <Icon
                   size={24}
                   className={cn(
-                    "transition-transform duration-300 group-active:scale-90",
+                    "transition-transform duration-200 group-active:scale-95",
                     isActive && "scale-110"
                   )}
                   strokeWidth={isActive ? 2.5 : 2}

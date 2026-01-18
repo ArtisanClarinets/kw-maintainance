@@ -86,13 +86,14 @@ export function Header() {
         </div>
 
         {/* Mobile Toggle */}
-        <button
-            className="md:hidden z-50 p-2 text-foreground focus:outline-none"
+        <motion.button
+            whileTap={{ scale: 0.9 }}
+            className="md:hidden z-50 p-2 text-foreground focus:outline-none active:text-primary transition-colors"
             onClick={toggleMenu}
             aria-label="Toggle menu"
         >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        </motion.button>
 
         {/* Mobile Menu Overlay */}
         <AnimatePresence>
