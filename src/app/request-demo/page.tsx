@@ -212,8 +212,8 @@ export default function RequestQuotePage() {
               className="text-primary/20 [mask-image:radial-gradient(500px_circle_at_center,white,transparent)]"
           />
         
-        <div className="container-custom py-20 px-4 relative z-10">
-            <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div className="container-custom py-10 md:py-20 px-4 relative z-10">
+            <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-start">
                 {/* Content Left */}
                 <div className="space-y-8">
                     <div>

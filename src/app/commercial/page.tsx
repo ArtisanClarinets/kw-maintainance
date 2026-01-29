@@ -46,42 +46,48 @@ export default function CommercialPage() {
         </div>
 
         {/* Value Props */}
-        <section className="py-16 bg-muted/10 border-b border-border/10">
+        <section className="py-12 md:py-16 bg-muted/10 border-b border-border/10">
             <div className="container-custom px-4">
-                 <div className="grid md:grid-cols-3 gap-8">
-                    <Card className="bg-card border-border/50 shadow-sm hover:shadow-md transition-shadow">
-                        <CardHeader>
-                            <div className="mb-4 h-12 w-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600">
-                                <Clock className="h-6 w-6" />
-                            </div>
-                            <CardTitle>Priority Scheduling</CardTitle>
-                        </CardHeader>
-                        <CardContent className="text-muted-foreground">
-                            Commercial accounts get front-of-line access. We understand that downtime costs you money, so we prioritize your work orders.
-                        </CardContent>
-                    </Card>
-                    <Card className="bg-card border-border/50 shadow-sm hover:shadow-md transition-shadow">
-                        <CardHeader>
-                            <div className="mb-4 h-12 w-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600">
-                                <FileText className="h-6 w-6" />
-                            </div>
-                            <CardTitle>Net 30 Billing</CardTitle>
-                        </CardHeader>
-                        <CardContent className="text-muted-foreground">
-                            Streamlined invoicing for property managers. We offer flexible billing terms and detailed work reports for your accounting.
-                        </CardContent>
-                    </Card>
-                    <Card className="bg-card border-border/50 shadow-sm hover:shadow-md transition-shadow">
-                        <CardHeader>
-                            <div className="mb-4 h-12 w-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600">
-                                <ShieldCheck className="h-6 w-6" />
-                            </div>
-                            <CardTitle>Fully Compliant</CardTitle>
-                        </CardHeader>
-                        <CardContent className="text-muted-foreground">
-                            Licensed, insured, and background-checked. We meet all vendor requirements for HOAs, hotels, and corporate facilities.
-                        </CardContent>
-                    </Card>
+                 <div className="flex md:grid md:grid-cols-3 gap-4 md:gap-8 overflow-x-auto snap-x snap-mandatory pb-6 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 scrollbar-hide">
+                    <div className="min-w-[85vw] sm:min-w-[60vw] md:min-w-0 snap-center h-full">
+                        <Card className="bg-card border-border/50 shadow-sm hover:shadow-md transition-shadow h-full">
+                            <CardHeader>
+                                <div className="mb-4 h-12 w-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600">
+                                    <Clock className="h-6 w-6" />
+                                </div>
+                                <CardTitle>Priority Scheduling</CardTitle>
+                            </CardHeader>
+                            <CardContent className="text-muted-foreground">
+                                Commercial accounts get front-of-line access. We understand that downtime costs you money, so we prioritize your work orders.
+                            </CardContent>
+                        </Card>
+                    </div>
+                    <div className="min-w-[85vw] sm:min-w-[60vw] md:min-w-0 snap-center h-full">
+                        <Card className="bg-card border-border/50 shadow-sm hover:shadow-md transition-shadow h-full">
+                            <CardHeader>
+                                <div className="mb-4 h-12 w-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600">
+                                    <FileText className="h-6 w-6" />
+                                </div>
+                                <CardTitle>Net 30 Billing</CardTitle>
+                            </CardHeader>
+                            <CardContent className="text-muted-foreground">
+                                Streamlined invoicing for property managers. We offer flexible billing terms and detailed work reports for your accounting.
+                            </CardContent>
+                        </Card>
+                    </div>
+                    <div className="min-w-[85vw] sm:min-w-[60vw] md:min-w-0 snap-center h-full">
+                        <Card className="bg-card border-border/50 shadow-sm hover:shadow-md transition-shadow h-full">
+                            <CardHeader>
+                                <div className="mb-4 h-12 w-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600">
+                                    <ShieldCheck className="h-6 w-6" />
+                                </div>
+                                <CardTitle>Fully Compliant</CardTitle>
+                            </CardHeader>
+                            <CardContent className="text-muted-foreground">
+                                Licensed, insured, and background-checked. We meet all vendor requirements for HOAs, hotels, and corporate facilities.
+                            </CardContent>
+                        </Card>
+                    </div>
                  </div>
             </div>
         </section>

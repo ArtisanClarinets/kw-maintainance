@@ -6,6 +6,7 @@ import { siteConfig } from "@/../content/site";
 import { AnimationProvider } from "@/components/providers/AnimationProvider";
 import { SmoothScrolling } from "@/components/providers/SmoothScrolling";
 import SplashCursor from "@/components/react-bits/SplashCursor";
+import { MobileNav } from "@/components/MobileNav";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -97,11 +98,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-background text-foreground antialiased font-sans">
+      <body className="min-h-screen bg-background text-foreground antialiased font-sans pb-24 md:pb-0 selection:bg-primary/30">
         <SmoothScrolling>
           <AnimationProvider>
             <SplashCursor />
             {children}
+            <MobileNav />
           </AnimationProvider>
         </SmoothScrolling>
       </body>
